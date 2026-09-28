@@ -161,13 +161,19 @@
     "headSha": "4b79509759684cf7ae71f5b713985dccba9dd754",
     "pr": 49,
     "url": "https://github.com/daggerok/iShares/pull/49",
-    "state": "open",
+    "state": "merged",
     "files": [
       "README.md"
     ],
     "additions": 2,
     "deletions": 0,
-    "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff"
+    "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff",
+    "checks": [],
+    "statuses": [],
+    "mergeableState": "clean",
+    "mergeSha": "747183e5693b965ea90bc38ed93c00ac07a22c3c",
+    "mergedAt": "2026-09-28T04:28:14Z",
+    "defaultReadmeVerified": true
   },
   "JPMorgan": {
     "repository": "daggerok/JPMorgan",
