@@ -23,7 +23,7 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: cb5aceb3c4661cc7d0e500d6db09335dafce5f49 (verified before this rollout checkpoint).
+Last confirmed pushed SHA: 03dddf4c096fde4294ce4fe73d305d950db4ba6a (verified before this rollout checkpoint).
 Next action: create scoped docs feature branches in 17 sibling repos, insert
 only Capital Group row into both existing README tables, verify two-addition
 README-only diffs, open PRs and merge only after normal mergeability/check checks.
@@ -2034,6 +2034,9 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
 
 
 2026-09-27 — Sibling Vanguard: committed/pushed 14c334727435bd1ac27f9acbc2d1762caddd909b, remote verified, PR https://github.com/daggerok/Vanguard/pull/30 opened; exact README-only 2-addition diff validated. No merge yet.
+
+
+2026-09-27 — Sibling WisdomTree: committed/pushed 6e23b45d423b1cc4d8b1a8a7d9b74ca541c1bc07, remote verified, PR https://github.com/daggerok/WisdomTree/pull/30 opened; exact README-only 2-addition diff validated. No merge yet.
 ===== CURRENT SIBLING ROLLOUT LEDGER =====
 {
   "aberdeen": {
@@ -2284,6 +2287,22 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
     "headSha": "14c334727435bd1ac27f9acbc2d1762caddd909b",
     "pr": 30,
     "url": "https://github.com/daggerok/Vanguard/pull/30",
+    "state": "open",
+    "files": [
+      "README.md"
+    ],
+    "additions": 2,
+    "deletions": 0,
+    "patchSha256": "c9c30e0be9a529b6c96e59a8147a83bd74ec67fed685e7e2d35754bf5ffd7205"
+  },
+  "WisdomTree": {
+    "repository": "daggerok/WisdomTree",
+    "defaultBranch": "main",
+    "baseSha": "461afc0ba3b315b2d365da9a279cf57ace36ae91",
+    "branch": "docs/add-capital-group-sibling",
+    "headSha": "6e23b45d423b1cc4d8b1a8a7d9b74ca541c1bc07",
+    "pr": 30,
+    "url": "https://github.com/daggerok/WisdomTree/pull/30",
     "state": "open",
     "files": [
       "README.md"
