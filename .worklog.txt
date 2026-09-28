@@ -23,7 +23,7 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: 3bce2c60c9723e0461ade8011fe328cb95223f78 (verified before this rollout checkpoint).
+Last confirmed pushed SHA: 364746e458a3d58ae5b89837753af35b81039947 (verified before this rollout checkpoint).
 Next action: create scoped docs feature branches in 17 sibling repos, insert
 only Capital Group row into both existing README tables, verify two-addition
 README-only diffs, open PRs and merge only after normal mergeability/check checks.
@@ -2064,6 +2064,9 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
 
 
 2026-09-27 — JPMorgan PR https://github.com/daggerok/JPMorgan/pull/21 merged normally after clean check/status gate; merged SHA 9abd1e530f393012bf6337b92e3f33ae4670d19d; default README GET confirms exactly one of each row. Target Capital-Group PR untouched.
+
+
+2026-09-27 — Neos PR https://github.com/daggerok/Neos/pull/19 merged normally after clean check/status gate; merged SHA 1c40105472f647eb20f108baf892316328d1368f; default README GET confirms exactly one of each row. Target Capital-Group PR untouched.
 ===== CURRENT SIBLING ROLLOUT LEDGER =====
 {
   "aberdeen": {
@@ -2272,13 +2275,19 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
     "headSha": "5496f64f858f3007c95d31f68879a2ecef857cce",
     "pr": 19,
     "url": "https://github.com/daggerok/Neos/pull/19",
-    "state": "open",
+    "state": "merged",
     "files": [
       "README.md"
     ],
     "additions": 2,
     "deletions": 0,
-    "patchSha256": "c35790d23592ebf753c9770c2a71584e030014e3f8027913d493ae8241ac4f74"
+    "patchSha256": "c35790d23592ebf753c9770c2a71584e030014e3f8027913d493ae8241ac4f74",
+    "checks": [],
+    "statuses": [],
+    "mergeableState": "clean",
+    "mergeSha": "1c40105472f647eb20f108baf892316328d1368f",
+    "mergedAt": "2026-09-28T04:28:26Z",
+    "defaultReadmeVerified": true
   },
   "Northern-Trust": {
     "repository": "daggerok/Northern-Trust",
