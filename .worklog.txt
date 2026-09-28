@@ -18,15 +18,15 @@ for repository (user supplied hyphenated name).
 Completed: both inputs fully read (generic 716 lines; specific 782, identical
 shared rules confirmed with diff); clone/reconcile clean initial repository;
 no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
-Active: issuer parsers tested; shared updater/CLI integration next.
+Active: shared updater CLI implemented and offline validated; live acceptance next.
 Remaining: all implementation/validation/documentation steps.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: 1d961efca66d3090ebc20f7d69b829b047c0a675.
-Next action: integrate pinned JPMorgan shared config/output/SEC/Yahoo/pagination
-and retention orchestration with tested issuer parsers. CLI is NOT implemented
-at this checkpoint; do not interpret bun scripts/update-data.ts exit 0 as a run.
-Then test filters/retention and run two isolated live CGUS CGCP CGMU acceptance
-passes before UI, CI, README or metadata publication.
+Last confirmed pushed SHA: a078b8a5be88cd275d771a497f0367a3cc38cfcc.
+Next action: create isolated /home/user/capital-group-smoke with this CLI and
+published API seed (none exists yet), run TICKERS="CGUS CGCP CGMU" VERBOSE=1
+bun scripts/update-data.ts with default sleep/retries and no skips; save exact
+revision/config/logs/counts/hashes, repeat identical command, audit parity.
+Production api remains absent; smoke must not be mistaken for production data.
 Reference: daggerok/JPMorgan pinned 998cebd9ecbfaf4c75fbb57db85806a9e60ea006
 (updater/output/SEC/Yahoo/UI/README reference; no copy implemented yet).
 
@@ -1646,3 +1646,30 @@ Type review: NumericReturnKey excludes asOfDate; no broad keyof assignment,
 no any/ts-ignore in new parser; reference directive line 2/line 1 test. No IDE
 semantic diagnostic service available; Bun transpilation is not type checking.
 Still WIP overall: source adapter only, no actual updater CLI, API output or UI.
+
+2026-09-27 — Shared CLI integration checkpoint.
+Copied scoped JPMorgan@998cebd9 helpers for console, config ranges, metrics,
+pagination, SEC ticker/series/NPORT parsing, Yahoo chart and deterministic schema.
+Replaced issuer-specific discovery/downloads with tested Capital Group adapters.
+No primary sibling application/UI has been copied yet.
+Integration changes: exact TICKERS selection before queue/MAX_FETCHES; deferred
+financial filters; global conservative 3s start gate with generic Promise queue
+normalized using then(success, failure); in-memory same-origin bootstrap cookie
+handling; request timeouts/retries; no-fund/outage errors; preserve unrequested
+index entries and cache; read prior meta as well as index; recursive unavailable
+field retention; no writes before per-fund fetch/filter decisions; nonzero on
+per-fund failure while continuing other workers. Full pass removes cursor.
+No date-range query values persisted as history source URLs.
+Type review found bridge missing shared OfficialReturns.mo3; supplied null
+rather than widening/asserting the type. New numeric mapper remains restricted.
+Tests initially caught a copied date-helper name mismatch (fixed) and original
+reference write comparison stripping timestamps only at top level (fixed here
+with recursive stable normalization incl catalogReadAt; no sibling edits).
+72 tests pass, 0 fail, 256 assertions (evidence/updater-tests.log); Bun build
+--target=bun --outfile=/dev/null passes. Offline CLI fixture run proves exact
+selection, repeat byte stability, pagination/pruning, unrequested retention,
+filter skip retention and total-provider-outage retention/nonzero exit.
+This is OFFLINE validation only, not mandatory live acceptance. Shared helpers
+retain their existing permissive JsonRecord type; no any added to new provider
+parser/return-key/queue logic to suppress semantic errors. No tsc or IDE semantic
+validation performed. --help verified. package test now runs all test files.
