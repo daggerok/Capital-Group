@@ -17,17 +17,23 @@ Constraints: no secrets persisted; no force push/check bypass; preserve user wor
 Bun only, no TS compiler/config, runtime dependencies empty; no heavy browser
 scraper without approval. Use Capital Group in UI per specific plan, Capital-Group
 for repository (user supplied hyphenated name).
-Completed: both inputs fully read (generic 716 lines; specific 782, identical
-shared rules confirmed with diff); clone/reconcile clean initial repository;
-no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
-Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
-Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
-Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: cb73a76292b39e61ee4a54dc2dc46a3fd980673d (verified before this rollout checkpoint).
-Next action: create scoped docs feature branches in 17 sibling repos, insert
-only Capital Group row into both existing README tables, verify two-addition
-README-only diffs, open PRs and merge only after normal mergeability/check checks.
-Record every PR/base/head/merge SHA in evidence/sibling-rollout.json and worklog.
+Completed: official source investigation; zero-runtime-dependency Bun updater;
+82 offline tests + Bun build; FOUR real scoped CLI passes (initial pair and
+final Aberdeen-config pair); 28 JSON files byte-stable across repeats; exact
+sibling UI/README parity + browser header checks; authorized CGUS/CGCP/CGMU
+seed; Aberdeen config/CI; metadata GET verification; target PR #1 OPEN; all 17
+sibling README-only PRs MERGED and their default README contents verified.
+Active: final handoff/checkpoint; implementation work complete in feature branch.
+Remaining outside current authorization: approval/merge of target PR and actual
+application deployment on main. No full-catalog refresh performed/requested now.
+Blockers: none for authorized work. Target Actions updater is not yet run on
+GitHub (schedule/manual only; unmerged workflow). SEC/Yahoo live fallbacks not
+exercised because official sources succeeded. No semantic IDE/tsc validation.
+Last confirmed pushed SHA: 1ded6d0adda60d9104f92f070f8b4d486ae431ba (preceding checkpoint, remote verified).
+Next action: review https://github.com/daggerok/Capital-Group/pull/1. DO NOT merge
+Capital-Group without new approval. On resume restore credential-free origin if
+snapshot omitted .git/config, fetch and compare worktree/remote/PR before edits.
+Do not repeat completed sibling rollout or re-add their rows.
 Reference: daggerok/JPMorgan pinned 998cebd9ecbfaf4c75fbb57db85806a9e60ea006
 (shared updater/output/SEC/Yahoo/UI/README reference; copied and tested).
 Config/CI reference supersedes generic layout: daggerok/aberdeen
@@ -2466,3 +2472,39 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
   }
 }
 ===== END SIBLING ROLLOUT LEDGER =====
+
+2026-09-28 — Final verification and handoff.
+Commands: bun install --frozen-lockfile (no changes); bun test (82 pass, 0 fail,
+380 assertions); bun build --target=bun scripts/update-data.ts --outfile=/dev/null
+(success); git diff --check (clean); tracked-file credential-pattern scan (clean).
+Final GitHub GET: target PR #1 open, merged=false, autoMerge=null, mergeable=true,
+mergeableState=clean. Main remains initial 9ef352d34333d4ee3418e376d427ce57f8a19f73.
+No target merge attempted. No PR CI checks/statuses configured; only existing
+main Pages build succeeded. Do not describe this as remote updater validation.
+Local tests/live/browser evidence provide validation; GitHub updater workflow
+awaits deployment to default branch. evidence/final-github-state.json records
+pre-handoff head SHA; final handoff commit subsequently advances that PR head.
+Sibling ledger: 17/17 merged. Each ordinary squash merge was guarded by exact
+README-only two-addition file diff, expected head SHA, mergeable=true/clean and
+all returned check/status results acceptable; none bypassed. Each default README
+GET verified both rows. All other sibling files untouched. No sibling metadata
+or workflow changes. Every creation and merge checkpoint committed/pushed and
+remote SHA verified separately in Capital-Group, per requested cadence.
+Final preview restarted after snapshot: process capital-group-etf-preview-60bef4e0,
+0.0.0.0:3000; auxiliary source /home/user/browser-check/serve.ts. Prior process
+ID is obsolete. Browser packages/server are NOT application dependencies and
+may disappear on snapshot; app can be served with Bun as README documents.
+Exact registrant clarification (no code/data change): SEC filing identifies
+CGUS registrant as Capital Group Core Equity ETF, CIK 0001870102 (not a universal
+Capital Group Equity ETF Trust). Fixed Income ETF Trust CIK 0001870117 covers
+CGCP/CGMU; newer CGMM uses Equity ETF Trust I CIK 0002034928 as recorded earlier.
+Source [1](https://www.sec.gov/Archives/edgar/data/1870102/000005193126000747/0000051931-26-000747-index.htm).
+Issuer source correction for future plans: public cookie bootstrap + server-
+rendered AEM/Next.js data, verified JSON/XLSX downloads, no headless scraper;
+direct v1 summary/v2 details endpoints mentioned in JS give 404; dated price
+query required; all distributions available; quarterly block may mislabel dates.
+Closest examples actually used: JPMorgan@998cebd9 for shared updater/output/
+SEC/Yahoo/schema/UI/README; Aberdeen@0c390af for config resolver/defaults/CI.
+Capital Group source adapter is issuer-specific and uses built-in zlib only.
+No essential recovery facts depend on preview, browser packages or scratch
+research. Canonical plans, manifests, rollout ledger and evidence are tracked.
