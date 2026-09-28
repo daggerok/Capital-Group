@@ -1718,3 +1718,10 @@ Capital Group PR - create but not merge"
 Interpretation: target PR create, never merge; sibling doc-only row-addition PRs
 create and merge normally after checks. Existing Capital Group rows must not
 be duplicated; no generalized rewrite or code change in sibling repositories.
+
+2026-09-27 — Publication recovery after user-confirmation pause.
+Commit 1b7bc3e was created locally; push failed: "No configured push destination".
+Workspace snapshot omits .git/config, so origin config was absent after pause.
+Restored public credential-free origin URL and fetched before retry. No force
+push; origin/feat/capital-group-etfs still 86b5209 (expected), local descendant.
+Next push includes both authorization and this recovery note; verify remote SHA.
