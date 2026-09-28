@@ -23,7 +23,7 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: c1fec2d8d6ef346e6be8f45546874886c853edf4 (verified before this rollout checkpoint).
+Last confirmed pushed SHA: 5911e06ac3f8fdf4b55ac287b2a71e4611fce71a (verified before this rollout checkpoint).
 Next action: create scoped docs feature branches in 17 sibling repos, insert
 only Capital Group row into both existing README tables, verify two-addition
 README-only diffs, open PRs and merge only after normal mergeability/check checks.
@@ -2043,6 +2043,9 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
 
 
 2026-09-27 — Amplify PR https://github.com/daggerok/Amplify/pull/48 merged normally after clean check/status gate; merged SHA cc50c2e22a770d25bc98be6e42cd6e8efd1a3067; default README GET confirms exactly one of each row. Target Capital-Group PR untouched.
+
+
+2026-09-27 — Fidelity PR https://github.com/daggerok/Fidelity/pull/23 merged normally after clean check/status gate; merged SHA c1a2a279f34b9b5b73cf171216b3d02845882e3a; default README GET confirms exactly one of each row. Target Capital-Group PR untouched.
 ===== CURRENT SIBLING ROLLOUT LEDGER =====
 {
   "aberdeen": {
@@ -2097,13 +2100,19 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
     "headSha": "11253e06247b0fd9d1fc28f890f05af52efd744e",
     "pr": 23,
     "url": "https://github.com/daggerok/Fidelity/pull/23",
-    "state": "open",
+    "state": "merged",
     "files": [
       "README.md"
     ],
     "additions": 2,
     "deletions": 0,
-    "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff"
+    "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff",
+    "checks": [],
+    "statuses": [],
+    "mergeableState": "clean",
+    "mergeSha": "c1a2a279f34b9b5b73cf171216b3d02845882e3a",
+    "mergedAt": "2026-09-28T04:27:45Z",
+    "defaultReadmeVerified": true
   },
   "Franklin": {
     "repository": "daggerok/Franklin",
