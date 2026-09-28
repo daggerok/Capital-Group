@@ -23,7 +23,7 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: ec042d3f8a845169aa27ead052eb7dbcd17d56fd (verified before this rollout checkpoint).
+Last confirmed pushed SHA: 831c4ca61b1d122bfb317146ba54bfbe724824ff (verified before this rollout checkpoint).
 Next action: create scoped docs feature branches in 17 sibling repos, insert
 only Capital Group row into both existing README tables, verify two-addition
 README-only diffs, open PRs and merge only after normal mergeability/check checks.
@@ -2019,6 +2019,9 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
 
 
 2026-09-27 — Sibling Northern-Trust: committed/pushed 735cd49a55cecfde8692d53a1ea3f7052b47b46a, remote verified, PR https://github.com/daggerok/Northern-Trust/pull/2 opened; exact README-only 2-addition diff validated. No merge yet.
+
+
+2026-09-27 — Sibling ProShares: committed/pushed c6ec5b44a2378b49c1e6fcbab70d6b9d2379df6d, remote verified, PR https://github.com/daggerok/ProShares/pull/21 opened; exact README-only 2-addition diff validated. No merge yet.
 ===== CURRENT SIBLING ROLLOUT LEDGER =====
 {
   "aberdeen": {
@@ -2196,6 +2199,22 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
     "additions": 2,
     "deletions": 0,
     "patchSha256": "c9c30e0be9a529b6c96e59a8147a83bd74ec67fed685e7e2d35754bf5ffd7205"
+  },
+  "ProShares": {
+    "repository": "daggerok/ProShares",
+    "defaultBranch": "main",
+    "baseSha": "21f155363d68d9d04562d2190848a01f5bbb18cc",
+    "branch": "docs/add-capital-group-sibling",
+    "headSha": "c6ec5b44a2378b49c1e6fcbab70d6b9d2379df6d",
+    "pr": 21,
+    "url": "https://github.com/daggerok/ProShares/pull/21",
+    "state": "open",
+    "files": [
+      "README.md"
+    ],
+    "additions": 2,
+    "deletions": 0,
+    "patchSha256": "cd0537adfa734285b8e5a542712c9c8a12ede2cca5f848e8e16582b5aa77ad31"
   }
 }
 ===== END SIBLING ROLLOUT LEDGER =====

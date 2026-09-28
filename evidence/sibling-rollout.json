@@ -174,5 +174,21 @@
     "additions": 2,
     "deletions": 0,
     "patchSha256": "c9c30e0be9a529b6c96e59a8147a83bd74ec67fed685e7e2d35754bf5ffd7205"
+  },
+  "ProShares": {
+    "repository": "daggerok/ProShares",
+    "defaultBranch": "main",
+    "baseSha": "21f155363d68d9d04562d2190848a01f5bbb18cc",
+    "branch": "docs/add-capital-group-sibling",
+    "headSha": "c6ec5b44a2378b49c1e6fcbab70d6b9d2379df6d",
+    "pr": 21,
+    "url": "https://github.com/daggerok/ProShares/pull/21",
+    "state": "open",
+    "files": [
+      "README.md"
+    ],
+    "additions": 2,
+    "deletions": 0,
+    "patchSha256": "cd0537adfa734285b8e5a542712c9c8a12ede2cca5f848e8e16582b5aa77ad31"
   }
 }
