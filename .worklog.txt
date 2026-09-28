@@ -23,7 +23,7 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: ff7a15fedebf52483f65cf99bbc7f4271b8af7d5 (verified before this rollout checkpoint).
+Last confirmed pushed SHA: 7099768e8fb6266c4807b888a66e4447c21c0129 (verified before this rollout checkpoint).
 Next action: create scoped docs feature branches in 17 sibling repos, insert
 only Capital Group row into both existing README tables, verify two-addition
 README-only diffs, open PRs and merge only after normal mergeability/check checks.
@@ -2082,6 +2082,9 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
 
 
 2026-09-27 — VanEck PR https://github.com/daggerok/VanEck/pull/20 merged normally after clean check/status gate; merged SHA 0d9bc35a79b7a8a984d095303d97a734897d0808; default README GET confirms exactly one of each row. Target Capital-Group PR untouched.
+
+
+2026-09-27 — Vanguard PR https://github.com/daggerok/Vanguard/pull/30 merged normally after clean check/status gate; merged SHA c25168931338c6c8c5a1c31ccc422e25a7422d2d; default README GET confirms exactly one of each row. Target Capital-Group PR untouched.
 ===== CURRENT SIBLING ROLLOUT LEDGER =====
 {
   "aberdeen": {
@@ -2422,13 +2425,19 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
     "headSha": "14c334727435bd1ac27f9acbc2d1762caddd909b",
     "pr": 30,
     "url": "https://github.com/daggerok/Vanguard/pull/30",
-    "state": "open",
+    "state": "merged",
     "files": [
       "README.md"
     ],
     "additions": 2,
     "deletions": 0,
-    "patchSha256": "c9c30e0be9a529b6c96e59a8147a83bd74ec67fed685e7e2d35754bf5ffd7205"
+    "patchSha256": "c9c30e0be9a529b6c96e59a8147a83bd74ec67fed685e7e2d35754bf5ffd7205",
+    "checks": [],
+    "statuses": [],
+    "mergeableState": "clean",
+    "mergeSha": "c25168931338c6c8c5a1c31ccc422e25a7422d2d",
+    "mergedAt": "2026-09-28T04:29:00Z",
+    "defaultReadmeVerified": true
   },
   "WisdomTree": {
     "repository": "daggerok/WisdomTree",
