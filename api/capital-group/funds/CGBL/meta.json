@@ -1,0 +1,168 @@
+{
+ "ticker": "CGBL",
+ "name": "Capital Group Core Balanced ETF",
+ "category": "Multi-asset",
+ "categoryPath": "Multi-asset / 60%/40% S&P 500 Index/Bloomberg U.S. Aggregate Index",
+ "source": {
+  "fundPage": "https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgbl",
+  "productData": "https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgbl",
+  "historicalData": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGBL/premium-discount-details",
+  "holdingsDownload": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGBL/download/daily-holdings?audience=advisor",
+  "pricesDownload": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGBL/premium-discount-details",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/CGBL",
+  "holdingsSource": "Capital Group daily holdings XLSX",
+  "historySource": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)",
+  "provider": "Capital Group public fund facts and daily downloads + SEC EDGAR Form N-PORT-P (fallback) + Yahoo Finance public chart API (fallback)"
+ },
+ "identifiers": {
+  "cusip": "14021D107",
+  "isin": null,
+  "indexTicker": "60%/40% S&P 500 Index/Bloomberg U.S. Aggregate Index"
+ },
+ "inception": {
+  "fundInceptionDate": "2023-09-26",
+  "shareClassInceptionDate": null,
+  "exchange": "NYSE Arca, Inc."
+ },
+ "expenseRatio": {
+  "display": "0.33%",
+  "value": 0.33,
+  "gross": 0.33,
+  "net": 0.33
+ },
+ "nav": {
+  "display": "$37.44",
+  "value": 37.44,
+  "asOfDate": "Sep 25 2026"
+ },
+ "marketPrice": {
+  "display": "$37.47",
+  "value": 37.47,
+  "asOfDate": "Sep 25 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.07%",
+  "value": 0.07
+ },
+ "aum": {
+  "display": "$7,717.20 M",
+  "value": 7717200000,
+  "asOfDate": "Sep 24 2026",
+  "source": "capitalgroup.com daily fund facts net assets"
+ },
+ "yields": {
+  "dividendYield": 1.74,
+  "dividendYieldText": "1.74%",
+  "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
+  "distributionRate": 1.85,
+  "secYield": 2.39,
+  "secYieldText": "2.39%",
+  "secYieldKind": "official 30-day SEC yield, as of Aug 31 2026",
+  "unsubsidizedSecYield": 2.39
+ },
+ "returns": {
+  "derivedFrom": "official Capital Group NAV total returns (fund-detail JSON); qtd derived from the daily NAV history with published distributions reinvested",
+  "monthEnd": {
+   "asOfDate": "Aug 31 2026",
+   "mo1": 2.01,
+   "mo1Text": "2.01%",
+   "qtd": -0.61,
+   "qtdText": "-0.61%",
+   "ytd": 8.45,
+   "ytdText": "8.45%",
+   "yr1": 13.72,
+   "yr1Text": "13.72%",
+   "yr3": 16.48,
+   "yr3Text": "16.48%",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 17.69,
+   "sinceInceptionText": "17.69%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "frequencyCode": "Q",
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "12/27/2023",
+    "0.131"
+   ],
+   [
+    "03/28/2024",
+    "0.1061"
+   ],
+   [
+    "06/28/2024",
+    "0.1398"
+   ],
+   [
+    "09/30/2024",
+    "0.15"
+   ],
+   [
+    "12/26/2024",
+    "0.2058"
+   ],
+   [
+    "03/31/2025",
+    "0.1232"
+   ],
+   [
+    "06/30/2025",
+    "0.1645"
+   ],
+   [
+    "09/30/2025",
+    "0.1857"
+   ],
+   [
+    "12/26/2025",
+    "0.2251"
+   ],
+   [
+    "03/31/2026",
+    "0.1267"
+   ],
+   [
+    "06/30/2026",
+    "0.1634"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 81,
+  "asOfDate": "2026-09-24",
+  "asOf": "Sep 24 2026",
+  "source": "Capital Group daily holdings XLSX"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 753,
+  "asOf": "Sep 25 2026",
+  "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
+ }
+}
