@@ -18,15 +18,13 @@ for repository (user supplied hyphenated name).
 Completed: both inputs fully read (generic 716 lines; specific 782, identical
 shared rules confirmed with diff); clone/reconcile clean initial repository;
 no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
-Active: shared updater CLI implemented and offline validated; live acceptance next.
+Active: mandatory two-run live acceptance verified; UI/CI/docs remain.
 Remaining: all implementation/validation/documentation steps.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: a078b8a5be88cd275d771a497f0367a3cc38cfcc.
-Next action: create isolated /home/user/capital-group-smoke with this CLI and
-published API seed (none exists yet), run TICKERS="CGUS CGCP CGMU" VERBOSE=1
-bun scripts/update-data.ts with default sleep/retries and no skips; save exact
-revision/config/logs/counts/hashes, repeat identical command, audit parity.
-Production api remains absent; smoke must not be mistaken for production data.
+Last confirmed pushed SHA: 12c895e4a37b9191a8e91c270bd060fe6ac8f0ef.
+Next action: obtain explicit scope for publishing initial three-fund API seed
+and target PR (no merge). Meanwhile copy pinned sibling UI with enumerated
+substitutions, record parity manifest, verify against archived live output.
 Reference: daggerok/JPMorgan pinned 998cebd9ecbfaf4c75fbb57db85806a9e60ea006
 (updater/output/SEC/Yahoo/UI/README reference; no copy implemented yet).
 
@@ -1673,3 +1671,37 @@ This is OFFLINE validation only, not mandatory live acceptance. Shared helpers
 retain their existing permissive JsonRecord type; no any added to new provider
 parser/return-key/queue logic to suppress semantic errors. No tsc or IDE semantic
 validation performed. --help verified. package test now runs all test files.
+
+2026-09-27 — Mandatory live acceptance checkpoint.
+LIVE ACCEPTANCE — code revision 12c895e4a37b9191a8e91c270bd060fe6ac8f0ef
+Command both runs (cwd isolated copy):
+  TICKERS="CGUS CGCP CGMU" VERBOSE=1 bun scripts/update-data.ts
+Executable /home/user/.bun/bin/bun 1.4.2; REQUEST_SLEEP=3 CONCURRENCY=1
+MAX_RETRIES=2 MAX_FETCHES=0, no AUM/TER/yield/return filters, no provider skips.
+Original published API seed: NONE (repository had no api directory).
+Run 1: exit 0; requested 3/25 catalog selected, 3 updated, 0 failed/skipped.
+Run 2: exit 0; requested 3/25 selected, 3 unchanged, 0 failed/skipped.
+No per-provider fallback warnings; all three use official holdings and history.
+SEC/Yahoo fallback reachability NOT validated by this success (not needed).
+Production api remains absent: data only in isolated smoke copy until authorized.
+All 28 JSON files byte-identical SHA256 between runs. No timestamp-only churn.
+CGCP holdings: 1510 rows, 7 pages
+  Sum weight=99.800000 percent; source=Capital Group daily holdings XLSX
+CGCP history: 1153 rows, 2 pages
+CGMU holdings: 2545 rows, 11 pages
+  Sum weight=100.300000 percent; source=Capital Group daily holdings XLSX
+CGMU history: 983 rows, 1 pages
+CGUS holdings: 74 rows, 1 pages
+  Sum weight=100.000000 percent; source=Capital Group daily holdings XLSX
+CGUS history: 1153 rows, 2 pages
+Only three requested fund directories and index present; no unrequested writes.
+There were no existing production funds to retain in this empty-seed live run;
+offline CLI sentinel retention independently tested with existing KEEP fund.
+Provider caveat: quarterlyReturns actually repeats August month-end values,
+so those are deliberately not published as quarter-end returns. None invented.
+Financial units inspected: XLSX fractional weights -> percentage, issuer assets
+in millions -> dollars, NAV/market date 2026-09-25; holdings 2026-09-24.
+Outputs archived as tracked evidence, not production API.
+
+Tracked binary evidence: evidence/live/outputs.tar.gz SHA256 4e4350fd32627c67b7804fc3ff1237a73c51879c399d4e6fde97156e455b5c4f
+Exact starts, exit codes, logs and hashes in evidence/live/.
