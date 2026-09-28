@@ -23,7 +23,7 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: 375597b71a95962abab80d5acea48abf6bffdfa1 (verified before this rollout checkpoint).
+Last confirmed pushed SHA: 1c7cae8b01755ea61203b858477a5d383d4f4b6b (verified before this rollout checkpoint).
 Next action: create scoped docs feature branches in 17 sibling repos, insert
 only Capital Group row into both existing README tables, verify two-addition
 README-only diffs, open PRs and merge only after normal mergeability/check checks.
@@ -2073,6 +2073,9 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
 
 
 2026-09-27 — ProShares PR https://github.com/daggerok/ProShares/pull/21 merged normally after clean check/status gate; merged SHA 50363aa19aec165e8438ed145a77be6bdeda78ce; default README GET confirms exactly one of each row. Target Capital-Group PR untouched.
+
+
+2026-09-27 — Schwab PR https://github.com/daggerok/Schwab/pull/17 merged normally after clean check/status gate; merged SHA 79819ea9cb1c2e8730d55e4066780f3ca864fd6a; default README GET confirms exactly one of each row. Target Capital-Group PR untouched.
 ===== CURRENT SIBLING ROLLOUT LEDGER =====
 {
   "aberdeen": {
@@ -2347,13 +2350,19 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
     "headSha": "309ac85a800d02c1b0123d3430d6d91fb31b83d1",
     "pr": 17,
     "url": "https://github.com/daggerok/Schwab/pull/17",
-    "state": "open",
+    "state": "merged",
     "files": [
       "README.md"
     ],
     "additions": 2,
     "deletions": 0,
-    "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff"
+    "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff",
+    "checks": [],
+    "statuses": [],
+    "mergeableState": "clean",
+    "mergeSha": "79819ea9cb1c2e8730d55e4066780f3ca864fd6a",
+    "mergedAt": "2026-09-28T04:28:44Z",
+    "defaultReadmeVerified": true
   },
   "SPDR": {
     "repository": "daggerok/SPDR",

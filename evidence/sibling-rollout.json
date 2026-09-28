@@ -271,13 +271,19 @@
     "headSha": "309ac85a800d02c1b0123d3430d6d91fb31b83d1",
     "pr": 17,
     "url": "https://github.com/daggerok/Schwab/pull/17",
-    "state": "open",
+    "state": "merged",
     "files": [
       "README.md"
     ],
     "additions": 2,
     "deletions": 0,
-    "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff"
+    "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff",
+    "checks": [],
+    "statuses": [],
+    "mergeableState": "clean",
+    "mergeSha": "79819ea9cb1c2e8730d55e4066780f3ca864fd6a",
+    "mergedAt": "2026-09-28T04:28:44Z",
+    "defaultReadmeVerified": true
   },
   "SPDR": {
     "repository": "daggerok/SPDR",
