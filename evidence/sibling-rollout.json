@@ -117,13 +117,19 @@
     "headSha": "680f390b3f35c0a119f75fee23053ca2507bd714",
     "pr": 18,
     "url": "https://github.com/daggerok/Goldman-Sachs/pull/18",
-    "state": "open",
+    "state": "merged",
     "files": [
       "README.md"
     ],
     "additions": 2,
     "deletions": 0,
-    "patchSha256": "ed60bac0545b026f29e413ca1b9feda39a7d1d35ebf8ee1d0fc3795d3b5ecda0"
+    "patchSha256": "ed60bac0545b026f29e413ca1b9feda39a7d1d35ebf8ee1d0fc3795d3b5ecda0",
+    "checks": [],
+    "statuses": [],
+    "mergeableState": "clean",
+    "mergeSha": "1bebdb2a56e8b39f0ffa26e1d7e0abd6526352c0",
+    "mergedAt": "2026-09-28T04:28:03Z",
+    "defaultReadmeVerified": true
   },
   "Invesco": {
     "repository": "daggerok/Invesco",

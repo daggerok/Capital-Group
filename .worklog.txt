@@ -23,7 +23,7 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: a108a4c7ea85e341d2fc80a039d0b59d7527c3bb (verified before this rollout checkpoint).
+Last confirmed pushed SHA: d953fde1fe5da9f45be30f0e334d0c09f46de969 (verified before this rollout checkpoint).
 Next action: create scoped docs feature branches in 17 sibling repos, insert
 only Capital Group row into both existing README tables, verify two-addition
 README-only diffs, open PRs and merge only after normal mergeability/check checks.
@@ -2052,6 +2052,9 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
 
 
 2026-09-27 — Global-X PR https://github.com/daggerok/Global-X/pull/9 merged normally after clean check/status gate; merged SHA b636ffccf62b966639ce663b13453a27b3d7ef8c; default README GET confirms exactly one of each row. Target Capital-Group PR untouched.
+
+
+2026-09-27 — Goldman-Sachs PR https://github.com/daggerok/Goldman-Sachs/pull/18 merged normally after clean check/status gate; merged SHA 1bebdb2a56e8b39f0ffa26e1d7e0abd6526352c0; default README GET confirms exactly one of each row. Target Capital-Group PR untouched.
 ===== CURRENT SIBLING ROLLOUT LEDGER =====
 {
   "aberdeen": {
@@ -2172,13 +2175,19 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
     "headSha": "680f390b3f35c0a119f75fee23053ca2507bd714",
     "pr": 18,
     "url": "https://github.com/daggerok/Goldman-Sachs/pull/18",
-    "state": "open",
+    "state": "merged",
     "files": [
       "README.md"
     ],
     "additions": 2,
     "deletions": 0,
-    "patchSha256": "ed60bac0545b026f29e413ca1b9feda39a7d1d35ebf8ee1d0fc3795d3b5ecda0"
+    "patchSha256": "ed60bac0545b026f29e413ca1b9feda39a7d1d35ebf8ee1d0fc3795d3b5ecda0",
+    "checks": [],
+    "statuses": [],
+    "mergeableState": "clean",
+    "mergeSha": "1bebdb2a56e8b39f0ffa26e1d7e0abd6526352c0",
+    "mergedAt": "2026-09-28T04:28:03Z",
+    "defaultReadmeVerified": true
   },
   "Invesco": {
     "repository": "daggerok/Invesco",
