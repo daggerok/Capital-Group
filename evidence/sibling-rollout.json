@@ -227,13 +227,19 @@
     "headSha": "735cd49a55cecfde8692d53a1ea3f7052b47b46a",
     "pr": 2,
     "url": "https://github.com/daggerok/Northern-Trust/pull/2",
-    "state": "open",
+    "state": "merged",
     "files": [
       "README.md"
     ],
     "additions": 2,
     "deletions": 0,
-    "patchSha256": "c9c30e0be9a529b6c96e59a8147a83bd74ec67fed685e7e2d35754bf5ffd7205"
+    "patchSha256": "c9c30e0be9a529b6c96e59a8147a83bd74ec67fed685e7e2d35754bf5ffd7205",
+    "checks": [],
+    "statuses": [],
+    "mergeableState": "clean",
+    "mergeSha": "8ae7143fe7cf7e0e8eb65f95bfd94b9f52bf4bb1",
+    "mergedAt": "2026-09-28T04:28:32Z",
+    "defaultReadmeVerified": true
   },
   "ProShares": {
     "repository": "daggerok/ProShares",
