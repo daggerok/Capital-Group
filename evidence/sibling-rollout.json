@@ -190,5 +190,21 @@
     "additions": 2,
     "deletions": 0,
     "patchSha256": "cd0537adfa734285b8e5a542712c9c8a12ede2cca5f848e8e16582b5aa77ad31"
+  },
+  "Schwab": {
+    "repository": "daggerok/Schwab",
+    "defaultBranch": "main",
+    "baseSha": "1a4503063aa19045dcb5421688d1cae70c960639",
+    "branch": "docs/add-capital-group-sibling",
+    "headSha": "309ac85a800d02c1b0123d3430d6d91fb31b83d1",
+    "pr": 17,
+    "url": "https://github.com/daggerok/Schwab/pull/17",
+    "state": "open",
+    "files": [
+      "README.md"
+    ],
+    "additions": 2,
+    "deletions": 0,
+    "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff"
   }
 }
