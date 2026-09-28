@@ -94,5 +94,21 @@
     "additions": 2,
     "deletions": 0,
     "patchSha256": "ed60bac0545b026f29e413ca1b9feda39a7d1d35ebf8ee1d0fc3795d3b5ecda0"
+  },
+  "Invesco": {
+    "repository": "daggerok/Invesco",
+    "defaultBranch": "main",
+    "baseSha": "648d055759b96ce60d6be16c03af52cc324e13c0",
+    "branch": "docs/add-capital-group-sibling",
+    "headSha": "24fa05f60b7e05556287044d69f300e036f68f03",
+    "pr": 24,
+    "url": "https://github.com/daggerok/Invesco/pull/24",
+    "state": "open",
+    "files": [
+      "README.md"
+    ],
+    "additions": 2,
+    "deletions": 0,
+    "patchSha256": "2878c7bb4e91e54fe13e65a6aee75968b93e80ad21527c1886967b27fee8d4aa"
   }
 }
