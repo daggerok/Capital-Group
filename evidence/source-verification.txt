@@ -1,0 +1,42 @@
+Source verification — 2026-09-27 America/New_York
+=================================================
+Official catalog yields 25 distinct /details/<ticker> links via cookie-aware HTTP.
+CGUS equity; CGCP taxable fixed income; CGMU municipal fixed income selected.
+CGUS issuer details cikNumber=1870102; CGCP/CGMU=1870117. Newer CGMM separate
+Equity ETF Trust I=2034928 (SEC reference in worklog).
+
+Actual source mechanism: AEM catalog; Next.js server-rendered fund detail with
+self.__next_f.push JSON string chunks. Concatenate type-1 chunks, decode JSON
+without executing JS, extract data.details and data.dailyDetails. No browser.
+Initial HTML request redirects to public authentication-0 bootstrap; repeat in
+same in-memory cookie session succeeds. Do not persist cookies or entire HTML.
+
+Public endpoints discovered from site's JS (0yr0a-fa-l_f3.js):
+Base https://www.capitalgroup.com/api/investments/investment-service/
+v1/etfs/CGUS/download/daily-holdings?audience=advisor — HTTP 200 XLSX, 14386 bytes.
+- Disclosure worksheet then Daily Fund Holdings. Header row 3. Fractions in
+  Percent of Net Assets (0.0762 => 7.62%). Numeric CUSIP/SEDOL may be scientific
+  notation or lose leading zeros; prefer US ISIN embedded CUSIP or pad width.
+v1/etfs/CGUS/historical-distributions?include=all — HTTP 200 JSON, 5967 bytes.
+  03/30/2022 onward; totalDistributions includes gains, unlike regular dividend.
+v1/etfs/CGUS/premium-discount-details?fromDate=2022-02-22&toDate=2026-09-27
+  — HTTP 200 JSON, 209936 bytes, daily NAV/marketPrice/premiumDiscount.
+  Without date params returns null values (not evidence of absent history).
+v1/etfs/CGUS/historical-prices-year?year=2026 — year-end prices only, NOT daily.
+v1/etfs/summary and v2/etfs/CGUS/details — HTTP 404 direct; do NOT build against
+  these merely because server-side JS mentions them. HTML payload works.
+
+Fixtures: financially relevant JSON projected from actual detail data, complete
+CGUS distribution response, first five daily price observations, official XLSX.
+Retrieved with ordinary User-Agent and conservative 3-second pacing. No API
+credentials, browser automation, proxy or user-type impersonation required.
+Pinned JPMorgan baseline: bun 1.4.2; bun install --frozen-lockfile; bun test:
+116 pass, 0 fail, 437 assertions. No product implementation/live CLI run yet.
+
+Fixture SHA256:
+86aac15a50c136af0d6c137862d8bc7e9caec9709baf06e9cc8714b171837acf  scripts/fixtures/cgcp-facts.json
+86d7a39176af6df16111d8fe1254a81399c0f689864f7a5a4195f831093c8df2  scripts/fixtures/cgmu-facts.json
+66d3be85d48520848be71120496b59947444f20bb85a07f1760daea9ce90ead8  scripts/fixtures/cgus-distributions.json
+c046e4e728538a6588fff638676fc71622cc7eb710568edc1cf2fa339384b3d6  scripts/fixtures/cgus-facts.json
+ff88942a7279493a59a72f64c276a71cf171ffe6dd58eb79fbc614124baa4e07  scripts/fixtures/cgus-holdings.xlsx
+8b60ee9f26398459023e457329e53901620271903b527edc0ff5d72fde582c93  scripts/fixtures/cgus-prices.json
