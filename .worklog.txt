@@ -18,13 +18,15 @@ for repository (user supplied hyphenated name).
 Completed: both inputs fully read (generic 716 lines; specific 782, identical
 shared rules confirmed with diff); clone/reconcile clean initial repository;
 no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
-Active: investigate fund JSON/download endpoints; no product code yet.
+Active: issuer parsers tested; shared updater/CLI integration next.
 Remaining: all implementation/validation/documentation steps.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: 10f8569ebc85bd3d160623af48275017ab766b10.
-Next action: implement issuer source parsers + offline tests in scripts/update-data.ts
-using tracked fixtures; then integrate pinned sibling shared updater, scoped to
-TICKERS="CGUS CGCP CGMU". Do not run full/unbounded refresh.
+Last confirmed pushed SHA: 1d961efca66d3090ebc20f7d69b829b047c0a675.
+Next action: integrate pinned JPMorgan shared config/output/SEC/Yahoo/pagination
+and retention orchestration with tested issuer parsers. CLI is NOT implemented
+at this checkpoint; do not interpret bun scripts/update-data.ts exit 0 as a run.
+Then test filters/retention and run two isolated live CGUS CGCP CGMU acceptance
+passes before UI, CI, README or metadata publication.
 Reference: daggerok/JPMorgan pinned 998cebd9ecbfaf4c75fbb57db85806a9e60ea006
 (updater/output/SEC/Yahoo/UI/README reference; no copy implemented yet).
 
@@ -1627,3 +1629,20 @@ ff88942a7279493a59a72f64c276a71cf171ffe6dd58eb79fbc614124baa4e07  scripts/fixtur
 8b60ee9f26398459023e457329e53901620271903b527edc0ff5d72fde582c93  scripts/fixtures/cgus-prices.json
 
 No application code written. Bun installed outside repository; no project toolchain changes yet.
+
+2026-09-27 — Issuer adapter checkpoint.
+Changed: scripts/update-data.ts, scripts/update-data.test.ts, package.json,
+bun.lock, .gitignore. Zero runtime deps; pinned types copied from reference.
+Implemented strict dates/numbers; catalog link extraction; safe Flight JSON
+parsing without evaluation; per-ticker facts/CIK; numeric-only return slot mapping;
+XLSX central-directory/deflate reader using built-in node:zlib with size bounds;
+full holdings normalization; daily NAV/market/premium and distribution parsers.
+Observed issuer quarterlyReturns repeats 2026-08-31 month-end; reject as a
+quarter-end value instead of mislabeling. CUSIP numeric/scientific normalization
+uses US ISIN or width padding (Amazon 023135106) and holdings weights *100.
+Tests: bun install --frozen-lockfile; bun test: 10 pass, 0 fail, 56 assertions;
+bun build --target=bun scripts/update-data.ts --outfile=/dev/null: success.
+Type review: NumericReturnKey excludes asOfDate; no broad keyof assignment,
+no any/ts-ignore in new parser; reference directive line 2/line 1 test. No IDE
+semantic diagnostic service available; Bun transpilation is not type checking.
+Still WIP overall: source adapter only, no actual updater CLI, API output or UI.
