@@ -23,7 +23,7 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: c3ad937bfa9982964596d636d14ac1aa2254fa24 (verified before this rollout checkpoint).
+Last confirmed pushed SHA: 3bce2c60c9723e0461ade8011fe328cb95223f78 (verified before this rollout checkpoint).
 Next action: create scoped docs feature branches in 17 sibling repos, insert
 only Capital Group row into both existing README tables, verify two-addition
 README-only diffs, open PRs and merge only after normal mergeability/check checks.
@@ -2061,6 +2061,9 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
 
 
 2026-09-27 — iShares PR https://github.com/daggerok/iShares/pull/49 merged normally after clean check/status gate; merged SHA 747183e5693b965ea90bc38ed93c00ac07a22c3c; default README GET confirms exactly one of each row. Target Capital-Group PR untouched.
+
+
+2026-09-27 — JPMorgan PR https://github.com/daggerok/JPMorgan/pull/21 merged normally after clean check/status gate; merged SHA 9abd1e530f393012bf6337b92e3f33ae4670d19d; default README GET confirms exactly one of each row. Target Capital-Group PR untouched.
 ===== CURRENT SIBLING ROLLOUT LEDGER =====
 {
   "aberdeen": {
@@ -2247,13 +2250,19 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
     "headSha": "f2e6a85173411cb9c2b4f0474a2007d5f8229cba",
     "pr": 21,
     "url": "https://github.com/daggerok/JPMorgan/pull/21",
-    "state": "open",
+    "state": "merged",
     "files": [
       "README.md"
     ],
     "additions": 2,
     "deletions": 0,
-    "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff"
+    "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff",
+    "checks": [],
+    "statuses": [],
+    "mergeableState": "clean",
+    "mergeSha": "9abd1e530f393012bf6337b92e3f33ae4670d19d",
+    "mergedAt": "2026-09-28T04:28:20Z",
+    "defaultReadmeVerified": true
   },
   "Neos": {
     "repository": "daggerok/Neos",

@@ -183,13 +183,19 @@
     "headSha": "f2e6a85173411cb9c2b4f0474a2007d5f8229cba",
     "pr": 21,
     "url": "https://github.com/daggerok/JPMorgan/pull/21",
-    "state": "open",
+    "state": "merged",
     "files": [
       "README.md"
     ],
     "additions": 2,
     "deletions": 0,
-    "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff"
+    "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff",
+    "checks": [],
+    "statuses": [],
+    "mergeableState": "clean",
+    "mergeSha": "9abd1e530f393012bf6337b92e3f33ae4670d19d",
+    "mergedAt": "2026-09-28T04:28:20Z",
+    "defaultReadmeVerified": true
   },
   "Neos": {
     "repository": "daggerok/Neos",
