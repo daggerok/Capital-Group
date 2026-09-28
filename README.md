@@ -74,6 +74,8 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 | `CATALOG_URL` | official catalog URL above | Optional catalog mirror URL. |
 | `VERBOSE` | off | Show per-provider fallback/retry diagnostics. |
 
+Catalog discovery/bootstrap runs before fund workers start. Active workers are bounded by the selected fund count and `MAX_FETCHES`, when set. `CONCURRENCY=15 REQUEST_SLEEP=3` permits up to 15 independently paced workers, not one global request every three seconds; actual throughput still depends on network latency and provider throttling.
+
 Defaults are versioned in [`scripts/update-data.config.json`](scripts/update-data.config.json). Explicit CLI environment values (including empty ticker lists and `0`/`false`) override the file; `CAPITAL_GROUP_` aliases take precedence over unprefixed names.
 
 Actions uses the same configuration resolver as [aberdeen](https://github.com/daggerok/aberdeen): **file defaults → advanced JSON → individual nonblank inputs**. The 24 individual fields are optional and blank means inherit. The 25th field, `advanced`, accepts any canonical control (for example `{"TICKERS":"","VERBOSE":true,"SEC_UA":"Your operator/contact"}`). Use explicit empty `TICKERS` in advanced JSON to clear a file allowlist. Unknown keys, non-scalar values, multiline values and invalid controls are rejected before networking. Source-specific controls `CATALOG_URL`, `SKIP_ISSUER`, `STORE_RAW_DOWNLOADS`, `SEC_UA` and `VERBOSE` are available through `advanced`.

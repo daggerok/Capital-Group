@@ -1,3 +1,26 @@
+## Concurrency follow-up — verified 2026-09-28
+
+The global request-start gate has been replaced with independent worker lanes.
+`CONCURRENCY=15 REQUEST_SLEEP=3` now allows simultaneous requests from different
+workers while spacing each worker's own requests, retries and issuer redirects.
+The configuration defaults and Aberdeen CI override mechanism are unchanged.
+
+- **88 tests pass / 678 assertions**, including 1/3/15 real loopback HTTP workers,
+  late/early timers, failed queues, retries, redirects and offline CLI wiring.
+- A global-gate mutation deliberately fails the new throughput regression.
+- Scoped real run with **CGUS, CGCP, CGMU**, sleep 3, concurrency 15:
+  **43.27s before → 16.62s / 16.93s after** (about 2.6× with only three active workers).
+- First three fund requests start within **17ms**, versus **6.0s** spread before.
+- First completion improves from **37.09s → 16.34s / 16.50s**.
+- Each live run: exit 0; 15 requests (one normal bootstrap 302, fourteen 200s);
+  no fallbacks; all **28 JSON files byte-identical**. No production API/UI edits.
+- [PR #1](https://github.com/daggerok/Capital-Group/pull/1) remains **open/unmerged**.
+- Full evidence: [`evidence/concurrency/README.md`](evidence/concurrency/README.md).
+
+The original handoff below is historical; its 82-test total predates this fix.
+
+---
+
 # Capital Group — completion report
 
 ## Main pull request
