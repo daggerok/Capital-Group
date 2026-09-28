@@ -23,17 +23,18 @@ final Aberdeen-config pair); 28 JSON files byte-stable across repeats; exact
 sibling UI/README parity + browser header checks; authorized CGUS/CGCP/CGMU
 seed; Aberdeen config/CI; metadata GET verification; target PR #1 OPEN; all 17
 sibling README-only PRs MERGED and their default README contents verified.
-Active: final handoff/checkpoint; implementation work complete in feature branch.
+Active: fix real per-worker concurrency, per explicit user amendment below.
 Remaining outside current authorization: approval/merge of target PR and actual
 application deployment on main. No full-catalog refresh performed/requested now.
 Blockers: none for authorized work. Target Actions updater is not yet run on
 GitHub (schedule/manual only; unmerged workflow). SEC/Yahoo live fallbacks not
 exercised because official sources succeeded. No semantic IDE/tsc validation.
-Last confirmed pushed SHA: 1ded6d0adda60d9104f92f070f8b4d486ae431ba (preceding checkpoint, remote verified).
-Next action: review https://github.com/daggerok/Capital-Group/pull/1. DO NOT merge
-Capital-Group without new approval. On resume restore credential-free origin if
-snapshot omitted .git/config, fetch and compare worktree/remote/PR before edits.
-Do not repeat completed sibling rollout or re-add their rows.
+Last confirmed pushed SHA: 10297dacccf35cb1945e2b47538d81aa9f3f334a (remote and PR verified).
+Next action: replace global request-start gate with independently paced worker
+lanes, keep config-file/Actions override mechanism and no-merge restriction;
+add deterministic/timing/CLI tests, then isolated three-ticker real live baseline
+and two concurrent runs with REQUEST_SLEEP=3. No production data refresh or
+sibling changes in this correction. Update existing PR #1; do not merge it.
 Reference: daggerok/JPMorgan pinned 998cebd9ecbfaf4c75fbb57db85806a9e60ea006
 (shared updater/output/SEC/Yahoo/UI/README reference; copied and tested).
 Config/CI reference supersedes generic layout: daggerok/aberdeen
@@ -2508,3 +2509,31 @@ SEC/Yahoo/schema/UI/README; Aberdeen@0c390af for config resolver/defaults/CI.
 Capital Group source adapter is issuer-specific and uses built-in zlib only.
 No essential recovery facts depend on preview, browser packages or scratch
 research. Canonical plans, manifests, rollout ledger and evidence are tracked.
+
+2026-09-28 — Concurrency follow-up: authorization, reconciliation and baseline.
+User report: CONCURRENCY=15 ./scripts/update-data.ts selected all 25 ETFs with
+REQUEST_SLEEP=3/MAX_FETCHES=0/VERBOSE=false; many minutes before any fund output.
+User measured total duration 5m 7s. Earlier diagnostic confirmed a single global
+3-second gate, approximately four requests per fund; 100 starts explain ~5m.
+Exact latest amendment: "we must improve, If I specified concurrency - it must
+be a real concurrency, otherwise I wouldn't specify it".
+This supersedes earlier precautionary shared-gate choice; it does not authorize
+merging Capital-Group or modifying financial data/UI/sibling repos.
+Read all 2510 worklog lines in chunks before changes. Snapshot again restored
+old Git HEAD/index 86b5209 and omitted origin config, but every worktree tracked
+blob exactly matched last published 10297da. Restored public origin, fetched,
+confirmed ancestor, git reset --mixed origin/feat/capital-group-etfs and restored
+execute bits without changing file content. PR #1 still open, head 10297da,
+main initial 9ef352d, no remote divergence or user edits detected.
+Baseline: Bun 1.4.2 install frozen; 82 pass, 0 fail, 380 assertions. Evidence:
+evidence/concurrency/baseline-tests.log. Existing processFund has four official
+requests and completion-only output; all request paths share enqueueRequest and
+nextRequestAt. No throttling was observed in earlier scoped issuer runs.
+Read named pacing reference WisdomTree@461afc0ba3b315b2d365da9a279cf57ace36ae91,
+scripts/update-data.ts paceRequests: reserves independent lane timestamp before
+sleep. Adopt independent-lane intent, bind one gate to each fund worker via
+built-in AsyncLocalStorage so retries/redirects/fallbacks retain that worker's
+lane and idle configured workers do not lend extra bursts to a smaller subset.
+A lane's short FIFO reservation queue will normalize both promise outcomes;
+never await network work under a shared global queue. Keep normal retry/backoff.
+No default sleep reduction, no runtime dependency, no unrestricted live run.
