@@ -222,5 +222,21 @@
     "additions": 2,
     "deletions": 0,
     "patchSha256": "2878c7bb4e91e54fe13e65a6aee75968b93e80ad21527c1886967b27fee8d4aa"
+  },
+  "VanEck": {
+    "repository": "daggerok/VanEck",
+    "defaultBranch": "main",
+    "baseSha": "f249ec5db987ad0a9f79eb9545fa030b139c8ede",
+    "branch": "docs/add-capital-group-sibling",
+    "headSha": "155db6be20b01092eb05c75aaa2376b912f1a03e",
+    "pr": 20,
+    "url": "https://github.com/daggerok/VanEck/pull/20",
+    "state": "open",
+    "files": [
+      "README.md"
+    ],
+    "additions": 2,
+    "deletions": 0,
+    "patchSha256": "4589830eb00039ceaa485f7ad881eef15a6e9e6143a91ef64731fe4ad8d6d2e1"
   }
 }
