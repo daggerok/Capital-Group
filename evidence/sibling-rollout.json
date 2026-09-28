@@ -158,5 +158,21 @@
     "additions": 2,
     "deletions": 0,
     "patchSha256": "c35790d23592ebf753c9770c2a71584e030014e3f8027913d493ae8241ac4f74"
+  },
+  "Northern-Trust": {
+    "repository": "daggerok/Northern-Trust",
+    "defaultBranch": "main",
+    "baseSha": "0fd7d3efccd73724b18829f3350172e0e1f9d0fb",
+    "branch": "docs/add-capital-group-sibling",
+    "headSha": "735cd49a55cecfde8692d53a1ea3f7052b47b46a",
+    "pr": 2,
+    "url": "https://github.com/daggerok/Northern-Trust/pull/2",
+    "state": "open",
+    "files": [
+      "README.md"
+    ],
+    "additions": 2,
+    "deletions": 0,
+    "patchSha256": "c9c30e0be9a529b6c96e59a8147a83bd74ec67fed685e7e2d35754bf5ffd7205"
   }
 }
