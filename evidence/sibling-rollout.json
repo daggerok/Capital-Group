@@ -110,5 +110,21 @@
     "additions": 2,
     "deletions": 0,
     "patchSha256": "2878c7bb4e91e54fe13e65a6aee75968b93e80ad21527c1886967b27fee8d4aa"
+  },
+  "iShares": {
+    "repository": "daggerok/iShares",
+    "defaultBranch": "main",
+    "baseSha": "26e9fdb6da27e35ad3787bd941195b836eb3a0b8",
+    "branch": "docs/add-capital-group-sibling",
+    "headSha": "4b79509759684cf7ae71f5b713985dccba9dd754",
+    "pr": 49,
+    "url": "https://github.com/daggerok/iShares/pull/49",
+    "state": "open",
+    "files": [
+      "README.md"
+    ],
+    "additions": 2,
+    "deletions": 0,
+    "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff"
   }
 }
