@@ -315,13 +315,19 @@
     "headSha": "155db6be20b01092eb05c75aaa2376b912f1a03e",
     "pr": 20,
     "url": "https://github.com/daggerok/VanEck/pull/20",
-    "state": "open",
+    "state": "merged",
     "files": [
       "README.md"
     ],
     "additions": 2,
     "deletions": 0,
-    "patchSha256": "4589830eb00039ceaa485f7ad881eef15a6e9e6143a91ef64731fe4ad8d6d2e1"
+    "patchSha256": "4589830eb00039ceaa485f7ad881eef15a6e9e6143a91ef64731fe4ad8d6d2e1",
+    "checks": [],
+    "statuses": [],
+    "mergeableState": "clean",
+    "mergeSha": "0d9bc35a79b7a8a984d095303d97a734897d0808",
+    "mergedAt": "2026-09-28T04:28:55Z",
+    "defaultReadmeVerified": true
   },
   "Vanguard": {
     "repository": "daggerok/Vanguard",

@@ -23,7 +23,7 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: 93aa31e5095647ae9f03adb9168bf54dd4bc1acf (verified before this rollout checkpoint).
+Last confirmed pushed SHA: ff7a15fedebf52483f65cf99bbc7f4271b8af7d5 (verified before this rollout checkpoint).
 Next action: create scoped docs feature branches in 17 sibling repos, insert
 only Capital Group row into both existing README tables, verify two-addition
 README-only diffs, open PRs and merge only after normal mergeability/check checks.
@@ -2079,6 +2079,9 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
 
 
 2026-09-27 — SPDR PR https://github.com/daggerok/SPDR/pull/34 merged normally after clean check/status gate; merged SHA 879af2d3f0da5e512123f3adf66c41a91d7af2ec; default README GET confirms exactly one of each row. Target Capital-Group PR untouched.
+
+
+2026-09-27 — VanEck PR https://github.com/daggerok/VanEck/pull/20 merged normally after clean check/status gate; merged SHA 0d9bc35a79b7a8a984d095303d97a734897d0808; default README GET confirms exactly one of each row. Target Capital-Group PR untouched.
 ===== CURRENT SIBLING ROLLOUT LEDGER =====
 {
   "aberdeen": {
@@ -2397,13 +2400,19 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
     "headSha": "155db6be20b01092eb05c75aaa2376b912f1a03e",
     "pr": 20,
     "url": "https://github.com/daggerok/VanEck/pull/20",
-    "state": "open",
+    "state": "merged",
     "files": [
       "README.md"
     ],
     "additions": 2,
     "deletions": 0,
-    "patchSha256": "4589830eb00039ceaa485f7ad881eef15a6e9e6143a91ef64731fe4ad8d6d2e1"
+    "patchSha256": "4589830eb00039ceaa485f7ad881eef15a6e9e6143a91ef64731fe4ad8d6d2e1",
+    "checks": [],
+    "statuses": [],
+    "mergeableState": "clean",
+    "mergeSha": "0d9bc35a79b7a8a984d095303d97a734897d0808",
+    "mergedAt": "2026-09-28T04:28:55Z",
+    "defaultReadmeVerified": true
   },
   "Vanguard": {
     "repository": "daggerok/Vanguard",
