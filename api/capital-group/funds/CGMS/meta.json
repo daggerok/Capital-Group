@@ -31,23 +31,23 @@
   "net": 0.39
  },
  "nav": {
-  "display": "$26.55",
-  "value": 26.55,
-  "asOfDate": "Sep 25 2026"
+  "display": "$27.01",
+  "value": 27.01,
+  "asOfDate": "Sep 03 2026"
  },
  "marketPrice": {
-  "display": "$26.54",
-  "value": 26.54,
-  "asOfDate": "Sep 25 2026"
+  "display": "$26.99",
+  "value": 26.99,
+  "asOfDate": "Sep 03 2026"
  },
  "premiumDiscount": {
-  "display": "-0.05%",
-  "value": -0.05
+  "display": "-0.09%",
+  "value": -0.09
  },
  "aum": {
-  "display": "$5,395.50 M",
-  "value": 5395500000,
-  "asOfDate": "Sep 24 2026",
+  "display": "$5,433.10 M",
+  "value": 5433100000,
+  "asOfDate": "Sep 03 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
@@ -55,40 +55,40 @@
   "dividendYieldText": "5.86%",
   "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
   "distributionRate": 6.07,
-  "secYield": 6.06,
-  "secYieldText": "6.06%",
-  "secYieldKind": "official 30-day SEC yield, as of Aug 31 2026",
-  "unsubsidizedSecYield": 6.06
+  "secYield": 6.1,
+  "secYieldText": "6.10%",
+  "secYieldKind": "official 30-day SEC yield, as of Jul 31 2026",
+  "unsubsidizedSecYield": 6.1
  },
  "returns": {
   "derivedFrom": "official Capital Group NAV total returns (fund-detail JSON); qtd derived from the daily NAV history with published distributions reinvested",
   "monthEnd": {
-   "asOfDate": "Aug 31 2026",
-   "mo1": 0.7,
-   "mo1Text": "0.70%",
+   "asOfDate": "Jul 31 2026",
+   "mo1": -0.7,
+   "mo1Text": "-0.70%",
    "qtd": -1.78,
    "qtdText": "-1.78%",
-   "ytd": 1.7,
-   "ytdText": "1.70%",
-   "yr1": 3.77,
-   "yr1Text": "3.77%",
-   "yr3": 7.55,
-   "yr3Text": "7.55%",
+   "ytd": 0.99,
+   "ytdText": "0.99%",
+   "yr1": 4.31,
+   "yr1Text": "4.31%",
+   "yr3": 7.3,
+   "yr3Text": "7.30%",
    "yr5": null,
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 8.29,
-   "sinceInceptionText": "8.29%"
+   "sinceInception": 8.28,
+   "sinceInceptionText": "8.28%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "yr1": null,
-   "yr3": null,
+   "ytd": 1.7,
+   "yr1": 5.37,
+   "yr3": 7.98,
    "yr5": null,
    "yr10": null,
-   "sinceInception": null
+   "sinceInception": 8.68
   }
  },
  "distributions": {
