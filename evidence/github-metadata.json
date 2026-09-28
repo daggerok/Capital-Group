@@ -1,0 +1,78 @@
+{
+  "reference": {
+    "description": "JPMorgan ETF. A single-file client-side tool reading ./api/jpmorgan (JPMorgan ETF explorer, product-data and historical-data JSON, SEC EDGAR and Yahoo Finance fallbacks) into a searchable ETF/asset-class catalog with per-fund tabs, watchlist, CSV/TXT export. TailwindCSS, dark mode, Bun updater.",
+    "homepage": "https://daggerok.github.io/JPMorgan/",
+    "topics": [
+      "css",
+      "csv",
+      "dark-mode",
+      "edgar",
+      "etf",
+      "finance",
+      "github-pages",
+      "holdings",
+      "html",
+      "jpmorgan",
+      "jpmorgan-etfs",
+      "json",
+      "nport",
+      "single-file",
+      "static-api",
+      "tailwindcss",
+      "txt",
+      "typescript",
+      "watchlist",
+      "yahoo-finance"
+    ],
+    "default_branch": "main"
+  },
+  "before": {
+    "description": null,
+    "homepage": null,
+    "topics": [],
+    "default_branch": "main"
+  },
+  "after": {
+    "description": "Capital Group ETF. A single-file client-side tool reading ./api/capital-group (official Capital Group fund data, SEC EDGAR and Yahoo Finance fallbacks) into a searchable ETF/asset-class catalog with per-fund tabs, watchlist, CSV/TXT export. TailwindCSS, dark mode, Bun updater.",
+    "homepage": "https://daggerok.github.io/Capital-Group/",
+    "topics": [
+      "capital-group",
+      "capital-group-etfs",
+      "css",
+      "csv",
+      "dark-mode",
+      "edgar",
+      "etf",
+      "finance",
+      "github-pages",
+      "holdings",
+      "html",
+      "json",
+      "nport",
+      "single-file",
+      "static-api",
+      "tailwindcss",
+      "txt",
+      "typescript",
+      "watchlist",
+      "yahoo-finance"
+    ],
+    "default_branch": "main"
+  },
+  "pages": {
+    "url": "https://api.github.com/repos/daggerok/Capital-Group/pages",
+    "status": "built",
+    "cname": null,
+    "custom_404": false,
+    "html_url": "https://daggerok.github.io/Capital-Group/",
+    "build_type": "legacy",
+    "source": {
+      "branch": "main",
+      "path": "/"
+    },
+    "public": true,
+    "protected_domain_state": null,
+    "pending_domain_unverified_at": null,
+    "https_enforced": true
+  }
+}

@@ -6,7 +6,7 @@ offline tests + type-safety review; two isolated live CLI runs >=3 tickers;
 byte-stable output; sibling UI/README parity including header/frequency rules;
 CI, metadata, honest deployment status.
 Repository: https://github.com/daggerok/Capital-Group
-Branch: feat/capital-group-etfs | PR: none (verified all-state PR list empty).
+Branch: feat/capital-group-etfs | PR: https://github.com/daggerok/Capital-Group/pull/1 OPEN, MUST NOT MERGE.
 Authorization (user amendment confirmed after live acceptance): edit target,
 feature commits/push; publish ONLY verified CGUS/CGCP/CGMU initial API seed;
 create Capital-Group implementation PR but DO NOT MERGE it. Target metadata in
@@ -23,11 +23,11 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: 3e3fa2a4e67d5c0c38e75220a6c5a96a4ce75ce1.
-Next action: update/verify target About/homepage/topics, check Pages, create
-Capital-Group implementation PR (NO merge). Then modify only README in each of
-17 verified sibling repos, add Capital Group rows to two tables, test doc-only
-diff, open PRs and merge normally after checks. Maintain target rollout ledger.
+Last confirmed pushed SHA: f9056ac8d3f583a2c8a58dcb9d5f602cb1b97390.
+Next action: create scoped docs feature branches in 17 sibling repos, insert
+only Capital Group row into both existing README tables, verify two-addition
+README-only diffs, open PRs and merge only after normal mergeability/check checks.
+Record every PR/base/head/merge SHA in evidence/sibling-rollout.json and worklog.
 Reference: daggerok/JPMorgan pinned 998cebd9ecbfaf4c75fbb57db85806a9e60ea006
 (shared updater/output/SEC/Yahoo/UI/README reference; copied and tested).
 Config/CI reference supersedes generic layout: daggerok/aberdeen
@@ -1974,3 +1974,16 @@ Brands table + Sibling applications, none already contains Capital-Group.
 Repositories: aberdeen, Amplify, Fidelity, Franklin, Global-X, Goldman-Sachs,
 Invesco, iShares, JPMorgan, Neos, Northern-Trust, ProShares, Schwab, SPDR,
 VanEck, Vanguard, WisdomTree. No sibling writes performed yet.
+
+2026-09-27 — Target metadata and PR publication checkpoint.
+Read pinned-family current JPMorgan About/homepage/topics; Capital Group before
+null/null/[]; PATCH target description (shared exact sentence, 277 characters),
+homepage https://daggerok.github.io/Capital-Group/, PUT 18 shared + 2 brand topics.
+GET verified all requested values exactly; evidence/github-metadata.json records
+before/after/reference. No other metadata changed.
+Created https://github.com/daggerok/Capital-Group/pull/1 against main, open.
+Body explicitly says DO NOT MERGE; no target merge attempted.
+Pages GET unexpectedly already built: legacy main root, HTTPS, public; live GET
+200 serves placeholder (no app.tsx). Thus implementation deployment still pending
+PR approval/merge, not a claim Pages itself is unconfigured. No Pages settings
+changed. evidence/pages-status.txt and target-pr.json retain publication state.
