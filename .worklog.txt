@@ -18,12 +18,15 @@ for repository (user supplied hyphenated name).
 Completed: both inputs fully read (generic 716 lines; specific 782, identical
 shared rules confirmed with diff); clone/reconcile clean initial repository;
 no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
-Active: initialize recovery checkpoint, then live source investigation.
+Active: investigate fund JSON/download endpoints; no product code yet.
 Remaining: all implementation/validation/documentation steps.
-Blockers: none yet; authenticated push not yet tested.
-Last confirmed remote SHA: 9ef352d34333d4ee3418e376d427ce57f8a19f73 (origin/main; no feature push yet).
-Next action: commit/push this worklog, verify remote feature SHA, then fetch
-issuer catalog and one fund page using plain HTTP before choosing a scraper.
+Blockers: none yet; runtime-only authenticated push succeeded.
+Last confirmed pushed SHA: a0fb6596a41af259121b2420e35a260923bb3ec3.
+Next action: inspect the server-rendered CGUS payload and referenced Next.js
+chunks for holdings/download APIs, then verify CGCP and CGMU as bounded sample.
+Reference: daggerok/JPMorgan pinned 998cebd9ecbfaf4c75fbb57db85806a9e60ea006
+(updater/output/SEC/Yahoo/UI/README reference; no copy implemented yet).
+
 
 AUTHORITY / USER AMENDMENTS
 ==========================
@@ -1551,3 +1554,29 @@ based on real findings, so be thorough in the report so the next person
 doesn't repeat the same dead-end investigation.
 
 ===== END ORIGINAL INPUT: 04-capital-group.txt =====
+
+2026-09-27 — Source investigation checkpoint 1.
+Initial worklog push verified using git ls-remote (a0fb6596a41af259121b2420e35a260923bb3ec3).
+Target metadata GET: description=null, homepage=null, topics=[], main default.
+Plain urllib with Mozilla/5.0, 3-second gaps, in-memory CookieJar:
+- Official catalog first GET redirects to /advisor/public/authentication-0.htm
+  ?next=/advisor/investments/exchange-traded-funds.html (200, 7519 bytes).
+- Second GET same URL/session: 200, full 159393-byte HTML, 4 CGUS occurrences.
+- Individual catalog redirects to advisor returns listing (284536 bytes).
+- details.cgus.html: 404; actual path is /details/cgus (no .html).
+- CGUS first GET same auth bootstrap; second session GET: 200, 566526-byte
+  server-rendered Next.js HTML with fund facts and Daily Holdings action.
+Conclusion: not proven to need headless JS or investor-type selection. A normal
+cookie-aware HTTP session passes the observed bootstrap, no credentials used.
+No cookie values, HTTP headers or raw session material retained in repository.
+Sources: official catalog URL above; https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgus
+SEC search evidence corrects single-trust assumption:
+https://www.sec.gov/Archives/edgar/data/1870117/000005193124000683/0000051931-24-000683-index.htm
+identifies Capital Group Fixed Income ETF Trust CIK 0001870117.
+https://www.sec.gov/Archives/edgar/data/2034928/000005193124000831/filename5.htm
+identifies Capital Group Equity ETF Trust I CIK 0002034928 (CGMM).
+Need verify per-ticker registrants, not one universal CIK.
+Pinned reference clone 998cebd9ecbfaf4c75fbb57db85806a9e60ea006 has updater
+3098 lines, deps {}, @types/bun 1.4.2, @types/node 26.6.2. Bun/gh not on PATH
+in this workspace yet. Shared header and 00 - None already present in UI.
+Tests: not yet applicable; only research/worklog changed. No PR created.
