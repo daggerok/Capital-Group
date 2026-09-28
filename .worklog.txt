@@ -23,18 +23,17 @@ final Aberdeen-config pair); 28 JSON files byte-stable across repeats; exact
 sibling UI/README parity + browser header checks; authorized CGUS/CGCP/CGMU
 seed; Aberdeen config/CI; metadata GET verification; target PR #1 OPEN; all 17
 sibling README-only PRs MERGED and their default README contents verified.
-Active: concurrency correction complete; final evidence checkpoint/handoff.
+Active: concurrency correction COMPLETE and published; no implementation work pending.
 Remaining outside current authorization: approval/merge of target PR and actual
 application deployment on main. No full-catalog refresh performed/requested now.
 Blockers: none for authorized work. Target Actions updater is not yet run on
 GitHub (schedule/manual only; unmerged workflow). SEC/Yahoo live fallbacks not
 exercised because official sources succeeded. No semantic IDE/tsc validation.
-Last confirmed pushed SHA: bf67cedcfdf7127b1535dcd27390aba479e4fe22 (remote and PR verified).
-Next action: commit/push final concurrency evidence and verify remote head/PR.
-After that, authorized concurrency work is complete. Do not merge PR #1, refresh
-all 25 funds, or repeat the already-completed 17 sibling README PRs. Only further
-user authorization can expand scope. Final checkpoint's own SHA is obtained from
-git log / verified remote after commit (avoid recursive self-hash edits).
+Last confirmed pushed SHA: 38b0939b0434fdeaf8794dc7e128ae20e9df3ad1 (remote and PR verified).
+Next action: none on implementation. This closing log checkpoint follows verified
+38b0939; its own SHA is read from git log / origin after push, not embedded into
+itself. Await user instructions; do not merge PR #1, refresh all 25 funds or
+repeat the already-completed 17 sibling README PRs. No unresolved blockers.
 Reference: daggerok/JPMorgan pinned 998cebd9ecbfaf4c75fbb57db85806a9e60ea006
 (shared updater/output/SEC/Yahoo/UI/README reference; copied and tested).
 Config/CI reference supersedes generic layout: daggerok/aberdeen
@@ -2608,3 +2607,13 @@ test/mutation/build logs. Mutation log's deliberate failure is expected proof,
 not a failing production test. No new GitHub workflow run or semantic tsc check
 claimed. Final GitHub state: PR #1 open/unmerged, auto-merge null, main unchanged;
 no target merge authorized. Next is final evidence commit/push/remote verification.
+
+2026-09-28 — Final publication confirmed.
+38b0939b0434fdeaf8794dc7e128ae20e9df3ad1 pushed successfully. Immediate PR GET
+briefly returned the previous head, causing a verification assertion failure;
+a fresh no-cache/cache-busted public GET confirmed local HEAD = ls-remote = PR
+head = 38b0939. PR remains OPEN, merged=false, auto_merge=null; main remains
+9ef352d34333d4ee3418e376d427ce57f8a19f73. Working tree clean. This closing log-only
+checkpoint updates CURRENT STATE so recovery will not repeat completed work.
+All requested concurrency correction, tests and scoped live evidence are done;
+no target merge performed/authorized, no full-catalog refresh or sibling edits.
