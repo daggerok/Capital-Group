@@ -23,11 +23,11 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: 8957509f6c79ab4b5ae335658ae09e34ceeb9a0d.
-Next action: copy Aberdeen config-file/resolveControls/runtimeControls/Actions
-mechanism, with Capital Group names/extra CATALOG_URL and existing conservative
-issuer defaults. Test precedence/security and repeat scoped live CLI acceptance
-for final configuration. Finish docs guard, metadata and authorized PR rollout.
+Last confirmed pushed SHA: 186d41839ef226abc5a09f33176809471d209f6f.
+Next action: repeat two isolated live CGUS CGCP CGMU runs using final config
+resolver and production seed, audit unchanged unrequested data/catalog and hashes.
+Then target metadata GET/PATCH/GET + Pages status and create target PR (NO merge),
+followed by authorized sibling README-only PRs and ordinary checked merges.
 Reference: daggerok/JPMorgan pinned 998cebd9ecbfaf4c75fbb57db85806a9e60ea006
 (shared updater/output/SEC/Yahoo/UI/README reference; copied and tested).
 Config/CI reference supersedes generic layout: daggerok/aberdeen
@@ -1877,3 +1877,74 @@ credential-free origin, fetched, compared every remote tracked blob; none
 missing/different, confirmed local HEAD ancestor; git reset --mixed origin/feat/
 capital-group-etfs advanced local refs/index without touching file contents.
 Restored executable bits after snapshot. No user work lost; no force push.
+
+2026-09-27 — Aberdeen configuration/CI + final README checkpoint.
+Copied resolveControls/runtimeControls mechanism from Aberdeen pinned above,
+plus 24 blank/inherit dispatch controls + advanced JSON, same precedence,
+allowlist/scalar/injection/numeric/boolean validation and effective --help.
+Changed only brand alias/source controls, Capital Group paths and safe existing
+REQUEST_SLEEP=3/CONCURRENCY=1 defaults. MAX_RETRIES=0 now works like Aberdeen.
+Versioned config contains all 29 canonical controls, including CATALOG_URL.
+Copied workflow shape/actions/Sunday schedule/concurrency/data commit-on-failure
+from Aberdeen, changed test command to bun test (all local test files) and source
+history description. Dependabot copied verbatim. No push-triggered data refresh.
+Verified actions/checkout v7 tag exists via GitHub API, object SHA
+3d3c42e5aac5ba805825da76410c181273ba90b1. Actual workflow execution pending merge;
+not dispatched from this unmerged feature branch.
+README copied common headings/introduction/TypeScript/Bun commands from pinned
+JPMorgan with actual source/control/default/seed/deployment facts, all 18 brands
+(including Capital Group) in both sorted full tables and non-affiliation notice.
+Added offline full heading/intro/commands/control guards and exact Aberdeen CI
+comparison. Avoided a stale-seed regression: production data tests now check
+manifest integrity while immutable initial live evidence proves byte stability;
+future authorized refreshes must not fail tests for changing financial data.
+Validation: 82 pass, 0 fail, 380 assertions; Bun build success; git diff --check
+clean. evidence/config-tests.log. No tsc/semantic IDE check claimed.
+
+===== CURRENT CONFIG FILE (AUTHORITATIVE DEFAULTS) =====
+{
+  "MAX_FETCHES": "0",
+  "REQUEST_SLEEP": "3",
+  "CONCURRENCY": "1",
+  "AUM": ":",
+  "TER": ":",
+  "DIVIDEND_YIELD": ":",
+  "SEC_YIELD": ":",
+  "TICKERS": "",
+  "HOLDINGS_PAGE_SIZE": "250",
+  "HISTORY_PAGE_SIZE": "1000",
+  "MAX_RETRIES": "2",
+  "HISTORY_RANGE": "max",
+  "STORE_RAW_DOWNLOADS": "false",
+  "SEC_UA": "daggerok Capital Group ETF feed (https://github.com/daggerok/Capital-Group)",
+  "SKIP_YAHOO": "false",
+  "EDGAR_FALLBACK": "true",
+  "VERBOSE": "false",
+  "PERFORMANCE_YTD": ":",
+  "PERFORMANCE_1Y": ":",
+  "PERFORMANCE_3Y": ":",
+  "PERFORMANCE_5Y": ":",
+  "PERFORMANCE_10Y": ":",
+  "TOTAL_RETURN_YTD": ":",
+  "TOTAL_RETURN_1Y": ":",
+  "TOTAL_RETURN_3Y": ":",
+  "TOTAL_RETURN_5Y": ":",
+  "TOTAL_RETURN_10Y": ":",
+  "SKIP_ISSUER": "false",
+  "CATALOG_URL": "https://www.capitalgroup.com/advisor/investments/exchange-traded-funds.html"
+}
+===== END CURRENT CONFIG FILE =====
+
+===== CURRENT README PARITY MANIFEST =====
+{
+  "referenceRepository": "daggerok/JPMorgan",
+  "referenceSha": "998cebd9ecbfaf4c75fbb57db85806a9e60ea006",
+  "changes": [
+    "Brand/API/repository substitution in common intro/commands/headings",
+    "Truthful actual source table, three-fund seed and deployment pending",
+    "Actual controls/defaults and examples",
+    "Add Capital Group row to both alphabetized full tables",
+    "Capital Group non-affiliation notice"
+  ]
+}
+===== END README PARITY MANIFEST =====

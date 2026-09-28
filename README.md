@@ -74,7 +74,11 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 | `CATALOG_URL` | official catalog URL above | Optional catalog mirror URL. |
 | `VERBOSE` | off | Show per-provider fallback/retry diagnostics. |
 
-Controls also accept the `CAPITAL_GROUP_` prefix except `VERBOSE`. `SEC_UA` should identify your operator/contact for production SEC requests.
+Defaults are versioned in [`scripts/update-data.config.json`](scripts/update-data.config.json). Explicit CLI environment values (including empty ticker lists and `0`/`false`) override the file; `CAPITAL_GROUP_` aliases take precedence over unprefixed names.
+
+Actions uses the same configuration resolver as [aberdeen](https://github.com/daggerok/aberdeen): **file defaults → advanced JSON → individual nonblank inputs**. The 24 individual fields are optional and blank means inherit. The 25th field, `advanced`, accepts any canonical control (for example `{"TICKERS":"","VERBOSE":true,"SEC_UA":"Your operator/contact"}`). Use explicit empty `TICKERS` in advanced JSON to clear a file allowlist. Unknown keys, non-scalar values, multiline values and invalid controls are rejected before networking. Source-specific controls `CATALOG_URL`, `SKIP_ISSUER`, `STORE_RAW_DOWNLOADS`, `SEC_UA` and `VERBOSE` are available through `advanced`.
+
+Controls also accept the `CAPITAL_GROUP_` prefix. `SEC_UA` should identify your operator/contact for production SEC requests.
 
 `TICKERS` combines with AUM, TER, yield filters using AND logic; it does not override them. Funds not selected for a successful update keep their prior published metadata and data files.
 

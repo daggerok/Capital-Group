@@ -18,7 +18,17 @@ test('Frequency display rule: none/unknown/dashes and unchanged cadence labels',
   for (const value of [null,undefined,'','   ','-','—','–','‐','None']) expect(format(value)).toBe('00 - None');
   expect(format('Unknown')).toBe('00 - Unknown'); expect(format('Monthly')).toBe('01 - Monthly'); expect(format('Quarterly')).toBe('04 - Quarterly');
 });
-test('published initial seed is exactly the verified three-fund smoke output', () => {
-  const hashes = JSON.parse(read('evidence/live/hashes-2.json'));
-  for (const [file,hash] of Object.entries(hashes)) expect(createHash('sha256').update(read(`api/capital-group/${file}`)).digest('hex')).toBe(hash);
+test('live evidence hashes prove initial byte-stable repeat', () => {
+  expect(JSON.parse(read('evidence/live/hashes-1.json'))).toEqual(JSON.parse(read('evidence/live/hashes-2.json')));
+});
+test('published catalog manifests/counts remain internally consistent after refresh', () => {
+  const index = JSON.parse(read('api/capital-group/index.json'));
+  expect(index.counts.funds).toBe(index.funds.length);
+  for (const fund of index.funds) {
+    const meta = JSON.parse(read(`api/capital-group/funds/${fund.ticker}/meta.json`));
+    for (const kind of ['holdings','history']) {
+      const total = meta[kind].pages.reduce((sum:number,path:string) => sum + JSON.parse(read(`api/capital-group/funds/${fund.ticker}/${path}`)).rows.length,0);
+      expect(total).toBe(meta[kind].totalRows); expect(total).toBe(fund[kind]);
+    }
+  }
 });

@@ -145,7 +145,7 @@ const EDGAR_BROWSE_URL = 'https://www.sec.gov/cgi-bin/browse-edgar';
 // registrant CIK + series/class ids, and operating company name -> ticker.
 const SEC_FUND_TICKERS_URL = 'https://www.sec.gov/files/company_tickers_mf.json';
 const SEC_COMPANY_TICKERS_URL = 'https://www.sec.gov/files/company_tickers.json';
-const SEC_UA_DEFAULT = 'DaggerOk Capital Group Feed admin@daggerok.example.com';
+const SEC_UA_DEFAULT = 'daggerok Capital Group ETF feed (https://github.com/daggerok/Capital-Group)';
 
 const API_ROOT = new URL('../api/capital-group/', import.meta.url);
 const INDEX_FILE = new URL('index.json', API_ROOT);
@@ -409,7 +409,7 @@ export function readConfig(env: Record<string, string | undefined> = process.env
     holdingsPageSize: parsePositiveInt(envValue(env, 'HOLDINGS_PAGE_SIZE'), HOLDINGS_PAGE_SIZE_FALLBACK),
     historyPageSize: parsePositiveInt(envValue(env, 'HISTORY_PAGE_SIZE', ['HISTORICAL_PAGE_SIZE']), HISTORY_PAGE_SIZE_FALLBACK),
     storeRawDownloads: parseBoolean(envValue(env, 'STORE_RAW_DOWNLOADS', ['CAPITAL_GROUP_STORE_RAW_DOWNLOADS']), false),
-    maxRetries: parsePositiveInt(envValue(env, 'MAX_RETRIES'), MAX_RETRIES_FALLBACK),
+    maxRetries: parseNonNegativeFloat(envValue(env, 'MAX_RETRIES'), MAX_RETRIES_FALLBACK),
     tickers: envValue(env, 'TICKERS')
       .split(/[\s,;]+/)
       .map(sanitizeTicker)
@@ -473,7 +473,8 @@ AUM=min:max or nano/micro/small/mid/large (bounds accept K/M/B/T)
 TER=min:max DIVIDEND_YIELD=min:max SEC_YIELD=min:max
 PERFORMANCE_{YTD,1Y,3Y,5Y,10Y}=min:max (annualized for 3Y+)
 TOTAL_RETURN_{YTD,1Y,3Y,5Y,10Y}=min:max (cumulative)
-All controls except VERBOSE also accept CAPITAL_GROUP_ prefix.
+All canonical controls accept CAPITAL_GROUP_ prefix at runtime (including VERBOSE).
+File defaults: scripts/update-data.config.json; explicit environment overrides file.
 Examples:
   TICKERS="CGUS CGCP CGMU" VERBOSE=1 bun scripts/update-data.ts
   MAX_FETCHES=3 AUM="1B:" TER=":0.5" bun scripts/update-data.ts
@@ -2339,8 +2340,56 @@ async function resolveNportFiling(
 // Main
 // ---------------------------------------------------------------------------
 
+// File defaults and explicit overrides. Allowlisted scalar values only: the
+// same resolver is used by Actions without interpolating user input into bash.
+export const CONTROL_NAMES = [
+  'MAX_FETCHES','REQUEST_SLEEP','CONCURRENCY','AUM','TER','DIVIDEND_YIELD','SEC_YIELD','TICKERS',
+  'HOLDINGS_PAGE_SIZE','HISTORY_PAGE_SIZE','MAX_RETRIES','HISTORY_RANGE','STORE_RAW_DOWNLOADS',
+  'CATALOG_URL','SEC_UA','SKIP_YAHOO','SKIP_ISSUER','EDGAR_FALLBACK','VERBOSE',
+  ...['PERFORMANCE','TOTAL_RETURN'].flatMap(prefix=>['YTD','1Y','3Y','5Y','10Y'].map(period=>`${prefix}_${period}`)),
+] as const;
+export function resolveControls(file:unknown={},advanced:unknown={},inputs:unknown={},env:Record<string,string|undefined>={}):Record<string,string> {
+  const result:Record<string,string>={};
+  const apply=(value:unknown,skipEmpty=false)=>{
+    if (!value || typeof value!=='object' || Array.isArray(value)) throw new Error('Configuration must be a JSON object');
+    for (const [key,raw] of Object.entries(value)) {
+      if (!CONTROL_NAMES.includes(key)) throw new Error(`Unknown updater control: ${key}`);
+      if (skipEmpty && (raw===''||raw===undefined||raw===null)) continue;
+      if (!['string','number','boolean'].includes(typeof raw)) throw new Error(`${key}: expected string, number or boolean`);
+      const text=String(raw);
+      if (/[\r\n\0]/.test(text)) throw new Error(`${key}: multiline/control characters are not allowed`);
+      result[key]=text;
+    }
+  };
+  apply(file);apply(advanced);apply(inputs,true);
+  for(const key of CONTROL_NAMES){
+    const value=env[`CAPITAL_GROUP_${key}`]??env[key];
+    if(value!==undefined)apply({[key]:value});
+  }
+  for(const key of ['MAX_FETCHES','CONCURRENCY','HOLDINGS_PAGE_SIZE','HISTORY_PAGE_SIZE','MAX_RETRIES']){
+    const v=result[key];if(v===undefined||v==='')continue;
+    const min=['MAX_FETCHES','MAX_RETRIES'].includes(key)?0:1;
+    if(!/^\d+$/.test(v)||!Number.isSafeInteger(Number(v))||Number(v)<min)throw new Error(`${key}: expected integer >= ${min}`);
+  }
+  if(result.REQUEST_SLEEP && (!Number.isFinite(Number(result.REQUEST_SLEEP))||Number(result.REQUEST_SLEEP)<0))throw new Error('REQUEST_SLEEP: expected nonnegative seconds');
+  if(result.HISTORY_RANGE && !/^(max|[1-9]\d*y)$/i.test(result.HISTORY_RANGE))throw new Error('HISTORY_RANGE: use max or Ny');
+  for(const key of ['STORE_RAW_DOWNLOADS','SKIP_YAHOO','SKIP_ISSUER','EDGAR_FALLBACK','VERBOSE']){
+    if(result[key] && !/^(0|1|true|false|yes|no|y|n|on|off)$/i.test(result[key]))throw new Error(`${key}: expected boolean`);
+  }
+  readConfig(result); // validate all min:max filters before a request or write
+  return result;
+}
+async function runtimeControls(env:Record<string,string|undefined>):Promise<Record<string,string>> {
+  let file:unknown={};
+  try {file=JSON.parse(await readFile(new URL('./update-data.config.json',import.meta.url),'utf8'));}
+  catch(e) {if((e as NodeJS.ErrnoException).code!=='ENOENT')throw e;}
+  return resolveControls(file,{}, {},env);
+}
+
 async function main(): Promise<void> {
-  const config = readConfig();
+  const controls = await runtimeControls(process.env);
+  if (controls.VERBOSE !== undefined) process.env.VERBOSE = controls.VERBOSE;
+  const config = readConfig(controls);
   await mkdir(API_ROOT, { recursive: true });
   requestSleepMs = Math.max(0, config.requestSleep) * 1000;
   outputPrintConfig('Capital Group', config);
@@ -2519,6 +2568,8 @@ function catalogFundFromIndex(ticker: string, row: JsonRecord): CatalogFund {
 if ((import.meta as { main?: boolean }).main) {
   if (process.argv.includes('-h') || process.argv.includes('--help')) {
     console.log(USAGE.trim());
+    outputPrintConfig('Capital Group effective configuration', readConfig(await runtimeControls(process.env)));
+    console.log('Defaults: scripts/update-data.config.json; explicit environment overrides the file. Actions: file < advanced JSON < individual nonblank inputs.');
   } else {
     await main().catch((error) => {
       console.error(error instanceof Error ? error.stack : String(error));
