@@ -23,7 +23,7 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: ad7ff6d0afaff2d6268f11932648af79e96b4c2a.
+Last confirmed pushed SHA: 9f20236f9ae365a23efdd48093d0b1310c17b9a6.
 Next action: add standardized scheduled/manual updater workflow mirroring actual
 controls, Dependabot and pinned sibling README; offline guard headings/controls.
 Then target metadata verification and implementation PR without merge.
@@ -1841,3 +1841,16 @@ Preview server: process capital-group-etf-preview-000fc42d, 0.0.0.0:3000,
   }
 }
 ===== END PACKAGE MANIFEST =====
+
+2026-09-27 — CI platform constraint / README draft checkpoint.
+Pinned README copied with common headings/intro/commands unchanged except brand,
+source/controls, pending deployment, seed limitation and table row substitutions.
+README draft not final: regression guard and workflow wording still to validate.
+GitHub workflow_dispatch supports at most 25 inputs, while actual config header
+has 29 canonical controls. Source:
+https://github.blog/changelog/2025-12-04-actions-workflow-dispatch-workflows-now-support-25-inputs/
+Therefore literal plan requirement one field per env in one workflow is not
+implementable. Asking user to approve 24 direct fields plus advanced JSON for
+rare controls, or split manual workflows. No invalid workflow published.
+Next action pending answer: implement approved compatible dispatch layout, then
+README/offline workflow-control parity guard, target metadata/PR, sibling docs.

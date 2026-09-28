@@ -1,43 +1,38 @@
-# Capital Group
+# JPMorgan
 
-One of the app's features lets you select Capital Group ETFs in the Watchlist and aggregate their holdings to see how often each ticker appears across the selected funds. Repeated holdings make overlapping exposure visible: the more selected funds include a ticker, the greater its potential influence on the portfolio; gains in that holding may help, while declines may hurt, and actual impact also depends on each fund's position size.  Another feature makes it faster and easier to find funds with stronger growth over different periods, higher dividend yields or distributions, greater Total Return (price performance plus dividends), and other key performance metrics. A single-file client-side tool that reads the generated `./api/capital-group` static feed (Capital Group ETF catalog, per-fund server-rendered JSON, daily holdings XLSX and price/distribution JSON — official NAV returns, expenses, yields, complete daily holdings and whole-life NAV history — with SEC EDGAR N-PORT-P and Yahoo Finance as fallbacks) into a searchable ETF/asset-class catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export — the same look, feel, columns and business logic as the sibling applications.
+One of the app's features lets you select JPMorgan ETFs in the Watchlist and aggregate their holdings to see how often each ticker appears across the selected funds. Repeated holdings make overlapping exposure visible: the more selected funds include a ticker, the greater its potential influence on the portfolio; gains in that holding may help, while declines may hurt, and actual impact also depends on each fund's position size.  Another feature makes it faster and easier to find funds with stronger growth over different periods, higher dividend yields or distributions, greater Total Return (price performance plus dividends), and other key performance metrics. A single-file client-side tool that reads the generated `./api/jpmorgan` static feed (am.jpmorgan.com ETF fund explorer, per-fund product-data and historical-data JSON — official NAV returns, expenses, yields, complete daily holdings and whole-life NAV history — with SEC EDGAR N-PORT-P and Yahoo Finance as fallbacks) into a searchable ETF/asset-class catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export — the same look, feel, columns and business logic as the sibling applications.
 
 ## Using Bun
 
 ```bash
-bunx degit daggerok/Capital-Group#main ./12345 && cd $_
+bunx degit daggerok/JPMorgan#main ./12345 && cd $_
 bunx serve . -p 1234
 open http://0:1234
 ```
 
-The intended application URL is <https://daggerok.github.io/Capital-Group/>. Deployment is pending: this implementation is on a feature branch and its PR must not be merged without approval.
+The published application is available at <https://daggerok.github.io/JPMorgan/>.
 
-## Updating the static Capital Group data
+## Updating the static JPMorgan data
 
 Run the updater with Bun:
 
 ```bash
-bun test
+bun test scripts/update-data.test.ts
 ./scripts/update-data.ts
 ```
 
 Run `./scripts/update-data.ts -h` (or `--help`) to print every configuration variable with its default and usage examples.
 
-The **Update Capital Group ETF data** GitHub Actions workflow exposes the same settings as manual inputs. All supplied filters use **AND** logic.
+The **Update JPMorgan ETF data** GitHub Actions workflow exposes the same settings as manual inputs. All supplied filters use **AND** logic.
 
 ### Data sources
 
 | Block | Source |
 | --- | --- |
-| Catalog (all US Capital Group ETFs) | [Official ETF catalog](https://www.capitalgroup.com/advisor/investments/exchange-traded-funds.html), currently 25 fund links |
-| Fund facts | Server-rendered Next.js JSON in each [fund page](https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgus) (no browser execution) |
-| Holdings per fund | `/api/investments/investment-service/v1/etfs/{TICKER}/download/daily-holdings?audience=advisor` on `www.capitalgroup.com` (full XLSX, parsed with built-in zlib) |
-| Daily history, distributions | Same API base, `premium-discount-details?fromDate=YYYY-MM-DD&toDate=YYYY-MM-DD` and `historical-distributions?include=all` |
-| Fallback | SEC EDGAR N-PORT-P for holdings, Yahoo Finance chart API for history; previously published data retained on provider failure |
-
-The initial published seed contains **CGUS, CGCP and CGMU only**, not all 25 catalog funds. Two isolated real CLI runs verified all three and all 28 output JSON files were byte-identical on the repeat; see [acceptance evidence](evidence/live/acceptance.txt). No full refresh was run. SEC/Yahoo fallbacks were not needed in these runs, so their live reachability is not claimed.
-
-The issuer's first HTML request can redirect to a public cookie bootstrap; the updater repeats the request using an in-memory same-origin session. No credentials, cookies or entire HTML documents are stored. Some endpoints mentioned in issuer JavaScript return 404 directly; the implementation uses verified HTML payloads and working public downloads instead. The issuer currently repeats month-end data in `quarterlyReturns`; non-quarter-end dates are not mislabeled as quarter-end returns. Holdings weights are converted from fractions to percent without forcing them to sum to 100%; issuer rounding is preserved. Different funds have different registrant CIKs (CGUS `0001870102`; CGCP/CGMU `0001870117`); the SEC fallback resolves the fund's own series, not an arbitrary latest trust filing.
+| Catalog (all US JPMorgan ETFs) | `https://am.jpmorgan.com/FundsMarketingHandler/fund-explorer?country=us&role=adv&fundType=etf` (the JSON behind the [ETF fund explorer](https://am.jpmorgan.com/us/en/asset-management/adv/products/fund-explorer/etf)) |
+| Holdings per fund | `https://am.jpmorgan.com/FundsMarketingHandler/product-data?cusip={CUSIP}&country=us&role=adv` (the JSON behind each fund page, e.g. [JEPI](https://am.jpmorgan.com/us/en/asset-management/adv/products/jpmorgan-equity-premium-income-etf-etf-shares-46641q332)) |
+| Daily history, distributions | `https://am.jpmorgan.com/FundsMarketingHandler/historicalData?cusip={CUSIP}&country=us&role=adv` (official NAV history) |
+| Fallback | SEC EDGAR N-PORT-P + Yahoo Finance chart API as fallbacks |
 
 Each fund carries a derived `metrics` object that powers the catalog columns shared with the sibling sites:
 
@@ -45,36 +40,25 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 - `cagr3y` / `cagr5y` / `cagr10y` — published annualized 3Y/5Y/10Y figures → *CAGR 3Y/5Y/10Y*
 - `tr3y` / `tr5y` / `tr10y` — cumulative 3Y/5Y/10Y figures `(1 + CAGR)^n - 1` → *TR 3Y/5Y/10Y*
 - `siAnn` — since-inception annualized → *SI Ann.*
-- `dividendYield` — indicated yield (latest distribution × frequency ÷ price)
+- `dividendYield` — 12-month trailing yield or indicated yield (latest distribution × frequency ÷ price)
 - `secYield` — 30-day SEC yield when published; `—` otherwise
 
 ### Update controls
 
 | Environment variable | Default | Meaning |
 | --- | --: | --- |
-| `MAX_FETCHES` | all | Batch size: with a positive value the updater continues after the committed cursor in `api/capital-group/update-state.json`; empty or `0` is a full pass — every fund is refreshed in one run. |
-| `REQUEST_SLEEP` | `3` | Minimum delay in seconds between outgoing request starts, including retries. |
-| `CONCURRENCY` | `1` | Number of parallel fund update workers. Request starts are still globally spaced by `REQUEST_SLEEP`. |
+| `MAX_FETCHES` | all | Batch size: with a positive value the updater continues after the committed cursor in `api/jpmorgan/update-state.json`; empty or `0` is a full pass — every fund is refreshed in one run. |
+| `REQUEST_SLEEP` | `1` | Minimum delay in seconds between outgoing request starts, including retries. |
+| `CONCURRENCY` | `2` | Number of parallel fund update workers. Request starts are still globally spaced by `REQUEST_SLEEP`. |
 | `AUM` | `:` | Net Assets range. Each bound may be a USD amount or `K`/`M`/`B`/`T`, or one of `nano`, `micro`, `small`, `mid`, `large`. |
 | `TER` | `:` | Expense ratio range in % (strict `min:max`). |
 | `DIVIDEND_YIELD` | `:` | Dividend-yield percentage range. |
-| `TICKERS` | all | Space-, comma- or semicolon-separated ticker allowlist, e.g. `CGUS CGCP CGMU`. |
+| `TICKERS` | all | Space-, comma- or semicolon-separated ticker allowlist, e.g. `JEPI JEPQ JPST BBJP`. |
 | `HOLDINGS_PAGE_SIZE` | `250` | Rows in each generated current-holdings JSON page. |
 | `HISTORY_PAGE_SIZE` | `1000` | Rows in each generated daily-history JSON page. |
-| `MAX_RETRIES` | `2` | Retries after the initial request. Transient failures are retried with backoff; 403/408/429/5xx are retryable. Other issuer HTTP errors fail promptly. |
+| `MAX_RETRIES` | `2` | Retries after the initial request. Only network errors and HTTP 408/425/429/5xx are retried with exponential backoff. |
 | `SEC_UA` | declared UA | Override the SEC User-Agent. SEC policy requires automated tools to declare a contact. |
 | `SKIP_YAHOO` | off | Skip Yahoo Finance history updates. |
-| `SKIP_ISSUER` | off | Use the published catalog and only fallbacks; never delete cached data. |
-| `EDGAR_FALLBACK` | on | Enable fund-specific SEC N-PORT holdings fallback. |
-| `SEC_YIELD` | `:` | Published SEC-yield range in %. |
-| `PERFORMANCE_YTD`, `PERFORMANCE_1Y`, `PERFORMANCE_3Y`, `PERFORMANCE_5Y`, `PERFORMANCE_10Y` | `:` | NAV return ranges; 3Y/5Y/10Y annualized. |
-| `TOTAL_RETURN_YTD`, `TOTAL_RETURN_1Y`, `TOTAL_RETURN_3Y`, `TOTAL_RETURN_5Y`, `TOTAL_RETURN_10Y` | `:` | Cumulative total-return ranges. |
-| `HISTORY_RANGE` | `max` | Yahoo fallback chart range; official history covers inception onward. |
-| `STORE_RAW_DOWNLOADS` | off | Keep financial JSON snapshots under each selected fund's `raw/`; never cookies/auth headers. |
-| `CATALOG_URL` | official catalog URL above | Optional catalog mirror URL. |
-| `VERBOSE` | off | Show per-provider fallback/retry diagnostics. |
-
-Controls also accept the `CAPITAL_GROUP_` prefix except `VERBOSE`. `SEC_UA` should identify your operator/contact for production SEC requests.
 
 `TICKERS` combines with AUM, TER, yield filters using AND logic; it does not override them. Funds not selected for a successful update keep their prior published metadata and data files.
 
@@ -82,7 +66,7 @@ Controls also accept the `CAPITAL_GROUP_` prefix except `VERBOSE`. `SEC_UA` shou
 
 ```bash
 MAX_FETCHES=10 ./scripts/update-data.ts
-TICKERS="CGUS CGCP CGMU" ./scripts/update-data.ts
+TICKERS="JEPI JEPQ JPST BBJP" ./scripts/update-data.ts
 AUM="1B:" TER=":0.5" ./scripts/update-data.ts
 PERFORMANCE_1Y="15:" ./scripts/update-data.ts
 ```
@@ -99,7 +83,6 @@ Verification before every publish: `bun install --frozen-lockfile`, `bun test`, 
 | --- | --- |
 | **abrdn (Aberdeen)** | [aberdeeninvestments.com](https://www.aberdeeninvestments.com/en-us/investor/funds/etfs) \| [aberdeen](https://daggerok.github.io/aberdeen/) |
 | **Amplify** | [amplifyetfs.com](https://amplifyetfs.com/) \| [Amplify](https://daggerok.github.io/Amplify/) |
-| **Capital Group** | [capitalgroup.com](https://www.capitalgroup.com/advisor/investments/exchange-traded-funds.html) \| [Capital-Group](https://daggerok.github.io/Capital-Group/) |
 | **Fidelity** | [fidelity.com](https://www.fidelity.com/etfs) \| [Fidelity](https://daggerok.github.io/Fidelity/) |
 | **Franklin Templeton** | [franklintempleton.com](https://www.franklintempleton.com/investments/options/exchange-traded-funds) \| [Franklin](https://daggerok.github.io/Franklin/) |
 | **Global X** | [globalxetfs.com/explore](https://www.globalxetfs.com/explore) \| [Global X](https://daggerok.github.io/Global-X/) |
@@ -122,7 +105,6 @@ Verification before every publish: `bun install --frozen-lockfile`, `bun test`, 
 | --- | --- | --- |
 | abrdn (Aberdeen) | Official Aberdeen gateway + SEC N-PORT holdings fallback + Yahoo history/dividends | [aberdeen](https://github.com/daggerok/aberdeen) |
 | Amplify | Amplify ETFs (Firestore data feed) | [Amplify](https://github.com/daggerok/Amplify) |
-| Capital Group | Official Capital Group fund data + SEC N-PORT holdings fallback + Yahoo history fallback | [Capital-Group](https://github.com/daggerok/Capital-Group) |
 | Fidelity | SEC EDGAR N-PORT-P + Yahoo Finance | [Fidelity](https://github.com/daggerok/Fidelity) |
 | Franklin Templeton | franklintempleton.com ETF listings + product pages + SEC EDGAR N-PORT-P | [Franklin](https://github.com/daggerok/Franklin) |
 | Global X | globalxetfs.com Next.js catalog and fund pages + dated full-holdings CSV | [Global X](https://github.com/daggerok/Global-X) |
@@ -143,4 +125,4 @@ Verification before every publish: `bun install --frozen-lockfile`, `bun test`, 
 
 [MIT — same as all sibling ETF repositories.](./LICENSE)
 
-Capital Group® and American Funds® and the fund names/tickers referenced here are trademarks of The Capital Group Companies, Inc. This is an independent, unofficial tool; it is not affiliated with, endorsed by, or sponsored by Capital Group. All data is reproduced from Capital Group's own public fund pages and downloads, public SEC EDGAR filings and Yahoo Finance for research purposes. All other trademarks, including index names, are the property of their respective owners.
+J.P. Morgan® and JPMorgan® and the fund names/tickers referenced here are trademarks of JPMorgan Chase & Co. This is an independent, unofficial tool; it is not affiliated with, endorsed by, or sponsored by J.P. Morgan Asset Management or JPMorgan Chase & Co. All data is reproduced from J.P. Morgan Asset Management's own public fund pages and downloads, public SEC EDGAR filings and Yahoo Finance for research purposes. All other trademarks, including index names, are the property of their respective owners.
