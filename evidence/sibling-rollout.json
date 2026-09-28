@@ -126,5 +126,21 @@
     "additions": 2,
     "deletions": 0,
     "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff"
+  },
+  "JPMorgan": {
+    "repository": "daggerok/JPMorgan",
+    "defaultBranch": "main",
+    "baseSha": "998cebd9ecbfaf4c75fbb57db85806a9e60ea006",
+    "branch": "docs/add-capital-group-sibling",
+    "headSha": "f2e6a85173411cb9c2b4f0474a2007d5f8229cba",
+    "pr": 21,
+    "url": "https://github.com/daggerok/JPMorgan/pull/21",
+    "state": "open",
+    "files": [
+      "README.md"
+    ],
+    "additions": 2,
+    "deletions": 0,
+    "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff"
   }
 }

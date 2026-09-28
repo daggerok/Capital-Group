@@ -23,7 +23,7 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: 2035c6471735d0619079891fa63b54cef7f22a24 (verified before this rollout checkpoint).
+Last confirmed pushed SHA: f139118433c4f5030bbfdd97bd0eccae6eee386e (verified before this rollout checkpoint).
 Next action: create scoped docs feature branches in 17 sibling repos, insert
 only Capital Group row into both existing README tables, verify two-addition
 README-only diffs, open PRs and merge only after normal mergeability/check checks.
@@ -2010,6 +2010,9 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
 
 
 2026-09-27 — Sibling iShares: committed/pushed 4b79509759684cf7ae71f5b713985dccba9dd754, remote verified, PR https://github.com/daggerok/iShares/pull/49 opened; exact README-only 2-addition diff validated. No merge yet.
+
+
+2026-09-27 — Sibling JPMorgan: committed/pushed f2e6a85173411cb9c2b4f0474a2007d5f8229cba, remote verified, PR https://github.com/daggerok/JPMorgan/pull/21 opened; exact README-only 2-addition diff validated. No merge yet.
 ===== CURRENT SIBLING ROLLOUT LEDGER =====
 {
   "aberdeen": {
@@ -2132,6 +2135,22 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
     "headSha": "4b79509759684cf7ae71f5b713985dccba9dd754",
     "pr": 49,
     "url": "https://github.com/daggerok/iShares/pull/49",
+    "state": "open",
+    "files": [
+      "README.md"
+    ],
+    "additions": 2,
+    "deletions": 0,
+    "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff"
+  },
+  "JPMorgan": {
+    "repository": "daggerok/JPMorgan",
+    "defaultBranch": "main",
+    "baseSha": "998cebd9ecbfaf4c75fbb57db85806a9e60ea006",
+    "branch": "docs/add-capital-group-sibling",
+    "headSha": "f2e6a85173411cb9c2b4f0474a2007d5f8229cba",
+    "pr": 21,
+    "url": "https://github.com/daggerok/JPMorgan/pull/21",
     "state": "open",
     "files": [
       "README.md"
