@@ -23,12 +23,15 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: 9f20236f9ae365a23efdd48093d0b1310c17b9a6.
-Next action: add standardized scheduled/manual updater workflow mirroring actual
-controls, Dependabot and pinned sibling README; offline guard headings/controls.
-Then target metadata verification and implementation PR without merge.
+Last confirmed pushed SHA: 8957509f6c79ab4b5ae335658ae09e34ceeb9a0d.
+Next action: copy Aberdeen config-file/resolveControls/runtimeControls/Actions
+mechanism, with Capital Group names/extra CATALOG_URL and existing conservative
+issuer defaults. Test precedence/security and repeat scoped live CLI acceptance
+for final configuration. Finish docs guard, metadata and authorized PR rollout.
 Reference: daggerok/JPMorgan pinned 998cebd9ecbfaf4c75fbb57db85806a9e60ea006
-(updater/output/SEC/Yahoo/UI/README reference; no copy implemented yet).
+(shared updater/output/SEC/Yahoo/UI/README reference; copied and tested).
+Config/CI reference supersedes generic layout: daggerok/aberdeen
+0c390af3240051fd67e0d0fdf307cb32d504207c.
 
 
 AUTHORITY / USER AMENDMENTS
@@ -1854,3 +1857,23 @@ implementable. Asking user to approve 24 direct fields plus advanced JSON for
 rare controls, or split manual workflows. No invalid workflow published.
 Next action pending answer: implement approved compatible dispatch layout, then
 README/offline workflow-control parity guard, target metadata/PR, sibling docs.
+
+2026-09-27 — User amendment and config/CI reference investigation.
+Exact user amendment: "check how we implemented this on daggerok/aberdeen repo
+and do exactly the same from update data configuration and ci perspective;
+do exactly similar".
+Pinned Aberdeen 0c390af3240051fd67e0d0fdf307cb32d504207c. Read complete
+.github/workflows/update-data.yml and scripts/update-data.config.json, resolver,
+CLI --help/main wiring and configuration tests. Actual mechanism: JSON file
+canonical defaults; CLI explicit env/prefixed alias overrides file; Actions
+file < advanced JSON < nonblank individual inputs; 24 individual fields plus
+advanced (25 total), safe allowlisted scalar single-line controls validated
+before requests. No new invented dispatch scheme needed. Copy this mechanism.
+Aberdeen commit-on-failure step retains successfully updated funds and does not
+bypass checks. Keep same Sunday/manual trigger, concurrency and action versions.
+Workspace reconciliation after pause: local Git HEAD/index reverted to 86b5209
+but ALL worktree file contents matched remote 8957509 byte-for-byte. Restored
+credential-free origin, fetched, compared every remote tracked blob; none
+missing/different, confirmed local HEAD ancestor; git reset --mixed origin/feat/
+capital-group-etfs advanced local refs/index without touching file contents.
+Restored executable bits after snapshot. No user work lost; no force push.
