@@ -23,7 +23,7 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: cbdc10df58353cd9898e66ad14b638727263f5b3 (verified before this rollout checkpoint).
+Last confirmed pushed SHA: c899126fbea45b9aa30bb5f23b2a963a1028c6a9 (verified before this rollout checkpoint).
 Next action: create scoped docs feature branches in 17 sibling repos, insert
 only Capital Group row into both existing README tables, verify two-addition
 README-only diffs, open PRs and merge only after normal mergeability/check checks.
@@ -1998,6 +1998,9 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
 
 
 2026-09-27 — Sibling Franklin: committed/pushed 4c60d4a283bf6fe63cd9ceb4050f6bf3c6c8a5e5, remote verified, PR https://github.com/daggerok/Franklin/pull/22 opened; exact README-only 2-addition diff validated. No merge yet.
+
+
+2026-09-27 — Sibling Global-X: committed/pushed 5ef5476731b8c5b9e05d953e273a258c5af74a7d, remote verified, PR https://github.com/daggerok/Global-X/pull/9 opened; exact README-only 2-addition diff validated. No merge yet.
 ===== CURRENT SIBLING ROLLOUT LEDGER =====
 {
   "aberdeen": {
@@ -2063,6 +2066,22 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
     "additions": 2,
     "deletions": 0,
     "patchSha256": "bf0620fe57d784799c668af6886e3d2c7b5d92fc897e0cfceb94ee2e3b27d1e1"
+  },
+  "Global-X": {
+    "repository": "daggerok/Global-X",
+    "defaultBranch": "main",
+    "baseSha": "55e8d040f1e97469609df33a310d58af05340fb2",
+    "branch": "docs/add-capital-group-sibling",
+    "headSha": "5ef5476731b8c5b9e05d953e273a258c5af74a7d",
+    "pr": 9,
+    "url": "https://github.com/daggerok/Global-X/pull/9",
+    "state": "open",
+    "files": [
+      "README.md"
+    ],
+    "additions": 2,
+    "deletions": 0,
+    "patchSha256": "4305a28f2f5dc09340de48e9d63967043ccca70589ee231d653d09ff804c20c6"
   }
 }
 ===== END SIBLING ROLLOUT LEDGER =====
