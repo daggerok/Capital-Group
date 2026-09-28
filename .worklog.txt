@@ -7,10 +7,12 @@ byte-stable output; sibling UI/README parity including header/frequency rules;
 CI, metadata, honest deployment status.
 Repository: https://github.com/daggerok/Capital-Group
 Branch: feat/capital-group-etfs | PR: none (verified all-state PR list empty).
-Authorization: edit this repository, scoped feature commits and verified pushes.
-Target metadata updates are in plan. No merge authorized. Target implementation
-PR not explicitly authorized: do not create without clarification. No explicit
-cross-repository authorization: sibling edits/PRs deferred.
+Authorization (user amendment confirmed after live acceptance): edit target,
+feature commits/push; publish ONLY verified CGUS/CGCP/CGMU initial API seed;
+create Capital-Group implementation PR but DO NOT MERGE it. Target metadata in
+scope. Separate doc-only sibling README PRs adding Capital Group row authorized,
+including MERGE of those doc-only PRs after checks; no other sibling changes.
+Do not force push, overwrite concurrent work, or bypass protections/checks.
 Constraints: no secrets persisted; no force push/check bypass; preserve user work;
 Bun only, no TS compiler/config, runtime dependencies empty; no heavy browser
 scraper without approval. Use Capital Group in UI per specific plan, Capital-Group
@@ -21,10 +23,10 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: mandatory two-run live acceptance verified; UI/CI/docs remain.
 Remaining: all implementation/validation/documentation steps.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: 12c895e4a37b9191a8e91c270bd060fe6ac8f0ef.
-Next action: obtain explicit scope for publishing initial three-fund API seed
-and target PR (no merge). Meanwhile copy pinned sibling UI with enumerated
-substitutions, record parity manifest, verify against archived live output.
+Last confirmed pushed SHA: 86b520954db3e80eac1e2bdadcd39f4a1063dd78.
+Next action: publish exactly the three validated API fund outputs, copy pinned
+UI with parity manifest, then test/browser-check; CI/docs/metadata and authorized
+PRs follow. No unbounded full-catalog refresh authorized.
 Reference: daggerok/JPMorgan pinned 998cebd9ecbfaf4c75fbb57db85806a9e60ea006
 (updater/output/SEC/Yahoo/UI/README reference; no copy implemented yet).
 
@@ -1705,3 +1707,14 @@ Outputs archived as tracked evidence, not production API.
 
 Tracked binary evidence: evidence/live/outputs.tar.gz SHA256 4e4350fd32627c67b7804fc3ff1237a73c51879c399d4e6fde97156e455b5c4f
 Exact starts, exit codes, logs and hashes in evidence/live/.
+
+2026-09-27 — Explicit user publication amendment (supersedes earlier uncertainty).
+Question seed: selected "Да, начальные 3 ETF" (publish checked initial three
+in feature branch; no full refresh now).
+PR exact custom response:
+"Какой объём публикации PR разрешён? PR + sibling README PRs; Создать target PR
+и отдельные doc-only PR с новой строкой бренда в sibling README - сливать.
+Capital Group PR - create but not merge"
+Interpretation: target PR create, never merge; sibling doc-only row-addition PRs
+create and merge normally after checks. Existing Capital Group rows must not
+be duplicated; no generalized rewrite or code change in sibling repositories.
