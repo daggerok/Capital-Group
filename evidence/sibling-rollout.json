@@ -206,5 +206,21 @@
     "additions": 2,
     "deletions": 0,
     "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff"
+  },
+  "SPDR": {
+    "repository": "daggerok/SPDR",
+    "defaultBranch": "main",
+    "baseSha": "b9f70f84515e8a69f3c0ad2e5d51af718f70a16b",
+    "branch": "docs/add-capital-group-sibling",
+    "headSha": "daf7478c82c65cf247906915df046238349d68e1",
+    "pr": 34,
+    "url": "https://github.com/daggerok/SPDR/pull/34",
+    "state": "open",
+    "files": [
+      "README.md"
+    ],
+    "additions": 2,
+    "deletions": 0,
+    "patchSha256": "2878c7bb4e91e54fe13e65a6aee75968b93e80ad21527c1886967b27fee8d4aa"
   }
 }
