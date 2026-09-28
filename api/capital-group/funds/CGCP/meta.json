@@ -1,0 +1,347 @@
+{
+ "ticker": "CGCP",
+ "name": "Capital Group Core Plus Income ETF",
+ "category": "Fixed Income",
+ "categoryPath": "Fixed Income / Bloomberg U.S. Aggregate Index",
+ "source": {
+  "fundPage": "https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgcp",
+  "productData": "https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgcp",
+  "historicalData": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGCP/premium-discount-details",
+  "holdingsDownload": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGCP/download/daily-holdings?audience=advisor",
+  "pricesDownload": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGCP/premium-discount-details",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/CGCP",
+  "holdingsSource": "Capital Group daily holdings XLSX",
+  "historySource": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)",
+  "provider": "Capital Group public fund facts and daily downloads + SEC EDGAR Form N-PORT-P (fallback) + Yahoo Finance public chart API (fallback)"
+ },
+ "identifiers": {
+  "cusip": "14020Y102",
+  "isin": null,
+  "indexTicker": "Bloomberg U.S. Aggregate Index"
+ },
+ "inception": {
+  "fundInceptionDate": "2022-02-22",
+  "shareClassInceptionDate": null,
+  "exchange": "NYSE Arca, Inc."
+ },
+ "expenseRatio": {
+  "display": "0.34%",
+  "value": 0.34,
+  "gross": 0.34,
+  "net": 0.34
+ },
+ "nav": {
+  "display": "$21.43",
+  "value": 21.43,
+  "asOfDate": "Sep 25 2026"
+ },
+ "marketPrice": {
+  "display": "$21.43",
+  "value": 21.43,
+  "asOfDate": "Sep 25 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.02%",
+  "value": 0.02
+ },
+ "aum": {
+  "display": "$8,399.70 M",
+  "value": 8399700000.000001,
+  "asOfDate": "Sep 24 2026",
+  "source": "capitalgroup.com daily fund facts net assets"
+ },
+ "yields": {
+  "dividendYield": 4.86,
+  "dividendYieldText": "4.86%",
+  "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
+  "distributionRate": 5.13,
+  "secYield": 5.3,
+  "secYieldText": "5.30%",
+  "secYieldKind": "official 30-day SEC yield, as of Aug 31 2026",
+  "unsubsidizedSecYield": 5.3
+ },
+ "returns": {
+  "derivedFrom": "official Capital Group NAV total returns (fund-detail JSON); qtd derived from the daily NAV history with published distributions reinvested",
+  "monthEnd": {
+   "asOfDate": "Aug 31 2026",
+   "mo1": 0.49,
+   "mo1Text": "0.49%",
+   "qtd": -2.79,
+   "qtdText": "-2.79%",
+   "ytd": -0.01,
+   "ytdText": "-0.01%",
+   "yr1": 2.06,
+   "yr1Text": "2.06%",
+   "yr3": 5.08,
+   "yr3Text": "5.08%",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 1.57,
+   "sinceInceptionText": "1.57%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
+  }
+ },
+ "distributions": {
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
+  "frequencyCode": "M",
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "03/31/2022",
+    "0.0403"
+   ],
+   [
+    "04/29/2022",
+    "0.0632"
+   ],
+   [
+    "05/31/2022",
+    "0.0654"
+   ],
+   [
+    "06/30/2022",
+    "0.0561"
+   ],
+   [
+    "07/29/2022",
+    "0.0644"
+   ],
+   [
+    "08/31/2022",
+    "0.1104"
+   ],
+   [
+    "09/30/2022",
+    "0.0354"
+   ],
+   [
+    "10/31/2022",
+    "0.0546"
+   ],
+   [
+    "11/30/2022",
+    "0.0856"
+   ],
+   [
+    "12/29/2022",
+    "0.0852"
+   ],
+   [
+    "01/31/2023",
+    "0.0703"
+   ],
+   [
+    "02/28/2023",
+    "0.0578"
+   ],
+   [
+    "03/31/2023",
+    "0.1"
+   ],
+   [
+    "04/28/2023",
+    "0.0838"
+   ],
+   [
+    "05/31/2023",
+    "0.1007"
+   ],
+   [
+    "06/30/2023",
+    "0.0928"
+   ],
+   [
+    "07/31/2023",
+    "0.0908"
+   ],
+   [
+    "08/31/2023",
+    "0.1057"
+   ],
+   [
+    "09/29/2023",
+    "0.0962"
+   ],
+   [
+    "10/31/2023",
+    "0.1092"
+   ],
+   [
+    "11/30/2023",
+    "0.0942"
+   ],
+   [
+    "12/28/2023",
+    "0.1291"
+   ],
+   [
+    "01/31/2024",
+    "0.0731"
+   ],
+   [
+    "02/29/2024",
+    "0.087"
+   ],
+   [
+    "03/27/2024",
+    "0.0932"
+   ],
+   [
+    "04/30/2024",
+    "0.111"
+   ],
+   [
+    "05/31/2024",
+    "0.1035"
+   ],
+   [
+    "06/27/2024",
+    "0.0851"
+   ],
+   [
+    "07/31/2024",
+    "0.1134"
+   ],
+   [
+    "08/30/2024",
+    "0.0912"
+   ],
+   [
+    "09/27/2024",
+    "0.0828"
+   ],
+   [
+    "10/31/2024",
+    "0.1034"
+   ],
+   [
+    "11/29/2024",
+    "0.0859"
+   ],
+   [
+    "12/24/2024",
+    "0.1184"
+   ],
+   [
+    "01/31/2025",
+    "0.0801"
+   ],
+   [
+    "02/28/2025",
+    "0.0843"
+   ],
+   [
+    "03/28/2025",
+    "0.0921"
+   ],
+   [
+    "04/30/2025",
+    "0.106"
+   ],
+   [
+    "05/30/2025",
+    "0.0889"
+   ],
+   [
+    "06/27/2025",
+    "0.0856"
+   ],
+   [
+    "07/31/2025",
+    "0.1227"
+   ],
+   [
+    "08/29/2025",
+    "0.0914"
+   ],
+   [
+    "09/29/2025",
+    "0.0901"
+   ],
+   [
+    "10/31/2025",
+    "0.1107"
+   ],
+   [
+    "11/28/2025",
+    "0.0855"
+   ],
+   [
+    "12/24/2025",
+    "0.1183"
+   ],
+   [
+    "01/30/2026",
+    "0.0767"
+   ],
+   [
+    "02/27/2026",
+    "0.0845"
+   ],
+   [
+    "03/30/2026",
+    "0.0933"
+   ],
+   [
+    "04/30/2026",
+    "0.1002"
+   ],
+   [
+    "05/29/2026",
+    "0.0896"
+   ],
+   [
+    "06/29/2026",
+    "0.0819"
+   ],
+   [
+    "07/31/2026",
+    "0.1074"
+   ],
+   [
+    "08/31/2026",
+    "0.0868"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json",
+   "holdings/002.json",
+   "holdings/003.json",
+   "holdings/004.json",
+   "holdings/005.json",
+   "holdings/006.json",
+   "holdings/007.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 1510,
+  "asOfDate": "2026-09-24",
+  "asOf": "Sep 24 2026",
+  "source": "Capital Group daily holdings XLSX"
+ },
+ "history": {
+  "pages": [
+   "history/001.json",
+   "history/002.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 1153,
+  "asOf": "Sep 25 2026",
+  "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
+ }
+}

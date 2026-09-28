@@ -1,0 +1,144 @@
+{
+  "live-before": {
+    "durationSeconds": 43.2682,
+    "exitCode": 0,
+    "firstCompletionSeconds": 37.091,
+    "requests": 15,
+    "peakActiveFetches": 1,
+    "httpStatuses": {
+      "302": 1,
+      "200": 14
+    },
+    "unchangedJsonFiles": 28,
+    "totalJsonFiles": 28,
+    "firstFundStartSpreadMs": 6003.266,
+    "perFund": {
+      "CGUS": {
+        "requests": 4,
+        "startTimesMs": [
+          9037.013,
+          18041.638,
+          27044.371,
+          36048.543
+        ],
+        "minimumStartGapMs": 9002.733
+      },
+      "CGCP": {
+        "requests": 4,
+        "startTimesMs": [
+          12039.199,
+          21042.544,
+          30044.753,
+          39052.93
+        ],
+        "minimumStartGapMs": 9002.208
+      },
+      "CGMU": {
+        "requests": 4,
+        "startTimesMs": [
+          15040.279,
+          24043.222,
+          33046.576,
+          42054.522
+        ],
+        "minimumStartGapMs": 9002.943
+      }
+    }
+  },
+  "live-after-1": {
+    "durationSeconds": 16.6235,
+    "exitCode": 0,
+    "firstCompletionSeconds": 16.3418,
+    "requests": 15,
+    "peakActiveFetches": 3,
+    "httpStatuses": {
+      "302": 1,
+      "200": 14
+    },
+    "unchangedJsonFiles": 28,
+    "totalJsonFiles": 28,
+    "firstFundStartSpreadMs": 16.567,
+    "perFund": {
+      "CGUS": {
+        "requests": 4,
+        "startTimesMs": [
+          6304.985,
+          9305.844,
+          12306.947,
+          15306.798
+        ],
+        "minimumStartGapMs": 2999.851
+      },
+      "CGCP": {
+        "requests": 4,
+        "startTimesMs": [
+          6320.029,
+          9320.113,
+          12321.443,
+          15322.478
+        ],
+        "minimumStartGapMs": 3000.084
+      },
+      "CGMU": {
+        "requests": 4,
+        "startTimesMs": [
+          6321.552,
+          9322.007,
+          12323.282,
+          15324.135
+        ],
+        "minimumStartGapMs": 3000.455
+      }
+    }
+  },
+  "live-after-2": {
+    "durationSeconds": 16.9322,
+    "exitCode": 0,
+    "firstCompletionSeconds": 16.5,
+    "requests": 15,
+    "peakActiveFetches": 3,
+    "httpStatuses": {
+      "302": 1,
+      "200": 14
+    },
+    "unchangedJsonFiles": 28,
+    "totalJsonFiles": 28,
+    "firstFundStartSpreadMs": 16.516,
+    "perFund": {
+      "CGUS": {
+        "requests": 4,
+        "startTimesMs": [
+          6153.136,
+          9153.375,
+          12153.812,
+          15153.957
+        ],
+        "minimumStartGapMs": 3000.145
+      },
+      "CGCP": {
+        "requests": 4,
+        "startTimesMs": [
+          6167.899,
+          9168.355,
+          12169.222,
+          15170.18
+        ],
+        "minimumStartGapMs": 3000.455
+      },
+      "CGMU": {
+        "requests": 4,
+        "startTimesMs": [
+          6169.652,
+          9170.715,
+          12170.851,
+          15171.348
+        ],
+        "minimumStartGapMs": 3000.136
+      }
+    }
+  },
+  "measuredSpeedup": {
+    "live-after-1": 2.6,
+    "live-after-2": 2.56
+  }
+}

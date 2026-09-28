@@ -1,0 +1,23 @@
+bun test v1.4.2 (744846f84)
+
+scripts/concurrency.test.ts:
+68 |           }
+69 |         }
+70 |       })));
+71 |       durations.push(performance.now() - before);
+72 |       expect(starts.size).toBe(concurrency);
+73 |       expect(peak).toBe(concurrency);
+                        ^
+error: expect(received).toBe(expected)
+
+Expected: 3
+Received: 1
+
+      at <anonymous> (/home/user/capital-group-concurrency-mutation/scripts/concurrency.test.ts:73:20)
+(fail) real HTTP: 1, 3 and 15 worker lanes overlap requests, retain spacing across funds, and improve throughput [5409.78ms]
+
+ 0 pass
+ 4 filtered out
+ 1 fail
+ 139 expect() calls
+Ran 1 test across 1 file. [5.45s]

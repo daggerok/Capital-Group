@@ -1,0 +1,764 @@
+{
+  "details": {
+    "abbreviatedName": "CGUS",
+    "name": "Capital Group Core Equity ETF",
+    "inceptionDate": "2/22/22",
+    "objectiveType": "Growth and income",
+    "summaryHeadline": "Combining growth and income to potentially provide a smoother ride.",
+    "summaryDescription": "A portfolio that can serve as a complement to the S&P 500. It utilizes The Capital System, which is designed to help our portfolios participate in strong market environments and dampen volatility in challenging ones.",
+    "benchmarkName": "S&P 500 Index",
+    "benchmarkDigId": "91",
+    "assetClass": "Equity",
+    "subAssetClass": "U.S.",
+    "cusip": "14020V108",
+    "descriptions": [
+      {
+        "name": "Objective",
+        "description": "The fund's objective is to achieve long-term growth of capital and income."
+      },
+      {
+        "name": "Types of investments",
+        "description": "Common stocks and cash and equivalents."
+      },
+      {
+        "name": "Distinguishing characteristics",
+        "description": "Invests in stocks of companies of any size that are believed to have the potential for capital appreciation and/or dividend payments."
+      },
+      {
+        "name": "Holdings outside the U.S.",
+        "description": "Up to 15% of assets may be invested in securities of issuers outside the U.S."
+      }
+    ],
+    "cikNumber": "1870102",
+    "expenseRatio": {
+      "asOfDate": null,
+      "frequency": null,
+      "grossExpenseRatio": "0.33",
+      "netExpenseRatio": "0.33",
+      "annualManagementFee": "0.33",
+      "otherExpense": "0.00",
+      "service12b1Fee": null,
+      "acquiredUnderlyingFundFee": null,
+      "mstarDistributionGroupName": null,
+      "mstarDistributionGroupMedian": null
+    },
+    "assetMix": {
+      "asOfDate": "8/31/26",
+      "frequency": "monthly",
+      "usEquity": {
+        "name": "U.S. Equities",
+        "value": "91.1"
+      },
+      "nonUsEquity": {
+        "name": "Non-U.S. Equities",
+        "value": "8.3"
+      },
+      "usFixedIncome": null,
+      "nonUsFixedIncome": null,
+      "cashEquivalent": {
+        "name": "Cash & Equivalents",
+        "value": "0.6"
+      },
+      "otherConvertible": null
+    },
+    "yield": {
+      "asOfDate": "8/31/26",
+      "frequency": "monthly",
+      "grossSecYield": "0.77",
+      "netSecYield": "0.77",
+      "navDistributionRate": "0.82"
+    },
+    "marketCap": {
+      "asOfDate": "8/31/26",
+      "period": "monthly",
+      "benchmarkName": "S&P 500 Index",
+      "benchmarkDigId": "91",
+      "marketCapInMillions": "1384372",
+      "indexMarketCapInMillions": "1462952.00",
+      "marketCaps": [
+        {
+          "name": "Highest quintile",
+          "value": "15.3",
+          "from": "3179036.0",
+          "to": "5130702.0",
+          "indexValue": "9.8"
+        },
+        {
+          "name": "Second quintile",
+          "value": "25.6",
+          "from": "887951.7",
+          "to": "2603880.0",
+          "indexValue": "32.3"
+        },
+        {
+          "name": "Middle quintile",
+          "value": "15.9",
+          "from": "277747.9",
+          "to": "840232.2",
+          "indexValue": "8.4"
+        },
+        {
+          "name": "Fourth quintile",
+          "value": "27.0",
+          "from": "87382.1",
+          "to": "276116.6",
+          "indexValue": "14.9"
+        },
+        {
+          "name": "Lowest quintile",
+          "value": "14.5",
+          "from": "3413.8",
+          "to": "87211.0",
+          "indexValue": "29.1"
+        },
+        {
+          "name": "Cash",
+          "value": "1.6",
+          "indexValue": "2.9"
+        },
+        {
+          "name": "Other",
+          "value": "0.1",
+          "indexValue": "2.6"
+        }
+      ]
+    },
+    "newGeo": {
+      "breakDownByDomicile": {
+        "asOfDate": "8/31/26",
+        "period": "monthly",
+        "benchmarkName": "S&P 500 Index",
+        "benchmarkDigId": "91",
+        "regions": [
+          {
+            "name": "United States",
+            "code": "US",
+            "fund": "91.6",
+            "indexValue": "100.0"
+          },
+          {
+            "name": "Canada",
+            "code": "CAN",
+            "fund": "3.0",
+            "indexValue": null
+          },
+          {
+            "name": "Europe & Middle East",
+            "code": "EME",
+            "fund": "2.9",
+            "indexValue": null
+          },
+          {
+            "name": "Emerging markets ex. China",
+            "code": "EMEC",
+            "fund": "2.5",
+            "indexValue": null
+          }
+        ]
+      },
+      "breakDownByRevenue": {
+        "asOfDate": "8/31/26",
+        "period": "monthly",
+        "benchmarkName": "S&P 500 Index",
+        "benchmarkDigId": "91",
+        "regions": [
+          {
+            "name": "United States",
+            "code": "US",
+            "fund": "53.5",
+            "indexValue": "58.7"
+          },
+          {
+            "name": "Canada",
+            "code": "CA",
+            "fund": "2.9",
+            "indexValue": "1.5"
+          },
+          {
+            "name": "Europe & Middle East",
+            "code": "EU",
+            "fund": "13.0",
+            "indexValue": "11.6"
+          },
+          {
+            "name": "Japan",
+            "code": "JP",
+            "fund": "2.3",
+            "indexValue": "2.2"
+          },
+          {
+            "name": "Asia-Pacific ex. Japan",
+            "code": "APEXJP",
+            "fund": "2.6",
+            "indexValue": "2.1"
+          },
+          {
+            "name": "China",
+            "code": "CH",
+            "fund": "8.7",
+            "indexValue": "8.5"
+          },
+          {
+            "name": "Emerging markets ex. China",
+            "code": "EM",
+            "fund": "12.4",
+            "indexValue": "11.1"
+          },
+          {
+            "name": "Other",
+            "code": "OT",
+            "fund": "4.6",
+            "indexValue": "4.4"
+          }
+        ]
+      },
+      "fundBreakdownByDomicile": {
+        "asOfDate": "8/31/26",
+        "period": "monthly",
+        "benchmarkName": "S&P 500 Index",
+        "benchmarkDigId": "91",
+        "regions": [
+          {
+            "name": "United States",
+            "code": "US",
+            "fund": "91.0",
+            "indexValue": "100.0"
+          },
+          {
+            "name": "Canada",
+            "code": "CAN",
+            "fund": "3.0",
+            "indexValue": null
+          },
+          {
+            "name": "Europe & Middle East",
+            "code": "EME",
+            "fund": "2.9",
+            "indexValue": null
+          },
+          {
+            "name": "Emerging markets ex. China",
+            "code": "EMEC",
+            "fund": "2.5",
+            "indexValue": null
+          },
+          {
+            "name": "Cash & equivalents",
+            "code": "CE",
+            "fund": "0.6",
+            "indexValue": null
+          }
+        ]
+      }
+    },
+    "valuations": {
+      "period": "monthly",
+      "benchmarkName": "S&P 500 Index",
+      "benchmarkDigId": "91",
+      "fund": {
+        "asOfDate": "6/30/26",
+        "book": "5.2",
+        "cashFlow": "15.7",
+        "earnings": "23.2"
+      },
+      "benchmark": {
+        "asOfDate": "6/30/26",
+        "book": "4.7",
+        "cashFlow": "15.3",
+        "earnings": "21.1"
+      }
+    },
+    "geographicBreakdown": null,
+    "topEquities": {
+      "asOfDate": "8/31/26",
+      "period": "monthly",
+      "benchmarkName": "S&P 500 Index",
+      "benchmarkDigId": "91",
+      "values": [
+        {
+          "name": "NVIDIA",
+          "portfolio": "7.4",
+          "index": "8.1"
+        },
+        {
+          "name": "Microsoft",
+          "portfolio": "7.0",
+          "index": "5.7"
+        },
+        {
+          "name": "Broadcom",
+          "portfolio": "5.5",
+          "index": "2.7"
+        },
+        {
+          "name": "Alphabet",
+          "portfolio": "4.9",
+          "index": "5.4"
+        },
+        {
+          "name": "Amazon.com",
+          "portfolio": "4.9",
+          "index": "3.8"
+        },
+        {
+          "name": "Eli Lilly",
+          "portfolio": "3.7",
+          "index": "1.4"
+        },
+        {
+          "name": "Meta Platforms",
+          "portfolio": "3.5",
+          "index": "1.9"
+        },
+        {
+          "name": "Taiwan Semiconductor Manufacturing",
+          "portfolio": "2.5",
+          "index": null
+        },
+        {
+          "name": "Apple",
+          "portfolio": "2.4",
+          "index": "7.0"
+        },
+        {
+          "name": "Applied Materials",
+          "portfolio": "2.1",
+          "index": "0.6"
+        }
+      ]
+    },
+    "topIssuers": null,
+    "volatilityReturns": {
+      "asOfDate": "8/31/26",
+      "period": "monthly",
+      "benchmarkName": "S&P 500 Index",
+      "benchmarkDigId": "91",
+      "returnByYears": [
+        {
+          "year": "3Y",
+          "fundAnnReturns": "21.02",
+          "fundStandardDeviation": "12.59",
+          "benchmarkAnnReturns": "21.04",
+          "benchmarkStd": "0.13",
+          "mstarCatAnnReturns": null,
+          "mstarCatSdf": "13.26"
+        }
+      ]
+    },
+    "topStates": null,
+    "equitySectorBreakdown": {
+      "asOfDate": "8/31/26",
+      "benchmarkName": "S&P 500 Index",
+      "benchmarkDigId": "91",
+      "period": "monthly",
+      "equityBreakdown": [
+        {
+          "name": "Energy",
+          "value": "3.1",
+          "index": "3.5",
+          "companies": [
+            {
+              "name": "Canadian Natural Resources",
+              "value": "1.4"
+            },
+            {
+              "name": "Baker Hughes",
+              "value": "1.1"
+            },
+            {
+              "name": "TC Energy",
+              "value": "0.6"
+            }
+          ]
+        },
+        {
+          "name": "Materials",
+          "value": "3.0",
+          "index": "1.8",
+          "companies": [
+            {
+              "name": "Linde PLC",
+              "value": "1.5"
+            },
+            {
+              "name": "Air Products and Chemicals",
+              "value": "0.9"
+            },
+            {
+              "name": "International Paper",
+              "value": "0.6"
+            }
+          ]
+        },
+        {
+          "name": "Industrials",
+          "value": "11.1",
+          "index": "8.3",
+          "companies": [
+            {
+              "name": "Rtx Corp",
+              "value": "2.1"
+            },
+            {
+              "name": "Uber",
+              "value": "1.5"
+            },
+            {
+              "name": "Automatic Data Processing",
+              "value": "1.4"
+            }
+          ]
+        },
+        {
+          "name": "Consumer discretionary",
+          "value": "9.4",
+          "index": "9.1",
+          "companies": [
+            {
+              "name": "Amazon.com",
+              "value": "4.9"
+            },
+            {
+              "name": "Starbucks",
+              "value": "1.8"
+            },
+            {
+              "name": "Royal Caribbean Cruises",
+              "value": "1.3"
+            }
+          ]
+        },
+        {
+          "name": "Consumer staples",
+          "value": "3.2",
+          "index": "4.5",
+          "companies": [
+            {
+              "name": "British American Tobacco",
+              "value": "1.7"
+            },
+            {
+              "name": "Philip Morris International",
+              "value": "0.9"
+            },
+            {
+              "name": "Mondelez International",
+              "value": "0.6"
+            }
+          ]
+        },
+        {
+          "name": "Health care",
+          "value": "8.7",
+          "index": "9.3",
+          "companies": [
+            {
+              "name": "Eli Lilly",
+              "value": "3.7"
+            },
+            {
+              "name": "Vertex Pharmaceuticals",
+              "value": "1.9"
+            },
+            {
+              "name": "CVS Health",
+              "value": "0.9"
+            }
+          ]
+        },
+        {
+          "name": "Financials",
+          "value": "9.5",
+          "index": "12.3",
+          "companies": [
+            {
+              "name": "JPMorgan Chase",
+              "value": "1.9"
+            },
+            {
+              "name": "Mastercard Inc",
+              "value": "1.8"
+            },
+            {
+              "name": "BlackRock",
+              "value": "1.7"
+            }
+          ]
+        },
+        {
+          "name": "Information technology",
+          "value": "38.6",
+          "index": "37.9",
+          "companies": [
+            {
+              "name": "NVIDIA",
+              "value": "7.4"
+            },
+            {
+              "name": "Microsoft",
+              "value": "7.0"
+            },
+            {
+              "name": "Broadcom",
+              "value": "5.5"
+            }
+          ]
+        },
+        {
+          "name": "Communication services",
+          "value": "9.9",
+          "index": "9.5",
+          "companies": [
+            {
+              "name": "Alphabet",
+              "value": "4.9"
+            },
+            {
+              "name": "Meta Platforms",
+              "value": "3.5"
+            },
+            {
+              "name": "Netflix",
+              "value": "1.4"
+            }
+          ]
+        },
+        {
+          "name": "Utilities",
+          "value": "2.3",
+          "index": "2.0",
+          "companies": [
+            {
+              "name": "CenterPoint Energy",
+              "value": "0.9"
+            },
+            {
+              "name": "Dominion Energy",
+              "value": "0.8"
+            },
+            {
+              "name": "Xcel Energy",
+              "value": "0.6"
+            }
+          ]
+        },
+        {
+          "name": "Real estate",
+          "value": "0.7",
+          "index": "1.8",
+          "companies": [
+            {
+              "name": "Welltower",
+              "value": "0.7"
+            }
+          ]
+        }
+      ]
+    },
+    "fixedIncomeSectorBreakdown": null,
+    "fundFacts": {
+      "inceptionDate": "2/22/22",
+      "primaryExchange": "NYSE Arca, Inc.",
+      "fiscalMonthName": "May",
+      "companiesIssuers": "66",
+      "regularDividendsPaid": "Mar., Jun., Sep., Dec.",
+      "capitalGainsPaid": null,
+      "portfolioTurnover": "16",
+      "companiesIssuersDate": "8/31/26",
+      "companiesIssuersPeriod": "monthly",
+      "fiscalYearEnd": "May",
+      "portfolioTurnoverDate": "5/31/26",
+      "portfolioTurnoverYear": "5/31/26",
+      "prospectusDate": "8/1/26"
+    },
+    "monthlyReturns": {
+      "asOfDate": "8/31/26",
+      "benchmarkDigId": "91",
+      "benchmarkName": "S&P 500 Index",
+      "navMonth1": "0.83",
+      "marketPriceMonth1": "0.83",
+      "indexMonth1": "2.72",
+      "navMonth3": "2.07",
+      "marketPriceMonth3": "2.14",
+      "indexMonth3": "1.68",
+      "navYtdMonthly": "12.54",
+      "marketPriceYtdMonthly": "12.48",
+      "indexYtdMonthly": "13.14",
+      "navYear1": "17.81",
+      "marketPriceYear1": "17.77",
+      "indexYear1": "20.38",
+      "navYear3": "21.02",
+      "marketPriceYear3": "21.01",
+      "indexYear3": "21.04",
+      "navYear5": null,
+      "marketPriceYear5": null,
+      "indexYear5": null,
+      "navYear10": null,
+      "marketPriceYear10": null,
+      "indexYear10": null,
+      "navYear15": null,
+      "marketPriceYear15": null,
+      "indexYear15": null,
+      "navYear20": null,
+      "marketPriceYear20": null,
+      "indexYear20": null,
+      "navLifetime": "15.54",
+      "marketPriceLifetime": "15.55",
+      "indexLifetime": "15.32",
+      "mopYear20": null
+    },
+    "quarterlyReturns": {
+      "asOfDate": "8/31/26",
+      "benchmarkDigId": "91",
+      "benchmarkName": "S&P 500 Index",
+      "navMonth1": "0.83",
+      "marketPriceMonth1": "0.83",
+      "indexMonth1": "2.72",
+      "navMonth3": "2.07",
+      "marketPriceMonth3": "2.14",
+      "indexMonth3": "1.68",
+      "navYtdMonthly": "12.54",
+      "marketPriceYtdMonthly": "12.48",
+      "indexYtdMonthly": "13.14",
+      "navYear1": "17.81",
+      "marketPriceYear1": "17.77",
+      "indexYear1": "20.38",
+      "navYear3": "21.02",
+      "marketPriceYear3": "21.01",
+      "indexYear3": "21.04",
+      "navYear5": null,
+      "marketPriceYear5": null,
+      "indexYear5": null,
+      "navYear10": null,
+      "marketPriceYear10": null,
+      "indexYear10": null,
+      "navYear15": null,
+      "marketPriceYear15": null,
+      "indexYear15": null,
+      "navYear20": null,
+      "marketPriceYear20": null,
+      "indexYear20": null,
+      "navLifetime": "15.54",
+      "marketPriceLifetime": "15.55",
+      "indexLifetime": "15.32"
+    },
+    "calenderYearReturns": {
+      "benchmarkDigId": "91",
+      "benchmarkName": "S&P 500 Index",
+      "returns": [
+        {
+          "year": "2025",
+          "index": "17.88",
+          "marketPrice": "16.21",
+          "nav": "16.26"
+        },
+        {
+          "year": "2024",
+          "index": "25.02",
+          "marketPrice": "24.89",
+          "nav": "24.84"
+        },
+        {
+          "year": "2023",
+          "index": "26.29",
+          "marketPrice": "27.71",
+          "nav": "27.64"
+        }
+      ]
+    },
+    "riskMeasures": {
+      "asOfDate": "8/31/26",
+      "frequency": "monthly",
+      "benchmarkName": "S&P 500 Index",
+      "benchmarkDigId": "91",
+      "benchmarkIndexCode": "S&P 500",
+      "byYears": [
+        {
+          "year": "3YR",
+          "standardDeviation": {
+            "productValue": "12.59",
+            "benchmarkIndexValue": null
+          },
+          "sharpeRatio": {
+            "productValue": "1.30",
+            "benchmarkIndexValue": null
+          },
+          "rsquared": "94.45",
+          "alpha": "0.87",
+          "beta": "0.95",
+          "informationRatio": "-0.01",
+          "downsideCaptureRatio": "88",
+          "upsideCaptureRatio": "96",
+          "trackingError": "3.05",
+          "snpCorrelation": "0.97",
+          "acwiCorrelation": "0.94"
+        },
+        {
+          "year": "LIFETIME",
+          "standardDeviation": {
+            "productValue": "14.76",
+            "benchmarkIndexValue": null
+          },
+          "sharpeRatio": {
+            "productValue": "0.75",
+            "benchmarkIndexValue": null
+          },
+          "rsquared": "96.01",
+          "alpha": "1.00",
+          "beta": "0.93",
+          "informationRatio": "0.07",
+          "downsideCaptureRatio": "90",
+          "upsideCaptureRatio": "95",
+          "trackingError": "3.16",
+          "snpCorrelation": "0.98",
+          "acwiCorrelation": "0.96"
+        }
+      ]
+    },
+    "ratingExposure": null,
+    "morningstarStarRating": {
+      "asOfDate": "8/31/26",
+      "period": "monthly",
+      "overall": "4",
+      "overallFundsRated": "1211",
+      "overallRisk": "Below Average",
+      "year3": "4",
+      "year3FundsRated": "1211",
+      "year5": null,
+      "year5FundsRated": "1127",
+      "year10": null,
+      "year10FundsRated": "894"
+    },
+    "morningstarCategoryName": "Large Blend"
+  },
+  "dailyDetails": {
+    "name": "Capital Group Core Equity ETF",
+    "abbreviatedName": "CGUS",
+    "fundFacts": {
+      "assetsInMillionDate": "9/24/26",
+      "assetsInMillionsPeriod": "daily",
+      "assetsInMillions": "11925.5"
+    },
+    "keyStatistics": null,
+    "dailyReturns": {
+      "asOfDate": "9/25/26",
+      "navYtdDaily": "12.16",
+      "marketYtdDaily": "12.10"
+    },
+    "priceDistribution": {
+      "navPrice": "44.89",
+      "marketPrice": "44.91",
+      "navChangeAmount": "0.22",
+      "navChangePercentage": "0.49",
+      "marketChangeAmount": "0.22",
+      "marketChangePercentage": "0.49",
+      "premiumDiscount": "0.06",
+      "distributionAsOfDate": null,
+      "ytdCapitalGainsSubtotal": "0.00",
+      "ytdDividendSubtotal": "0.17",
+      "ytdTotalDistributions": "0.17",
+      "bidAsk": "0.02",
+      "asOfDate": "9/25/26"
+    }
+  }
+}

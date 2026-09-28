@@ -1,0 +1,168 @@
+{
+ "ticker": "CGDG",
+ "name": "Capital Group Dividend Growers ETF",
+ "category": "Equity",
+ "categoryPath": "Equity / MSCI All Country World Index (ACWI)",
+ "source": {
+  "fundPage": "https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgdg",
+  "productData": "https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgdg",
+  "historicalData": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGDG/premium-discount-details",
+  "holdingsDownload": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGDG/download/daily-holdings?audience=advisor",
+  "pricesDownload": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGDG/premium-discount-details",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/CGDG",
+  "holdingsSource": "Capital Group daily holdings XLSX",
+  "historySource": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)",
+  "provider": "Capital Group public fund facts and daily downloads + SEC EDGAR Form N-PORT-P (fallback) + Yahoo Finance public chart API (fallback)"
+ },
+ "identifiers": {
+  "cusip": "14021L109",
+  "isin": null,
+  "indexTicker": "MSCI All Country World Index (ACWI)"
+ },
+ "inception": {
+  "fundInceptionDate": "2023-09-26",
+  "shareClassInceptionDate": null,
+  "exchange": "NYSE Arca, Inc."
+ },
+ "expenseRatio": {
+  "display": "0.47%",
+  "value": 0.47,
+  "gross": 0.47,
+  "net": 0.47
+ },
+ "nav": {
+  "display": "$37.59",
+  "value": 37.59,
+  "asOfDate": "Sep 25 2026"
+ },
+ "marketPrice": {
+  "display": "$37.68",
+  "value": 37.68,
+  "asOfDate": "Sep 25 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.24%",
+  "value": 0.24
+ },
+ "aum": {
+  "display": "$5,632.10 M",
+  "value": 5632100000,
+  "asOfDate": "Sep 24 2026",
+  "source": "capitalgroup.com daily fund facts net assets"
+ },
+ "yields": {
+  "dividendYield": 4.1,
+  "dividendYieldText": "4.10%",
+  "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
+  "distributionRate": 2.22,
+  "secYield": 1.96,
+  "secYieldText": "1.96%",
+  "secYieldKind": "official 30-day SEC yield, as of Aug 31 2026",
+  "unsubsidizedSecYield": 1.96
+ },
+ "returns": {
+  "derivedFrom": "official Capital Group NAV total returns (fund-detail JSON); qtd derived from the daily NAV history with published distributions reinvested",
+  "monthEnd": {
+   "asOfDate": "Aug 31 2026",
+   "mo1": 0.65,
+   "mo1Text": "0.65%",
+   "qtd": 0.86,
+   "qtdText": "0.86%",
+   "ytd": 9.82,
+   "ytdText": "9.82%",
+   "yr1": 15.9,
+   "yr1Text": "15.90%",
+   "yr3": 17.14,
+   "yr3Text": "17.14%",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 18.75,
+   "sinceInceptionText": "18.75%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "frequencyCode": "Q",
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "12/27/2023",
+    "0.1065"
+   ],
+   [
+    "03/28/2024",
+    "0.1112"
+   ],
+   [
+    "06/28/2024",
+    "0.2312"
+   ],
+   [
+    "09/30/2024",
+    "0.1257"
+   ],
+   [
+    "12/26/2024",
+    "0.1677"
+   ],
+   [
+    "03/31/2025",
+    "0.1333"
+   ],
+   [
+    "06/30/2025",
+    "0.2291"
+   ],
+   [
+    "09/30/2025",
+    "0.149"
+   ],
+   [
+    "12/26/2025",
+    "0.1841"
+   ],
+   [
+    "03/31/2026",
+    "0.1383"
+   ],
+   [
+    "06/30/2026",
+    "0.3865"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 108,
+  "asOfDate": "2026-09-24",
+  "asOf": "Sep 24 2026",
+  "source": "Capital Group daily holdings XLSX"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 753,
+  "asOf": "Sep 25 2026",
+  "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
+ }
+}

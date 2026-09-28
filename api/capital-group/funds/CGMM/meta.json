@@ -1,0 +1,136 @@
+{
+ "ticker": "CGMM",
+ "name": "Capital Group U.S. Small and Mid Cap ETF",
+ "category": "Equity",
+ "categoryPath": "Equity / Russell 2500 Index",
+ "source": {
+  "fundPage": "https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgmm",
+  "productData": "https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgmm",
+  "historicalData": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGMM/premium-discount-details",
+  "holdingsDownload": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGMM/download/daily-holdings?audience=advisor",
+  "pricesDownload": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGMM/premium-discount-details",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/CGMM",
+  "holdingsSource": "Capital Group daily holdings XLSX",
+  "historySource": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)",
+  "provider": "Capital Group public fund facts and daily downloads + SEC EDGAR Form N-PORT-P (fallback) + Yahoo Finance public chart API (fallback)"
+ },
+ "identifiers": {
+  "cusip": "14022A102",
+  "isin": null,
+  "indexTicker": "Russell 2500 Index"
+ },
+ "inception": {
+  "fundInceptionDate": "2025-01-14",
+  "shareClassInceptionDate": null,
+  "exchange": "NYSE Arca, Inc."
+ },
+ "expenseRatio": {
+  "display": "0.51%",
+  "value": 0.51,
+  "gross": 0.51,
+  "net": 0.51
+ },
+ "nav": {
+  "display": "$31.58",
+  "value": 31.58,
+  "asOfDate": "Sep 25 2026"
+ },
+ "marketPrice": {
+  "display": "$31.60",
+  "value": 31.6,
+  "asOfDate": "Sep 25 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.06%",
+  "value": 0.06
+ },
+ "aum": {
+  "display": "$3,473.70 M",
+  "value": 3473700000,
+  "asOfDate": "Sep 24 2026",
+  "source": "capitalgroup.com daily fund facts net assets"
+ },
+ "yields": {
+  "dividendYield": 0.25,
+  "dividendYieldText": "0.25%",
+  "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
+  "distributionRate": 0.38,
+  "secYield": 0.63,
+  "secYieldText": "0.63%",
+  "secYieldKind": "official 30-day SEC yield, as of Aug 31 2026",
+  "unsubsidizedSecYield": 0.63
+ },
+ "returns": {
+  "derivedFrom": "official Capital Group NAV total returns (fund-detail JSON); qtd derived from the daily NAV history with published distributions reinvested",
+  "monthEnd": {
+   "asOfDate": "Aug 31 2026",
+   "mo1": 2.16,
+   "mo1Text": "2.16%",
+   "qtd": -4.01,
+   "qtdText": "-4.01%",
+   "ytd": 13.29,
+   "ytdText": "13.29%",
+   "yr1": 15.86,
+   "yr1Text": "15.86%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 16.75,
+   "sinceInceptionText": "16.75%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
+  }
+ },
+ "distributions": {
+  "frequency": "Semi-annually",
+  "paymentsPerYear": 2,
+  "frequencyCode": "S",
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/30/2025",
+    "0.0333"
+   ],
+   [
+    "12/26/2025",
+    "0.0825"
+   ],
+   [
+    "06/30/2026",
+    "0.0401"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 119,
+  "asOfDate": "2026-09-24",
+  "asOf": "Sep 24 2026",
+  "source": "Capital Group daily holdings XLSX"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 427,
+  "asOf": "Sep 25 2026",
+  "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
+ }
+}

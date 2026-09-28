@@ -1,0 +1,107 @@
+{
+ "ticker": "CGNG",
+ "page": 2,
+ "pageSize": 250,
+ "totalRows": 260,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "Asset Category"
+ ],
+ "rows": [
+  {
+   "Name": "SOUTH AFRICAN RAND",
+   "Ticker": "",
+   "Identifier": "999ZARZ99",
+   "Weight": "0",
+   "Market Value": "0",
+   "Shares Held": "0.01",
+   "Asset Category": "Cash & Equivalent"
+  },
+  {
+   "Name": "BRL Spot FX",
+   "Ticker": "",
+   "Identifier": "BRL999999",
+   "Weight": "0",
+   "Market Value": "-995.76",
+   "Shares Held": "12426496",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "GBP Spot FX",
+   "Ticker": "",
+   "Identifier": "GBP999999",
+   "Weight": "0",
+   "Market Value": "71.53",
+   "Shares Held": "-105203.93",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "HKD Spot FX",
+   "Ticker": "",
+   "Identifier": "HKD999999",
+   "Weight": "0",
+   "Market Value": "-11.34",
+   "Shares Held": "-1680078.84",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "JPY Spot FX",
+   "Ticker": "",
+   "Identifier": "JPY999999",
+   "Weight": "0",
+   "Market Value": "9776.13",
+   "Shares Held": "-1168304148",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "KRW Spot FX",
+   "Ticker": "",
+   "Identifier": "KRW999999",
+   "Weight": "0",
+   "Market Value": "-2810.2",
+   "Shares Held": "320676256",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "SAR Spot FX",
+   "Ticker": "",
+   "Identifier": "SAR999999",
+   "Weight": "0",
+   "Market Value": "-22.83",
+   "Shares Held": "-298024.26",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "TWD Spot FX",
+   "Ticker": "",
+   "Identifier": "TWD999999",
+   "Weight": "0",
+   "Market Value": "10169.53",
+   "Shares Held": "-288840504",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "ZAR Spot FX",
+   "Ticker": "",
+   "Identifier": "ZAR999999",
+   "Weight": "0",
+   "Market Value": "-602.03",
+   "Shares Held": "1836666.05",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "NET OTHER ASSETS",
+   "Ticker": "",
+   "Identifier": "",
+   "Weight": "-0.86",
+   "Market Value": "-27305473.73",
+   "Shares Held": "0",
+   "Asset Category": "Cash & Equivalent"
+  }
+ ]
+}

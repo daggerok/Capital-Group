@@ -1,0 +1,133 @@
+{
+ "ticker": "CGNG",
+ "name": "Capital Group New Geography Equity ETF",
+ "category": "Equity",
+ "categoryPath": "Equity / MSCI Emerging Markets Index",
+ "source": {
+  "fundPage": "https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgng",
+  "productData": "https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgng",
+  "historicalData": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGNG/premium-discount-details",
+  "holdingsDownload": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGNG/download/daily-holdings?audience=advisor",
+  "pricesDownload": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGNG/premium-discount-details",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/CGNG",
+  "holdingsSource": "Capital Group daily holdings XLSX",
+  "historySource": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)",
+  "provider": "Capital Group public fund facts and daily downloads + SEC EDGAR Form N-PORT-P (fallback) + Yahoo Finance public chart API (fallback)"
+ },
+ "identifiers": {
+  "cusip": "14021N105",
+  "isin": null,
+  "indexTicker": "MSCI Emerging Markets Index"
+ },
+ "inception": {
+  "fundInceptionDate": "2024-06-25",
+  "shareClassInceptionDate": null,
+  "exchange": "NYSE Arca, Inc."
+ },
+ "expenseRatio": {
+  "display": "0.64%",
+  "value": 0.64,
+  "gross": 0.64,
+  "net": 0.64
+ },
+ "nav": {
+  "display": "$37.03",
+  "value": 37.03,
+  "asOfDate": "Sep 25 2026"
+ },
+ "marketPrice": {
+  "display": "$37.06",
+  "value": 37.06,
+  "asOfDate": "Sep 25 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.09%",
+  "value": 0.09
+ },
+ "aum": {
+  "display": "$3,168.10 M",
+  "value": 3168100000,
+  "asOfDate": "Sep 24 2026",
+  "source": "capitalgroup.com daily fund facts net assets"
+ },
+ "yields": {
+  "dividendYield": 0.59,
+  "dividendYieldText": "0.59%",
+  "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
+  "distributionRate": 0.59,
+  "secYield": 0.86,
+  "secYieldText": "0.86%",
+  "secYieldKind": "official 30-day SEC yield, as of Aug 31 2026",
+  "unsubsidizedSecYield": 0.86
+ },
+ "returns": {
+  "derivedFrom": "official Capital Group NAV total returns (fund-detail JSON); qtd derived from the daily NAV history with published distributions reinvested",
+  "monthEnd": {
+   "asOfDate": "Aug 31 2026",
+   "mo1": 2,
+   "mo1Text": "2.00%",
+   "qtd": 0.87,
+   "qtdText": "0.87%",
+   "ytd": 14.74,
+   "ytdText": "14.74%",
+   "yr1": 25.41,
+   "yr1Text": "25.41%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 19.59,
+   "sinceInceptionText": "19.59%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
+  }
+ },
+ "distributions": {
+  "frequency": "Annually",
+  "paymentsPerYear": 1,
+  "frequencyCode": "A",
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "12/26/2024",
+    "0.067"
+   ],
+   [
+    "12/26/2025",
+    "0.217"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json",
+   "holdings/002.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 260,
+  "asOfDate": "2026-09-24",
+  "asOf": "Sep 24 2026",
+  "source": "Capital Group daily holdings XLSX"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 566,
+  "asOf": "Sep 25 2026",
+  "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
+ }
+}

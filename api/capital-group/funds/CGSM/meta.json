@@ -1,0 +1,268 @@
+{
+ "ticker": "CGSM",
+ "name": "Capital Group Short Duration Municipal Income ETF",
+ "category": "Fixed Income",
+ "categoryPath": "Fixed Income / Bloomberg Municipal Short 1-5 Years Index",
+ "source": {
+  "fundPage": "https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgsm",
+  "productData": "https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgsm",
+  "historicalData": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGSM/premium-discount-details",
+  "holdingsDownload": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGSM/download/daily-holdings?audience=advisor",
+  "pricesDownload": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGSM/premium-discount-details",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/CGSM",
+  "holdingsSource": "Capital Group daily holdings XLSX",
+  "historySource": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)",
+  "provider": "Capital Group public fund facts and daily downloads + SEC EDGAR Form N-PORT-P (fallback) + Yahoo Finance public chart API (fallback)"
+ },
+ "identifiers": {
+  "cusip": "14020Y607",
+  "isin": null,
+  "indexTicker": "Bloomberg Municipal Short 1-5 Years Index"
+ },
+ "inception": {
+  "fundInceptionDate": "2023-09-26",
+  "shareClassInceptionDate": null,
+  "exchange": "NYSE Arca, Inc."
+ },
+ "expenseRatio": {
+  "display": "0.25%",
+  "value": 0.25,
+  "gross": 0.25,
+  "net": 0.25
+ },
+ "nav": {
+  "display": "$25.72",
+  "value": 25.72,
+  "asOfDate": "Sep 25 2026"
+ },
+ "marketPrice": {
+  "display": "$25.76",
+  "value": 25.76,
+  "asOfDate": "Sep 25 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.14%",
+  "value": 0.14
+ },
+ "aum": {
+  "display": "$1,587.30 M",
+  "value": 1587300000,
+  "asOfDate": "Sep 24 2026",
+  "source": "capitalgroup.com daily fund facts net assets"
+ },
+ "yields": {
+  "dividendYield": 2.7,
+  "dividendYieldText": "2.70%",
+  "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
+  "distributionRate": 2.91,
+  "secYield": 2.9,
+  "secYieldText": "2.90%",
+  "secYieldKind": "official 30-day SEC yield, as of Aug 31 2026",
+  "unsubsidizedSecYield": 2.9
+ },
+ "returns": {
+  "derivedFrom": "official Capital Group NAV total returns (fund-detail JSON); qtd derived from the daily NAV history with published distributions reinvested",
+  "monthEnd": {
+   "asOfDate": "Aug 31 2026",
+   "mo1": 0.37,
+   "mo1Text": "0.37%",
+   "qtd": -1.92,
+   "qtdText": "-1.92%",
+   "ytd": 1.46,
+   "ytdText": "1.46%",
+   "yr1": 2.95,
+   "yr1Text": "2.95%",
+   "yr3": 4.01,
+   "yr3Text": "4.01%",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 4.76,
+   "sinceInceptionText": "4.76%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
+  }
+ },
+ "distributions": {
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
+  "frequencyCode": "M",
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "10/31/2023",
+    "0.0565"
+   ],
+   [
+    "11/30/2023",
+    "0.0578"
+   ],
+   [
+    "12/28/2023",
+    "0.1034"
+   ],
+   [
+    "01/31/2024",
+    "0.0561"
+   ],
+   [
+    "02/29/2024",
+    "0.065"
+   ],
+   [
+    "03/27/2024",
+    "0.0756"
+   ],
+   [
+    "04/30/2024",
+    "0.0813"
+   ],
+   [
+    "05/31/2024",
+    "0.0819"
+   ],
+   [
+    "06/27/2024",
+    "0.0672"
+   ],
+   [
+    "07/31/2024",
+    "0.0269"
+   ],
+   [
+    "08/30/2024",
+    "0.0638"
+   ],
+   [
+    "09/27/2024",
+    "0.0628"
+   ],
+   [
+    "10/31/2024",
+    "0.0775"
+   ],
+   [
+    "11/29/2024",
+    "0.0608"
+   ],
+   [
+    "12/24/2024",
+    "0.0894"
+   ],
+   [
+    "01/31/2025",
+    "0.0505"
+   ],
+   [
+    "02/28/2025",
+    "0.0688"
+   ],
+   [
+    "03/28/2025",
+    "0.0681"
+   ],
+   [
+    "04/30/2025",
+    "0.075"
+   ],
+   [
+    "05/30/2025",
+    "0.0685"
+   ],
+   [
+    "06/27/2025",
+    "0.0577"
+   ],
+   [
+    "07/31/2025",
+    "0.0782"
+   ],
+   [
+    "08/29/2025",
+    "0.0624"
+   ],
+   [
+    "09/29/2025",
+    "0.0622"
+   ],
+   [
+    "10/31/2025",
+    "0.0745"
+   ],
+   [
+    "11/28/2025",
+    "0.0602"
+   ],
+   [
+    "12/24/2025",
+    "0.076"
+   ],
+   [
+    "01/30/2026",
+    "0.058"
+   ],
+   [
+    "02/27/2026",
+    "0.0667"
+   ],
+   [
+    "03/30/2026",
+    "0.066"
+   ],
+   [
+    "04/30/2026",
+    "0.0676"
+   ],
+   [
+    "05/29/2026",
+    "0.06"
+   ],
+   [
+    "06/29/2026",
+    "0.0475"
+   ],
+   [
+    "07/31/2026",
+    "0.0682"
+   ],
+   [
+    "08/31/2026",
+    "0.058"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json",
+   "holdings/002.json",
+   "holdings/003.json",
+   "holdings/004.json",
+   "holdings/005.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 1066,
+  "asOfDate": "2026-09-24",
+  "asOf": "Sep 24 2026",
+  "source": "Capital Group daily holdings XLSX"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 753,
+  "asOf": "Sep 25 2026",
+  "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
+ }
+}
