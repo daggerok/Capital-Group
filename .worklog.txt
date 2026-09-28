@@ -23,11 +23,11 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: 186d41839ef226abc5a09f33176809471d209f6f.
-Next action: repeat two isolated live CGUS CGCP CGMU runs using final config
-resolver and production seed, audit unchanged unrequested data/catalog and hashes.
-Then target metadata GET/PATCH/GET + Pages status and create target PR (NO merge),
-followed by authorized sibling README-only PRs and ordinary checked merges.
+Last confirmed pushed SHA: 3e3fa2a4e67d5c0c38e75220a6c5a96a4ce75ce1.
+Next action: update/verify target About/homepage/topics, check Pages, create
+Capital-Group implementation PR (NO merge). Then modify only README in each of
+17 verified sibling repos, add Capital Group rows to two tables, test doc-only
+diff, open PRs and merge normally after checks. Maintain target rollout ledger.
 Reference: daggerok/JPMorgan pinned 998cebd9ecbfaf4c75fbb57db85806a9e60ea006
 (shared updater/output/SEC/Yahoo/UI/README reference; copied and tested).
 Config/CI reference supersedes generic layout: daggerok/aberdeen
@@ -1948,3 +1948,29 @@ clean. evidence/config-tests.log. No tsc/semantic IDE check claimed.
   ]
 }
 ===== END README PARITY MANIFEST =====
+
+2026-09-27 — Final configuration live acceptance checkpoint.
+Final config live acceptance
+Revision: 3e3fa2a4e67d5c0c38e75220a6c5a96a4ce75ce1
+Isolated copy includes scripts/update-data.ts + update-data.config.json + the
+published three-fund API seed. Real command twice:
+TICKERS="CGUS CGCP CGMU" VERBOSE=1 bun scripts/update-data.ts
+Defaults loaded from tracked config: sleep=3s concurrency=1 retries=2 max=0;
+all provider skips false, no financial filters, exact three-ticker allowlist.
+Both exits 0, all 3 requested tickers processed, zero skipped/failed, no fallback
+warnings, 25 discovered but only 3 selected, same manifests/counts as initial run.
+CGCP 1510 holdings / 1153 history / 54 distributions.
+CGMU 2545 holdings / 983 history / 46 distributions.
+CGUS 74 holdings / 1153 history / 18 distributions.
+All 28 JSON files identical to production seed before run, after run1, after
+run2 (SHA256). No ticker directories/index rows added or dropped. No writes
+outside selected funds/index; no cursor file left on full selected pass.
+No production API changes made during this isolated validation. SEC/Yahoo
+fallbacks remain offline-tested, not freshly live-fetched because not needed.
+No browser scraping, zero sleep, mock fetch or provider-skip flags in live runs.
+
+Read current README only in 17 known siblings (not source-code survey). All have
+Brands table + Sibling applications, none already contains Capital-Group.
+Repositories: aberdeen, Amplify, Fidelity, Franklin, Global-X, Goldman-Sachs,
+Invesco, iShares, JPMorgan, Neos, Northern-Trust, ProShares, Schwab, SPDR,
+VanEck, Vanguard, WisdomTree. No sibling writes performed yet.

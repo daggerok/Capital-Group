@@ -1,0 +1,18 @@
+Final config live acceptance
+Revision: 3e3fa2a4e67d5c0c38e75220a6c5a96a4ce75ce1
+Isolated copy includes scripts/update-data.ts + update-data.config.json + the
+published three-fund API seed. Real command twice:
+TICKERS="CGUS CGCP CGMU" VERBOSE=1 bun scripts/update-data.ts
+Defaults loaded from tracked config: sleep=3s concurrency=1 retries=2 max=0;
+all provider skips false, no financial filters, exact three-ticker allowlist.
+Both exits 0, all 3 requested tickers processed, zero skipped/failed, no fallback
+warnings, 25 discovered but only 3 selected, same manifests/counts as initial run.
+CGCP 1510 holdings / 1153 history / 54 distributions.
+CGMU 2545 holdings / 983 history / 46 distributions.
+CGUS 74 holdings / 1153 history / 18 distributions.
+All 28 JSON files identical to production seed before run, after run1, after
+run2 (SHA256). No ticker directories/index rows added or dropped. No writes
+outside selected funds/index; no cursor file left on full selected pass.
+No production API changes made during this isolated validation. SEC/Yahoo
+fallbacks remain offline-tested, not freshly live-fetched because not needed.
+No browser scraping, zero sleep, mock fetch or provider-skip flags in live runs.
