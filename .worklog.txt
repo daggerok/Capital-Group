@@ -23,7 +23,7 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: e2d1150a6b6d3acb95aeed778d7880db8f563bc1 (verified before this rollout checkpoint).
+Last confirmed pushed SHA: ac1b16e46154b907c1712bf4e28ff78eb73248ae (verified before this rollout checkpoint).
 Next action: create scoped docs feature branches in 17 sibling repos, insert
 only Capital Group row into both existing README tables, verify two-addition
 README-only diffs, open PRs and merge only after normal mergeability/check checks.
@@ -1989,6 +1989,9 @@ PR approval/merge, not a claim Pages itself is unconfigured. No Pages settings
 changed. evidence/pages-status.txt and target-pr.json retain publication state.
 
 2026-09-27 — Sibling aberdeen: committed/pushed 34b3dc110a839f3e04966394ea645d54d29a105e, remote verified, PR https://github.com/daggerok/aberdeen/pull/4 opened; exact README-only 2-addition diff validated. No merge yet.
+
+
+2026-09-27 — Sibling Amplify: committed/pushed 6947e9f6cb1a09db644fd81f761d21a1f21d4be1, remote verified, PR https://github.com/daggerok/Amplify/pull/48 opened; exact README-only 2-addition diff validated. No merge yet.
 ===== CURRENT SIBLING ROLLOUT LEDGER =====
 {
   "aberdeen": {
@@ -2006,6 +2009,22 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
     "additions": 2,
     "deletions": 0,
     "patchSha256": "87ee8c2a458c20165a9ba376e9e3e86f7b8574092eebda81fded5eab540e910e"
+  },
+  "Amplify": {
+    "repository": "daggerok/Amplify",
+    "defaultBranch": "main",
+    "baseSha": "76e25354da6acb74b333f257f0d34d353501173c",
+    "branch": "docs/add-capital-group-sibling",
+    "headSha": "6947e9f6cb1a09db644fd81f761d21a1f21d4be1",
+    "pr": 48,
+    "url": "https://github.com/daggerok/Amplify/pull/48",
+    "state": "open",
+    "files": [
+      "README.md"
+    ],
+    "additions": 2,
+    "deletions": 0,
+    "patchSha256": "ff0fffbc0e30f1b3402271cf14f80edb98d85a4bc29f3e00d10907dcdb94a3ff"
   }
 }
 ===== END SIBLING ROLLOUT LEDGER =====
