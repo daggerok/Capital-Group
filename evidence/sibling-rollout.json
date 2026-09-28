@@ -78,5 +78,21 @@
     "additions": 2,
     "deletions": 0,
     "patchSha256": "4305a28f2f5dc09340de48e9d63967043ccca70589ee231d653d09ff804c20c6"
+  },
+  "Goldman-Sachs": {
+    "repository": "daggerok/Goldman-Sachs",
+    "defaultBranch": "main",
+    "baseSha": "ab1a39ba1845c05eb720a75a8f3c5e3f132983e3",
+    "branch": "docs/add-capital-group-sibling",
+    "headSha": "680f390b3f35c0a119f75fee23053ca2507bd714",
+    "pr": 18,
+    "url": "https://github.com/daggerok/Goldman-Sachs/pull/18",
+    "state": "open",
+    "files": [
+      "README.md"
+    ],
+    "additions": 2,
+    "deletions": 0,
+    "patchSha256": "ed60bac0545b026f29e413ca1b9feda39a7d1d35ebf8ee1d0fc3795d3b5ecda0"
   }
 }
