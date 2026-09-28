@@ -139,13 +139,19 @@
     "headSha": "24fa05f60b7e05556287044d69f300e036f68f03",
     "pr": 24,
     "url": "https://github.com/daggerok/Invesco/pull/24",
-    "state": "open",
+    "state": "merged",
     "files": [
       "README.md"
     ],
     "additions": 2,
     "deletions": 0,
-    "patchSha256": "2878c7bb4e91e54fe13e65a6aee75968b93e80ad21527c1886967b27fee8d4aa"
+    "patchSha256": "2878c7bb4e91e54fe13e65a6aee75968b93e80ad21527c1886967b27fee8d4aa",
+    "checks": [],
+    "statuses": [],
+    "mergeableState": "clean",
+    "mergeSha": "ab0e8c27e01001bffac31e508f6b993262397a73",
+    "mergedAt": "2026-09-28T04:28:08Z",
+    "defaultReadmeVerified": true
   },
   "iShares": {
     "repository": "daggerok/iShares",
