@@ -53,8 +53,8 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 | Environment variable | Default | Meaning |
 | --- | --: | --- |
 | `MAX_FETCHES` | all | Batch size: with a positive value the updater continues after the committed cursor in `api/capital-group/update-state.json`; empty or `0` is a full pass — every fund is refreshed in one run. |
-| `REQUEST_SLEEP` | `3` | Minimum delay in seconds between outgoing request starts, including retries. |
-| `CONCURRENCY` | `1` | Number of parallel fund update workers. Request starts are still globally spaced by `REQUEST_SLEEP`. |
+| `REQUEST_SLEEP` | `3` | Minimum delay in seconds between outgoing request starts **within each worker**, including retries and issuer redirects. |
+| `CONCURRENCY` | `1` | Number of independently paced fund update workers. Different workers can start requests simultaneously; there is no global request-start queue. |
 | `AUM` | `:` | Net Assets range. Each bound may be a USD amount or `K`/`M`/`B`/`T`, or one of `nano`, `micro`, `small`, `mid`, `large`. |
 | `TER` | `:` | Expense ratio range in % (strict `min:max`). |
 | `DIVIDEND_YIELD` | `:` | Dividend-yield percentage range. |

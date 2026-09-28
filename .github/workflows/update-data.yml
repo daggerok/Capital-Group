@@ -11,12 +11,12 @@ on:
         default: ""
         type: string
       request_sleep:
-        description: "Seconds between request starts including retries; conservative shared gate; blank inherits scripts/update-data.config.json"
+        description: "Seconds between request starts per worker, including retries and issuer redirects; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       concurrency:
-        description: "Parallel fund workers; request starts remain conservatively paced; blank inherits scripts/update-data.config.json"
+        description: "Independent parallel fund workers, each with its own request pacing; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string

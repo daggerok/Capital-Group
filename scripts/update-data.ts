@@ -2,6 +2,7 @@
 /// <reference types="bun" />
 import { readFile as outputReadFile, readdir as outputReadDir } from 'node:fs/promises';
 import { createHash as outputCreateHash } from 'node:crypto';
+import { AsyncLocalStorage } from 'node:async_hooks';
 import { join as outputJoin } from 'node:path';
 import { fileURLToPath as outputFileURLToPath } from 'node:url';
 
@@ -439,7 +440,7 @@ function rangeLabel(range?: Range): string {
 function configLines(config: UpdaterConfig): string[] {
   return [
     `CONCURRENCY         ${config.concurrency}`,
-    `REQUEST_SLEEP       ${config.requestSleep} s between outgoing request starts`,
+    `REQUEST_SLEEP       ${config.requestSleep} s between outgoing request starts per worker`,
     `MAX_FETCHES         ${config.maxFetches === 0 ? 'all eligible funds (full pass, cursor ignored)' : `${config.maxFetches} per run (resumes after the saved cursor)`}`,
     `HOLDINGS_PAGE_SIZE  ${config.holdingsPageSize}`,
     `HISTORY_PAGE_SIZE   ${config.historyPageSize}`,
@@ -478,23 +479,42 @@ File defaults: scripts/update-data.config.json; explicit environment overrides f
 Examples:
   TICKERS="CGUS CGCP CGMU" VERBOSE=1 bun scripts/update-data.ts
   MAX_FETCHES=3 AUM="1B:" TER=":0.5" bun scripts/update-data.ts
-Conservative shared request gate; CONCURRENCY overlaps workers, not request starts.
+CONCURRENCY independent workers; REQUEST_SLEEP spaces starts within each worker.
 Full runs clear update-state.json. No provider data is deleted on fetch failure.
 `;
 
-let requestSleepMs = REQUEST_SLEEP_FALLBACK * 1000;
-let nextRequestAt = 0;
-let requestTail: Promise<void> = Promise.resolve();
-export function enqueueRequest<T>(work: () => Promise<T>): Promise<T> {
-  const result = requestTail.then(work);
-  requestTail = result.then(() => undefined, () => undefined);
-  return result;
+// Only a lane's timer reservations are queued, never network operations. Each
+// worker keeps its lane across funds, retries, redirects and fallback providers.
+export function createRequestQueue() {
+  let tail: Promise<void> = Promise.resolve();
+  return function enqueueRequest<T>(work: () => Promise<T>): Promise<T> {
+    const result = tail.then(work);
+    tail = result.then(() => undefined, () => undefined);
+    return result;
+  };
+}
+type RequestClock = { now: () => number; sleep: (ms: number) => Promise<void> };
+export function createRequestGate(
+  delayMs: number,
+  clock: RequestClock = { now: () => performance.now(), sleep },
+): () => Promise<void> {
+  const enqueue = createRequestQueue();
+  let nextStart = 0;
+  return () => enqueue(async () => {
+    // Recheck early timer wakeups; after a late wakeup do not "catch up" in a
+    // burst. Reserve this SAME lane from the actual wakeup, not the old deadline.
+    let wait: number;
+    while ((wait = nextStart - clock.now()) > 0) await clock.sleep(wait);
+    nextStart = clock.now() + Math.max(0, delayMs);
+  });
+}
+const requestLane = new AsyncLocalStorage<() => Promise<void>>();
+let discoveryGate = createRequestGate(REQUEST_SLEEP_FALLBACK * 1000);
+export function withRequestLane<T>(delayMs: number, work: () => Promise<T>): Promise<T> {
+  return requestLane.run(createRequestGate(delayMs), work);
 }
 async function paceRequests(): Promise<void> {
-  await enqueueRequest(async () => {
-    await sleep(Math.max(0, nextRequestAt - Date.now()));
-    nextRequestAt = Date.now() + requestSleepMs;
-  });
+  await (requestLane.getStore() ?? discoveryGate)();
 }
 class HttpError extends Error {
   constructor(
@@ -2391,7 +2411,8 @@ async function main(): Promise<void> {
   if (controls.VERBOSE !== undefined) process.env.VERBOSE = controls.VERBOSE;
   const config = readConfig(controls);
   await mkdir(API_ROOT, { recursive: true });
-  requestSleepMs = Math.max(0, config.requestSleep) * 1000;
+  const requestSleepMs = Math.max(0, config.requestSleep) * 1000;
+  discoveryGate = createRequestGate(requestSleepMs);
   outputPrintConfig('Capital Group', config);
   console.log('');
   const catalog = new Map<string, CatalogFund>();
@@ -2462,7 +2483,8 @@ async function main(): Promise<void> {
     }
   }
 
-  await Promise.all(Array.from({ length: Math.max(1, config.concurrency) }, () => worker()));
+  const workerCount = Math.min(config.concurrency, selected.length, config.maxFetches || selected.length);
+  await Promise.all(Array.from({ length: workerCount }, () => withRequestLane(requestSleepMs, worker)));
 
   // Funds not selected for a successful update keep their previously published rows.
   const keptFromPrevious = universe

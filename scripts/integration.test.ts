@@ -1,13 +1,15 @@
 /// <reference types="bun" />
 import { expect, test } from 'bun:test';
+import { offlineHoldings } from './test-workbook';
 import { mkdtemp, mkdir, cp, writeFile, readFile, rm, readdir } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { enqueueRequest, readConfig, retainUnavailable, samePublishedContent, writePages } from './update-data';
+import { createRequestQueue, readConfig, retainUnavailable, samePublishedContent, writePages } from './update-data';
 
 test('conservative defaults, aliases and generic queue retain values/rejections', async () => {
   expect(readConfig({}).requestSleep).toBe(3); expect(readConfig({}).concurrency).toBe(1);
   expect(readConfig({ CAPITAL_GROUP_TICKERS: 'CGUS, CGCP', MAX_FETCHES: '2' }).tickers).toEqual(['CGUS', 'CGCP']);
+  const enqueueRequest = createRequestQueue();
   const order: number[] = [];
   const one = enqueueRequest(async () => { order.push(1); return 42; });
   const bad = enqueueRequest(async () => { order.push(2); throw new Error('expected'); });
@@ -82,3 +84,34 @@ globalThis.fetch = async (input, init) => {
     expect(await readFile(metaPath,'utf8')).toBe(before); expect(await readFile(indexPath,'utf8')).toBe(indexBefore);
   } finally { await rm(dir, { recursive: true, force: true }); }
 }, 20000);
+
+test('offline CLI connects worker lanes to issuer requests, redirects and retries', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'cg-cli-concurrency-'));
+  try {
+    await mkdir(join(dir, 'scripts'), { recursive: true });
+    await cp(new URL('update-data.ts', import.meta.url), join(dir, 'scripts/update-data.ts'));
+    await cp(new URL('fixtures', import.meta.url), join(dir, 'scripts/fixtures'), { recursive: true });
+    const book = new Uint8Array(await Bun.file(new URL('fixtures/cgus-holdings.xlsx', import.meta.url)).arrayBuffer());
+    for (const ticker of ['CGUS','CGCP','CGMU']) await writeFile(join(dir, 'scripts/fixtures', ticker + '-offline-holdings.xlsx'), offlineHoldings(ticker, book));
+    const child = Bun.spawn([process.execPath, '--preload', './scripts/fixtures/concurrency-preload.ts', 'scripts/update-data.ts'], {
+      cwd: dir, env: { PATH: process.env.PATH, TICKERS:'CGUS CGCP CGMU', CONCURRENCY:'15', REQUEST_SLEEP:'0.1', MAX_RETRIES:'1' }, stdout:'pipe', stderr:'pipe',
+    });
+    const [out, err, code] = await Promise.all([new Response(child.stdout).text(), new Response(child.stderr).text(), child.exited]);
+    if (code) throw new Error(out + err);
+    expect(code).toBe(0); expect(out).toContain('3 of 3 funds');
+    const trace: {ticker:string;url:string;at:number;active:number}[] = (await readFile(join(dir,'offline-trace.jsonl'),'utf8')).trim().split('\n').map(line=>JSON.parse(line));
+    expect(Math.max(...trace.map(row=>row.active))).toBe(3);
+    const firstStarts = ['CGUS','CGCP','CGMU'].map(ticker=>trace.find(row=>row.ticker===ticker)!.at);
+    expect(Math.max(...firstStarts) - Math.min(...firstStarts)).toBeLessThan(80);
+    for (const ticker of ['CGUS','CGCP','CGMU']) {
+      const requests = trace.filter(row=>row.ticker===ticker);
+      expect(requests.length).toBe(ticker==='CGUS'?4:5);
+      for (let i=1;i<requests.length;i++) expect(requests[i]!.at - requests[i-1]!.at).toBeGreaterThanOrEqual(99);
+    }
+    expect(trace.filter(row=>row.url.includes('CGMU/historical-distributions')).length).toBe(2);
+    expect(trace.some(row=>row.url.includes('?redirected'))).toBe(true);
+    const index = JSON.parse(await readFile(join(dir,'api/capital-group/index.json'),'utf8'));
+    expect(index.funds.map((fund:{ticker:string})=>fund.ticker)).toEqual(['CGCP','CGMU','CGUS']);
+    expect(err).not.toContain('fallback');
+  } finally { await rm(dir,{recursive:true,force:true}); }
+}, 10000);

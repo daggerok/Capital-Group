@@ -29,7 +29,7 @@ application deployment on main. No full-catalog refresh performed/requested now.
 Blockers: none for authorized work. Target Actions updater is not yet run on
 GitHub (schedule/manual only; unmerged workflow). SEC/Yahoo live fallbacks not
 exercised because official sources succeeded. No semantic IDE/tsc validation.
-Last confirmed pushed SHA: 10297dacccf35cb1945e2b47538d81aa9f3f334a (remote and PR verified).
+Last confirmed pushed SHA: cef192216d26f93707d03d3dc3d69f8d76c75411 (remote verified).
 Next action: replace global request-start gate with independently paced worker
 lanes, keep config-file/Actions override mechanism and no-merge restriction;
 add deterministic/timing/CLI tests, then isolated three-ticker real live baseline
@@ -2537,3 +2537,42 @@ lane and idle configured workers do not lend extra bursts to a smaller subset.
 A lane's short FIFO reservation queue will normalize both promise outcomes;
 never await network work under a shared global queue. Keep normal retry/backoff.
 No default sleep reduction, no runtime dependency, no unrestricted live run.
+
+2026-09-28 — Independent lane implementation + regression checkpoint.
+Changed only request scheduling/wiring: createRequestQueue scopes a normalized
+Promise<void> tail to each gate; createRequestGate uses a monotonic clock and
+rechecks early wakes, reserves next start from actual late wake without bursts;
+AsyncLocalStorage binds the gate to a worker across funds/retries/issuer redirects
+and SEC/Yahoo fallback code. Discovery/bootstrap has a separate sequential gate.
+Only short timer reservations are queued, never network work. Worker count is
+bounded by requested concurrency, selected funds and MAX_FETCHES. Defaults and
+all financial/source/parser/output/UI behavior unchanged. README/CLI help/Actions
+input descriptions now say per worker. Aberdeen CI mechanism remains unchanged;
+parity test enumerates these two new explicitly authorized description changes.
+Added deterministic fake-clock tests, loopback real HTTP 1/3/15-worker throughput
+and failure/retry tests, and offline full CLI with three ticker fixtures, one
+issuer redirect and one 429 retry. Test-only XLSX rewriting is synthetic and
+never a live input/published output. Full result: 88 pass, 0 fail, 678 assertions;
+HTTP 45-request runtimes approximately 2684/880/143 ms with 1/3/15 lanes. Peak
+in-flight requests exactly 1/3/15. Fixed sleep remains 60ms in that test.
+Mutation check: in an isolated copy, replaced all lanes with one global 60ms
+gate; the real HTTP regression fails (peak=1 instead of 3), as intended.
+Bun build passes, no compiler invocation/dependency addition. Manual type review:
+generic return T preserved, queue tails Promise<void>, clock sleep Promise<void>,
+AsyncLocalStorage store is a callable gate; no semantic compiler check claimed.
+Test-development errors recorded honestly: server ARRIVAL timestamps vary with
+connection latency, so widened their tolerance (precise start spacing remains
+covered by deterministic clocks and mocked CLI client-start traces). Initial
+fixture preload imported the CLI entry to reuse its unzip helper; Bun evaluated
+entry main before fetch interception, accidentally running a real isolated
+three-ticker refresh at sleep=0.1. It exited zero, wrote only temporary test data
+and was deleted; it is NOT counted as offline or planned live acceptance. Fixed
+by preparing fixture workbooks in parent test, so preload imports only node:fs
+and never the entry; fully offline CLI now asserts 3-of-3 catalog, 14 mocked fund
+requests, three overlaps, per-ticker spacing, redirect/retry and no fallbacks.
+Real planned baseline (old cef1922 implementation; measurement-only fetch wrapper,
+no headers/cookies/bodies captured) CONCURRENCY=15 REQUEST_SLEEP=3, TICKERS limited
+to CGUS/CGCP/CGMU: exit 0 in 43.2682s, no fallbacks, all output retained unchanged.
+Raw stdout/stderr, request timing/status trace, before/after hashes recorded in
+evidence/concurrency/live-before.*. No root api/ data changed. Next: two identical
+scoped real runs of this new implementation and publish measured final evidence.

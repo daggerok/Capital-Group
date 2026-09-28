@@ -25,7 +25,10 @@ test('all canonical controls defaulted in tracked JSON, controls and README in s
 });
 test('CI is pinned Aberdeen mechanism with exactly permitted adaptations',()=>{
   const ref=read('evidence/config-reference/update-data.yml');
-  const expected=ref.replaceAll('abrdn','Capital Group').replaceAll('api/aberdeen','api/capital-group').replaceAll('Rows per market-price history JSON page','Rows per official NAV / fallback market-price history JSON page').replaceAll('bun test scripts/update-data.test.ts','bun test');
+  const expected=ref.replaceAll('abrdn','Capital Group').replaceAll('api/aberdeen','api/capital-group').replaceAll('Rows per market-price history JSON page','Rows per official NAV / fallback market-price history JSON page').replaceAll('bun test scripts/update-data.test.ts','bun test')
+    // Explicit user concurrency amendment changes descriptions only, not the Aberdeen mechanism.
+    .replaceAll('Seconds between request starts including retries; conservative shared gate','Seconds between request starts per worker, including retries and issuer redirects')
+    .replaceAll('Parallel fund workers; request starts remain conservatively paced','Independent parallel fund workers, each with its own request pacing');
   const actual=read('.github/workflows/update-data.yml');expect(actual).toBe(expected);
   const names=[...actual.slice(actual.indexOf('    inputs:'),actual.indexOf('\npermissions:')).matchAll(/^      (\w+):$/gm)].map(m=>m[1]);
   expect(names.length).toBe(25);expect(names).toContain('advanced');
