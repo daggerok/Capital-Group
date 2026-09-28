@@ -249,13 +249,19 @@
     "headSha": "c6ec5b44a2378b49c1e6fcbab70d6b9d2379df6d",
     "pr": 21,
     "url": "https://github.com/daggerok/ProShares/pull/21",
-    "state": "open",
+    "state": "merged",
     "files": [
       "README.md"
     ],
     "additions": 2,
     "deletions": 0,
-    "patchSha256": "cd0537adfa734285b8e5a542712c9c8a12ede2cca5f848e8e16582b5aa77ad31"
+    "patchSha256": "cd0537adfa734285b8e5a542712c9c8a12ede2cca5f848e8e16582b5aa77ad31",
+    "checks": [],
+    "statuses": [],
+    "mergeableState": "clean",
+    "mergeSha": "50363aa19aec165e8438ed145a77be6bdeda78ce",
+    "mergedAt": "2026-09-28T04:28:38Z",
+    "defaultReadmeVerified": true
   },
   "Schwab": {
     "repository": "daggerok/Schwab",

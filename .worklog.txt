@@ -23,7 +23,7 @@ no existing worklog, plan.txt or .plans; only LICENSE and README placeholder.
 Active: copied sibling UI and authorized seed verified; CI/docs/PR rollout next.
 Remaining: CI/dependabot, README parity, metadata/Pages status, target PR (no merge), sibling README-only PRs/merges.
 Blockers: none yet; runtime-only authenticated push succeeded.
-Last confirmed pushed SHA: d7e58ae587b33bf21b7ceadceda54ec24e0d8551 (verified before this rollout checkpoint).
+Last confirmed pushed SHA: 375597b71a95962abab80d5acea48abf6bffdfa1 (verified before this rollout checkpoint).
 Next action: create scoped docs feature branches in 17 sibling repos, insert
 only Capital Group row into both existing README tables, verify two-addition
 README-only diffs, open PRs and merge only after normal mergeability/check checks.
@@ -2070,6 +2070,9 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
 
 
 2026-09-27 — Northern-Trust PR https://github.com/daggerok/Northern-Trust/pull/2 merged normally after clean check/status gate; merged SHA 8ae7143fe7cf7e0e8eb65f95bfd94b9f52bf4bb1; default README GET confirms exactly one of each row. Target Capital-Group PR untouched.
+
+
+2026-09-27 — ProShares PR https://github.com/daggerok/ProShares/pull/21 merged normally after clean check/status gate; merged SHA 50363aa19aec165e8438ed145a77be6bdeda78ce; default README GET confirms exactly one of each row. Target Capital-Group PR untouched.
 ===== CURRENT SIBLING ROLLOUT LEDGER =====
 {
   "aberdeen": {
@@ -2322,13 +2325,19 @@ changed. evidence/pages-status.txt and target-pr.json retain publication state.
     "headSha": "c6ec5b44a2378b49c1e6fcbab70d6b9d2379df6d",
     "pr": 21,
     "url": "https://github.com/daggerok/ProShares/pull/21",
-    "state": "open",
+    "state": "merged",
     "files": [
       "README.md"
     ],
     "additions": 2,
     "deletions": 0,
-    "patchSha256": "cd0537adfa734285b8e5a542712c9c8a12ede2cca5f848e8e16582b5aa77ad31"
+    "patchSha256": "cd0537adfa734285b8e5a542712c9c8a12ede2cca5f848e8e16582b5aa77ad31",
+    "checks": [],
+    "statuses": [],
+    "mergeableState": "clean",
+    "mergeSha": "50363aa19aec165e8438ed145a77be6bdeda78ce",
+    "mergedAt": "2026-09-28T04:28:38Z",
+    "defaultReadmeVerified": true
   },
   "Schwab": {
     "repository": "daggerok/Schwab",
