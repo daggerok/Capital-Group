@@ -49,7 +49,7 @@ test('README common heading hierarchy, intro and commands match pinned JPMorgan'
   for(const section of ['## Brands table','## Sibling applications']){
     const block=doc.split(section)[1].split('\n## ')[0];
     const rows=block.split('\n').filter(l=>l.startsWith('| ')&&!l.startsWith('| ---')).slice(1);
-    expect(rows.length).toBe(18);const brands=rows.map(l=>l.split('|')[1].replaceAll('*','').trim());
+    expect(rows.length).toBe(20);const brands=rows.map(l=>l.split('|')[1].replaceAll('*','').trim());
     expect(brands).toEqual([...brands].sort((a,b)=>a.toLowerCase().localeCompare(b.toLowerCase())));
     expect(brands.filter(n=>n==='Capital Group').length).toBe(1);
   }
