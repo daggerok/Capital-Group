@@ -295,6 +295,7 @@ type UpdaterConfig = {
   skipYahoo: boolean;
   skipIssuer: boolean;
   edgarFallback: boolean;
+  useSystemCa: string;
   aumRange?: Range & { source?: string };
   terRange?: Range;
   dividendYieldRange?: Range;
@@ -344,6 +345,13 @@ function parseBoolean(raw: string, label: string, fallback = false): boolean {
   if (['1', 'true', 'yes', 'y', 'on'].includes(text)) return true;
   if (['0', 'false', 'no', 'n', 'off'].includes(text)) return false;
   throw new Error(`${label}: expected boolean, got "${text}"`);
+}
+
+function parseSystemCaMode(raw: string): string {
+  const text = String(raw ?? '').trim().toLowerCase();
+  if (text === '') return 'auto';
+  if (['auto', 'true', 'false'].includes(text)) return text;
+  throw new Error(`USE_SYSTEM_CA: expected auto, true or false, got "${text}"`);
 }
 
 function parseHistoryRange(raw: string): string {
@@ -438,6 +446,7 @@ export function readConfig(env: Record<string, string | undefined> = process.env
     skipYahoo: parseBoolean(envValue(env, 'SKIP_YAHOO'), 'SKIP_YAHOO'),
     skipIssuer: parseBoolean(envValue(env, 'SKIP_ISSUER'), 'SKIP_ISSUER'),
     edgarFallback: parseBoolean(envValue(env, 'EDGAR_FALLBACK'), 'EDGAR_FALLBACK', true),
+    useSystemCa: parseSystemCaMode(envValue(env, 'USE_SYSTEM_CA')),
     aumRange: parseAumRange(envValue(env, 'AUM')),
     terRange: parseRange(envValue(env, 'TER'), 'TER'),
     dividendYieldRange: parseRange(envValue(env, 'DIVIDEND_YIELD'), 'DIVIDEND_YIELD'),
@@ -454,6 +463,7 @@ MAX_RETRIES is an integer >= 1 (retries after the first request).
 TICKERS="CGUS CGCP CGMU" selects exact funds before network work or MAX_FETCHES.
 HOLDINGS_PAGE_SIZE=250 HISTORY_PAGE_SIZE=1000 HISTORY_RANGE=max (Yahoo fallback history window: max or Ny)
 STORE_RAW_DOWNLOADS=0 SKIP_ISSUER=0 SKIP_YAHOO=0 EDGAR_FALLBACK=1 VERBOSE=0
+USE_SYSTEM_CA=auto (auto: restart once with Bun --use-system-ca on an untrusted-certificate error; true: always; false: never)
 CATALOG_URL=${ISSUER_CATALOG}
 SEC_UA=<contact string for SEC requests; default in scripts/update-data.config.json>
 AUM=min:max or nano/micro/small/mid/large (bounds accept K/M/B/T)
@@ -2343,6 +2353,42 @@ async function resolveNportFiling(
   return null;
 }
 
+// --- TLS trust store (identical in every ETF repo) ---
+const SYSTEM_CA_MARKER = 'ETF_UPDATER_SYSTEM_CA';
+const CERT_ERROR = /UNABLE_TO_GET_ISSUER_CERT|UNABLE_TO_VERIFY_LEAF_SIGNATURE|SELF_SIGNED_CERT|CERT_HAS_EXPIRED|unable to get (?:local )?issuer certificate|self[- ]signed certificate|certificate has expired/i;
+
+export function isCertError(error: unknown): boolean {
+  const e = error as { code?: unknown; message?: unknown; cause?: unknown } | null;
+  return CERT_ERROR.test(`${String(e?.code ?? '')} ${String(e?.message ?? '')}`) || (e?.cause ? isCertError(e.cause) : false);
+}
+
+export function systemCaActive(env: Record<string, string | undefined> = process.env, execArgv: string[] = process.execArgv): boolean {
+  return execArgv.includes('--use-system-ca') || env.NODE_USE_SYSTEM_CA === '1' || env[SYSTEM_CA_MARKER] === '1';
+}
+
+export function reexecWithSystemCa(): never {
+  const child = Bun.spawnSync([process.execPath, '--use-system-ca', ...process.argv.slice(1)], {
+    env: { ...process.env, [SYSTEM_CA_MARKER]: '1' },
+    stdio: ['inherit', 'inherit', 'inherit'],
+  });
+  process.exit(child.exitCode ?? 1);
+}
+
+/** mode: auto (restart once on an untrusted-certificate error), true (restart now), false (never). */
+export function installSystemCa(mode: string, reexec: () => never = reexecWithSystemCa, active: boolean = systemCaActive()): void {
+  if (mode === 'false' || active) return;
+  if (mode === 'true') reexec();
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = (async (...args: Parameters<typeof fetch>) => {
+    try { return await realFetch(...args); }
+    catch (error) {
+      if (!isCertError(error)) throw error;
+      console.error('[ notice   ] TLS certificate not trusted; restarting once with --use-system-ca');
+      return reexec();
+    }
+  }) as typeof fetch;
+}
+
 // ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
@@ -2354,7 +2400,7 @@ async function resolveNportFiling(
 export const CONTROL_NAMES = [
   'MAX_FETCHES', 'REQUEST_SLEEP', 'CONCURRENCY', 'AUM', 'TER', 'DIVIDEND_YIELD', 'SEC_YIELD', 'TICKERS',
   'HOLDINGS_PAGE_SIZE', 'HISTORY_PAGE_SIZE', 'MAX_RETRIES', 'HISTORY_RANGE', 'STORE_RAW_DOWNLOADS',
-  'CATALOG_URL', 'SEC_UA', 'SKIP_YAHOO', 'SKIP_ISSUER', 'EDGAR_FALLBACK', 'VERBOSE',
+  'CATALOG_URL', 'SEC_UA', 'SKIP_YAHOO', 'SKIP_ISSUER', 'EDGAR_FALLBACK', 'VERBOSE', 'USE_SYSTEM_CA',
   ...['PERFORMANCE', 'TOTAL_RETURN'].flatMap((prefix) => ['YTD', '1Y', '3Y', '5Y', '10Y'].map((period) => `${prefix}_${period}`)),
 ] as const;
 export type ControlName = (typeof CONTROL_NAMES)[number];
@@ -2404,6 +2450,7 @@ async function main(): Promise<void> {
   const controls = await runtimeControls(process.env);
   if (controls.VERBOSE !== undefined) process.env.VERBOSE = controls.VERBOSE;
   const config = readConfig(controls);
+  installSystemCa(config.useSystemCa);
   await mkdir(API_ROOT, { recursive: true });
   const requestSleepMs = Math.max(0, config.requestSleep) * 1000;
   discoveryGate = createRequestGate(requestSleepMs);
