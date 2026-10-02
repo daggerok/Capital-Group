@@ -78,8 +78,9 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 | `SKIP_ISSUER` | `false` | Use the published catalog and only fallbacks; never delete cached data |
 | `EDGAR_FALLBACK` | `true` | Enable the fund-specific SEC N-PORT holdings fallback |
 | `VERBOSE` | `false` | Show per-provider fallback and retry diagnostics |
+| `USE_SYSTEM_CA` | `auto` | TLS trust store: `auto` restarts the updater once with Bun's `--use-system-ca` when a request fails with an untrusted-certificate error; `true` always uses the system CA store; `false` never restarts. Not an individual workflow input: use `advanced`, the config file or the CLI environment. |
 
-Catalog discovery runs before fund workers start. `CONCURRENCY=15 REQUEST_SLEEP=3` permits up to 15 independently paced workers, not one global request every three seconds; actual throughput still depends on network latency and provider throttling. Not individually exposed as workflow inputs, but reachable through `advanced` JSON: `CATALOG_URL`, `SEC_UA`, `SKIP_ISSUER`, `STORE_RAW_DOWNLOADS` and `VERBOSE`
+Catalog discovery runs before fund workers start. `CONCURRENCY=15 REQUEST_SLEEP=3` permits up to 15 independently paced workers, not one global request every three seconds; actual throughput still depends on network latency and provider throttling. Not individually exposed as workflow inputs, but reachable through `advanced` JSON: `CATALOG_URL`, `SEC_UA`, `SKIP_ISSUER`, `STORE_RAW_DOWNLOADS`, `VERBOSE` and `USE_SYSTEM_CA`
 
 `TICKERS` combines with the other filters using AND logic; it does not override them. Funds not selected for a successful update keep their prior published metadata and data files
 

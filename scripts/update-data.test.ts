@@ -1,5 +1,5 @@
 /// <reference types="bun" />
-import { describe, expect, test } from 'bun:test';
+import { afterEach, describe, expect, test } from 'bun:test';
 import { readFileSync } from 'node:fs';
 import { cp, mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -8,7 +8,7 @@ import { deflateRawSync } from 'node:zlib';
 import {
   CONTROL_NAMES, createRequestGate, createRequestQueue, fetchWithRetry, issuerFrequency, issuerPricesUrl, parseIssuerCatalog,
   parseIssuerDistributions, parseIssuerFacts, parseIssuerFlight, parseIssuerHoldings, parseIssuerPrices, parseIssuerReturns,
-  readConfig, resolveControls, retainUnavailable, samePublishedContent, sourceDate, sourceNumber, unzipIssuerWorkbook,
+  readConfig, resolveControls, installSystemCa, isCertError, retainUnavailable, samePublishedContent, sourceDate, sourceNumber, unzipIssuerWorkbook,
   withRequestLane, workbookRows, writePages,
   formatIssuerDate, normalizeNumberText, numberOrNull, formatEdgarDate, toIsoDate, isoToEpoch, parseRange, parseAumRange, HISTORY_HEADERS, YAHOO_HISTORY_HEADERS, navTotalReturnDays, normalizeHoldingName, normalizeHoldingNameCore, cleanHoldingTicker, nportUrlFor, parseNportAccessions, parseFundTickerMap, parseCompanyTickerMap, edgarSeriesFilingsUrl, parseEdgarAtomFilings, parseNport, pickEftsCik, parseChart, annualizedToTotal, totalToAnnualized, indicatedYield, inferDistributionFrequency, priceReturns, lastCompletedQuarterEnd, deriveCatalogMetrics,
 } from './update-data';
@@ -175,7 +175,7 @@ describe('controls', () => {
 
   test('invalid layers, unknown keys, non-scalars, newlines and invalid values are rejected', () => {
     for (const value of [{ UNKNOWN: 1 }, { SEC_UA: 'x\nEVIL=yes' }, { CONCURRENCY: 0 }, { MAX_RETRIES: 0 }, { MAX_RETRIES: -1 }, { MAX_RETRIES: 1.5 }, { MAX_FETCHES: 1.5 },
-      { REQUEST_SLEEP: '-1' }, { VERBOSE: 'maybe' }, { SKIP_YAHOO: 'maybe' }, { HISTORY_RANGE: '5 years' }, { AUM: '1:2:3' }, { AUM: '42' }, { TER: '5:1' }, { TER: '1' },
+      { REQUEST_SLEEP: '-1' }, { VERBOSE: 'maybe' }, { USE_SYSTEM_CA: 'maybe' }, { SKIP_YAHOO: 'maybe' }, { HISTORY_RANGE: '5 years' }, { AUM: '1:2:3' }, { AUM: '42' }, { TER: '5:1' }, { TER: '1' },
       { PERFORMANCE_1Y: 'x:y' }, { TOTAL_RETURN_10Y: '9:1' }, { TICKERS: ['CGUS'] }, null, []]) {
       expect(() => resolveControls(value)).toThrow();
     }
@@ -261,7 +261,7 @@ describe('controls', () => {
     expect(actual).toContain('if: ${{ !cancelled() }}');
     // Controls not exposed as individual inputs stay reachable through advanced and the config file.
     const hidden = CONTROL_NAMES.filter((name) => !names.includes(name.toLowerCase()));
-    expect(hidden.sort()).toEqual(['CATALOG_URL', 'SEC_UA', 'SKIP_ISSUER', 'STORE_RAW_DOWNLOADS', 'VERBOSE']);
+    expect(hidden.sort()).toEqual(['CATALOG_URL', 'SEC_UA', 'SKIP_ISSUER', 'STORE_RAW_DOWNLOADS', 'USE_SYSTEM_CA', 'VERBOSE']);
     expect(resolveControls(configFile(), Object.fromEntries(hidden.map((name) => [name, configFile()[name]])))).toEqual(configFile());
   });
 });
@@ -1068,5 +1068,57 @@ describe('cleanHoldingTicker', () => {
     expect(cleanHoldingTicker('')).toBe('');
     expect(cleanHoldingTicker('N/A')).toBe('');
     expect(cleanHoldingTicker('see file')).toBe('');
+  });
+});
+
+describe('system CA', () => {
+  const realFetch = globalThis.fetch;
+  afterEach(() => { globalThis.fetch = realFetch; });
+  const certError = Object.assign(new Error('unable to get local issuer certificate'), { code: 'UNABLE_TO_GET_ISSUER_CERT_LOCALLY' });
+  const stub = (impl: () => Promise<Response>) => { globalThis.fetch = impl as unknown as typeof fetch; return globalThis.fetch; };
+
+  test('USE_SYSTEM_CA resolves auto/true/false case-insensitively and rejects other values', () => {
+    expect(configFile().USE_SYSTEM_CA).toBe('auto');
+    expect(readConfig(resolveControls(configFile())).useSystemCa).toBe('auto');
+    for (const mode of ['auto', 'true', 'false', 'AUTO', 'True', 'FALSE']) expect(readConfig(resolveControls(configFile(), {}, {}, { USE_SYSTEM_CA: mode })).useSystemCa).toBe(mode.toLowerCase());
+    expect(() => resolveControls(configFile(), {}, {}, { USE_SYSTEM_CA: 'maybe' })).toThrow('USE_SYSTEM_CA');
+  });
+
+  test('isCertError detects certificate failures, including nested causes', () => {
+    expect(isCertError({ code: 'UNABLE_TO_GET_ISSUER_CERT_LOCALLY' })).toBe(true);
+    expect(isCertError(new Error('unable to get local issuer certificate'))).toBe(true);
+    expect(isCertError(new Error('fetch failed', { cause: certError }))).toBe(true);
+    expect(isCertError({ code: 'ECONNRESET', message: 'socket hang up' })).toBe(false);
+    expect(isCertError(new Error('HTTP 403 Forbidden'))).toBe(false);
+    expect(isCertError(null)).toBe(false);
+  });
+
+  test('installSystemCa leaves fetch alone for false and when already active, re-execs for true', () => {
+    const original = stub(async () => new Response('ok'));
+    let calls = 0; const reexec = (() => { calls++; return undefined as never; });
+    installSystemCa('false', reexec, false); expect(globalThis.fetch).toBe(original);
+    installSystemCa('auto', reexec, true); expect(globalThis.fetch).toBe(original);
+    installSystemCa('true', reexec, true); expect(globalThis.fetch).toBe(original);
+    expect(calls).toBe(0);
+    installSystemCa('true', reexec, false); expect(calls).toBe(1);
+  });
+
+  test('auto mode wraps fetch: cert error re-execs once, other errors pass, success passes through', async () => {
+    let calls = 0; const reexec = (() => { calls++; return undefined as never; });
+    const original = stub(async () => { throw new Error('fetch failed', { cause: certError }); });
+    installSystemCa('auto', reexec, false);
+    expect(globalThis.fetch).not.toBe(original);
+    await globalThis.fetch('https://example.invalid/');
+    expect(calls).toBe(1);
+    globalThis.fetch = realFetch;
+    stub(async () => { throw Object.assign(new Error('socket hang up'), { code: 'ECONNRESET' }); });
+    installSystemCa('auto', reexec, false);
+    await expect(globalThis.fetch('https://example.invalid/')).rejects.toThrow('socket hang up');
+    expect(calls).toBe(1);
+    globalThis.fetch = realFetch;
+    stub(async () => new Response('fine'));
+    installSystemCa('auto', reexec, false);
+    expect(await (await globalThis.fetch('https://example.invalid/')).text()).toBe('fine');
+    expect(calls).toBe(1);
   });
 });
