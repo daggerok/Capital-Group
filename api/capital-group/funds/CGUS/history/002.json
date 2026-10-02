@@ -2,7 +2,7 @@
  "ticker": "CGUS",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1153,
+ "totalRows": 1156,
  "headers": [
   "Date",
   "NAV",
@@ -927,6 +927,24 @@
    "NAV": "44.89",
    "Market Price": "44.91",
    "Premium/Discount": "0.06"
+  },
+  {
+   "Date": "Sep 28 2026",
+   "NAV": "44.58",
+   "Market Price": "44.6",
+   "Premium/Discount": "0.04"
+  },
+  {
+   "Date": "Sep 29 2026",
+   "NAV": "44.72",
+   "Market Price": "44.73",
+   "Premium/Discount": "0.02"
+  },
+  {
+   "Date": "Sep 30 2026",
+   "NAV": "44.48",
+   "Market Price": "44.5",
+   "Premium/Discount": "0.05"
   }
  ]
 }
