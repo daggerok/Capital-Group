@@ -1345,6 +1345,27 @@ export function lastCompletedQuarterEnd(now = new Date()): Date {
   return new Date(Date.UTC(year, 8, 30)); // Oct-Dec -> Sep 30
 }
 
+/** Honest label of how the returns are computed (metrics.returnsBasis, never empty). */
+export function returnsBasisLabel(hasOfficial: boolean, yahooFill: boolean): string {
+  if (yahooFill) {
+    return hasOfficial
+      ? 'official Capital Group NAV total returns where published; missing periods are estimates derived from Yahoo adjusted market-price closes, not official NAV returns'
+      : 'estimate derived from Yahoo adjusted market-price closes, not official NAV returns';
+  }
+  return hasOfficial
+    ? 'official Capital Group NAV total returns (fund-detail JSON)'
+    : 'derived from the daily NAV history with published distributions reinvested, not official NAV returns';
+}
+
+/**
+ * ISO date the returns are as of (metrics.performanceAsOf, not the NAV date): the issuer
+ * performance table date for official returns, else the last date of the derived series.
+ */
+export function performanceAsOf(hasOfficial: boolean, officialAsOf: string | null, derivedAsOf: string | null): string | null {
+  const valid = (value: string | null): string | null => (value && /^\d{4}-\d{2}-\d{2}$/.test(value) ? value : null);
+  return (hasOfficial ? valid(officialAsOf) : null) ?? valid(derivedAsOf);
+}
+
 /**
  * Merges the official Capital Group returns with the ones derived from the adjusted
  * daily series. Official figures win wherever they exist (they are NAV total
@@ -1360,6 +1381,8 @@ export function deriveCatalogMetrics(
   paymentsPerYear: number | null,
   price: number | null,
   officialCumulative: CumulativeReturns | null = null,
+  officialAsOf: string | null = null,
+  yahooFill = false,
 ): JsonRecord {
   const coalesce = (value: number | null | undefined): number | null => (typeof value === 'number' && Number.isFinite(value) ? value : null);
   const ytd = coalesce(official.ytd) ?? coalesce(derived.ytd);
@@ -1368,6 +1391,7 @@ export function deriveCatalogMetrics(
   const cagr5y = coalesce(official.yr5) ?? coalesce(derived.cagr5y);
   const cagr10y = coalesce(official.yr10) ?? coalesce(derived.cagr10y);
   const siAnn = coalesce(official.sinceInception) ?? coalesce(derived.siAnn);
+  const hasOfficial = Object.values(official).some((value) => value !== null);
   const dividendYield = coalesce(publishedDividendYield) ?? indicatedYield(latestDistribution, paymentsPerYear, price);
   const text = (value: number | null): string | null => (value === null ? null : `${value.toFixed(2)}%`);
   return {
@@ -1384,9 +1408,8 @@ export function deriveCatalogMetrics(
     dividendYieldText: text(dividendYield) ?? '—',
     secYield: coalesce(publishedSecYield),
     secYieldText: text(coalesce(publishedSecYield)) ?? '—',
-    returnsBasis: Object.values(official).some((value) => value !== null)
-      ? 'official Capital Group NAV total returns (fund-detail JSON)'
-      : 'derived from the daily NAV history with published distributions reinvested (or Yahoo adjusted closes), not official NAV returns',
+    returnsBasis: returnsBasisLabel(hasOfficial, yahooFill),
+    performanceAsOf: performanceAsOf(hasOfficial, officialAsOf, derived.asOfDate),
   };
 }
 
@@ -2091,6 +2114,8 @@ async function processFund(
     frequency.paymentsPerYear,
     price,
     product?.cumulative ?? null,
+    returnsAsOfDate,
+    haveFreshHistory && historySource.startsWith('Yahoo'),
   );
 
   const filterReasons = fundFilterReasons({ ticker, aumValue: product?.netAssets ?? holdingsEdgar?.netAssets ?? fund.netAssets, terValue: ter, metrics }, config);
