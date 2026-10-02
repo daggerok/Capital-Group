@@ -10,7 +10,7 @@ import {
   parseIssuerDistributions, parseIssuerFacts, parseIssuerFlight, parseIssuerHoldings, parseIssuerPrices, parseIssuerReturns,
   readConfig, resolveControls, installSystemCa, isCertError, retainUnavailable, samePublishedContent, sourceDate, sourceNumber, unzipIssuerWorkbook,
   withRequestLane, workbookRows, writePages,
-  formatIssuerDate, normalizeNumberText, numberOrNull, formatEdgarDate, toIsoDate, isoToEpoch, parseRange, parseAumRange, HISTORY_HEADERS, YAHOO_HISTORY_HEADERS, navTotalReturnDays, normalizeHoldingName, normalizeHoldingNameCore, cleanHoldingTicker, nportUrlFor, parseNportAccessions, parseFundTickerMap, parseCompanyTickerMap, edgarSeriesFilingsUrl, parseEdgarAtomFilings, parseNport, pickEftsCik, parseChart, annualizedToTotal, totalToAnnualized, indicatedYield, inferDistributionFrequency, priceReturns, lastCompletedQuarterEnd, deriveCatalogMetrics,
+  formatIssuerDate, normalizeNumberText, numberOrNull, formatEdgarDate, toIsoDate, isoToEpoch, parseRange, parseAumRange, HISTORY_HEADERS, YAHOO_HISTORY_HEADERS, navTotalReturnDays, normalizeHoldingName, normalizeHoldingNameCore, cleanHoldingTicker, nportUrlFor, parseNportAccessions, parseFundTickerMap, parseCompanyTickerMap, edgarSeriesFilingsUrl, parseEdgarAtomFilings, parseNport, pickEftsCik, parseChart, annualizedToTotal, totalToAnnualized, indicatedYield, inferDistributionFrequency, priceReturns, lastCompletedQuarterEnd, deriveCatalogMetrics, returnsBasisLabel, performanceAsOf,
 } from './update-data';
 
 const read = (path: string) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
@@ -980,6 +980,26 @@ describe('deriveCatalogMetrics', () => {
     expect(metrics.dividendYield).toBe(0.44);
     expect(metrics.secYield).toBeNull();
     expect(metrics.returnsBasis).toContain('official Capital Group NAV total returns');
+    expect(Object.keys(metrics).slice(-2)).toEqual(['returnsBasis', 'performanceAsOf']);
+  });
+
+  test('performanceAsOf is the performance table date, not the NAV date', () => {
+    const official = { ytd: 1, yr1: 2, yr3: null, yr5: null, yr10: null, sinceInception: null };
+    const derived = { asOfDate: '2026-09-25', ytd: null, yr1: null, cagr3y: null, cagr5y: null, cagr10y: null, siAnn: null, mo1: null, qtd: null };
+    expect(deriveCatalogMetrics(official, derived, null, null, null, null, null, null, '2026-08-31').performanceAsOf).toBe('2026-08-31');
+    expect(performanceAsOf(false, '2026-08-31', '2026-09-25')).toBe('2026-09-25');
+    expect(performanceAsOf(true, null, '2026-09-25')).toBe('2026-09-25');
+    expect(performanceAsOf(false, null, '')).toBeNull();
+    expect(performanceAsOf(true, 'Aug 31 2026', null)).toBeNull();
+  });
+
+  test('returnsBasis is always a non-empty honest label', () => {
+    for (const official of [true, false]) for (const yahoo of [true, false]) {
+      const label = returnsBasisLabel(official, yahoo);
+      expect(label.length).toBeGreaterThan(10);
+      expect(label).not.toBe('-');
+      expect(label.includes('Yahoo')).toBe(yahoo);
+    }
   });
 
   test('falls back to derived returns and the indicated yield', () => {
@@ -998,6 +1018,7 @@ describe('deriveCatalogMetrics', () => {
     expect(metrics.dividendYield).toBe(18.7);
     expect(metrics.dividendYieldText).toBe('18.70%');
     expect(metrics.returnsBasis).toContain('not official NAV returns');
+    expect(metrics.performanceAsOf).toBe('2026-08-21');
   });
 
   test('official cumulative figures replace the annualized-to-total approximation', () => {

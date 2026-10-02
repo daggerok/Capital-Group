@@ -52,6 +52,8 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 - `siAnn` - since-inception annualized -> *SI Ann.*
 - `dividendYield` - indicated yield (latest distribution × frequency ÷ price)
 - `secYield` - 30-day SEC yield when published; `—` otherwise
+- `returnsBasis` - mandatory non-empty label of how the returns are computed: official Capital Group NAV total returns, or derived from the daily NAV history, or an estimate from Yahoo adjusted closes (mixed cases say which periods are estimates); never empty or `-`
+- `performanceAsOf` - mandatory ISO `YYYY-MM-DD` date the returns are as of: the issuer performance table (month-end) date for official returns, the last price date of the derived series otherwise; it is not the NAV date, and is `null` only when truly unknown
 
 ### Update controls
 
