@@ -42,7 +42,7 @@ function outputConfigEntries(config: Record<string, any>): [string, string][] {
 }
 function outputPrintConfig(brand: string, config: Record<string, any>): void {
   const entries: [string, string][] = [...outputConfigEntries(config), ['VERBOSE', String(outputVerbose())]];
-  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${/TOKEN|PASSWORD|SECRET|COOKIE/i.test(key) ? '<redacted>' : outputClean(value)}`).join('\n')}`);
+  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${/TOKEN|PASSWORD|SECRET|COOKIE|SEC_UA/i.test(key) ? '<redacted>' : outputClean(value)}`).join('\n')}`);
 }
 function outputHasOutputFilters(config: Record<string, any>): boolean {
   return outputConfigEntries(config).some(([name, value]) =>
@@ -146,7 +146,7 @@ const EDGAR_BROWSE_URL = 'https://www.sec.gov/cgi-bin/browse-edgar';
 // registrant CIK + series/class ids, and operating company name -> ticker.
 const SEC_FUND_TICKERS_URL = 'https://www.sec.gov/files/company_tickers_mf.json';
 const SEC_COMPANY_TICKERS_URL = 'https://www.sec.gov/files/company_tickers.json';
-const SEC_UA_DEFAULT = 'daggerok Capital Group ETF feed (https://github.com/daggerok/Capital-Group)';
+const SEC_UA_DEFAULT = 'daggerok ETF feed daggerok@gmail.com';
 
 const API_ROOT = new URL('../api/capital-group/', import.meta.url);
 const INDEX_FILE = new URL('index.json', API_ROOT);
@@ -322,22 +322,35 @@ function envValue(env: Record<string, string | undefined>, name: string, aliases
   return '';
 }
 
-function parsePositiveInt(raw: string, fallback: number): number {
-  const value = Number.parseInt(raw, 10);
-  return Number.isFinite(value) && value > 0 ? value : fallback;
+function parseIntegerControl(raw: string, label: string, min: number, fallback: number): number {
+  const text = String(raw ?? '').trim();
+  if (text === '') return fallback;
+  const value = Number(text);
+  if (!/^\d+$/.test(text) || !Number.isSafeInteger(value) || value < min) throw new Error(`${label}: expected integer >= ${min}, got "${text}"`);
+  return value;
 }
 
-function parseNonNegativeFloat(raw: string, fallback: number): number {
-  if (!raw.trim()) return fallback;
-  const value = Number(raw);
-  return Number.isFinite(value) && value >= 0 ? value : fallback;
+function parseSeconds(raw: string, label: string, fallback: number): number {
+  const text = String(raw ?? '').trim();
+  if (text === '') return fallback;
+  const value = Number(text);
+  if (!Number.isFinite(value) || value < 0) throw new Error(`${label}: expected nonnegative seconds, got "${text}"`);
+  return value;
 }
 
-function parseBoolean(raw: string, fallback = false): boolean {
+function parseBoolean(raw: string, label: string, fallback = false): boolean {
   const text = String(raw ?? '').trim().toLowerCase();
+  if (text === '') return fallback;
   if (['1', 'true', 'yes', 'y', 'on'].includes(text)) return true;
   if (['0', 'false', 'no', 'n', 'off'].includes(text)) return false;
-  return fallback;
+  throw new Error(`${label}: expected boolean, got "${text}"`);
+}
+
+function parseHistoryRange(raw: string): string {
+  const text = String(raw ?? '').trim();
+  if (text === '') return 'max';
+  if (!/^(max|[1-9]\d*y)$/i.test(text)) throw new Error(`HISTORY_RANGE: use max or Ny (e.g. 5y), got "${text}"`);
+  return text.toLowerCase();
 }
 
 // Strict "min:max" ranges (same parser and errors as the sibling repos).
@@ -347,7 +360,9 @@ export function parseRange(raw: string, label: string): Range | undefined {
   if (!text.includes(':')) {
     throw new Error(`${label}: "${text}" must use the "min:max" range syntax (a colon is required)`);
   }
-  const [rawMin, rawMax] = text.split(':', 2);
+  const parts = text.split(':');
+  if (parts.length !== 2) throw new Error(`${label}: "${text}" must contain exactly one colon`);
+  const [rawMin, rawMax] = parts;
   const parseBound = (bound: string): number | undefined => {
     const cleaned = bound.trim().replace(/%$/, '').replace(/[$,]/g, '');
     if (cleaned === '') return undefined;
@@ -383,7 +398,9 @@ export function parseAumRange(raw: string): (Range & { source?: string }) | unde
   if (!text.includes(':')) {
     throw new Error(`AUM: "${text}" must use the "min:max" range syntax (a colon is required)`);
   }
-  const [rawMin, rawMax] = text.split(':', 2);
+  const parts = text.split(':');
+  if (parts.length !== 2) throw new Error(`AUM: "${text}" must contain exactly one colon`);
+  const [rawMin, rawMax] = parts;
   const min = parseAumBound(rawMin);
   const max = parseAumBound(rawMax);
   if (min === undefined && max === undefined) return undefined;
@@ -404,23 +421,23 @@ function parseRanges(env: Record<string, string | undefined>, prefix: 'PERFORMAN
 
 export function readConfig(env: Record<string, string | undefined> = process.env): UpdaterConfig {
   return {
-    concurrency: parsePositiveInt(envValue(env, 'CONCURRENCY'), CONCURRENCY_FALLBACK),
-    requestSleep: parseNonNegativeFloat(envValue(env, 'REQUEST_SLEEP'), REQUEST_SLEEP_FALLBACK),
-    maxFetches: parsePositiveInt(envValue(env, 'MAX_FETCHES', ['CAPITAL_GROUP_LIMIT']), 0),
-    holdingsPageSize: parsePositiveInt(envValue(env, 'HOLDINGS_PAGE_SIZE'), HOLDINGS_PAGE_SIZE_FALLBACK),
-    historyPageSize: parsePositiveInt(envValue(env, 'HISTORY_PAGE_SIZE', ['HISTORICAL_PAGE_SIZE']), HISTORY_PAGE_SIZE_FALLBACK),
-    storeRawDownloads: parseBoolean(envValue(env, 'STORE_RAW_DOWNLOADS', ['CAPITAL_GROUP_STORE_RAW_DOWNLOADS']), false),
-    maxRetries: parseNonNegativeFloat(envValue(env, 'MAX_RETRIES'), MAX_RETRIES_FALLBACK),
+    concurrency: parseIntegerControl(envValue(env, 'CONCURRENCY'), 'CONCURRENCY', 1, CONCURRENCY_FALLBACK),
+    requestSleep: parseSeconds(envValue(env, 'REQUEST_SLEEP'), 'REQUEST_SLEEP', REQUEST_SLEEP_FALLBACK),
+    maxFetches: parseIntegerControl(envValue(env, 'MAX_FETCHES', ['CAPITAL_GROUP_LIMIT']), 'MAX_FETCHES', 0, 0),
+    holdingsPageSize: parseIntegerControl(envValue(env, 'HOLDINGS_PAGE_SIZE'), 'HOLDINGS_PAGE_SIZE', 1, HOLDINGS_PAGE_SIZE_FALLBACK),
+    historyPageSize: parseIntegerControl(envValue(env, 'HISTORY_PAGE_SIZE', ['HISTORICAL_PAGE_SIZE']), 'HISTORY_PAGE_SIZE', 1, HISTORY_PAGE_SIZE_FALLBACK),
+    storeRawDownloads: parseBoolean(envValue(env, 'STORE_RAW_DOWNLOADS', ['CAPITAL_GROUP_STORE_RAW_DOWNLOADS']), 'STORE_RAW_DOWNLOADS'),
+    maxRetries: parseIntegerControl(envValue(env, 'MAX_RETRIES'), 'MAX_RETRIES', 1, MAX_RETRIES_FALLBACK),
     tickers: envValue(env, 'TICKERS')
       .split(/[\s,;]+/)
       .map(sanitizeTicker)
       .filter(Boolean),
-    historyRange: envValue(env, 'HISTORY_RANGE') || 'max',
+    historyRange: parseHistoryRange(envValue(env, 'HISTORY_RANGE')),
     catalogUrl: envValue(env, 'CATALOG_URL') || ISSUER_CATALOG,
     secUa: envValue(env, 'SEC_UA') || SEC_UA_DEFAULT,
-    skipYahoo: parseBoolean(envValue(env, 'SKIP_YAHOO'), false),
-    skipIssuer: parseBoolean(envValue(env, 'SKIP_ISSUER'), false),
-    edgarFallback: parseBoolean(envValue(env, 'EDGAR_FALLBACK'), true),
+    skipYahoo: parseBoolean(envValue(env, 'SKIP_YAHOO'), 'SKIP_YAHOO'),
+    skipIssuer: parseBoolean(envValue(env, 'SKIP_ISSUER'), 'SKIP_ISSUER'),
+    edgarFallback: parseBoolean(envValue(env, 'EDGAR_FALLBACK'), 'EDGAR_FALLBACK', true),
     aumRange: parseAumRange(envValue(env, 'AUM')),
     terRange: parseRange(envValue(env, 'TER'), 'TER'),
     dividendYieldRange: parseRange(envValue(env, 'DIVIDEND_YIELD'), 'DIVIDEND_YIELD'),
@@ -430,52 +447,22 @@ export function readConfig(env: Record<string, string | undefined> = process.env
   };
 }
 
-function rangeLabel(range?: Range): string {
-  if (!range) return 'any';
-  const min = range.min === undefined ? '' : String(range.min);
-  const max = range.max === undefined ? '' : String(range.max);
-  return `${min}:${max}`;
-}
-
-function configLines(config: UpdaterConfig): string[] {
-  return [
-    `CONCURRENCY         ${config.concurrency}`,
-    `REQUEST_SLEEP       ${config.requestSleep} s between outgoing request starts per worker`,
-    `MAX_FETCHES         ${config.maxFetches === 0 ? 'all eligible funds (full pass, cursor ignored)' : `${config.maxFetches} per run (resumes after the saved cursor)`}`,
-    `HOLDINGS_PAGE_SIZE  ${config.holdingsPageSize}`,
-    `HISTORY_PAGE_SIZE   ${config.historyPageSize}`,
-    `STORE_RAW_DOWNLOADS ${config.storeRawDownloads ? 'on' : 'off'}`,
-    `MAX_RETRIES         ${config.maxRetries}`,
-    `TICKERS             ${config.tickers.length ? config.tickers.join(' ') : 'all Capital Group ETFs in the catalog'}`,
-    `HISTORY_RANGE       ${config.historyRange} (Yahoo chart range, fallback history only)`,
-    `AUM                 ${rangeLabel(config.aumRange)}`,
-    `TER                 ${rangeLabel(config.terRange)}`,
-    `DIVIDEND_YIELD      ${rangeLabel(config.dividendYieldRange)}`,
-    `SEC_YIELD           ${rangeLabel(config.secYieldRange)}`,
-    `PERFORMANCE_*       ${RETURN_PERIODS.filter((p) => config.performanceRanges[p]).map((p) => `${p}=${rangeLabel(config.performanceRanges[p])}`).join(' ') || 'any'}`,
-    `TOTAL_RETURN_*      ${RETURN_PERIODS.filter((p) => config.totalReturnRanges[p]).map((p) => `${p}=${rangeLabel(config.totalReturnRanges[p])}`).join(' ') || 'any'}`,
-    `SEC_UA              ${config.secUa}`,
-    `SKIP_YAHOO          ${config.skipYahoo}`,
-    `SKIP_ISSUER       ${config.skipIssuer}`,
-    `EDGAR_FALLBACK      ${config.edgarFallback}`,
-  ];
-}
-
-
 const USAGE = `Capital Group ETF static data updater (Bun, no dependencies).
 Usage: bun scripts/update-data.ts [-h|--help]
 Defaults: CONCURRENCY=1 REQUEST_SLEEP=3 MAX_RETRIES=2 MAX_FETCHES=0 (all)
+MAX_RETRIES is an integer >= 1 (retries after the first request).
 TICKERS="CGUS CGCP CGMU" selects exact funds before network work or MAX_FETCHES.
-HOLDINGS_PAGE_SIZE=250 HISTORY_PAGE_SIZE=1000 HISTORY_RANGE=max (Yahoo fallback)
+HOLDINGS_PAGE_SIZE=250 HISTORY_PAGE_SIZE=1000 HISTORY_RANGE=max (Yahoo fallback history window: max or Ny)
 STORE_RAW_DOWNLOADS=0 SKIP_ISSUER=0 SKIP_YAHOO=0 EDGAR_FALLBACK=1 VERBOSE=0
 CATALOG_URL=${ISSUER_CATALOG}
-SEC_UA=${SEC_UA_DEFAULT}
+SEC_UA=<contact string for SEC requests; default in scripts/update-data.config.json>
 AUM=min:max or nano/micro/small/mid/large (bounds accept K/M/B/T)
 TER=min:max DIVIDEND_YIELD=min:max SEC_YIELD=min:max
 PERFORMANCE_{YTD,1Y,3Y,5Y,10Y}=min:max (annualized for 3Y+)
 TOTAL_RETURN_{YTD,1Y,3Y,5Y,10Y}=min:max (cumulative)
-All canonical controls accept CAPITAL_GROUP_ prefix at runtime (including VERBOSE).
-File defaults: scripts/update-data.config.json; explicit environment overrides file.
+All canonical controls accept a CAPITAL_GROUP_ prefix at runtime (including VERBOSE).
+Precedence: scripts/update-data.config.json < advanced JSON < nonblank inputs < environment.
+An explicitly set environment variable wins even when empty; invalid values are errors.
 Examples:
   TICKERS="CGUS CGCP CGMU" VERBOSE=1 bun scripts/update-data.ts
   MAX_FETCHES=3 AUM="1B:" TER=":0.5" bun scripts/update-data.ts
@@ -2362,48 +2349,55 @@ async function resolveNportFiling(
 
 // File defaults and explicit overrides. Allowlisted scalar values only: the
 // same resolver is used by Actions without interpolating user input into bash.
+// Precedence: config file < advanced JSON < nonblank inputs < environment (an
+// explicitly set variable wins even when empty and clears the control).
 export const CONTROL_NAMES = [
-  'MAX_FETCHES','REQUEST_SLEEP','CONCURRENCY','AUM','TER','DIVIDEND_YIELD','SEC_YIELD','TICKERS',
-  'HOLDINGS_PAGE_SIZE','HISTORY_PAGE_SIZE','MAX_RETRIES','HISTORY_RANGE','STORE_RAW_DOWNLOADS',
-  'CATALOG_URL','SEC_UA','SKIP_YAHOO','SKIP_ISSUER','EDGAR_FALLBACK','VERBOSE',
-  ...['PERFORMANCE','TOTAL_RETURN'].flatMap(prefix=>['YTD','1Y','3Y','5Y','10Y'].map(period=>`${prefix}_${period}`)),
+  'MAX_FETCHES', 'REQUEST_SLEEP', 'CONCURRENCY', 'AUM', 'TER', 'DIVIDEND_YIELD', 'SEC_YIELD', 'TICKERS',
+  'HOLDINGS_PAGE_SIZE', 'HISTORY_PAGE_SIZE', 'MAX_RETRIES', 'HISTORY_RANGE', 'STORE_RAW_DOWNLOADS',
+  'CATALOG_URL', 'SEC_UA', 'SKIP_YAHOO', 'SKIP_ISSUER', 'EDGAR_FALLBACK', 'VERBOSE',
+  ...['PERFORMANCE', 'TOTAL_RETURN'].flatMap((prefix) => ['YTD', '1Y', '3Y', '5Y', '10Y'].map((period) => `${prefix}_${period}`)),
 ] as const;
-export function resolveControls(file:unknown={},advanced:unknown={},inputs:unknown={},env:Record<string,string|undefined>={}):Record<string,string> {
-  const result:Record<string,string>={};
-  const apply=(value:unknown,skipEmpty=false)=>{
-    if (!value || typeof value!=='object' || Array.isArray(value)) throw new Error('Configuration must be a JSON object');
-    for (const [key,raw] of Object.entries(value)) {
-      if (!CONTROL_NAMES.includes(key)) throw new Error(`Unknown updater control: ${key}`);
-      if (skipEmpty && (raw===''||raw===undefined||raw===null)) continue;
-      if (!['string','number','boolean'].includes(typeof raw)) throw new Error(`${key}: expected string, number or boolean`);
-      const text=String(raw);
+export type ControlName = (typeof CONTROL_NAMES)[number];
+export const CONFIG_FILE_URL = new URL('./update-data.config.json', import.meta.url);
+// Brand aliases kept from earlier releases; CAPITAL_GROUP_<NAME> is accepted for every control.
+const ENV_ALIASES: Partial<Record<ControlName, string[]>> = { MAX_FETCHES: ['CAPITAL_GROUP_LIMIT'], HISTORY_PAGE_SIZE: ['HISTORICAL_PAGE_SIZE'] };
+
+export function resolveControls(
+  file: unknown = {},
+  advanced: unknown = {},
+  inputs: unknown = {},
+  env: Record<string, string | undefined> = {},
+): Record<string, string> {
+  const result: Record<string, string> = {};
+  const known = new Set<string>(CONTROL_NAMES);
+  const apply = (value: unknown, skipEmpty = false): void => {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('Configuration must be a JSON object');
+    for (const [key, raw] of Object.entries(value)) {
+      if (!known.has(key)) throw new Error(`Unknown updater control: ${key}`);
+      if (skipEmpty && (raw === '' || raw === undefined || raw === null)) continue;
+      if (!['string', 'number', 'boolean'].includes(typeof raw)) throw new Error(`${key}: expected string, number or boolean`);
+      const text = String(raw);
       if (/[\r\n\0]/.test(text)) throw new Error(`${key}: multiline/control characters are not allowed`);
-      result[key]=text;
+      result[key] = text;
     }
   };
-  apply(file);apply(advanced);apply(inputs,true);
-  for(const key of CONTROL_NAMES){
-    const value=env[`CAPITAL_GROUP_${key}`]??env[key];
-    if(value!==undefined)apply({[key]:value});
+  apply(file);
+  apply(advanced);
+  apply(inputs, true);
+  for (const key of CONTROL_NAMES) {
+    const name = [`CAPITAL_GROUP_${key}`, key, ...(ENV_ALIASES[key] ?? [])].find((candidate) => env[candidate] !== undefined);
+    if (name !== undefined) apply({ [key]: env[name] });
   }
-  for(const key of ['MAX_FETCHES','CONCURRENCY','HOLDINGS_PAGE_SIZE','HISTORY_PAGE_SIZE','MAX_RETRIES']){
-    const v=result[key];if(v===undefined||v==='')continue;
-    const min=['MAX_FETCHES','MAX_RETRIES'].includes(key)?0:1;
-    if(!/^\d+$/.test(v)||!Number.isSafeInteger(Number(v))||Number(v)<min)throw new Error(`${key}: expected integer >= ${min}`);
-  }
-  if(result.REQUEST_SLEEP && (!Number.isFinite(Number(result.REQUEST_SLEEP))||Number(result.REQUEST_SLEEP)<0))throw new Error('REQUEST_SLEEP: expected nonnegative seconds');
-  if(result.HISTORY_RANGE && !/^(max|[1-9]\d*y)$/i.test(result.HISTORY_RANGE))throw new Error('HISTORY_RANGE: use max or Ny');
-  for(const key of ['STORE_RAW_DOWNLOADS','SKIP_YAHOO','SKIP_ISSUER','EDGAR_FALLBACK','VERBOSE']){
-    if(result[key] && !/^(0|1|true|false|yes|no|y|n|on|off)$/i.test(result[key]))throw new Error(`${key}: expected boolean`);
-  }
-  readConfig(result); // validate all min:max filters before a request or write
+  parseBoolean(result.VERBOSE ?? '', 'VERBOSE');
+  readConfig(result); // strict validation of every control before any request or write
   return result;
 }
-async function runtimeControls(env:Record<string,string|undefined>):Promise<Record<string,string>> {
-  let file:unknown={};
-  try {file=JSON.parse(await readFile(new URL('./update-data.config.json',import.meta.url),'utf8'));}
-  catch(e) {if((e as NodeJS.ErrnoException).code!=='ENOENT')throw e;}
-  return resolveControls(file,{}, {},env);
+
+export async function runtimeControls(env: Record<string, string | undefined> = process.env): Promise<Record<string, string>> {
+  let file: unknown = {};
+  try { file = JSON.parse(await readFile(CONFIG_FILE_URL, 'utf8')); }
+  catch (error) { if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error; }
+  return resolveControls(file, {}, {}, env);
 }
 
 async function main(): Promise<void> {
@@ -2591,7 +2585,6 @@ if ((import.meta as { main?: boolean }).main) {
   if (process.argv.includes('-h') || process.argv.includes('--help')) {
     console.log(USAGE.trim());
     outputPrintConfig('Capital Group effective configuration', readConfig(await runtimeControls(process.env)));
-    console.log('Defaults: scripts/update-data.config.json; explicit environment overrides the file. Actions: file < advanced JSON < individual nonblank inputs.');
   } else {
     await main().catch((error) => {
       console.error(error instanceof Error ? error.stack : String(error));
