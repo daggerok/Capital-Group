@@ -1,7 +1,7 @@
 /// <reference types="bun" />
 import { afterEach, describe, expect, test } from 'bun:test';
 import { readFileSync } from 'node:fs';
-import { cp, mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, mkdtemp, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { deflateRawSync } from 'node:zlib';
@@ -9,7 +9,9 @@ import {
   CONTROL_NAMES, createRequestGate, createRequestQueue, fetchWithRetry, issuerFrequency, issuerPricesUrl, parseIssuerCatalog,
   parseIssuerDistributions, parseIssuerFacts, parseIssuerFlight, parseIssuerHoldings, parseIssuerPrices, parseIssuerReturns,
   readConfig, resolveControls, installSystemCa, isCertError, retainUnavailable, samePublishedContent, sourceDate, sourceNumber, unzipIssuerWorkbook,
-  withRequestLane, workbookRows, writePages,
+  withRequestLane, workbookRows, writePages, removeStalePages,
+  runUpdater, setApiRoot, writeFileAtomic, writeIfChanged, mergeHistoryRows, ageGuardReturns, isoStamp, readCursorScopes, writeCursorScope,
+  loadFundTickerMap, resetSecTableCaches, RUN_SOFT_DEADLINE_MS,
   formatIssuerDate, normalizeNumberText, numberOrNull, formatEdgarDate, toIsoDate, isoToEpoch, parseRange, parseAumRange, HISTORY_HEADERS, YAHOO_HISTORY_HEADERS, navTotalReturnDays, normalizeHoldingName, normalizeHoldingNameCore, cleanHoldingTicker, nportUrlFor, parseNportAccessions, parseFundTickerMap, parseCompanyTickerMap, edgarSeriesFilingsUrl, parseEdgarAtomFilings, parseNport, pickEftsCik, parseChart, annualizedToTotal, totalToAnnualized, indicatedYield, inferDistributionFrequency, priceReturns, lastCompletedQuarterEnd, deriveCatalogMetrics, returnsBasisLabel, performanceAsOf,
 } from './update-data';
 
@@ -400,7 +402,10 @@ test('pagination, stable writes, stale-page cleanup', async () => {
     const before = await readFile(join(dir, 'holdings/001.json'), 'utf8');
     await writePages(url, 'CGUS', 'holdings', ['Name'], [{ Name: 'a' }, { Name: 'b' }, { Name: 'c' }], 2);
     expect(await readFile(join(dir, 'holdings/001.json'), 'utf8')).toBe(before);
-    await writePages(url, 'CGUS', 'holdings', ['Name'], [{ Name: 'a' }], 2);
+    const shrunk = await writePages(url, 'CGUS', 'holdings', ['Name'], [{ Name: 'a' }], 2);
+    // pages are written first; stale pages go only after meta.json (removeStalePages is the later step)
+    expect((await readdir(join(dir, 'holdings'))).sort()).toEqual(['001.json', '002.json']);
+    await removeStalePages(url, 'holdings', new Set(shrunk.pages));
     expect(await readdir(join(dir, 'holdings'))).toEqual(['001.json']);
   } finally { await rm(dir, { recursive: true, force: true }); }
 });
@@ -447,8 +452,11 @@ globalThis.fetch = async (input) => {
     expect(first.out).not.toContain('daggerok@gmail.com'); // SEC_UA is redacted in config logs
     const indexPath = join(dir, 'api/capital-group/index.json');
     const index = JSON.parse(await readFile(indexPath, 'utf8'));
-    expect(index.funds.map((f: { ticker: string }) => f.ticker)).toEqual(['CGUS', 'KEEP']);
-    expect(index.funds[1]).toEqual(unrelated);
+    // CGCP is listed by the catalog but not requested: it gets a seed row (dataFile null), KEEP is untouched
+    expect(index.funds.map((f: { ticker: string }) => f.ticker)).toEqual(['CGCP', 'CGUS', 'KEEP']);
+    expect(index.funds[0]).toMatchObject({ ticker: 'CGCP', dataFile: null, holdings: 0 });
+    expect(index.funds[2]).toEqual(unrelated);
+    expect(first.out).toContain('NEW FUNDS: CGCP, CGUS');
     const metaPath = join(dir, 'api/capital-group/funds/CGUS/meta.json');
     const before = await readFile(metaPath, 'utf8'), indexBefore = await readFile(indexPath, 'utf8');
     expect(JSON.parse(before).holdings.totalRows).toBe(3);
@@ -540,7 +548,7 @@ describe('normalizeNumberText', () => {
 });
 
 describe('numberOrNull', () => {
-  test('accepts the am.jpmorgan.com placeholder styles', () => {
+  test('maps capitalgroup.com placeholders (--, em dash, N/A) to null and reads plain, currency and percent numbers', () => {
     expect(numberOrNull('--')).toBeNull();
     expect(numberOrNull('—')).toBeNull();
     expect(numberOrNull('N/A')).toBeNull();
@@ -558,7 +566,7 @@ describe('toIsoDate / formatIssuerDate / formatEdgarDate', () => {
     expect(toIsoDate('n/a')).toBe('n/a');
   });
 
-  test('JPMorgan workbooks render MM/DD/YYYY, the feed renders "Mon D YYYY"', () => {
+  test('capitalgroup.com workbooks render MM/DD/YYYY, the feed renders "Mon D YYYY"', () => {
     expect(formatIssuerDate('2026-08-21')).toBe('08/21/2026');
     expect(formatEdgarDate('2026-06-30')).toBe('Jun 30 2026');
   });
@@ -613,8 +621,8 @@ describe('sheet headers', () => {
 describe('nport fixtures', () => {
   test('parses positions, identifiers and the report period', () => {
     const xml = `
-      <nportRegDoc><genInfo><regName>J.P. Morgan Exchange-Traded Fund Trust</regName><regCik>0001485894</regCik>
-      <seriesName>JPMorgan Equity Premium Income ETF</seriesName><seriesId>S000068402</seriesId>
+      <nportRegDoc><genInfo><regName>Capital Group Exchange-Traded Fund Trust</regName><regCik>0001870102</regCik>
+      <seriesName>Capital Group Core Equity ETF</seriesName><seriesId>S000068402</seriesId>
       <repPdDate>2026-06-30</repPdDate></genInfo>
       <invstOrSec><name>Apple Inc</name><cusip>037833100</cusip><balance>124827810</balance>
       <valUSD>26312454069.90</valUSD><pctVal>8.24</pctVal><assetCat>EC</assetCat></invstOrSec>
@@ -623,8 +631,8 @@ describe('nport fixtures', () => {
       <valUSD>5100000</valUSD><pctVal>2.5</pctVal><assetCat>OB</assetCat></invstOrSec>
       </nportRegDoc>`;
     const parsed = parseNport(xml);
-    expect(parsed.seriesName).toBe('JPMorgan Equity Premium Income ETF');
-    expect(parsed.regCik).toBe('0001485894');
+    expect(parsed.seriesName).toBe('Capital Group Core Equity ETF');
+    expect(parsed.regCik).toBe('0001870102');
     expect(parsed.repPdDate).toBe('2026-06-30');
     expect(parsed.holdings.length).toBe(2);
     expect(parsed.holdings[0].Identifier).toBe('037833100');
@@ -637,7 +645,7 @@ describe('nport fixtures', () => {
 
   test('reads the reported net assets when the filing carries a fundInfo block', () => {
     const parsed = parseNport(
-      '<genInfo><seriesName>JPMorgan BetaBuilders U.S. Equity ETF</seriesName><repPdDate>2026-04-30</repPdDate></genInfo>' +
+      '<genInfo><seriesName>Capital Group Dividend Value ETF</seriesName><repPdDate>2026-04-30</repPdDate></genInfo>' +
         '<fundInfo><totAssets>88500000000.00</totAssets><netAssets>87850000000.00</netAssets></fundInfo>' +
         '<invstOrSec><name>MGM Resorts International</name><cusip>552953101</cusip><valUSD>180990316.32</valUSD><pctVal>0.2059893365</pctVal></invstOrSec>',
     );
@@ -681,11 +689,11 @@ describe('pickEftsCik', () => {
   const payload = {
     hits: [
       { _source: { display_names: { cik: 12345, names: ['Some Other Trust'] } } },
-      { _source: { display_names: { cik: 1485894, names: ['JPMorgan Equity Premium Income ETF', 'J.P. MORGAN EXCHANGE-TRADED FUND TRUST'] } } },
+      { _source: { display_names: { cik: 1870102, names: ['Capital Group Core Equity ETF', 'CAPITAL GROUP EXCHANGE-TRADED FUND TRUST'] } } },
     ],
   };
   test('chooses the registrant whose name matches the fund', () => {
-    expect(pickEftsCik(payload, 'JPMorgan Equity Premium Income ETF')).toBe('0001485894');
+    expect(pickEftsCik(payload, 'Capital Group Core Equity ETF')).toBe('0001870102');
   });
 
   test('returns null when nothing matches', () => {
@@ -698,11 +706,11 @@ describe('pickEftsCik', () => {
         total: { value: 2, relation: 'eq' },
         hits: [
           { _source: { ciks: ['0001667919'], display_names: ['FIRST TRUST EXCHANGE-TRADED FUND VIII  (CIK 0001667919)'] } },
-          { _source: { ciks: ['0001485894'], display_names: ['J.P. MORGAN EXCHANGE-TRADED FUND TRUST  (CIK 0001485894)'] } },
+          { _source: { ciks: ['0001870102'], display_names: ['CAPITAL GROUP EXCHANGE-TRADED FUND TRUST  (CIK 0001870102)'] } },
         ],
       },
     };
-    expect(pickEftsCik(real, 'J.P. Morgan Exchange-Traded Fund Trust')).toBe('0001485894');
+    expect(pickEftsCik(real, 'Capital Group Exchange-Traded Fund Trust')).toBe('0001870102');
     expect(pickEftsCik(real, '')).toBe('0001667919');
   });
 });
@@ -711,18 +719,18 @@ describe('SEC lookup tables', () => {
   const fundTickers = {
     fields: ['cik', 'seriesId', 'classId', 'symbol'],
     data: [
-      [1485894, 'S000068402', 'C000218810', 'JEPI'],
-      [1485894, 'S000054790', 'C000172198', 'JPST'],
-      [1485894, 'S000061995', 'C000200806', 'bbjp'],
+      [1870102, 'S000068402', 'C000218810', 'CGUS'],
+      [1870102, 'S000054790', 'C000172198', 'CGCP'],
+      [1870102, 'S000061995', 'C000200806', 'cgmu'],
       [0, 'S000000000', 'C000000000', 'ZZZ'],
     ],
   };
 
   test('maps every ticker to its registrant CIK and series', () => {
     const map = parseFundTickerMap(fundTickers);
-    expect(map.get('JEPI')).toEqual({ cik: '0001485894', seriesId: 'S000068402', classId: 'C000218810' });
-    expect(map.get('JPST')?.cik).toBe('0001485894');
-    expect(map.get('BBJP')?.seriesId).toBe('S000061995');
+    expect(map.get('CGUS')).toEqual({ cik: '0001870102', seriesId: 'S000068402', classId: 'C000218810' });
+    expect(map.get('CGCP')?.cik).toBe('0001870102');
+    expect(map.get('CGMU')?.seriesId).toBe('S000061995');
     expect(map.has('ZZZ')).toBe(false);
   });
 
@@ -802,7 +810,7 @@ function chartFixture(options: { closes?: (number | null)[]; adj?: (number | nul
         {
           meta: {
             fullExchangeName: 'NasdaqGS',
-            longName: 'JPMorgan Equity Premium Income ETF',
+            longName: 'Capital Group Core Equity ETF',
             navPrice: 706.3,
             regularMarketPrice: 706.32,
             regularMarketTime: Date.UTC(2026, 7, 21, 20, 0) / 1000,
@@ -963,7 +971,7 @@ describe('inferDistributionFrequency', () => {
 });
 
 describe('deriveCatalogMetrics', () => {
-  test('official JPMorgan returns win over the derived ones', () => {
+  test('official Capital Group returns win over the derived ones', () => {
     const metrics = deriveCatalogMetrics(
       { ytd: 15.97, yr1: 18.34, yr3: 20.15, yr5: 17.42, yr10: 16.88, sinceInception: 19.44 },
       { asOfDate: '2026-08-21', ytd: 13.79, yr1: 54.21, cagr3y: 18.99, cagr5y: 12, cagr10y: 11, siAnn: 10, mo1: 1, qtd: 2 },
@@ -1141,5 +1149,437 @@ describe('system CA', () => {
     installSystemCa('auto', reexec, false);
     expect(await (await globalThis.fetch('https://example.invalid/')).text()).toBe('fine');
     expect(calls).toBe(1);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Robustness and data-contract fixes: in-process runs against a mocked issuer (never live)
+// ---------------------------------------------------------------------------
+
+afterEach(() => { process.exitCode = 0; });
+
+type Knobs = {
+  catalog?: string[];
+  dead?: Record<string, string[]>; // ticker (or ALL) -> sources: facts, holdings, history, yahoo
+  facts?: Record<string, { net?: string; gross?: string; secYield?: string | null; inception?: string; returns?: Record<string, string | null>; nav?: string; priceDate?: string; assets?: string }>;
+  noDistributions?: boolean;
+  historyDays?: number;
+  yahooDays?: number;
+  holdingsDate?: string;
+  nport?: { repPdDate: string } | null;
+  secDelayMs?: number;
+};
+const mockDays = (count: number): string[] => Array.from({ length: count }, (_, index) => new Date(Date.parse('2026-09-25T00:00:00Z') - (count - 1 - index) * 86_400_000).toISOString().slice(0, 10));
+const usDate = (iso: string): string => `${iso.slice(5, 7)}/${iso.slice(8, 10)}/${iso.slice(0, 4)}`;
+const mockCounts = new Map<string, number>();
+
+function installIssuerMock(knobs: Knobs = {}): () => void {
+  const original = globalThis.fetch;
+  mockCounts.clear();
+  globalThis.fetch = (async (input: RequestInfo | URL) => {
+    const url = String(input);
+    const count = (key: string) => mockCounts.set(key, (mockCounts.get(key) ?? 0) + 1);
+    const ticker = (/\/details\/([a-z0-9]+)/i.exec(url)?.[1] ?? /\/etfs\/([A-Z0-9]+)\//.exec(url)?.[1] ?? /chart\/([A-Z0-9]+)/.exec(url)?.[1] ?? '').toUpperCase();
+    const dead = new Set(knobs.dead?.[ticker] ?? knobs.dead?.ALL ?? []);
+    const gone = () => new Response('missing', { status: 404 });
+    if (url.endsWith('exchange-traded-funds.html')) {
+      return new Response((knobs.catalog ?? ['CGUS']).map((item) => `<a href="/advisor/investments/exchange-traded-funds/details/${item.toLowerCase()}">${item}</a>`).join(''));
+    }
+    if (url.includes('/details/')) {
+      count('facts');
+      if (dead.has('facts')) return gone();
+      const own = knobs.facts?.[ticker] ?? {};
+      const facts = factsSample(ticker) as any;
+      facts.details.expenseRatio = { grossExpenseRatio: own.gross ?? '0.45', netExpenseRatio: own.net ?? '0.33' };
+      if (own.inception) facts.details.inceptionDate = own.inception;
+      if (own.secYield !== undefined) facts.details.yield.netSecYield = own.secYield;
+      if (own.returns) facts.details.monthlyReturns = own.returns;
+      if (own.nav) facts.dailyDetails.priceDistribution.navPrice = own.nav;
+      if (own.priceDate) facts.dailyDetails.priceDistribution.asOfDate = own.priceDate;
+      if (own.assets) facts.dailyDetails.fundFacts.assetsInMillions = own.assets;
+      return new Response(flightHtml(facts));
+    }
+    if (url.includes('/download/daily-holdings')) {
+      if (dead.has('holdings')) return gone();
+      return new Response(new Uint8Array(holdingsWorkbookDated(ticker, knobs.holdingsDate ?? '9/24/2026')));
+    }
+    if (url.includes('/historical-distributions')) {
+      if (dead.has('history')) return gone();
+      return Response.json(knobs.noDistributions ? { asOfDate: '09/25/2026', distributions: [] } : distributionsSample);
+    }
+    if (url.includes('/premium-discount-details')) {
+      if (dead.has('history')) return gone();
+      const dayList = mockDays(knobs.historyDays ?? 400);
+      return Response.json({ inceptionDate: '02/22/2022', quotron: ticker, premiumDiscountDetails: dayList.map((day, index) => ({ asOfDate: usDate(day), period: 'daily', values: { nav: String(24 + index * 0.05), marketPrice: String(24 + index * 0.05), premiumDiscount: '0.05' } })) });
+    }
+    if (url.includes('query1.finance.yahoo.com/v8/finance/chart')) {
+      if (dead.has('yahoo')) return gone();
+      const dayList = mockDays(knobs.yahooDays ?? 300);
+      return Response.json({ chart: { result: [{ timestamp: dayList.map((day) => Math.floor(Date.parse(`${day}T00:00:00Z`) / 1000)), indicators: { quote: [{ close: dayList.map((_, index) => 40 + index * 0.01), volume: dayList.map(() => 1) }], adjclose: [{ adjclose: dayList.map((_, index) => 40 + index * 0.01) }] }, events: {}, meta: { regularMarketPrice: 44, exchangeName: 'NYSE', firstTradeDate: 1645488000 } }], error: null } });
+    }
+    if (url.includes('company_tickers_mf.json')) {
+      count('company_tickers_mf');
+      await Bun.sleep(knobs.secDelayMs ?? 0);
+      return Response.json({ fields: ['cik', 'seriesId', 'classId', 'symbol'], data: [[1870102, 'S000068402', 'C000218810', ticker || 'CGUS']] });
+    }
+    if (url.includes('company_tickers.json')) return Response.json({});
+    if (url.includes('browse-edgar')) {
+      return knobs.nport ? new Response(`<feed><entry><accession-number>0001870102-26-000001</accession-number><filing-date>${knobs.nport.repPdDate}</filing-date><filing-href>https://www.sec.gov/Archives/edgar/data/1870102/000187010226000001/0001870102-26-000001-index.htm</filing-href><filing-type>NPORT-P</filing-type></entry></feed>`) : gone();
+    }
+    if (url.endsWith('primary_doc.xml') && knobs.nport) {
+      return new Response(`<nportRegDoc><genInfo><regName>Capital Group Exchange-Traded Fund Trust</regName><regCik>0001870102</regCik><seriesName>Capital Group Core Equity ETF</seriesName><seriesId>S000068402</seriesId><repPdDate>${knobs.nport.repPdDate}</repPdDate></genInfo><invstOrSec><name>Apple Inc</name><cusip>037833100</cusip><balance>10</balance><valUSD>1000</valUSD><pctVal>5</pctVal><assetCat>EC</assetCat></invstOrSec></nportRegDoc>`);
+    }
+    throw new Error(`unexpected request: ${url}`);
+  }) as typeof fetch;
+  return () => { globalThis.fetch = original; };
+}
+// holdingsWorkbook() hard-codes the 9/24/2026 title date; this variant sets it
+function holdingsWorkbookDated(ticker: string, date: string): Buffer {
+  const line = (r: number, values: string[]) => `<row r="${r}">${values.map((v, i) => cell(`${String.fromCharCode(65 + i)}${r}`, v)).join('')}</row>`;
+  const sheet = `<worksheet><sheetData>${line(1, [`${ticker} - Capital Group Core Equity ETF Holdings As Of ${date}`])}${line(2, HOLDINGS_HEADER)}${HOLDINGS_ROWS.map((row, i) => line(3 + i, row)).join('')}</sheetData></worksheet>`;
+  return zip({ 'xl/worksheets/sheet1.xml': sheet }, true);
+}
+
+const defaultApiRoot = new URL('../api/capital-group/', import.meta.url);
+async function withFeed(knobs: Knobs, work: (feed: { root: URL; dir: string; run: (env?: Record<string, string>, next?: Knobs, extra?: Partial<Parameters<typeof runUpdater>[0]>) => ReturnType<typeof runUpdater>; row: (ticker: string) => Promise<any>; meta: (ticker: string) => Promise<any> }) => Promise<void>): Promise<void> {
+  const dir = await mkdtemp(join(tmpdir(), 'cg-fix-'));
+  const root = new URL(`file://${dir}/`);
+  let restore = installIssuerMock(knobs);
+  const quiet = console.log; const quietWarn = console.warn;
+  try {
+    console.log = () => undefined; console.warn = () => undefined;
+    const run = async (env: Record<string, string> = {}, next?: Knobs, extra: Partial<Parameters<typeof runUpdater>[0]> = {}) => {
+      if (next) { restore(); restore = installIssuerMock(next); }
+      return runUpdater({ config: readConfig({ REQUEST_SLEEP: '0', MAX_RETRIES: '1', EDGAR_FALLBACK: '0', SKIP_YAHOO: '0', ...env }), apiRoot: root, ...extra });
+    };
+    const row = async (ticker: string) => JSON.parse(await readFile(join(dir, 'index.json'), 'utf8')).funds.find((fund: any) => fund.ticker === ticker);
+    const meta = async (ticker: string) => JSON.parse(await readFile(join(dir, 'funds', ticker, 'meta.json'), 'utf8'));
+    await work({ root, dir, run, row, meta });
+  } finally {
+    console.log = quiet; console.warn = quietWarn;
+    restore(); setApiRoot(defaultApiRoot);
+    await rm(dir, { recursive: true, force: true });
+  }
+}
+
+describe('fix: strict controls', () => {
+  test('an AUM bound that is not a finite number is an error, never a dropped bound', () => {
+    for (const bad of ['abc:5B', '5X:10B', '1.2.3B:', ':1.2.3B', 'Infinity:']) expect(() => parseAumRange(bad)).toThrow('AUM');
+    expect(() => readConfig({ AUM: 'abc:5B' })).toThrow('AUM');
+    expect(parseAumRange('1B:')).toEqual({ min: 1e9, max: undefined });
+    expect(parseAumRange('0.5B:2T')).toEqual({ min: 5e8, max: 2e12 });
+    expect(parseAumRange('$1,000,000:')).toEqual({ min: 1e6, max: undefined });
+  });
+
+  test('numberOrNull maps symbol-only text to null, not 0, and keeps a real zero', () => {
+    for (const text of ['$', '%', ',', '$,%', ' $ ']) expect(numberOrNull(text)).toBeNull();
+    expect(numberOrNull('$0')).toBe(0);
+    expect(numberOrNull('0.00%')).toBe(0);
+  });
+
+  test('timestamps carry no milliseconds', () => {
+    expect(isoStamp(new Date('2026-10-03T04:05:06.789Z'))).toBe('2026-10-03T04:05:06Z');
+  });
+});
+
+describe('fix: retention only on an outage', () => {
+  test('fresh nulls publish as nulls: yields and returns never keep the previous number or pair with a new date', async () => {
+    await withFeed({}, async ({ run, row, meta }) => {
+      await run({ TICKERS: 'CGUS' });
+      const first = await row('CGUS');
+      expect(first.metrics).toMatchObject({ secYield: 0.77, cagr3y: 21.02 });
+      expect(first.metrics.dividendYield).not.toBeNull();
+      const nulled = { asOfDate: '9/30/26', navMonth1: '1', navYtdMonthly: '13', navYear1: null, navYear3: null, navYear5: null, navYear10: null, navLifetime: '11' };
+      await run({ TICKERS: 'CGUS' }, { noDistributions: true, facts: { CGUS: { secYield: null, returns: nulled } } });
+      const second = await row('CGUS');
+      expect(second.metrics.secYield).toBeNull();
+      expect(second.metrics.secYieldText).toBeNull();
+      expect(second.metrics.dividendYield).toBeNull();
+      expect(second.metrics.cagr3y).toBeNull();
+      expect(second.metrics.tr3y).toBeNull();
+      expect(second.metrics.ytd).toBe(13);
+      expect(second.metrics.performanceAsOf <= '2026-09-30').toBe(true);
+      const stored = await meta('CGUS');
+      expect(stored.yields.secYield).toBeNull();
+      expect(stored.yields.dividendYield).toBeNull();
+    });
+  });
+
+  test('an issuer outage keeps the previous complete publication untouched', async () => {
+    await withFeed({}, async ({ run, dir }) => {
+      await run({ TICKERS: 'CGUS' });
+      const files = ['funds/CGUS/meta.json', 'funds/CGUS/holdings/001.json', 'funds/CGUS/history/001.json', 'index.json'];
+      const before = await Promise.all(files.map((file) => readFile(join(dir, file), 'utf8')));
+      const report = await run({ TICKERS: 'CGUS' }, { dead: { CGUS: ['facts'] } });
+      expect(report.failed).toEqual(['CGUS']);
+      expect(report.exitCode).toBe(1);
+      expect(await Promise.all(files.map((file) => readFile(join(dir, file), 'utf8')))).toEqual(before);
+    });
+  });
+});
+
+describe('fix: history is never replaced by a different source or truncated', () => {
+  test('a failed issuer history keeps the official NAV rows even when Yahoo works and HISTORY_RANGE is short', async () => {
+    await withFeed({ historyDays: 900 }, async ({ run, meta, dir }) => {
+      await run({ TICKERS: 'CGUS' });
+      const before = await readFile(join(dir, 'funds', 'CGUS', 'history', '001.json'), 'utf8');
+      const report = await run({ TICKERS: 'CGUS', HISTORY_RANGE: '5y' }, { dead: { CGUS: ['history'] }, yahooDays: 300 });
+      expect(report.failed).toEqual(['CGUS']);
+      expect(await readFile(join(dir, 'funds', 'CGUS', 'history', '001.json'), 'utf8')).toBe(before);
+      const stored = await meta('CGUS');
+      expect(stored.history.totalRows).toBe(900);
+      expect(stored.history.source).toContain('capitalgroup.com daily price API');
+    });
+  });
+
+  test('a Yahoo-sourced history merges older rows back when HISTORY_RANGE shrinks the window', async () => {
+    await withFeed({ dead: { CGUS: ['history'] }, yahooDays: 900 }, async ({ run, meta }) => {
+      await run({ TICKERS: 'CGUS' }); // first publication: no previous state, so the Yahoo fallback is used
+      expect((await meta('CGUS')).history.totalRows).toBe(900);
+      await run({ TICKERS: 'CGUS', SKIP_ISSUER: '1', HISTORY_RANGE: '2y' }, { yahooDays: 300 });
+      expect((await meta('CGUS')).history.totalRows).toBe(900);
+    });
+  });
+
+  test('official NAV rows are not replaced by Yahoo adjusted closes on a later SKIP_ISSUER run', async () => {
+    await withFeed({ historyDays: 50 }, async ({ run, meta, dir }) => {
+      await run({ TICKERS: 'CGUS' });
+      await run({ TICKERS: 'CGUS', SKIP_ISSUER: '1' }, { yahooDays: 300 });
+      const stored = await meta('CGUS');
+      expect(stored.history.totalRows).toBe(50);
+      expect(JSON.parse(await readFile(join(dir, 'funds', 'CGUS', 'history', '001.json'), 'utf8')).headers).toEqual(['Date', 'NAV', 'Market Price', 'Premium/Discount']);
+    });
+  });
+
+  test('mergeHistoryRows keeps older published rows and refuses to mix header layouts', () => {
+    const previous = [{ Date: 'Jan 02 2026', Close: '1' }, { Date: 'Jun 01 2026', Close: '2' }];
+    expect(mergeHistoryRows(previous, ['Date', 'Close'], ['Date', 'Close'], [{ Date: 'Jun 01 2026', Close: '3' }]).map((row) => row.Close)).toEqual(['1', '3']);
+    expect(mergeHistoryRows(previous, ['Date', 'Close'], ['Date', 'NAV'], [{ Date: 'Jun 01 2026', NAV: '3' }])).toHaveLength(1);
+    expect(mergeHistoryRows([], [], ['Date'], [{ Date: 'Jun 01 2026' }])).toHaveLength(1);
+  });
+});
+
+describe('fix: data contract', () => {
+  test('3Y and longer figures are null for funds younger than the horizon at the returns date', async () => {
+    const returns = { asOfDate: '8/31/26', navMonth1: '0.8', navYtdMonthly: '12.5', navYear1: '17.8', navYear3: '16.48', navYear5: null, navYear10: null, navLifetime: '17.69' };
+    await withFeed({ catalog: ['CGBL'], facts: { CGBL: { inception: '9/26/23', returns } } }, async ({ run, row, meta }) => {
+      await run({ TICKERS: 'CGBL' });
+      const published = await row('CGBL');
+      expect(published.metrics.cagr3y).toBeNull();
+      expect(published.metrics.tr3y).toBeNull();
+      expect(published.returns.monthEnd.yr3).toBeNull();
+      expect(published.metrics.tr1y).toBe(17.8);
+      expect((await meta('CGBL')).returns.monthEnd.yr3).toBeNull();
+    });
+    const base = { ytd: 1, yr1: 2, yr3: 3, yr5: 4, yr10: 5, sinceInception: 6 };
+    expect(ageGuardReturns(base, '2023-09-26', '2026-08-31')).toMatchObject({ yr1: 2, yr3: null, yr5: null, yr10: null, sinceInception: 6 });
+    expect(ageGuardReturns(base, '2026-03-01', '2026-08-31')).toMatchObject({ ytd: 1, yr1: null, sinceInception: null });
+    expect(ageGuardReturns(base, '2010-01-01', '2026-08-31')).toEqual(base);
+    expect(ageGuardReturns(base, null, '2026-08-31')).toEqual(base);
+  });
+
+  test('terValue is the NET expense ratio and terGrossValue the GROSS one', async () => {
+    await withFeed({ facts: { CGUS: { net: '0.33', gross: '0.45' } } }, async ({ run, row, meta }) => {
+      await run({ TICKERS: 'CGUS' });
+      const published = await row('CGUS');
+      expect(published.terValue).toBe(0.33);
+      expect(published.terGrossValue).toBe(0.45);
+      expect((await meta('CGUS')).expenseRatio).toMatchObject({ value: 0.33, net: 0.33, gross: 0.45 });
+    });
+  });
+
+  test('net assets carry no float artifact', async () => {
+    await withFeed({ facts: { CGUS: { assets: '8399.7' } } }, async ({ run, row }) => {
+      await run({ TICKERS: 'CGUS' });
+      expect((await row('CGUS')).aumValue).toBe(8399700000);
+    });
+  });
+
+  test('a newer daily price API point wins over stale fund-facts NAV (CGMS stood still on Sep 03)', async () => {
+    await withFeed({ catalog: ['CGMS'], facts: { CGMS: { nav: '27.01', priceDate: '9/3/26' } } }, async ({ run, row, meta }) => {
+      await run({ TICKERS: 'CGMS' });
+      const published = await row('CGMS');
+      expect(published.asOfDate).toBe('Sep 25 2026');
+      expect(published.navValue).not.toBe(27.01);
+      expect((await meta('CGMS')).nav.asOfDate).toBe('Sep 25 2026');
+    });
+  });
+
+  test('derived since-inception needs at least one year; mixed official and derived figures are labelled with the oldest date', () => {
+    const points = Array.from({ length: 300 }, (_, index) => ({ date: new Date(Date.parse('2025-12-01T00:00:00Z') + index * 86_400_000).toISOString().slice(0, 10), close: 10 + index * 0.01, adjClose: 10 + index * 0.01, volume: 1 }));
+    expect(priceReturns(points, new Date('2026-09-26T00:00:00Z')).siAnn).toBeNull(); // 0.82 years
+    const mixed = deriveCatalogMetrics(
+      { ytd: 5, yr1: null, yr3: null, yr5: null, yr10: null, sinceInception: null },
+      { asOfDate: '2026-09-25', ytd: 4, yr1: 9, cagr3y: null, cagr5y: null, cagr10y: null, siAnn: null, mo1: null, qtd: null },
+      null, null, null, null, null, null, '2026-08-31',
+    );
+    expect(mixed.ytd).toBe(5);
+    expect(mixed.tr1y).toBe(9);
+    expect(String(mixed.returnsBasis)).toContain('missing periods are derived');
+    expect(mixed.performanceAsOf).toBe('2026-08-31');
+    const officialOnly = deriveCatalogMetrics({ ytd: 5, yr1: 6, yr3: null, yr5: null, yr10: null, sinceInception: null }, { asOfDate: '2026-09-25', ytd: 4, yr1: 9, cagr3y: null, cagr5y: null, cagr10y: null, siAnn: null, mo1: null, qtd: null }, null, null, null, null, null, null, '2026-08-31');
+    expect(officialOnly.returnsBasis).toBe('official Capital Group NAV total returns (fund-detail JSON)');
+    expect(officialOnly.dividendYieldText).toBeNull();
+    expect(officialOnly.secYieldText).toBeNull();
+  });
+
+  test('catalog funds without published data get dataFile null and a complete metrics object; NEW FUNDS is reported', async () => {
+    await withFeed({ catalog: ['CGUS', 'CGCP'] }, async ({ run, dir }) => {
+      const summary = join(dir, 'summary.md');
+      const previousSummary = process.env.GITHUB_STEP_SUMMARY;
+      process.env.GITHUB_STEP_SUMMARY = summary;
+      try {
+        await run({ TICKERS: 'CGUS' });
+        const first = JSON.parse(await readFile(join(dir, 'index.json'), 'utf8')).funds;
+        const seed = first.find((fund: any) => fund.ticker === 'CGCP');
+        expect(seed.dataFile).toBeNull();
+        expect(Object.keys(seed.metrics)).toEqual(Object.keys(first.find((fund: any) => fund.ticker === 'CGUS').metrics));
+        expect(seed.metrics.returnsBasis.length).toBeGreaterThan(10);
+        expect(seed.metrics.ytd).toBeNull();
+        const report = await run({ TICKERS: 'CGUS' }, { catalog: ['CGUS', 'CGCP', 'CGMU'] });
+        expect(report.newFunds).toEqual(['CGMU']);
+        expect(await readFile(summary, 'utf8')).toContain('NEW FUNDS: CGMU');
+      } finally {
+        if (previousSummary === undefined) delete process.env.GITHUB_STEP_SUMMARY; else process.env.GITHUB_STEP_SUMMARY = previousSummary;
+      }
+    });
+  });
+});
+
+describe('fix: fallback freshness', () => {
+  test('an N-PORT report not newer than the published holdings never replaces them; the fund is kept as published', async () => {
+    await withFeed({}, async ({ run, meta }) => {
+      await run({ TICKERS: 'CGUS' });
+      const report = await run({ TICKERS: 'CGUS', EDGAR_FALLBACK: '1' }, { dead: { CGUS: ['holdings'] }, nport: { repPdDate: '2026-06-30' } });
+      expect(report.failed).toEqual(['CGUS']);
+      const stored = await meta('CGUS');
+      expect(stored.holdings.source).toBe('Capital Group daily holdings XLSX');
+      expect(stored.holdings.asOfDate).toBe('2026-09-24');
+    });
+  });
+
+  test('a newer N-PORT report is still used when the holdings download fails', async () => {
+    await withFeed({ holdingsDate: '6/1/2026' }, async ({ run, meta }) => {
+      await run({ TICKERS: 'CGUS' });
+      const report = await run({ TICKERS: 'CGUS', EDGAR_FALLBACK: '1' }, { dead: { CGUS: ['holdings'] }, nport: { repPdDate: '2026-08-31' } });
+      expect(report.failed).toEqual([]);
+      const stored = await meta('CGUS');
+      expect(stored.holdings.source).toContain('SEC EDGAR Form N-PORT-P');
+      expect(stored.holdings.asOfDate).toBe('2026-08-31');
+    });
+  });
+
+  test('concurrent workers share one SEC fund-ticker request', async () => {
+    const restore = installIssuerMock({ secDelayMs: 30 });
+    try {
+      resetSecTableCaches();
+      const config = readConfig({ REQUEST_SLEEP: '0' });
+      const maps = await Promise.all([loadFundTickerMap(config), loadFundTickerMap(config), loadFundTickerMap(config)]);
+      expect(mockCounts.get('company_tickers_mf')).toBe(1);
+      expect(maps[0]).toBe(maps[2]);
+    } finally { restore(); resetSecTableCaches(); }
+  });
+});
+
+describe('fix: writes and cursor', () => {
+  test('writes are atomic and unchanged content writes nothing', async () => {
+    const dir = await mkdtemp(join(tmpdir(), 'cg-atomic-'));
+    try {
+      const file = new URL(`file://${dir}/x/a.json`);
+      await writeFileAtomic(file, '{"a":1}\n');
+      expect(await writeIfChanged(file, { a: 1 })).toBe(false);
+      expect(await writeIfChanged(file, { a: 2 })).toBe(true);
+      expect(await readdir(join(dir, 'x'))).toEqual(['a.json']);
+      await expect(writeFileAtomic(new URL(`file://${dir}/x/a.json/nested.json`), 'z')).rejects.toBeDefined();
+      expect(JSON.parse(await readFile(join(dir, 'x', 'a.json'), 'utf8'))).toEqual({ a: 2 });
+      expect((await readdir(join(dir, 'x'))).filter((name) => name.endsWith('.tmp'))).toEqual([]);
+    } finally { await rm(dir, { recursive: true, force: true }); }
+  });
+
+  test('stale pages survive a failed meta.json write (pages, then meta, then stale-page removal)', async () => {
+    await withFeed({ historyDays: 5 }, async ({ run, dir }) => {
+      await run({ TICKERS: 'CGUS', HISTORY_PAGE_SIZE: '2' });
+      const historyDir = join(dir, 'funds', 'CGUS', 'history');
+      expect((await readdir(historyDir)).sort()).toEqual(['001.json', '002.json', '003.json']);
+      await rm(join(dir, 'funds', 'CGUS', 'meta.json'));
+      await mkdir(join(dir, 'funds', 'CGUS', 'meta.json', 'blocker'), { recursive: true });
+      const report = await run({ TICKERS: 'CGUS', HISTORY_PAGE_SIZE: '5' });
+      expect(report.failed).toEqual(['CGUS']);
+      expect((await readdir(historyDir)).sort()).toEqual(['001.json', '002.json', '003.json']);
+      await rm(join(dir, 'funds', 'CGUS', 'meta.json'), { recursive: true, force: true });
+      await run({ TICKERS: 'CGUS', HISTORY_PAGE_SIZE: '5' });
+      expect((await readdir(historyDir)).sort()).toEqual(['001.json']);
+    });
+  });
+
+  test('a rerun with identical upstream data writes nothing, stamps included', async () => {
+    await withFeed({ catalog: ['CGUS', 'CGCP'] }, async ({ run, dir }) => {
+      await run({});
+      const snapshot = async (): Promise<Array<[string, string, number]>> => {
+        const out: Array<[string, string, number]> = [];
+        const walk = async (current: string): Promise<void> => {
+          for (const entry of await readdir(current, { withFileTypes: true })) {
+            const full = join(current, entry.name);
+            if (entry.isDirectory()) await walk(full); else out.push([full, await readFile(full, 'utf8'), (await stat(full)).mtimeMs]);
+          }
+        };
+        await walk(dir);
+        return out.sort((a, b) => a[0].localeCompare(b[0]));
+      };
+      const first = await snapshot();
+      await Bun.sleep(20);
+      await run({});
+      expect(await snapshot()).toEqual(first);
+    });
+  });
+
+  test('the cursor moves after an all-failing batch, follows queue order and a TICKERS run leaves it alone', async () => {
+    const catalog = ['CGCP', 'CGMU', 'CGUS', 'CGXU'];
+    await withFeed({ catalog, dead: { ALL: ['facts', 'holdings', 'history', 'yahoo'] } }, async ({ run, dir }) => {
+      const report = await run({ MAX_FETCHES: '2' });
+      expect(report.failed.sort()).toEqual(['CGCP', 'CGMU']);
+      expect((await readCursorScopes()).all).toBe('CGMU');
+      const concurrent = await run({ MAX_FETCHES: '2', CONCURRENCY: '2' });
+      expect(concurrent.selected).toEqual(['CGUS', 'CGXU']);
+      expect((await readCursorScopes()).all).toBe('CGXU'); // the furthest started fund in queue order, not the last to finish
+      const tickers = await run({ TICKERS: 'CGMU', MAX_FETCHES: '1' });
+      expect(tickers.selected).toEqual(['CGMU']);
+      const state = JSON.parse(await readFile(join(dir, 'update-state.json'), 'utf8'));
+      expect(state.scopes.all).toBe('CGXU');
+      await run({ TICKERS: 'CGMU' }); // a full TICKERS run never resets the full-feed cursor either
+      expect((await readCursorScopes()).all).toBe('CGXU');
+      await run({}); // an unfiltered full pass resets it
+      expect((await readCursorScopes()).all).toBeUndefined();
+      await writeCursorScope('all', 'CGCP');
+      expect((await readCursorScopes()).all).toBe('CGCP');
+    });
+  });
+
+  test('the batch wraps around the catalog and funds failing the data filters do not use up a slot', async () => {
+    const catalog = ['CGCP', 'CGMU', 'CGUS'];
+    await withFeed({ catalog }, async ({ run, row }) => {
+      await run({});
+      const rich = await row('CGUS');
+      expect(rich.aumValue).toBeGreaterThan(1e9);
+      const wrapped = await run({ MAX_FETCHES: '2' });
+      expect(wrapped.selected).toEqual(['CGCP', 'CGMU']);
+      const next = await run({ MAX_FETCHES: '2' });
+      expect(next.selected).toEqual(['CGUS', 'CGCP']); // wraps instead of a short last batch
+      // AUM above every published fund: nothing can pass, nothing is requested and the cursor stays
+      const none = await run({ MAX_FETCHES: '2', AUM: '999T:' });
+      expect(none.selected).toEqual([]);
+    });
+  });
+
+  test('a soft deadline stops taking new funds, still writes the index and moves the cursor by started funds only', async () => {
+    expect(RUN_SOFT_DEADLINE_MS).toBe(25 * 60_000);
+    await withFeed({ catalog: ['CGCP', 'CGMU', 'CGUS'] }, async ({ run, dir }) => {
+      let clock = 0;
+      const report = await run({ MAX_FETCHES: '3' }, undefined, { deadlineMs: 5_000, now: () => { clock += 4_000; return clock; } });
+      expect(report.deadlineReached).toBe(true);
+      expect(report.updated.length).toBeLessThan(3);
+      expect(JSON.parse(await readFile(join(dir, 'index.json'), 'utf8')).funds).toHaveLength(3);
+      expect((await readCursorScopes()).all).toBe(report.selected[report.updated.length + report.failed.length + report.skipped.length - 1]);
+    });
   });
 });
