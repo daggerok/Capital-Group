@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-02T03:20:00Z",
+ "generatedAt": "2026-10-03T05:24:26Z",
  "source": {
   "provider": "Capital Group official ETF catalog, fund facts, daily holdings XLSX and daily NAV/distributions JSON; SEC EDGAR and Yahoo fallbacks",
   "site": "https://www.capitalgroup.com",
@@ -8,8 +8,8 @@
  },
  "counts": {
   "funds": 25,
-  "holdings": 15212,
-  "history": 18975
+  "holdings": 15229,
+  "history": 19072
  },
  "funds": [
   {
@@ -22,35 +22,36 @@
    "isin": null,
    "ter": "0.33%",
    "terValue": 0.33,
-   "nav": "$37.44",
-   "navValue": 37.44,
-   "aum": "$7,774.30 M",
-   "aumValue": 7774300000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.33,
+   "nav": "$36.75",
+   "navValue": 36.75,
+   "aum": "$7,695.10 M",
+   "aumValue": 7695100000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Sep 26 2023",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$37.47",
-   "closePriceValue": 37.47,
-   "premiumDiscount": "0.07%",
-   "premiumDiscountValue": 0.07,
+   "closePrice": "$36.78",
+   "closePriceValue": 36.78,
+   "premiumDiscount": "0.08%",
+   "premiumDiscountValue": 0.08,
    "distributions": {
     "frequency": "Quarterly",
-    "exDate": "06/30/2026",
-    "dividend": "0.1634"
+    "exDate": "09/30/2026",
+    "dividend": "0.2056"
    },
    "returns": {
     "monthEnd": {
      "asOfDate": "Aug 31 2026",
      "mo1": 2.01,
      "mo1Text": "2.01%",
-     "qtd": -0.61,
-     "qtdText": "-0.61%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 8.45,
      "ytdText": "8.45%",
      "yr1": 13.72,
      "yr1Text": "13.72%",
-     "yr3": 16.48,
-     "yr3Text": "16.48%",
+     "yr3": 16.69,
+     "yr3Text": "16.69%",
      "yr5": null,
      "yr5Text": "—",
      "yr10": null,
@@ -59,34 +60,34 @@
      "sinceInceptionText": "17.69%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": 8.4,
-     "yr1": 15.87,
-     "yr3": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": 5.59,
+     "yr1": 8.06,
+     "yr3": 16.09,
      "yr5": null,
      "yr10": null,
-     "sinceInception": 18.85
+     "sinceInception": 16.13
     }
    },
    "metrics": {
     "ytd": 8.45,
     "tr1y": 13.72,
-    "tr3y": 58.04,
+    "tr3y": 58.89,
     "tr5y": null,
     "tr10y": null,
-    "cagr3y": 16.48,
+    "cagr3y": 16.69,
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 17.69,
-    "dividendYield": 1.74,
-    "dividendYieldText": "1.74%",
+    "dividendYield": 2.24,
+    "dividendYieldText": "2.24%",
     "secYield": 2.39,
     "secYieldText": "2.39%",
-    "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
+    "returnsBasis": "official Capital Group NAV total returns where published; missing periods are derived from the daily NAV history with published distributions reinvested, not official returns",
     "performanceAsOf": "2026-08-31"
    },
    "holdings": 81,
-   "history": 753
+   "history": 757
   },
   {
    "ticker": "CGCB",
@@ -98,35 +99,36 @@
    "isin": null,
    "ter": "0.27%",
    "terValue": 0.27,
-   "nav": "$25.22",
-   "navValue": 25.22,
-   "aum": "$6,492.40 M",
-   "aumValue": 6492400000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.27,
+   "nav": "$25.01",
+   "navValue": 25.01,
+   "aum": "$6,453.40 M",
+   "aumValue": 6453400000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Sep 26 2023",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$25.25",
-   "closePriceValue": 25.25,
-   "premiumDiscount": "0.11%",
-   "premiumDiscountValue": 0.11,
+   "closePrice": "$25.03",
+   "closePriceValue": 25.03,
+   "premiumDiscount": "0.07%",
+   "premiumDiscountValue": 0.07,
    "distributions": {
     "frequency": "Monthly",
-    "exDate": "08/31/2026",
-    "dividend": "0.0844"
+    "exDate": "09/29/2026",
+    "dividend": "0.0956"
    },
    "returns": {
     "monthEnd": {
      "asOfDate": "Aug 31 2026",
      "mo1": 0.41,
      "mo1Text": "0.41%",
-     "qtd": -2.76,
-     "qtdText": "-2.76%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": -0.22,
      "ytdText": "-0.22%",
      "yr1": 1.83,
      "yr1Text": "1.83%",
-     "yr3": 4.34,
-     "yr3Text": "4.34%",
+     "yr3": 4.73,
+     "yr3Text": "4.73%",
      "yr5": null,
      "yr5Text": "—",
      "yr10": null,
@@ -135,34 +137,34 @@
      "sinceInceptionText": "5.17%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
-     "yr3": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": -2.95,
+     "yr1": -1.92,
+     "yr3": 4.11,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 4.06
     }
    },
    "metrics": {
     "ytd": -0.22,
     "tr1y": 1.83,
-    "tr3y": 13.59,
+    "tr3y": 14.87,
     "tr5y": null,
     "tr10y": null,
-    "cagr3y": 4.34,
+    "cagr3y": 4.73,
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 5.17,
-    "dividendYield": 4.01,
-    "dividendYieldText": "4.01%",
+    "dividendYield": 4.58,
+    "dividendYieldText": "4.58%",
     "secYield": 4.81,
     "secYieldText": "4.81%",
-    "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
+    "returnsBasis": "official Capital Group NAV total returns where published; missing periods are derived from the daily NAV history with published distributions reinvested, not official returns",
     "performanceAsOf": "2026-08-31"
    },
-   "holdings": 850,
-   "history": 753
+   "holdings": 855,
+   "history": 757
   },
   {
    "ticker": "CGCP",
@@ -174,29 +176,30 @@
    "isin": null,
    "ter": "0.34%",
    "terValue": 0.34,
-   "nav": "$21.43",
-   "navValue": 21.43,
-   "aum": "$8,399.70 M",
-   "aumValue": 8399700000.000001,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.34,
+   "nav": "$21.21",
+   "navValue": 21.21,
+   "aum": "$8,323.40 M",
+   "aumValue": 8323400000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Feb 22 2022",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$21.43",
-   "closePriceValue": 21.43,
-   "premiumDiscount": "0.02%",
-   "premiumDiscountValue": 0.02,
+   "closePrice": "$21.21",
+   "closePriceValue": 21.21,
+   "premiumDiscount": "-0.02%",
+   "premiumDiscountValue": -0.02,
    "distributions": {
     "frequency": "Monthly",
-    "exDate": "08/31/2026",
-    "dividend": "0.0868"
+    "exDate": "09/29/2026",
+    "dividend": "0.0925"
    },
    "returns": {
     "monthEnd": {
      "asOfDate": "Aug 31 2026",
      "mo1": 0.49,
      "mo1Text": "0.49%",
-     "qtd": -2.79,
-     "qtdText": "-2.79%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": -0.01,
      "ytdText": "-0.01%",
      "yr1": 2.06,
@@ -211,13 +214,13 @@
      "sinceInceptionText": "1.57%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
-     "yr3": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": -3.01,
+     "yr1": -1.96,
+     "yr3": 4.75,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 0.88
     }
    },
    "metrics": {
@@ -230,15 +233,15 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 1.57,
-    "dividendYield": 4.86,
-    "dividendYieldText": "4.86%",
+    "dividendYield": 5.23,
+    "dividendYieldText": "5.23%",
     "secYield": 5.3,
     "secYieldText": "5.30%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
-   "holdings": 1510,
-   "history": 1153
+   "holdings": 1506,
+   "history": 1157
   },
   {
    "ticker": "CGCV",
@@ -250,29 +253,30 @@
    "isin": null,
    "ter": "0.33%",
    "terValue": 0.33,
-   "nav": "$32.55",
-   "navValue": 32.55,
-   "aum": "$2,040.00 M",
-   "aumValue": 2040000000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.33,
+   "nav": "$32.06",
+   "navValue": 32.06,
+   "aum": "$2,034.30 M",
+   "aumValue": 2034300000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Jun 25 2024",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$32.59",
-   "closePriceValue": 32.59,
-   "premiumDiscount": "0.11%",
-   "premiumDiscountValue": 0.11,
+   "closePrice": "$32.10",
+   "closePriceValue": 32.1,
+   "premiumDiscount": "0.14%",
+   "premiumDiscountValue": 0.14,
    "distributions": {
     "frequency": "Quarterly",
-    "exDate": "06/30/2026",
-    "dividend": "0.1187"
+    "exDate": "09/30/2026",
+    "dividend": "0.1268"
    },
    "returns": {
     "monthEnd": {
      "asOfDate": "Aug 31 2026",
      "mo1": -0.12,
      "mo1Text": "-0.12%",
-     "qtd": -0.67,
-     "qtdText": "-0.67%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 9.45,
      "ytdText": "9.45%",
      "yr1": 13.97,
@@ -287,13 +291,13 @@
      "sinceInceptionText": "15.35%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": 6.49,
+     "yr1": 8.25,
      "yr3": null,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 13.38
     }
    },
    "metrics": {
@@ -306,15 +310,15 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 15.35,
-    "dividendYield": 1.46,
-    "dividendYieldText": "1.46%",
+    "dividendYield": 1.58,
+    "dividendYieldText": "1.58%",
     "secYield": 1.58,
     "secYieldText": "1.58%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
    "holdings": 75,
-   "history": 566
+   "history": 570
   },
   {
    "ticker": "CGDG",
@@ -326,35 +330,36 @@
    "isin": null,
    "ter": "0.47%",
    "terValue": 0.47,
-   "nav": "$37.59",
-   "navValue": 37.59,
-   "aum": "$5,632.10 M",
-   "aumValue": 5632100000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.47,
+   "nav": "$36.78",
+   "navValue": 36.78,
+   "aum": "$5,587.50 M",
+   "aumValue": 5587500000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Sep 26 2023",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$37.68",
-   "closePriceValue": 37.68,
-   "premiumDiscount": "0.24%",
-   "premiumDiscountValue": 0.24,
+   "closePrice": "$36.79",
+   "closePriceValue": 36.79,
+   "premiumDiscount": "0.03%",
+   "premiumDiscountValue": 0.03,
    "distributions": {
     "frequency": "Quarterly",
-    "exDate": "06/30/2026",
-    "dividend": "0.3865"
+    "exDate": "09/30/2026",
+    "dividend": "0.1611"
    },
    "returns": {
     "monthEnd": {
      "asOfDate": "Aug 31 2026",
      "mo1": 0.65,
      "mo1Text": "0.65%",
-     "qtd": 0.86,
-     "qtdText": "0.86%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 9.82,
      "ytdText": "9.82%",
      "yr1": 15.9,
      "yr1Text": "15.90%",
-     "yr3": 17.14,
-     "yr3Text": "17.14%",
+     "yr3": 17.35,
+     "yr3Text": "17.35%",
      "yr5": null,
      "yr5Text": "—",
      "yr10": null,
@@ -363,34 +368,34 @@
      "sinceInceptionText": "18.75%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
-     "yr3": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": 5.89,
+     "yr1": 9.61,
+     "yr3": 16.78,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 16.78
     }
    },
    "metrics": {
     "ytd": 9.82,
     "tr1y": 15.9,
-    "tr3y": 60.74,
+    "tr3y": 61.6,
     "tr5y": null,
     "tr10y": null,
-    "cagr3y": 17.14,
+    "cagr3y": 17.35,
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 18.75,
-    "dividendYield": 4.1,
-    "dividendYieldText": "4.10%",
+    "dividendYield": 1.75,
+    "dividendYieldText": "1.75%",
     "secYield": 1.96,
     "secYieldText": "1.96%",
-    "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
+    "returnsBasis": "official Capital Group NAV total returns where published; missing periods are derived from the daily NAV history with published distributions reinvested, not official returns",
     "performanceAsOf": "2026-08-31"
    },
-   "holdings": 108,
-   "history": 753
+   "holdings": 110,
+   "history": 757
   },
   {
    "ticker": "CGDV",
@@ -402,29 +407,30 @@
    "isin": null,
    "ter": "0.33%",
    "terValue": 0.33,
-   "nav": "$49.45",
-   "navValue": 49.45,
-   "aum": "$38,830.10 M",
-   "aumValue": 38830100000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.33,
+   "nav": "$48.82",
+   "navValue": 48.82,
+   "aum": "$38,429.70 M",
+   "aumValue": 38429700000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Feb 22 2022",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$49.46",
-   "closePriceValue": 49.46,
+   "closePrice": "$48.84",
+   "closePriceValue": 48.84,
    "premiumDiscount": "0.03%",
    "premiumDiscountValue": 0.03,
    "distributions": {
     "frequency": "Quarterly",
-    "exDate": "06/30/2026",
-    "dividend": "0.1471"
+    "exDate": "09/30/2026",
+    "dividend": "0.1522"
    },
    "returns": {
     "monthEnd": {
      "asOfDate": "Aug 31 2026",
      "mo1": 0.81,
      "mo1Text": "0.81%",
-     "qtd": 0.75,
-     "qtdText": "0.75%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 15.13,
      "ytdText": "15.13%",
      "yr1": 22.06,
@@ -439,13 +445,13 @@
      "sinceInceptionText": "18.59%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
-     "yr3": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": 12.95,
+     "yr1": 17.73,
+     "yr3": 24.5,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 17.74
     }
    },
    "metrics": {
@@ -458,15 +464,15 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 18.59,
-    "dividendYield": 1.19,
-    "dividendYieldText": "1.19%",
+    "dividendYield": 1.25,
+    "dividendYieldText": "1.25%",
     "secYield": 1.23,
     "secYieldText": "1.23%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
    "holdings": 58,
-   "history": 1153
+   "history": 1157
   },
   {
    "ticker": "CGGE",
@@ -478,17 +484,18 @@
    "isin": null,
    "ter": "0.47%",
    "terValue": 0.47,
-   "nav": "$35.09",
-   "navValue": 35.09,
-   "aum": "$3,199.20 M",
-   "aumValue": 3199200000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.47,
+   "nav": "$34.71",
+   "navValue": 34.71,
+   "aum": "$3,226.90 M",
+   "aumValue": 3226900000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Jun 25 2024",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$35.20",
-   "closePriceValue": 35.2,
-   "premiumDiscount": "0.30%",
-   "premiumDiscountValue": 0.3,
+   "closePrice": "$34.74",
+   "closePriceValue": 34.74,
+   "premiumDiscount": "0.08%",
+   "premiumDiscountValue": 0.08,
    "distributions": {
     "frequency": "Annually",
     "exDate": "12/26/2025",
@@ -499,8 +506,8 @@
      "asOfDate": "Aug 31 2026",
      "mo1": 1.03,
      "mo1Text": "1.03%",
-     "qtd": 0.52,
-     "qtdText": "0.52%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 11.19,
      "ytdText": "11.19%",
      "yr1": 18.37,
@@ -515,13 +522,13 @@
      "sinceInceptionText": "17.25%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": 10.08,
+     "yr1": 13.83,
      "yr3": null,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 16.06
     }
    },
    "metrics": {
@@ -534,15 +541,15 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 17.25,
-    "dividendYield": 0.36,
-    "dividendYieldText": "0.36%",
+    "dividendYield": 0.37,
+    "dividendYieldText": "0.37%",
     "secYield": 0.78,
     "secYieldText": "0.78%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
    "holdings": 126,
-   "history": 566
+   "history": 570
   },
   {
    "ticker": "CGGG",
@@ -554,17 +561,18 @@
    "isin": null,
    "ter": "0.39%",
    "terValue": 0.39,
-   "nav": "$29.14",
-   "navValue": 29.14,
-   "aum": "$67.40 M",
-   "aumValue": 67400000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.39,
+   "nav": "$28.87",
+   "navValue": 28.87,
+   "aum": "$68.70 M",
+   "aumValue": 68700000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Jun 24 2025",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$29.14",
-   "closePriceValue": 29.14,
-   "premiumDiscount": "-0.01%",
-   "premiumDiscountValue": -0.01,
+   "closePrice": "$28.87",
+   "closePriceValue": 28.87,
+   "premiumDiscount": "0.00%",
+   "premiumDiscountValue": 0,
    "distributions": {
     "frequency": "Semi-annually",
     "exDate": "06/30/2026",
@@ -575,8 +583,8 @@
      "asOfDate": "Aug 31 2026",
      "mo1": 2.15,
      "mo1Text": "2.15%",
-     "qtd": 1.89,
-     "qtdText": "1.89%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": -0.19,
      "ytdText": "-0.19%",
      "yr1": 2.72,
@@ -591,13 +599,13 @@
      "sinceInceptionText": "9.51%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": 0.61,
+     "yr1": 1.18,
      "yr3": null,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 9.56
     }
    },
    "metrics": {
@@ -618,7 +626,7 @@
     "performanceAsOf": "2026-08-31"
    },
    "holdings": 44,
-   "history": 317
+   "history": 321
   },
   {
    "ticker": "CGGO",
@@ -630,17 +638,18 @@
    "isin": null,
    "ter": "0.47%",
    "terValue": 0.47,
-   "nav": "$40.24",
-   "navValue": 40.24,
-   "aum": "$12,065.10 M",
-   "aumValue": 12065100000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.47,
+   "nav": "$39.65",
+   "navValue": 39.65,
+   "aum": "$12,062.50 M",
+   "aumValue": 12062500000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Feb 22 2022",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$40.26",
-   "closePriceValue": 40.26,
-   "premiumDiscount": "0.05%",
-   "premiumDiscountValue": 0.05,
+   "closePrice": "$39.70",
+   "closePriceValue": 39.7,
+   "premiumDiscount": "0.12%",
+   "premiumDiscountValue": 0.12,
    "distributions": {
     "frequency": "Semi-annually",
     "exDate": "06/30/2026",
@@ -651,8 +660,8 @@
      "asOfDate": "Aug 31 2026",
      "mo1": 1.11,
      "mo1Text": "1.11%",
-     "qtd": -2.92,
-     "qtdText": "-2.92%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 15.93,
      "ytdText": "15.93%",
      "yr1": 24.28,
@@ -668,12 +677,12 @@
     },
     "quarterEnd": {
      "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
-     "yr3": null,
+     "ytd": 21.85,
+     "yr1": 33.82,
+     "yr3": 21.72,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 14.54
     }
    },
    "metrics": {
@@ -687,14 +696,14 @@
     "cagr10y": null,
     "siAnn": 12.71,
     "dividendYield": null,
-    "dividendYieldText": "—",
+    "dividendYieldText": null,
     "secYield": 0.81,
     "secYieldText": "0.81%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
-   "holdings": 110,
-   "history": 1153
+   "holdings": 112,
+   "history": 1157
   },
   {
    "ticker": "CGGR",
@@ -706,17 +715,18 @@
    "isin": null,
    "ter": "0.39%",
    "terValue": 0.39,
-   "nav": "$48.15",
-   "navValue": 48.15,
-   "aum": "$26,317.20 M",
-   "aumValue": 26317200000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.39,
+   "nav": "$47.43",
+   "navValue": 47.43,
+   "aum": "$26,103.80 M",
+   "aumValue": 26103800000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Feb 22 2022",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$48.15",
-   "closePriceValue": 48.15,
-   "premiumDiscount": "0.00%",
-   "premiumDiscountValue": 0,
+   "closePrice": "$47.45",
+   "closePriceValue": 47.45,
+   "premiumDiscount": "0.05%",
+   "premiumDiscountValue": 0.05,
    "distributions": {
     "frequency": "Semi-annually",
     "exDate": "06/30/2026",
@@ -727,8 +737,8 @@
      "asOfDate": "Aug 31 2026",
      "mo1": 4.39,
      "mo1Text": "4.39%",
-     "qtd": 2.25,
-     "qtdText": "2.25%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 5.58,
      "ytdText": "5.58%",
      "yr1": 11.05,
@@ -743,13 +753,13 @@
      "sinceInceptionText": "15.85%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
-     "yr3": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": 6.79,
+     "yr1": 8.14,
+     "yr3": 24.94,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 15.83
     }
    },
    "metrics": {
@@ -762,15 +772,15 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 15.85,
-    "dividendYield": 0.11,
-    "dividendYieldText": "0.11%",
+    "dividendYield": 0.12,
+    "dividendYieldText": "0.12%",
     "secYield": 0.18,
     "secYieldText": "0.18%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
-   "holdings": 103,
-   "history": 1153
+   "holdings": 104,
+   "history": 1157
   },
   {
    "ticker": "CGHM",
@@ -782,29 +792,30 @@
    "isin": null,
    "ter": "0.34%",
    "terValue": 0.34,
-   "nav": "$24.22",
-   "navValue": 24.22,
-   "aum": "$3,270.30 M",
-   "aumValue": 3270300000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.34,
+   "nav": "$24.11",
+   "navValue": 24.11,
+   "aum": "$3,294.50 M",
+   "aumValue": 3294500000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Jun 25 2024",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$24.31",
-   "closePriceValue": 24.31,
-   "premiumDiscount": "0.37%",
-   "premiumDiscountValue": 0.37,
+   "closePrice": "$24.12",
+   "closePriceValue": 24.12,
+   "premiumDiscount": "0.05%",
+   "premiumDiscountValue": 0.05,
    "distributions": {
     "frequency": "Monthly",
-    "exDate": "08/31/2026",
-    "dividend": "0.0758"
+    "exDate": "09/29/2026",
+    "dividend": "0.0884"
    },
    "returns": {
     "monthEnd": {
      "asOfDate": "Aug 31 2026",
      "mo1": -0.17,
      "mo1Text": "-0.17%",
-     "qtd": -5.49,
-     "qtdText": "-5.49%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 1.91,
      "ytdText": "1.91%",
      "yr1": 7.05,
@@ -819,13 +830,13 @@
      "sinceInceptionText": "4.17%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": -2.5,
+     "yr1": -0.67,
      "yr3": null,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 2
     }
    },
    "metrics": {
@@ -838,15 +849,15 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 4.17,
-    "dividendYield": 3.74,
-    "dividendYieldText": "3.74%",
+    "dividendYield": 4.4,
+    "dividendYieldText": "4.40%",
     "secYield": 4.27,
     "secYieldText": "4.27%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
-   "holdings": 3648,
-   "history": 566
+   "holdings": 3641,
+   "history": 570
   },
   {
    "ticker": "CGHY",
@@ -858,29 +869,30 @@
    "isin": null,
    "ter": "0.39%",
    "terValue": 0.39,
-   "nav": "$24.64",
-   "navValue": 24.64,
-   "aum": "$134.70 M",
-   "aumValue": 134700000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.39,
+   "nav": "$24.33",
+   "navValue": 24.33,
+   "aum": "$132.80 M",
+   "aumValue": 132800000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Jun 24 2025",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$24.65",
-   "closePriceValue": 24.65,
-   "premiumDiscount": "0.06%",
-   "premiumDiscountValue": 0.06,
+   "closePrice": "$24.39",
+   "closePriceValue": 24.39,
+   "premiumDiscount": "0.25%",
+   "premiumDiscountValue": 0.25,
    "distributions": {
     "frequency": "Monthly",
-    "exDate": "08/31/2026",
-    "dividend": "0.1087"
+    "exDate": "09/29/2026",
+    "dividend": "0.1143"
    },
    "returns": {
     "monthEnd": {
      "asOfDate": "Aug 31 2026",
      "mo1": 0.71,
      "mo1Text": "0.71%",
-     "qtd": -1.53,
-     "qtdText": "-1.53%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 2.46,
      "ytdText": "2.46%",
      "yr1": 4.67,
@@ -895,13 +907,13 @@
      "sinceInceptionText": "5.89%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": -0.05,
+     "yr1": 1.34,
      "yr3": null,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 3.45
     }
    },
    "metrics": {
@@ -914,15 +926,15 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 5.89,
-    "dividendYield": 5.29,
-    "dividendYieldText": "5.29%",
+    "dividendYield": 5.62,
+    "dividendYieldText": "5.62%",
     "secYield": 5.73,
     "secYieldText": "5.73%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
-   "holdings": 370,
-   "history": 317
+   "holdings": 374,
+   "history": 321
   },
   {
    "ticker": "CGIB",
@@ -934,20 +946,21 @@
    "isin": null,
    "ter": "0.45%",
    "terValue": 0.45,
-   "nav": "$24.88",
-   "navValue": 24.88,
-   "aum": "$359.60 M",
-   "aumValue": 359600000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.45,
+   "nav": "$24.86",
+   "navValue": 24.86,
+   "aum": "$368.40 M",
+   "aumValue": 368400000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Jun 25 2024",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$24.92",
-   "closePriceValue": 24.92,
-   "premiumDiscount": "0.17%",
-   "premiumDiscountValue": 0.17,
+   "closePrice": "$24.95",
+   "closePriceValue": 24.95,
+   "premiumDiscount": "0.37%",
+   "premiumDiscountValue": 0.37,
    "distributions": {
     "frequency": "Monthly",
-    "exDate": "08/31/2026",
+    "exDate": "09/29/2026",
     "dividend": "0.025"
    },
    "returns": {
@@ -955,8 +968,8 @@
      "asOfDate": "Aug 31 2026",
      "mo1": -0.22,
      "mo1Text": "-0.22%",
-     "qtd": -2.16,
-     "qtdText": "-2.16%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 0.24,
      "ytdText": "0.24%",
      "yr1": 1.62,
@@ -971,13 +984,13 @@
      "sinceInceptionText": "3.46%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": -0.98,
+     "yr1": -0.31,
      "yr3": null,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 2.78
     }
    },
    "metrics": {
@@ -997,8 +1010,8 @@
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
-   "holdings": 448,
-   "history": 566
+   "holdings": 462,
+   "history": 570
   },
   {
    "ticker": "CGIC",
@@ -1010,29 +1023,30 @@
    "isin": null,
    "ter": "0.54%",
    "terValue": 0.54,
-   "nav": "$36.57",
-   "navValue": 36.57,
-   "aum": "$2,568.50 M",
-   "aumValue": 2568500000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.54,
+   "nav": "$35.69",
+   "navValue": 35.69,
+   "aum": "$2,555.40 M",
+   "aumValue": 2555400000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Jun 25 2024",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$36.68",
-   "closePriceValue": 36.68,
-   "premiumDiscount": "0.30%",
-   "premiumDiscountValue": 0.3,
+   "closePrice": "$35.70",
+   "closePriceValue": 35.7,
+   "premiumDiscount": "0.03%",
+   "premiumDiscountValue": 0.03,
    "distributions": {
     "frequency": "Quarterly",
-    "exDate": "06/30/2026",
-    "dividend": "0.346"
+    "exDate": "09/30/2026",
+    "dividend": "0.1298"
    },
    "returns": {
     "monthEnd": {
      "asOfDate": "Aug 31 2026",
      "mo1": 2.16,
      "mo1Text": "2.16%",
-     "qtd": 2.18,
-     "qtdText": "2.18%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 14.64,
      "ytdText": "14.64%",
      "yr1": 25.62,
@@ -1047,13 +1061,13 @@
      "sinceInceptionText": "21.24%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": 12.37,
+     "yr1": 19.5,
      "yr3": null,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 19.34
     }
    },
    "metrics": {
@@ -1066,15 +1080,15 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 21.24,
-    "dividendYield": 3.77,
-    "dividendYieldText": "3.77%",
+    "dividendYield": 1.45,
+    "dividendYieldText": "1.45%",
     "secYield": 1.75,
     "secYieldText": "1.75%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
-   "holdings": 211,
-   "history": 566
+   "holdings": 216,
+   "history": 570
   },
   {
    "ticker": "CGIE",
@@ -1086,17 +1100,18 @@
    "isin": null,
    "ter": "0.54%",
    "terValue": 0.54,
-   "nav": "$36.97",
-   "navValue": 36.97,
-   "aum": "$2,458.00 M",
-   "aumValue": 2458000000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.54,
+   "nav": "$36.29",
+   "navValue": 36.29,
+   "aum": "$2,449.00 M",
+   "aumValue": 2449000000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Sep 26 2023",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$37.17",
-   "closePriceValue": 37.17,
-   "premiumDiscount": "0.54%",
-   "premiumDiscountValue": 0.54,
+   "closePrice": "$36.29",
+   "closePriceValue": 36.29,
+   "premiumDiscount": "0.00%",
+   "premiumDiscountValue": 0,
    "distributions": {
     "frequency": "Semi-annually",
     "exDate": "06/30/2026",
@@ -1107,14 +1122,14 @@
      "asOfDate": "Aug 31 2026",
      "mo1": 2.51,
      "mo1Text": "2.51%",
-     "qtd": 1.71,
-     "qtdText": "1.71%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 9.9,
      "ytdText": "9.90%",
      "yr1": 16.8,
      "yr1Text": "16.80%",
-     "yr3": 15.55,
-     "yr3Text": "15.55%",
+     "yr3": 15.57,
+     "yr3Text": "15.57%",
      "yr5": null,
      "yr5Text": "—",
      "yr10": null,
@@ -1123,34 +1138,34 @@
      "sinceInceptionText": "16.98%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
-     "yr3": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": 6.57,
+     "yr1": 10.63,
+     "yr3": 15.27,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 15.3
     }
    },
    "metrics": {
     "ytd": 9.9,
     "tr1y": 16.8,
-    "tr3y": 54.28,
+    "tr3y": 54.36,
     "tr5y": null,
     "tr10y": null,
-    "cagr3y": 15.55,
+    "cagr3y": 15.57,
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 16.98,
-    "dividendYield": 1.98,
-    "dividendYieldText": "1.98%",
+    "dividendYield": 2.02,
+    "dividendYieldText": "2.02%",
     "secYield": 1.39,
     "secYieldText": "1.39%",
-    "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
+    "returnsBasis": "official Capital Group NAV total returns where published; missing periods are derived from the daily NAV history with published distributions reinvested, not official returns",
     "performanceAsOf": "2026-08-31"
    },
-   "holdings": 82,
-   "history": 753
+   "holdings": 79,
+   "history": 757
   },
   {
    "ticker": "CGMM",
@@ -1162,17 +1177,18 @@
    "isin": null,
    "ter": "0.51%",
    "terValue": 0.51,
-   "nav": "$31.58",
-   "navValue": 31.58,
-   "aum": "$3,473.70 M",
-   "aumValue": 3473700000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.51,
+   "nav": "$31.12",
+   "navValue": 31.12,
+   "aum": "$3,455.30 M",
+   "aumValue": 3455300000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Jan 14 2025",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$31.60",
-   "closePriceValue": 31.6,
-   "premiumDiscount": "0.06%",
-   "premiumDiscountValue": 0.06,
+   "closePrice": "$31.13",
+   "closePriceValue": 31.13,
+   "premiumDiscount": "0.03%",
+   "premiumDiscountValue": 0.03,
    "distributions": {
     "frequency": "Semi-annually",
     "exDate": "06/30/2026",
@@ -1183,8 +1199,8 @@
      "asOfDate": "Aug 31 2026",
      "mo1": 2.16,
      "mo1Text": "2.16%",
-     "qtd": -4.01,
-     "qtdText": "-4.01%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 13.29,
      "ytdText": "13.29%",
      "yr1": 15.86,
@@ -1199,13 +1215,13 @@
      "sinceInceptionText": "16.75%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": 7.49,
+     "yr1": 9.5,
      "yr3": null,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 12.37
     }
    },
    "metrics": {
@@ -1218,15 +1234,15 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 16.75,
-    "dividendYield": 0.25,
-    "dividendYieldText": "0.25%",
+    "dividendYield": 0.26,
+    "dividendYieldText": "0.26%",
     "secYield": 0.63,
     "secYieldText": "0.63%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
    "holdings": 119,
-   "history": 427
+   "history": 431
   },
   {
    "ticker": "CGMS",
@@ -1238,71 +1254,72 @@
    "isin": null,
    "ter": "0.39%",
    "terValue": 0.39,
-   "nav": "$27.01",
-   "navValue": 27.01,
-   "aum": "$5,433.10 M",
-   "aumValue": 5433100000,
-   "asOfDate": "Sep 03 2026",
+   "terGrossValue": 0.39,
+   "nav": "$26.23",
+   "navValue": 26.23,
+   "aum": "$5,388.00 M",
+   "aumValue": 5388000000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Oct 25 2022",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$26.99",
-   "closePriceValue": 26.99,
-   "premiumDiscount": "-0.09%",
-   "premiumDiscountValue": -0.09,
+   "closePrice": "$26.24",
+   "closePriceValue": 26.24,
+   "premiumDiscount": "0.05%",
+   "premiumDiscountValue": 0.05,
    "distributions": {
     "frequency": "Monthly",
-    "exDate": "08/31/2026",
-    "dividend": "0.1297"
+    "exDate": "09/29/2026",
+    "dividend": "0.1402"
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "Jul 31 2026",
-     "mo1": -0.7,
-     "mo1Text": "-0.70%",
-     "qtd": -1.78,
-     "qtdText": "-1.78%",
-     "ytd": 0.99,
-     "ytdText": "0.99%",
-     "yr1": 4.31,
-     "yr1Text": "4.31%",
-     "yr3": 7.3,
-     "yr3Text": "7.30%",
+     "asOfDate": "Aug 31 2026",
+     "mo1": 0.7,
+     "mo1Text": "0.70%",
+     "qtd": null,
+     "qtdText": "—",
+     "ytd": 1.7,
+     "ytdText": "1.70%",
+     "yr1": 3.77,
+     "yr1Text": "3.77%",
+     "yr3": 7.55,
+     "yr3Text": "7.55%",
      "yr5": null,
      "yr5Text": "—",
      "yr10": null,
      "yr10Text": "—",
-     "sinceInception": 8.28,
-     "sinceInceptionText": "8.28%"
+     "sinceInception": 8.29,
+     "sinceInceptionText": "8.29%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": 1.7,
-     "yr1": 5.37,
-     "yr3": 7.98,
+     "asOfDate": "Sep 30 2026",
+     "ytd": -0.78,
+     "yr1": 0.51,
+     "yr3": 7.18,
      "yr5": null,
      "yr10": null,
-     "sinceInception": 8.68
+     "sinceInception": 7.43
     }
    },
    "metrics": {
-    "ytd": 0.99,
-    "tr1y": 4.31,
-    "tr3y": 23.54,
+    "ytd": 1.7,
+    "tr1y": 3.77,
+    "tr3y": 24.4,
     "tr5y": null,
     "tr10y": null,
-    "cagr3y": 7.3,
+    "cagr3y": 7.55,
     "cagr5y": null,
     "cagr10y": null,
-    "siAnn": 8.28,
-    "dividendYield": 5.86,
-    "dividendYieldText": "5.86%",
-    "secYield": 6.1,
-    "secYieldText": "6.10%",
+    "siAnn": 8.29,
+    "dividendYield": 6.41,
+    "dividendYieldText": "6.41%",
+    "secYield": 6.06,
+    "secYieldText": "6.06%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
-    "performanceAsOf": "2026-07-31"
+    "performanceAsOf": "2026-08-31"
    },
-   "holdings": 1628,
-   "history": 983
+   "holdings": 1620,
+   "history": 987
   },
   {
    "ticker": "CGMU",
@@ -1314,29 +1331,30 @@
    "isin": null,
    "ter": "0.27%",
    "terValue": 0.27,
-   "nav": "$26.02",
-   "navValue": 26.02,
-   "aum": "$6,719.00 M",
-   "aumValue": 6719000000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.27,
+   "nav": "$26.03",
+   "navValue": 26.03,
+   "aum": "$6,906.60 M",
+   "aumValue": 6906600000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Oct 25 2022",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$26.06",
-   "closePriceValue": 26.06,
-   "premiumDiscount": "0.14%",
-   "premiumDiscountValue": 0.14,
+   "closePrice": "$26.02",
+   "closePriceValue": 26.02,
+   "premiumDiscount": "-0.04%",
+   "premiumDiscountValue": -0.04,
    "distributions": {
     "frequency": "Monthly",
-    "exDate": "08/31/2026",
-    "dividend": "0.0702"
+    "exDate": "09/29/2026",
+    "dividend": "0.0773"
    },
    "returns": {
     "monthEnd": {
      "asOfDate": "Aug 31 2026",
      "mo1": 0.08,
      "mo1Text": "0.08%",
-     "qtd": -4.55,
-     "qtdText": "-4.55%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 0.55,
      "ytdText": "0.55%",
      "yr1": 3.96,
@@ -1351,13 +1369,13 @@
      "sinceInceptionText": "5.27%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
-     "yr3": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": -2.93,
+     "yr1": -1.46,
+     "yr3": 3.77,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 4.22
     }
    },
    "metrics": {
@@ -1370,15 +1388,15 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 5.27,
-    "dividendYield": 3.23,
-    "dividendYieldText": "3.23%",
+    "dividendYield": 3.56,
+    "dividendYieldText": "3.56%",
     "secYield": 3.51,
     "secYieldText": "3.51%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
-   "holdings": 2545,
-   "history": 983
+   "holdings": 2552,
+   "history": 987
   },
   {
    "ticker": "CGNG",
@@ -1390,17 +1408,18 @@
    "isin": null,
    "ter": "0.64%",
    "terValue": 0.64,
-   "nav": "$37.03",
-   "navValue": 37.03,
-   "aum": "$3,168.10 M",
-   "aumValue": 3168100000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.64,
+   "nav": "$36.41",
+   "navValue": 36.41,
+   "aum": "$3,142.80 M",
+   "aumValue": 3142800000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Jun 25 2024",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$37.06",
-   "closePriceValue": 37.06,
-   "premiumDiscount": "0.09%",
-   "premiumDiscountValue": 0.09,
+   "closePrice": "$36.41",
+   "closePriceValue": 36.41,
+   "premiumDiscount": "0.01%",
+   "premiumDiscountValue": 0.01,
    "distributions": {
     "frequency": "Annually",
     "exDate": "12/26/2025",
@@ -1411,8 +1430,8 @@
      "asOfDate": "Aug 31 2026",
      "mo1": 2,
      "mo1Text": "2.00%",
-     "qtd": 0.87,
-     "qtdText": "0.87%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 14.74,
      "ytdText": "14.74%",
      "yr1": 25.41,
@@ -1427,13 +1446,13 @@
      "sinceInceptionText": "19.59%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": 14.15,
+     "yr1": 19.13,
      "yr3": null,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 18.54
     }
    },
    "metrics": {
@@ -1446,15 +1465,15 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 19.59,
-    "dividendYield": 0.59,
-    "dividendYieldText": "0.59%",
+    "dividendYield": 0.6,
+    "dividendYieldText": "0.60%",
     "secYield": 0.86,
     "secYieldText": "0.86%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
-   "holdings": 260,
-   "history": 566
+   "holdings": 257,
+   "history": 570
   },
   {
    "ticker": "CGSD",
@@ -1466,29 +1485,30 @@
    "isin": null,
    "ter": "0.25%",
    "terValue": 0.25,
-   "nav": "$25.39",
-   "navValue": 25.39,
-   "aum": "$2,745.40 M",
-   "aumValue": 2745400000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.25,
+   "nav": "$25.30",
+   "navValue": 25.3,
+   "aum": "$2,747.20 M",
+   "aumValue": 2747200000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Oct 25 2022",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$25.40",
-   "closePriceValue": 25.4,
-   "premiumDiscount": "0.03%",
-   "premiumDiscountValue": 0.03,
+   "closePrice": "$25.31",
+   "closePriceValue": 25.31,
+   "premiumDiscount": "0.05%",
+   "premiumDiscountValue": 0.05,
    "distributions": {
     "frequency": "Monthly",
-    "exDate": "08/31/2026",
-    "dividend": "0.0888"
+    "exDate": "09/29/2026",
+    "dividend": "0.0917"
    },
    "returns": {
     "monthEnd": {
      "asOfDate": "Aug 31 2026",
      "mo1": 0.31,
      "mo1Text": "0.31%",
-     "qtd": -0.47,
-     "qtdText": "-0.47%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 1.3,
      "ytdText": "1.30%",
      "yr1": 2.96,
@@ -1503,13 +1523,13 @@
      "sinceInceptionText": "5.16%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
-     "yr3": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": 0.27,
+     "yr1": 1.6,
+     "yr3": 4.95,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 4.78
     }
    },
    "metrics": {
@@ -1522,15 +1542,15 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 5.16,
-    "dividendYield": 4.2,
-    "dividendYieldText": "4.20%",
+    "dividendYield": 4.35,
+    "dividendYieldText": "4.35%",
     "secYield": 4.72,
     "secYieldText": "4.72%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
-   "holdings": 1098,
-   "history": 983
+   "holdings": 1101,
+   "history": 987
   },
   {
    "ticker": "CGSM",
@@ -1542,35 +1562,36 @@
    "isin": null,
    "ter": "0.25%",
    "terValue": 0.25,
-   "nav": "$25.72",
-   "navValue": 25.72,
-   "aum": "$1,587.30 M",
-   "aumValue": 1587300000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.25,
+   "nav": "$25.74",
+   "navValue": 25.74,
+   "aum": "$1,604.70 M",
+   "aumValue": 1604700000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Sep 26 2023",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$25.76",
-   "closePriceValue": 25.76,
-   "premiumDiscount": "0.14%",
-   "premiumDiscountValue": 0.14,
+   "closePrice": "$25.78",
+   "closePriceValue": 25.78,
+   "premiumDiscount": "0.15%",
+   "premiumDiscountValue": 0.15,
    "distributions": {
     "frequency": "Monthly",
-    "exDate": "08/31/2026",
-    "dividend": "0.058"
+    "exDate": "09/29/2026",
+    "dividend": "0.064"
    },
    "returns": {
     "monthEnd": {
      "asOfDate": "Aug 31 2026",
      "mo1": 0.37,
      "mo1Text": "0.37%",
-     "qtd": -1.92,
-     "qtdText": "-1.92%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 1.46,
      "ytdText": "1.46%",
      "yr1": 2.95,
      "yr1Text": "2.95%",
-     "yr3": 4.01,
-     "yr3Text": "4.01%",
+     "yr3": 4.16,
+     "yr3Text": "4.16%",
      "yr5": null,
      "yr5Text": "—",
      "yr10": null,
@@ -1579,34 +1600,34 @@
      "sinceInceptionText": "4.76%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
-     "yr3": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": -0.42,
+     "yr1": 0.34,
+     "yr3": 4,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 3.98
     }
    },
    "metrics": {
     "ytd": 1.46,
     "tr1y": 2.95,
-    "tr3y": 12.52,
+    "tr3y": 13.01,
     "tr5y": null,
     "tr10y": null,
-    "cagr3y": 4.01,
+    "cagr3y": 4.16,
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 4.76,
-    "dividendYield": 2.7,
-    "dividendYieldText": "2.70%",
+    "dividendYield": 2.98,
+    "dividendYieldText": "2.98%",
     "secYield": 2.9,
     "secYieldText": "2.90%",
-    "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
+    "returnsBasis": "official Capital Group NAV total returns where published; missing periods are derived from the daily NAV history with published distributions reinvested, not official returns",
     "performanceAsOf": "2026-08-31"
    },
-   "holdings": 1066,
-   "history": 753
+   "holdings": 1059,
+   "history": 757
   },
   {
    "ticker": "CGUI",
@@ -1618,29 +1639,30 @@
    "isin": null,
    "ter": "0.18%",
    "terValue": 0.18,
-   "nav": "$25.27",
-   "navValue": 25.27,
-   "aum": "$338.00 M",
-   "aumValue": 338000000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.18,
+   "nav": "$25.20",
+   "navValue": 25.2,
+   "aum": "$338.60 M",
+   "aumValue": 338600000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Jun 25 2024",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$25.28",
-   "closePriceValue": 25.28,
-   "premiumDiscount": "0.05%",
-   "premiumDiscountValue": 0.05,
+   "closePrice": "$25.20",
+   "closePriceValue": 25.2,
+   "premiumDiscount": "0.02%",
+   "premiumDiscountValue": 0.02,
    "distributions": {
     "frequency": "Monthly",
-    "exDate": "08/31/2026",
-    "dividend": "0.0828"
+    "exDate": "09/29/2026",
+    "dividend": "0.0863"
    },
    "returns": {
     "monthEnd": {
      "asOfDate": "Aug 31 2026",
      "mo1": 0.37,
      "mo1Text": "0.37%",
-     "qtd": 0.67,
-     "qtdText": "0.67%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 2.46,
      "ytdText": "2.46%",
      "yr1": 3.97,
@@ -1655,13 +1677,13 @@
      "sinceInceptionText": "4.86%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": 2.48,
+     "yr1": 3.63,
      "yr3": null,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 4.69
     }
    },
    "metrics": {
@@ -1674,15 +1696,15 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 4.86,
-    "dividendYield": 3.93,
-    "dividendYieldText": "3.93%",
+    "dividendYield": 4.11,
+    "dividendYieldText": "4.11%",
     "secYield": 4.26,
     "secYieldText": "4.26%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
-   "holdings": 440,
-   "history": 566
+   "holdings": 444,
+   "history": 570
   },
   {
    "ticker": "CGUS",
@@ -1694,17 +1716,18 @@
    "isin": null,
    "ter": "0.33%",
    "terValue": 0.33,
-   "nav": "$44.48",
-   "navValue": 44.48,
-   "aum": "$11,945.60 M",
-   "aumValue": 11945600000,
-   "asOfDate": "Sep 30 2026",
+   "terGrossValue": 0.33,
+   "nav": "$44.53",
+   "navValue": 44.53,
+   "aum": "$11,982.20 M",
+   "aumValue": 11982200000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Feb 22 2022",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$44.50",
-   "closePriceValue": 44.5,
-   "premiumDiscount": "0.05%",
-   "premiumDiscountValue": 0.05,
+   "closePrice": "$44.58",
+   "closePriceValue": 44.58,
+   "premiumDiscount": "0.11%",
+   "premiumDiscountValue": 0.11,
    "distributions": {
     "frequency": "Quarterly",
     "exDate": "09/30/2026",
@@ -1715,8 +1738,8 @@
      "asOfDate": "Aug 31 2026",
      "mo1": 0.83,
      "mo1Text": "0.83%",
-     "qtd": 1.24,
-     "qtdText": "1.24%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 12.54,
      "ytdText": "12.54%",
      "yr1": 17.81,
@@ -1731,13 +1754,13 @@
      "sinceInceptionText": "15.54%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": 11.16,
-     "yr1": 21.61,
-     "yr3": 21.43,
+     "asOfDate": "Sep 30 2026",
+     "ytd": 11.36,
+     "yr1": 13.52,
+     "yr3": 22.27,
      "yr5": null,
      "yr10": null,
-     "sinceInception": 15.86
+     "sinceInception": 14.98
     }
    },
    "metrics": {
@@ -1750,15 +1773,15 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 15.54,
-    "dividendYield": 0.74,
-    "dividendYieldText": "0.74%",
+    "dividendYield": 0.81,
+    "dividendYieldText": "0.81%",
     "secYield": 0.77,
     "secYieldText": "0.77%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
    "holdings": 75,
-   "history": 1156
+   "history": 1157
   },
   {
    "ticker": "CGVV",
@@ -1770,17 +1793,18 @@
    "isin": null,
    "ter": "0.33%",
    "terValue": 0.33,
-   "nav": "$31.45",
-   "navValue": 31.45,
-   "aum": "$148.00 M",
-   "aumValue": 148000000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.33,
+   "nav": "$30.93",
+   "navValue": 30.93,
+   "aum": "$147.20 M",
+   "aumValue": 147200000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Jun 24 2025",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$31.45",
-   "closePriceValue": 31.45,
-   "premiumDiscount": "-0.01%",
-   "premiumDiscountValue": -0.01,
+   "closePrice": "$30.94",
+   "closePriceValue": 30.94,
+   "premiumDiscount": "0.04%",
+   "premiumDiscountValue": 0.04,
    "distributions": {
     "frequency": "Semi-annually",
     "exDate": "06/30/2026",
@@ -1791,8 +1815,8 @@
      "asOfDate": "Aug 31 2026",
      "mo1": 2.66,
      "mo1Text": "2.66%",
-     "qtd": 2.28,
-     "qtdText": "2.28%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 19.44,
      "ytdText": "19.44%",
      "yr1": 23.09,
@@ -1807,13 +1831,13 @@
      "sinceInceptionText": "22.90%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": 15.23,
+     "yr1": 18.03,
      "yr3": null,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 17.88
     }
    },
    "metrics": {
@@ -1826,15 +1850,15 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 22.9,
-    "dividendYield": 0.68,
-    "dividendYieldText": "0.68%",
+    "dividendYield": 0.7,
+    "dividendYieldText": "0.70%",
     "secYield": 1.14,
     "secYieldText": "1.14%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
    "holdings": 67,
-   "history": 317
+   "history": 321
   },
   {
    "ticker": "CGXU",
@@ -1846,17 +1870,18 @@
    "isin": null,
    "ter": "0.54%",
    "terValue": 0.54,
-   "nav": "$34.83",
-   "navValue": 34.83,
-   "aum": "$6,843.60 M",
-   "aumValue": 6843600000,
-   "asOfDate": "Sep 25 2026",
+   "terGrossValue": 0.54,
+   "nav": "$34.25",
+   "navValue": 34.25,
+   "aum": "$6,837.50 M",
+   "aumValue": 6837500000,
+   "asOfDate": "Oct 01 2026",
    "inceptionDate": "Feb 22 2022",
    "exchange": "NYSE Arca, Inc.",
-   "closePrice": "$34.99",
-   "closePriceValue": 34.99,
-   "premiumDiscount": "0.47%",
-   "premiumDiscountValue": 0.47,
+   "closePrice": "$34.21",
+   "closePriceValue": 34.21,
+   "premiumDiscount": "-0.11%",
+   "premiumDiscountValue": -0.11,
    "distributions": {
     "frequency": "Semi-annually",
     "exDate": "06/30/2026",
@@ -1867,8 +1892,8 @@
      "asOfDate": "Aug 31 2026",
      "mo1": 3.58,
      "mo1Text": "3.58%",
-     "qtd": 1.69,
-     "qtdText": "1.69%",
+     "qtd": null,
+     "qtdText": "—",
      "ytd": 19.64,
      "ytdText": "19.64%",
      "yr1": 31,
@@ -1883,13 +1908,13 @@
      "sinceInceptionText": "10.46%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": null,
-     "yr1": null,
-     "yr3": null,
+     "asOfDate": "Sep 30 2026",
+     "ytd": 17.41,
+     "yr1": 22.69,
+     "yr3": 19.48,
      "yr5": null,
      "yr10": null,
-     "sinceInception": null
+     "sinceInception": 9.82
     }
    },
    "metrics": {
@@ -1902,15 +1927,15 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 10.46,
-    "dividendYield": 2.36,
-    "dividendYieldText": "2.36%",
+    "dividendYield": 2.41,
+    "dividendYieldText": "2.41%",
     "secYield": 0.89,
     "secYieldText": "0.89%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
     "performanceAsOf": "2026-08-31"
    },
-   "holdings": 90,
-   "history": 1153
+   "holdings": 92,
+   "history": 1157
   }
  ]
 }

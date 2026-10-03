@@ -2,7 +2,7 @@
  "ticker": "CGMM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 427,
+ "totalRows": 431,
  "headers": [
   "Date",
   "NAV",
@@ -2571,6 +2571,30 @@
    "NAV": "31.58",
    "Market Price": "31.6",
    "Premium/Discount": "0.06"
+  },
+  {
+   "Date": "Sep 28 2026",
+   "NAV": "31.11",
+   "Market Price": "31.11",
+   "Premium/Discount": "-0.01"
+  },
+  {
+   "Date": "Sep 29 2026",
+   "NAV": "31.2",
+   "Market Price": "31.21",
+   "Premium/Discount": "0.03"
+  },
+  {
+   "Date": "Sep 30 2026",
+   "NAV": "30.94",
+   "Market Price": "30.96",
+   "Premium/Discount": "0.05"
+  },
+  {
+   "Date": "Oct 01 2026",
+   "NAV": "31.12",
+   "Market Price": "31.13",
+   "Premium/Discount": "0.03"
   }
  ]
 }

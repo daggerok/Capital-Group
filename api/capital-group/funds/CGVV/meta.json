@@ -31,28 +31,28 @@
   "net": 0.33
  },
  "nav": {
-  "display": "$31.45",
-  "value": 31.45,
-  "asOfDate": "Sep 25 2026"
+  "display": "$30.93",
+  "value": 30.93,
+  "asOfDate": "Oct 01 2026"
  },
  "marketPrice": {
-  "display": "$31.45",
-  "value": 31.45,
-  "asOfDate": "Sep 25 2026"
+  "display": "$30.94",
+  "value": 30.94,
+  "asOfDate": "Oct 01 2026"
  },
  "premiumDiscount": {
-  "display": "-0.01%",
-  "value": -0.01
+  "display": "0.04%",
+  "value": 0.04
  },
  "aum": {
-  "display": "$148.00 M",
-  "value": 148000000,
-  "asOfDate": "Sep 24 2026",
+  "display": "$147.20 M",
+  "value": 147200000,
+  "asOfDate": "Oct 01 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
-  "dividendYield": 0.68,
-  "dividendYieldText": "0.68%",
+  "dividendYield": 0.7,
+  "dividendYieldText": "0.70%",
   "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
   "distributionRate": 0.82,
   "secYield": 1.14,
@@ -66,8 +66,8 @@
    "asOfDate": "Aug 31 2026",
    "mo1": 2.66,
    "mo1Text": "2.66%",
-   "qtd": 2.28,
-   "qtdText": "2.28%",
+   "qtd": null,
+   "qtdText": "—",
    "ytd": 19.44,
    "ytdText": "19.44%",
    "yr1": 23.09,
@@ -82,13 +82,13 @@
    "sinceInceptionText": "22.90%"
   },
   "quarterEnd": {
-   "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "yr1": null,
+   "asOfDate": "Sep 30 2026",
+   "ytd": 15.23,
+   "yr1": 18.03,
    "yr3": null,
    "yr5": null,
    "yr10": null,
-   "sinceInception": null
+   "sinceInception": 17.88
   }
  },
  "distributions": {
@@ -116,8 +116,8 @@
   ],
   "pageSize": 250,
   "totalRows": 67,
-  "asOfDate": "2026-09-24",
-  "asOf": "Sep 24 2026",
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "Capital Group daily holdings XLSX"
  },
  "history": {
@@ -125,8 +125,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 317,
-  "asOf": "Sep 25 2026",
+  "totalRows": 321,
+  "asOf": "Oct 01 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }

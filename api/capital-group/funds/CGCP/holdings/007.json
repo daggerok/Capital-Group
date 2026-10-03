@@ -2,7 +2,7 @@
  "ticker": "CGCP",
  "page": 7,
  "pageSize": 250,
- "totalRows": 1510,
+ "totalRows": 1506,
  "headers": [
   "Name",
   "Ticker",
@@ -14,47 +14,11 @@
  ],
  "rows": [
   {
-   "Name": "SCG8S7QY1 IRS USD R F  4.17500 BCG8S7QY1_FIX CCPOIS",
-   "Ticker": "",
-   "Identifier": "99S20WA98",
-   "Weight": "-0.02",
-   "Market Value": "-1717296",
-   "Shares Held": "140000000",
-   "Asset Category": "Swap"
-  },
-  {
-   "Name": "SCGC492B0 IRS USD R F  3.75750 BCGC492B0_FIX CCPOIS",
-   "Ticker": "",
-   "Identifier": "99S25XF39",
-   "Weight": "-0.02",
-   "Market Value": "-1641166.8",
-   "Shares Held": "12000000",
-   "Asset Category": "Swap"
-  },
-  {
-   "Name": "SCGG2FGU2 IRS USD R F  4.14600 BCGG2FGU2_FIX CCPOIS",
-   "Ticker": "",
-   "Identifier": "99S2BWZC2",
-   "Weight": "-0.06",
-   "Market Value": "-4874749.25",
-   "Shares Held": "47500000",
-   "Asset Category": "Swap"
-  },
-  {
-   "Name": "SCGG5ASD5 IRS USD R F  4.13862 BCGG5ASD5_FIX CCPOIS",
-   "Ticker": "",
-   "Identifier": "99S2BYKR1",
-   "Weight": "-0.06",
-   "Market Value": "-4929673.5",
-   "Shares Held": "47500000",
-   "Asset Category": "Swap"
-  },
-  {
    "Name": "SCGG2FGX6 IRS USD R F  3.43900 BCGG2FGX6_FIX CCPOIS",
    "Ticker": "",
    "Identifier": "99S2BWZI9",
-   "Weight": "-0.12",
-   "Market Value": "-9886479.37",
+   "Weight": "-0.11",
+   "Market Value": "-9355931.62",
    "Shares Held": "176250000",
    "Asset Category": "Swap"
   },
@@ -62,44 +26,44 @@
    "Name": "SCGG5ASR4 IRS USD R F  3.43574 BCGG5ASR4_FIX CCPOIS",
    "Ticker": "",
    "Identifier": "99S2BYKU4",
-   "Weight": "-0.12",
-   "Market Value": "-9910572.75",
+   "Weight": "-0.11",
+   "Market Value": "-9380007.37",
    "Shares Held": "176250000",
    "Asset Category": "Swap"
-  },
-  {
-   "Name": "US 10YR NOTE (CBT)DEC26 XCBT 20261221",
-   "Ticker": "",
-   "Identifier": "ADI39DKR8",
-   "Weight": "-0.17",
-   "Market Value": "-14066075.81",
-   "Shares Held": "603900000",
-   "Asset Category": "Future"
   },
   {
    "Name": "US 2YR NOTE (CBT) DEC26 XCBT 20261231",
    "Ticker": "",
    "Identifier": "ADI3BN6H1",
-   "Weight": "-0.18",
-   "Market Value": "-14872596.19",
+   "Weight": "-0.15",
+   "Market Value": "-12565553.98",
    "Shares Held": "1256600000",
+   "Asset Category": "Future"
+  },
+  {
+   "Name": "US 10YR NOTE (CBT)DEC26 XCBT 20261221",
+   "Ticker": "",
+   "Identifier": "ADI39DKR8",
+   "Weight": "-0.18",
+   "Market Value": "-15246288.84",
+   "Shares Held": "626900000",
    "Asset Category": "Future"
   },
   {
    "Name": "US 5YR NOTE (CBT) DEC26 XCBT 20261231",
    "Ticker": "",
    "Identifier": "ADI3BN6J7",
-   "Weight": "-0.28",
-   "Market Value": "-23557738.06",
-   "Shares Held": "890900000",
+   "Weight": "-0.27",
+   "Market Value": "-22070089.7",
+   "Shares Held": "914900000",
    "Asset Category": "Future"
   },
   {
    "Name": "NET OTHER ASSETS",
    "Ticker": "",
    "Identifier": "",
-   "Weight": "-9.58",
-   "Market Value": "-804347281.53",
+   "Weight": "-10.43",
+   "Market Value": "-867981024.16",
    "Shares Held": "0",
    "Asset Category": "Cash & Equivalent"
   }

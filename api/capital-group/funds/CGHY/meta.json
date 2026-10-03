@@ -31,28 +31,28 @@
   "net": 0.39
  },
  "nav": {
-  "display": "$24.64",
-  "value": 24.64,
-  "asOfDate": "Sep 25 2026"
+  "display": "$24.33",
+  "value": 24.33,
+  "asOfDate": "Oct 01 2026"
  },
  "marketPrice": {
-  "display": "$24.65",
-  "value": 24.65,
-  "asOfDate": "Sep 25 2026"
+  "display": "$24.39",
+  "value": 24.39,
+  "asOfDate": "Oct 01 2026"
  },
  "premiumDiscount": {
-  "display": "0.06%",
-  "value": 0.06
+  "display": "0.25%",
+  "value": 0.25
  },
  "aum": {
-  "display": "$134.70 M",
-  "value": 134700000,
-  "asOfDate": "Sep 24 2026",
+  "display": "$132.80 M",
+  "value": 132800000,
+  "asOfDate": "Oct 01 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
-  "dividendYield": 5.29,
-  "dividendYieldText": "5.29%",
+  "dividendYield": 5.62,
+  "dividendYieldText": "5.62%",
   "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
   "distributionRate": 5.48,
   "secYield": 5.73,
@@ -66,8 +66,8 @@
    "asOfDate": "Aug 31 2026",
    "mo1": 0.71,
    "mo1Text": "0.71%",
-   "qtd": -1.53,
-   "qtdText": "-1.53%",
+   "qtd": null,
+   "qtdText": "—",
    "ytd": 2.46,
    "ytdText": "2.46%",
    "yr1": 4.67,
@@ -82,13 +82,13 @@
    "sinceInceptionText": "5.89%"
   },
   "quarterEnd": {
-   "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "yr1": null,
+   "asOfDate": "Sep 30 2026",
+   "ytd": -0.05,
+   "yr1": 1.34,
    "yr3": null,
    "yr5": null,
    "yr10": null,
-   "sinceInception": null
+   "sinceInception": 3.45
   }
  },
  "distributions": {
@@ -155,6 +155,10 @@
    [
     "08/31/2026",
     "0.1087"
+   ],
+   [
+    "09/29/2026",
+    "0.1143"
    ]
   ]
  },
@@ -164,9 +168,9 @@
    "holdings/002.json"
   ],
   "pageSize": 250,
-  "totalRows": 370,
-  "asOfDate": "2026-09-24",
-  "asOf": "Sep 24 2026",
+  "totalRows": 374,
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "Capital Group daily holdings XLSX"
  },
  "history": {
@@ -174,8 +178,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 317,
-  "asOf": "Sep 25 2026",
+  "totalRows": 321,
+  "asOf": "Oct 01 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }

@@ -31,28 +31,28 @@
   "net": 0.64
  },
  "nav": {
-  "display": "$37.03",
-  "value": 37.03,
-  "asOfDate": "Sep 25 2026"
+  "display": "$36.41",
+  "value": 36.41,
+  "asOfDate": "Oct 01 2026"
  },
  "marketPrice": {
-  "display": "$37.06",
-  "value": 37.06,
-  "asOfDate": "Sep 25 2026"
+  "display": "$36.41",
+  "value": 36.41,
+  "asOfDate": "Oct 01 2026"
  },
  "premiumDiscount": {
-  "display": "0.09%",
-  "value": 0.09
+  "display": "0.01%",
+  "value": 0.01
  },
  "aum": {
-  "display": "$3,168.10 M",
-  "value": 3168100000,
-  "asOfDate": "Sep 24 2026",
+  "display": "$3,142.80 M",
+  "value": 3142800000,
+  "asOfDate": "Oct 01 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
-  "dividendYield": 0.59,
-  "dividendYieldText": "0.59%",
+  "dividendYield": 0.6,
+  "dividendYieldText": "0.60%",
   "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
   "distributionRate": 0.59,
   "secYield": 0.86,
@@ -66,8 +66,8 @@
    "asOfDate": "Aug 31 2026",
    "mo1": 2,
    "mo1Text": "2.00%",
-   "qtd": 0.87,
-   "qtdText": "0.87%",
+   "qtd": null,
+   "qtdText": "—",
    "ytd": 14.74,
    "ytdText": "14.74%",
    "yr1": 25.41,
@@ -82,13 +82,13 @@
    "sinceInceptionText": "19.59%"
   },
   "quarterEnd": {
-   "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "yr1": null,
+   "asOfDate": "Sep 30 2026",
+   "ytd": 14.15,
+   "yr1": 19.13,
    "yr3": null,
    "yr5": null,
    "yr10": null,
-   "sinceInception": null
+   "sinceInception": 18.54
   }
  },
  "distributions": {
@@ -116,9 +116,9 @@
    "holdings/002.json"
   ],
   "pageSize": 250,
-  "totalRows": 260,
-  "asOfDate": "2026-09-24",
-  "asOf": "Sep 24 2026",
+  "totalRows": 257,
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "Capital Group daily holdings XLSX"
  },
  "history": {
@@ -126,8 +126,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 566,
-  "asOf": "Sep 25 2026",
+  "totalRows": 570,
+  "asOf": "Oct 01 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }

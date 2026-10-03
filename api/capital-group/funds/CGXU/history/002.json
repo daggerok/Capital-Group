@@ -2,7 +2,7 @@
  "ticker": "CGXU",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1153,
+ "totalRows": 1157,
  "headers": [
   "Date",
   "NAV",
@@ -927,6 +927,30 @@
    "NAV": "34.83",
    "Market Price": "34.99",
    "Premium/Discount": "0.47"
+  },
+  {
+   "Date": "Sep 28 2026",
+   "NAV": "34.42",
+   "Market Price": "34.55",
+   "Premium/Discount": "0.37"
+  },
+  {
+   "Date": "Sep 29 2026",
+   "NAV": "34.43",
+   "Market Price": "34.76",
+   "Premium/Discount": "0.95"
+  },
+  {
+   "Date": "Sep 30 2026",
+   "NAV": "34.33",
+   "Market Price": "34.29",
+   "Premium/Discount": "-0.1"
+  },
+  {
+   "Date": "Oct 01 2026",
+   "NAV": "34.25",
+   "Market Price": "34.21",
+   "Premium/Discount": "-0.11"
   }
  ]
 }

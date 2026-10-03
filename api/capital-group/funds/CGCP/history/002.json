@@ -2,7 +2,7 @@
  "ticker": "CGCP",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1153,
+ "totalRows": 1157,
  "headers": [
   "Date",
   "NAV",
@@ -927,6 +927,30 @@
    "NAV": "21.43",
    "Market Price": "21.43",
    "Premium/Discount": "0.02"
+  },
+  {
+   "Date": "Sep 28 2026",
+   "NAV": "21.31",
+   "Market Price": "21.32",
+   "Premium/Discount": "0.06"
+  },
+  {
+   "Date": "Sep 29 2026",
+   "NAV": "21.19",
+   "Market Price": "21.19",
+   "Premium/Discount": "-0.02"
+  },
+  {
+   "Date": "Sep 30 2026",
+   "NAV": "21.17",
+   "Market Price": "21.17",
+   "Premium/Discount": "-0.02"
+  },
+  {
+   "Date": "Oct 01 2026",
+   "NAV": "21.21",
+   "Market Price": "21.21",
+   "Premium/Discount": "-0.02"
   }
  ]
 }

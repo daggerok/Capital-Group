@@ -31,28 +31,28 @@
   "net": 0.51
  },
  "nav": {
-  "display": "$31.58",
-  "value": 31.58,
-  "asOfDate": "Sep 25 2026"
+  "display": "$31.12",
+  "value": 31.12,
+  "asOfDate": "Oct 01 2026"
  },
  "marketPrice": {
-  "display": "$31.60",
-  "value": 31.6,
-  "asOfDate": "Sep 25 2026"
+  "display": "$31.13",
+  "value": 31.13,
+  "asOfDate": "Oct 01 2026"
  },
  "premiumDiscount": {
-  "display": "0.06%",
-  "value": 0.06
+  "display": "0.03%",
+  "value": 0.03
  },
  "aum": {
-  "display": "$3,473.70 M",
-  "value": 3473700000,
-  "asOfDate": "Sep 24 2026",
+  "display": "$3,455.30 M",
+  "value": 3455300000,
+  "asOfDate": "Oct 01 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
-  "dividendYield": 0.25,
-  "dividendYieldText": "0.25%",
+  "dividendYield": 0.26,
+  "dividendYieldText": "0.26%",
   "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
   "distributionRate": 0.38,
   "secYield": 0.63,
@@ -66,8 +66,8 @@
    "asOfDate": "Aug 31 2026",
    "mo1": 2.16,
    "mo1Text": "2.16%",
-   "qtd": -4.01,
-   "qtdText": "-4.01%",
+   "qtd": null,
+   "qtdText": "—",
    "ytd": 13.29,
    "ytdText": "13.29%",
    "yr1": 15.86,
@@ -82,13 +82,13 @@
    "sinceInceptionText": "16.75%"
   },
   "quarterEnd": {
-   "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "yr1": null,
+   "asOfDate": "Sep 30 2026",
+   "ytd": 7.49,
+   "yr1": 9.5,
    "yr3": null,
    "yr5": null,
    "yr10": null,
-   "sinceInception": null
+   "sinceInception": 12.37
   }
  },
  "distributions": {
@@ -120,8 +120,8 @@
   ],
   "pageSize": 250,
   "totalRows": 119,
-  "asOfDate": "2026-09-24",
-  "asOf": "Sep 24 2026",
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "Capital Group daily holdings XLSX"
  },
  "history": {
@@ -129,8 +129,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 427,
-  "asOf": "Sep 25 2026",
+  "totalRows": 431,
+  "asOf": "Oct 01 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }
