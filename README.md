@@ -34,7 +34,7 @@ The **Update Capital Group ETF data** GitHub Actions workflow runs weekly and ex
 | Fund facts | Server-rendered Next.js JSON in each [fund page](https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgus) (no browser execution) |
 | Holdings per fund | `/api/investments/investment-service/v1/etfs/{TICKER}/download/daily-holdings?audience=advisor` on `www.capitalgroup.com` (full XLSX, parsed with built-in zlib) |
 | Daily history, distributions | Same API base, `premium-discount-details?fromDate=YYYY-MM-DD&toDate=YYYY-MM-DD` and `historical-distributions?include=all` |
-| Fallback | SEC EDGAR N-PORT-P for holdings, Yahoo Finance chart API for history; previously published data retained on provider failure |
+| Fallback | SEC EDGAR N-PORT-P for holdings (only when newer than the published holdings), Yahoo Finance chart API for history of funds that have no official history yet; a fund whose issuer data fails keeps its previous complete publication |
 
 The published feed covers all 25 catalog funds. SEC and Yahoo fallbacks are used only when the issuer data is unavailable
 
@@ -49,20 +49,23 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 - `ytd` / `tr1y` - official YTD and 1-year returns -> *YTD Return*, *TR 1Y*
 - `cagr3y` / `cagr5y` / `cagr10y` - published annualized 3Y/5Y/10Y figures -> *CAGR 3Y/5Y/10Y*
 - `tr3y` / `tr5y` / `tr10y` - cumulative 3Y/5Y/10Y figures `(1 + CAGR)^n - 1` -> *TR 3Y/5Y/10Y*
-- `siAnn` - since-inception annualized -> *SI Ann.*
-- `dividendYield` - indicated yield (latest distribution × frequency ÷ price)
-- `secYield` - 30-day SEC yield when published; `—` otherwise
-- `returnsBasis` - mandatory non-empty label of how the returns are computed: official Capital Group NAV total returns, or derived from the daily NAV history, or an estimate from Yahoo adjusted closes (mixed cases say which periods are estimates); never empty or `-`
-- `performanceAsOf` - mandatory ISO `YYYY-MM-DD` date the returns are as of: the issuer performance table (month-end) date for official returns, the last price date of the derived series otherwise; it is not the NAV date, and is `null` only when truly unknown
+- `siAnn` - since-inception annualized -> *SI Ann.*; only for funds at least one year old (derived values need one year of full history). Figures for a horizon longer than the fund's age at the returns date (for example 3Y for a fund under three years old, which Capital Group still publishes) are `null`
+- `dividendYield` - indicated yield (latest distribution × payments per year ÷ price; semi-annual is 2)
+- `secYield` - 30-day SEC yield when published; `null` otherwise (an honest null is never replaced by an older number; the previous value survives only an issuer outage). The `*Text` fields are `null` when the value is unavailable
+- `returnsBasis` - mandatory non-empty label of how the returns are computed: official Capital Group NAV total returns, or derived from the daily NAV history, or an estimate from Yahoo adjusted closes (mixed cases say which periods are derived or estimated); never empty or `-`
+- `performanceAsOf` - mandatory ISO `YYYY-MM-DD` date the returns are as of: the issuer performance table (month-end) date for official returns, the last price date of the derived series otherwise, and the oldest of the two for mixed values; it is not the NAV date, and is `null` only when truly unknown
+- `terValue` is the NET expense ratio (after waivers; the gross one only when no net figure exists) and `terGrossValue` the GROSS ratio; `meta.expenseRatio` carries `value`, `net` and `gross`
+- Each fund is either fully refreshed or kept exactly as published: when a required source fails (fund facts, daily holdings, official daily history) the fund's previous complete state stays untouched and the run reports it as failed (non-zero exit), so the workflow can safely commit a partial run. A fund never published before is written best-effort. When the daily price API is newer than the fund-facts payload, its NAV, market price and premium/discount (and date) win
+- Catalog funds without published data get a row with `dataFile: null` and a complete `metrics` object of nulls; new catalog funds are printed as `NEW FUNDS: A, B` and appended to `$GITHUB_STEP_SUMMARY`
 
 ### Update controls
 
 | Control | Default | Meaning |
 | --- | --: | --- |
-| `MAX_FETCHES` | `0` | Batch size: a positive value continues after the committed cursor in `api/capital-group/update-state.json`; `0` is a full pass over every selected fund |
+| `MAX_FETCHES` | `0` | Batch size: a positive value continues after the committed cursor in `api/capital-group/update-state.json` (the furthest fund started in queue order, advancing even when the batch failed or was filtered; one cursor per filter scope, so a `TICKERS` run never touches the full-feed cursor); funds whose published figures already fail the data filters are skipped without using up a slot; `0` is a full pass over every selected fund and resets the full-feed cursor. The run stops starting new funds after 25 minutes and still writes the index |
 | `REQUEST_SLEEP` | `3` | Minimum delay in seconds between outgoing request starts within each worker, including retries and issuer redirects |
 | `CONCURRENCY` | `1` | Number of independently paced fund workers; there is no global request-start queue |
-| `AUM` | `:` | Net assets range; each bound is a USD amount, a `K`/`M`/`B`/`T` amount or one of `nano`, `micro`, `small`, `mid`, `large` |
+| `AUM` | `:` | Net assets range; each bound is a USD amount, a `K`/`M`/`B`/`T` amount or one of `nano`, `micro`, `small`, `mid`, `large`; a nonblank bound that is not a number is an error |
 | `TER` | `:` | Expense ratio range in percent (`min:max`) |
 | `DIVIDEND_YIELD` | `:` | Indicated dividend yield range in percent |
 | `SEC_YIELD` | `:` | Published 30-day SEC yield range in percent |
@@ -70,7 +73,7 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 | `HOLDINGS_PAGE_SIZE` | `250` | Rows in each generated holdings JSON page |
 | `HISTORY_PAGE_SIZE` | `1000` | Rows in each generated history JSON page |
 | `MAX_RETRIES` | `2` | Retries after the first request, integer of at least 1; 403, 408, 425, 429 and 5xx are retried with backoff, other issuer HTTP errors fail promptly |
-| `HISTORY_RANGE` | `max` | Yahoo fallback chart window, `max` or `Ny` (for example `5y`); official history always covers inception onward |
+| `HISTORY_RANGE` | `max` | Yahoo fallback chart window (explicit period1/period2), `max` or `Ny` (for example `5y`); official history always covers inception onward and a shorter window never shrinks a published series: older rows are merged back |
 | `PERFORMANCE_YTD`, `PERFORMANCE_1Y`, `PERFORMANCE_3Y`, `PERFORMANCE_5Y`, `PERFORMANCE_10Y` | `:` | NAV return ranges in percent, annualized for 3Y and longer |
 | `TOTAL_RETURN_YTD`, `TOTAL_RETURN_1Y`, `TOTAL_RETURN_3Y`, `TOTAL_RETURN_5Y`, `TOTAL_RETURN_10Y` | `:` | Cumulative total return ranges in percent |
 | `STORE_RAW_DOWNLOADS` | `false` | Keep financial JSON snapshots under each selected fund's `raw/`; never cookies or auth headers |
