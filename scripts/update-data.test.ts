@@ -12,7 +12,7 @@ import {
   withRequestLane, workbookRows, writePages, removeStalePages,
   runUpdater, setApiRoot, writeFileAtomic, writeIfChanged, mergeHistoryRows, ageGuardReturns, isoStamp, readCursorScopes, writeCursorScope,
   loadFundTickerMap, resetSecTableCaches, RUN_SOFT_DEADLINE_MS,
-  formatIssuerDate, normalizeNumberText, numberOrNull, formatEdgarDate, toIsoDate, isoToEpoch, parseRange, parseAumRange, HISTORY_HEADERS, YAHOO_HISTORY_HEADERS, navTotalReturnDays, normalizeHoldingName, normalizeHoldingNameCore, cleanHoldingTicker, nportUrlFor, parseNportAccessions, parseFundTickerMap, parseCompanyTickerMap, edgarSeriesFilingsUrl, parseEdgarAtomFilings, parseNport, pickEftsCik, parseChart, annualizedToTotal, totalToAnnualized, indicatedYield, inferDistributionFrequency, priceReturns, lastCompletedQuarterEnd, deriveCatalogMetrics, returnsBasisLabel, performanceAsOf,
+  formatIssuerDate, normalizeNumberText, numberOrNull, formatEdgarDate, toIsoDate, isoToEpoch, parseRange, parseAumRange, HISTORY_HEADERS, YAHOO_HISTORY_HEADERS, navTotalReturnDays, normalizeHoldingName, normalizeHoldingNameCore, cleanHoldingTicker, nportUrlFor, parseNportAccessions, parseFundTickerMap, parseCompanyTickerMap, edgarSeriesFilingsUrl, parseEdgarAtomFilings, parseNport, pickEftsCik, parseChart, annualizedToTotal, totalToAnnualized, indicatedYield, inferDistributionFrequency, priceReturns, lastCompletedQuarterEnd, deriveCatalogMetrics, returnsBasisLabel, performanceAsOf, dividendYieldBasisFromKind, normalizeYieldBasis, DIVIDEND_YIELD_BASES,
 } from './update-data';
 
 // ---------------------------------------------------------------------------
@@ -593,6 +593,36 @@ describe('metrics', () => {
     }
   });
 
+  test('dividendYieldBasis: code per yield source, null with a null yield, one key set on fresh, rebuilt and placeholder rows', () => {
+    const none = { ...noDerived };
+    // estimate: latest distribution x payments per year / price
+    const estimated = deriveCatalogMetrics(noOfficial, none, null, null, 0.65, 12, 41.72);
+    expect(estimated).toMatchObject({ dividendYield: 18.7, dividendYieldBasis: 'indicated' });
+    // issuer-published yield (kind text -> code); an unknown kind is official-other, never a guess at a definition
+    const kinds: Array<[string, string]> = [['trailing 12-month distribution yield', 'official-trailing-12m'], ['12-month trailing yield', 'official-trailing-12m'],
+      ['distribution rate', 'official-distribution-rate'], ['', 'official-other'], ['SEC-like yield', 'official-other']];
+    for (const [kind, code] of kinds) {
+      expect(dividendYieldBasisFromKind(kind)).toBe(code);
+      expect(deriveCatalogMetrics(noOfficial, none, 1.5, null, 0.65, 12, 41.72, null, null, false, code).dividendYieldBasis).toBe(code);
+    }
+    expect(deriveCatalogMetrics(noOfficial, none, 1.5, null, null, null, null).dividendYieldBasis).toBe('official-other'); // retained yield without a stored code
+    expect(deriveCatalogMetrics(noOfficial, none, 1.5, null, null, null, null, null, null, false, 'bogus').dividendYieldBasis).toBe('official-other');
+    expect(deriveCatalogMetrics(noOfficial, none, 0, null, null, null, null, null, null, false, 'official-trailing-12m')).toMatchObject({ dividendYield: 0, dividendYieldBasis: 'official-trailing-12m' });
+    // null yield -> null code, even when a code is passed
+    expect(deriveCatalogMetrics(noOfficial, none, null, null, null, null, null, null, null, false, 'official-trailing-12m').dividendYieldBasis).toBeNull();
+    expect(DIVIDEND_YIELD_BASES).toHaveLength(5);
+    // rows rebuilt from the index: the key is added after dividendYieldText, a stale code never survives a null yield
+    const keys = Object.keys(estimated);
+    const legacy = Object.fromEntries(Object.entries(estimated).filter(([key]) => key !== 'dividendYieldBasis'));
+    expect(Object.keys(normalizeYieldBasis(legacy))).toEqual(keys);
+    expect(normalizeYieldBasis(legacy).dividendYieldBasis).toBe('indicated');
+    expect(normalizeYieldBasis({ ...estimated, dividendYield: null, dividendYieldText: null, dividendYieldBasis: 'indicated' }).dividendYieldBasis).toBeNull();
+    expect(normalizeYieldBasis({ ...estimated, dividendYieldBasis: 'official-trailing-12m' }).dividendYieldBasis).toBe('official-trailing-12m');
+    expect(normalizeYieldBasis({ ...estimated, dividendYieldBasis: 'nonsense' }).dividendYieldBasis).toBe('indicated');
+    // placeholder (all-null) row has the same key set
+    expect(Object.keys(normalizeYieldBasis({ ytd: null, dividendYield: null, dividendYieldText: null, secYield: null }))).toEqual(['ytd', 'dividendYield', 'dividendYieldText', 'dividendYieldBasis', 'secYield']);
+  });
+
   test('young funds: 3Y and longer horizons are null at the returns date, in helper and in the published feed', async () => {
     const returns = { asOfDate: '8/31/26', navMonth1: '0.8', navYtdMonthly: '12.5', navYear1: '17.8', navYear3: '16.48', navYear5: null, navYear10: null, navLifetime: '17.69' };
     await withFeed({ catalog: ['CGBL'], facts: { CGBL: { inception: '9/26/23', returns } } }, async ({ run, row, meta }) => {
@@ -661,6 +691,8 @@ describe('pipeline', () => {
       expect(seeded.map((fund: any) => fund.ticker)).toEqual(['CGCP', 'CGMU', 'CGUS']);
       expect((await readdir(join(dir, 'funds'))).sort()).toEqual(['CGUS']);
       for (const fund of seeded) expect(Object.keys(fund.metrics)).toEqual(Object.keys(seeded[2].metrics));
+      expect(seeded[0].metrics.dividendYieldBasis).toBeNull();
+      expect(seeded[2].metrics.dividendYieldBasis).toBe(seeded[2].metrics.dividendYield === null ? null : 'indicated');
       expect(seeded.map((fund: any) => fund.dataFile === null)).toEqual([true, true, false]);
       expect(seeded[0].metrics.ytd).toBeNull(); expect(seeded[0].metrics.returnsBasis.length).toBeGreaterThan(10);
       await run({}); // all funds published

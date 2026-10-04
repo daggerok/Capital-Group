@@ -68,6 +68,16 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 - `tr3y` / `tr5y` / `tr10y` - cumulative 3Y/5Y/10Y figures `(1 + CAGR)^n - 1` -> *TR 3Y/5Y/10Y*
 - `siAnn` - since-inception annualized -> *SI Ann.*; only for funds at least one year old (derived values need one year of full history). Figures for a horizon longer than the fund's age at the returns date (for example 3Y for a fund under three years old, which Capital Group still publishes) are `null`
 - `dividendYield` - indicated yield (latest distribution × payments per year ÷ price; semi-annual is 2)
+- `dividendYieldBasis` - code of the definition behind `dividendYield`, `null` exactly when the yield is `null` (the free text stays in `meta.yields.dividendYieldKind`); a retained yield keeps its own code:
+
+  | Code | Meaning for Capital Group |
+  | --- | --- |
+  | `indicated` | updater estimate: latest distribution x payments per year / market price (what every fund uses today; Capital Group publishes no yield in the fund facts) |
+  | `official-trailing-12m` | issuer-published trailing 12-month yield (used only if the facts ever carry one) |
+  | `official-distribution-rate` | issuer-published distribution rate (same) |
+  | `official-other` | issuer-published yield of an unrecognized kind |
+  | `computed-trailing-12m` | not used by this brand |
+
 - `secYield` - 30-day SEC yield when published; `null` otherwise (an honest null is never replaced by an older number; the previous value survives only an issuer outage). The `*Text` fields are `null` when the value is unavailable
 - `returnsBasis` - mandatory non-empty label of how the returns are computed: official Capital Group NAV total returns, or derived from the daily NAV history, or an estimate from Yahoo adjusted closes (mixed cases say which periods are derived or estimated); never empty or `-`
 - `performanceAsOf` - mandatory ISO `YYYY-MM-DD` date the returns are as of: the issuer performance table (month-end) date for official returns, the last price date of the derived series otherwise, and the oldest of the two for mixed values; it is not the NAV date, and is `null` only when truly unknown

@@ -664,6 +664,8 @@ export type CatalogFund = {
   premiumDiscount: number | null;
   netAssets: number | null;
   dividendYield: number | null;
+  /** Code of the previously published yield (retention only). */
+  dividendYieldBasis?: DividendYieldBasis | null;
   secYield: number | null;
   distributionRate: number | null;
   asOfDate: string | null;
@@ -1383,6 +1385,32 @@ export function performanceAsOf(hasOfficial: boolean, officialAsOf: string | nul
   return (hasOfficial ? valid(officialAsOf) : null) ?? valid(derivedAsOf);
 }
 
+export const DIVIDEND_YIELD_BASES = ['official-trailing-12m', 'official-distribution-rate', 'official-other', 'computed-trailing-12m', 'indicated'] as const;
+export type DividendYieldBasis = (typeof DIVIDEND_YIELD_BASES)[number];
+export function isDividendYieldBasis(value: unknown): value is DividendYieldBasis {
+  return typeof value === 'string' && (DIVIDEND_YIELD_BASES as readonly string[]).includes(value);
+}
+/** Maps the issuer's free-text yield kind (ProductData.dividendYieldKind) to a code; a published yield of an unknown kind is official-other. */
+export function dividendYieldBasisFromKind(kind: string | null | undefined): DividendYieldBasis {
+  const text = String(kind ?? '').toLowerCase();
+  if (/trailing[ -]*(12|twelve)|(12|twelve)[ -]*month.*trailing|ttm/.test(text)) return 'official-trailing-12m';
+  if (/distribution rate/.test(text)) return 'official-distribution-rate';
+  return 'official-other';
+}
+/** Code for one metrics row: null exactly when the yield is null; a missing or invalid code of a legacy row is the updater estimate. */
+export function normalizeYieldBasis(metrics: JsonRecord): JsonRecord {
+  const yieldValue = numberOrNull(metrics.dividendYield);
+  const basis = yieldValue === null ? null : isDividendYieldBasis(metrics.dividendYieldBasis) ? metrics.dividendYieldBasis : 'indicated';
+  const out: JsonRecord = {};
+  for (const [key, value] of Object.entries(metrics)) {
+    if (key === 'dividendYieldBasis') continue;
+    out[key] = value;
+    if (key === 'dividendYieldText') out.dividendYieldBasis = basis;
+  }
+  if (!('dividendYieldBasis' in out)) out.dividendYieldBasis = basis;
+  return out;
+}
+
 /**
  * Merges the official Capital Group returns with the ones derived from the adjusted
  * daily series. Official figures win wherever they exist (they are NAV total
@@ -1400,6 +1428,7 @@ export function deriveCatalogMetrics(
   officialCumulative: CumulativeReturns | null = null,
   officialAsOf: string | null = null,
   yahooFill = false,
+  publishedYieldBasis: string | null = null,
 ): JsonRecord {
   const coalesce = (value: number | null | undefined): number | null => (typeof value === 'number' && Number.isFinite(value) ? value : null);
   const ytd = coalesce(official.ytd) ?? coalesce(derived.ytd);
@@ -1412,7 +1441,11 @@ export function deriveCatalogMetrics(
   // Values that really came from the derived series (not from the official table): their basis and date must be named.
   const usedDerived = [[official.ytd, derived.ytd], [official.yr1, derived.yr1], [official.yr3, derived.cagr3y], [official.yr5, derived.cagr5y], [official.yr10, derived.cagr10y], [official.sinceInception, derived.siAnn]]
     .some(([officialValue, derivedValue]) => coalesce(officialValue) === null && coalesce(derivedValue) !== null);
-  const dividendYield = coalesce(publishedDividendYield) ?? indicatedYield(latestDistribution, paymentsPerYear, price);
+  const published = coalesce(publishedDividendYield);
+  const dividendYield = published ?? indicatedYield(latestDistribution, paymentsPerYear, price);
+  // The code travels with the yield it describes: a published yield keeps its own code, the estimate is `indicated`.
+  const dividendYieldBasis: DividendYieldBasis | null = dividendYield === null ? null
+    : published === null ? 'indicated' : isDividendYieldBasis(publishedYieldBasis) ? publishedYieldBasis : 'official-other';
   const text = (value: number | null): string | null => (value === null ? null : `${value.toFixed(2)}%`);
   return {
     ytd,
@@ -1426,6 +1459,7 @@ export function deriveCatalogMetrics(
     siAnn,
     dividendYield,
     dividendYieldText: text(dividendYield),
+    dividendYieldBasis,
     secYield: coalesce(publishedSecYield),
     secYieldText: text(coalesce(publishedSecYield)),
     returnsBasis: returnsBasisLabel(hasOfficial, yahooFill && (usedDerived || !hasOfficial), usedDerived),
@@ -2210,6 +2244,9 @@ async function processFund(
   const price = historyNewer && lastPoint!.marketPrice !== null ? lastPoint!.marketPrice : product?.marketPrice ?? fund.close ?? priceFromChart ?? numberOrNull(previous.closePriceValue);
   // Yields: a fresh null is an honest null; the previous value survives only an issuer outage.
   const dividendYield = factsOk ? product?.dividendYield ?? null : product?.dividendYield ?? fund.dividendYield;
+  // The code of a published yield: the issuer's own kind, or on an outage the code stored with the retained yield.
+  const publishedYieldBasis = product?.dividendYield !== null && product?.dividendYield !== undefined
+    ? dividendYieldBasisFromKind(product.dividendYieldKind) : dividendYield !== null ? fund.dividendYieldBasis ?? 'indicated' : null;
   const secYield = factsOk ? product?.secYield ?? null : product?.secYield ?? fund.secYield;
 
   const metrics = deriveCatalogMetrics(
@@ -2223,6 +2260,7 @@ async function processFund(
     product?.cumulative ?? null,
     returnsAsOfDate,
     haveFreshHistory && historySource.startsWith('Yahoo'),
+    publishedYieldBasis,
   );
 
   const filterReasons = fundFilterReasons({ ticker, aumValue: product?.netAssets ?? holdingsEdgar?.netAssets ?? fund.netAssets, terValue: ter, metrics }, config);
@@ -2618,7 +2656,7 @@ export type RunUpdaterReport = {
 
 const SEED_METRICS = {
   ytd: null, tr1y: null, tr3y: null, tr5y: null, tr10y: null, cagr3y: null, cagr5y: null, cagr10y: null, siAnn: null,
-  dividendYield: null, dividendYieldText: null, secYield: null, secYieldText: null,
+  dividendYield: null, dividendYieldText: null, dividendYieldBasis: null, secYield: null, secYieldText: null,
   returnsBasis: 'no returns published yet (fund listed in the catalog, data not fetched)', performanceAsOf: null,
 };
 
@@ -2743,7 +2781,7 @@ export async function runUpdater(options: RunUpdaterOptions): Promise<RunUpdater
   const keptFromPrevious = universe
     .filter((fund) => !results.some((row) => row.ticker === fund.ticker))
     .map((fund) => previousIndex.get(fund.ticker) ?? seedRow(fund));
-  const funds = [...results, ...keptFromPrevious].sort((a, b) => String(a.ticker).localeCompare(String(b.ticker)));
+  const funds = [...results, ...keptFromPrevious].map((fund) => (fund.metrics && typeof fund.metrics === 'object' ? { ...fund, metrics: normalizeYieldBasis(sourceObject(fund.metrics)) } : fund)).sort((a, b) => String(a.ticker).localeCompare(String(b.ticker)));
   // dataFile mirrors the files on disk: a row without funds/<T>/meta.json points nowhere.
   for (const fund of funds) fund.dataFile = existsSync(new URL(`funds/${fund.ticker}/meta.json`, API_ROOT)) ? `./funds/${fund.ticker}/meta.json` : null;
 
@@ -2832,6 +2870,7 @@ function catalogFundFromIndex(ticker: string, row: JsonRecord): CatalogFund {
     premiumDiscount: numberOrNull(row.premiumDiscountValue),
     netAssets: numberOrNull(row.aumValue),
     dividendYield: numberOrNull(metrics.dividendYield),
+    dividendYieldBasis: numberOrNull(metrics.dividendYield) === null ? null : isDividendYieldBasis(metrics.dividendYieldBasis) ? metrics.dividendYieldBasis : 'indicated',
     secYield: numberOrNull(metrics.secYield),
     distributionRate: null,
     asOfDate: null,
