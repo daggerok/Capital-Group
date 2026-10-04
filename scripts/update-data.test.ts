@@ -5,6 +5,7 @@ import { cp, mkdir, mkdtemp, readFile, readdir, rm, stat, writeFile } from 'node
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { deflateRawSync } from 'node:zlib';
+import type { DividendYieldBasis } from './update-data';
 import {
   CONTROL_NAMES, createRequestGate, createRequestQueue, fetchWithRetry, issuerFrequency, issuerPricesUrl, parseIssuerCatalog,
   parseIssuerDistributions, parseIssuerFacts, parseIssuerFlight, parseIssuerHoldings, parseIssuerPrices, parseIssuerReturns,
@@ -599,7 +600,7 @@ describe('metrics', () => {
     const estimated = deriveCatalogMetrics(noOfficial, none, null, null, 0.65, 12, 41.72);
     expect(estimated).toMatchObject({ dividendYield: 18.7, dividendYieldBasis: 'indicated' });
     // issuer-published yield (kind text -> code); an unknown kind is official-other, never a guess at a definition
-    const kinds: Array<[string, string]> = [['trailing 12-month distribution yield', 'official-trailing-12m'], ['12-month trailing yield', 'official-trailing-12m'],
+    const kinds: Array<[string, DividendYieldBasis]> = [['trailing 12-month distribution yield', 'official-trailing-12m'], ['12-month trailing yield', 'official-trailing-12m'],
       ['distribution rate', 'official-distribution-rate'], ['', 'official-other'], ['SEC-like yield', 'official-other']];
     for (const [kind, code] of kinds) {
       expect(dividendYieldBasisFromKind(kind)).toBe(code);
@@ -890,7 +891,7 @@ globalThis.fetch = async (input) => {
       expect((await run()).code).toBe(0); await unchanged();
       expect((await run({ AUM: '999T:' })).code).toBe(0); await unchanged();
       expect((await run({ SKIP_ISSUER: '1', SKIP_YAHOO: '1', EDGAR_FALLBACK: '0' })).code).toBe(1); await unchanged(); // every source down: fund kept
-      for (const bad of [{ MAX_RETRIES: '0' }, { CONCURRENCY: 'many' }, { HISTORY_RANGE: 'forever' }, { MOCK_FAIL: '1', SKIP_YAHOO: 'maybe' }]) {
+      for (const bad of <Array<Record<string, string>>>[{ MAX_RETRIES: '0' }, { CONCURRENCY: 'many' }, { HISTORY_RANGE: 'forever' }, { MOCK_FAIL: '1', SKIP_YAHOO: 'maybe' }]) {
         const rejected = await run(bad); expect(rejected.code).toBe(1); expect(rejected.err).toMatch(/MAX_RETRIES|CONCURRENCY|HISTORY_RANGE|SKIP_YAHOO/);
       }
       await unchanged();
