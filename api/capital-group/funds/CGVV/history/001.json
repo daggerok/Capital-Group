@@ -2,7 +2,7 @@
  "ticker": "CGVV",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 321,
+ "totalRows": 322,
  "headers": [
   "Date",
   "NAV",
@@ -1935,6 +1935,12 @@
    "NAV": "30.93",
    "Market Price": "30.94",
    "Premium/Discount": "0.04"
+  },
+  {
+   "Date": "Oct 02 2026",
+   "NAV": "31.07",
+   "Market Price": "31.09",
+   "Premium/Discount": "0.06"
   }
  ]
 }

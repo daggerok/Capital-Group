@@ -31,18 +31,18 @@
   "net": 0.39
  },
  "nav": {
-  "display": "$28.87",
-  "value": 28.87,
-  "asOfDate": "Oct 01 2026"
+  "display": "$29.05",
+  "value": 29.05,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$28.87",
-  "value": 28.87,
-  "asOfDate": "Oct 01 2026"
+  "display": "$29.06",
+  "value": 29.06,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "0.00%",
-  "value": 0
+  "display": "0.02%",
+  "value": 0.02
  },
  "aum": {
   "display": "$68.70 M",
@@ -66,8 +66,8 @@
    "asOfDate": "Aug 31 2026",
    "mo1": 2.15,
    "mo1Text": "2.15%",
-   "qtd": null,
-   "qtdText": "—",
+   "qtd": 0.62,
+   "qtdText": "0.62%",
    "ytd": -0.19,
    "ytdText": "-0.19%",
    "yr1": 2.72,
@@ -125,8 +125,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 321,
-  "asOf": "Oct 01 2026",
+  "totalRows": 322,
+  "asOf": "Oct 02 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }

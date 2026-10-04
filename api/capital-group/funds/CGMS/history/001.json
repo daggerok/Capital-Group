@@ -2,7 +2,7 @@
  "ticker": "CGMS",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 987,
+ "totalRows": 988,
  "headers": [
   "Date",
   "NAV",
@@ -5931,6 +5931,12 @@
    "NAV": "26.23",
    "Market Price": "26.24",
    "Premium/Discount": "0.05"
+  },
+  {
+   "Date": "Oct 02 2026",
+   "NAV": "26.24",
+   "Market Price": "26.24",
+   "Premium/Discount": "-0.01"
   }
  ]
 }

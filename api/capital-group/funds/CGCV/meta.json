@@ -31,18 +31,18 @@
   "net": 0.33
  },
  "nav": {
-  "display": "$32.06",
-  "value": 32.06,
-  "asOfDate": "Oct 01 2026"
+  "display": "$32.28",
+  "value": 32.28,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$32.10",
-  "value": 32.1,
-  "asOfDate": "Oct 01 2026"
+  "display": "$32.31",
+  "value": 32.31,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "0.14%",
-  "value": 0.14
+  "display": "0.10%",
+  "value": 0.1
  },
  "aum": {
   "display": "$2,034.30 M",
@@ -51,8 +51,8 @@
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
-  "dividendYield": 1.58,
-  "dividendYieldText": "1.58%",
+  "dividendYield": 1.57,
+  "dividendYieldText": "1.57%",
   "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
   "distributionRate": 1.45,
   "secYield": 1.58,
@@ -66,8 +66,8 @@
    "asOfDate": "Aug 31 2026",
    "mo1": -0.12,
    "mo1Text": "-0.12%",
-   "qtd": null,
-   "qtdText": "—",
+   "qtd": 0.69,
+   "qtdText": "0.69%",
    "ytd": 9.45,
    "ytdText": "9.45%",
    "yr1": 13.97,
@@ -153,8 +153,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 570,
-  "asOf": "Oct 01 2026",
+  "totalRows": 571,
+  "asOf": "Oct 02 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }

@@ -2,7 +2,7 @@
  "ticker": "CGHY",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 321,
+ "totalRows": 322,
  "headers": [
   "Date",
   "NAV",
@@ -1935,6 +1935,12 @@
    "NAV": "24.33",
    "Market Price": "24.39",
    "Premium/Discount": "0.25"
+  },
+  {
+   "Date": "Oct 02 2026",
+   "NAV": "24.39",
+   "Market Price": "24.41",
+   "Premium/Discount": "0.07"
   }
  ]
 }

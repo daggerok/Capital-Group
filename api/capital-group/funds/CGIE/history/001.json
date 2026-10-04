@@ -2,7 +2,7 @@
  "ticker": "CGIE",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 757,
+ "totalRows": 758,
  "headers": [
   "Date",
   "NAV",
@@ -4551,6 +4551,12 @@
    "NAV": "36.29",
    "Market Price": "36.29",
    "Premium/Discount": "0"
+  },
+  {
+   "Date": "Oct 02 2026",
+   "NAV": "36.49",
+   "Market Price": "36.72",
+   "Premium/Discount": "0.63"
   }
  ]
 }
