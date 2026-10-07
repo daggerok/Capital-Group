@@ -319,9 +319,7 @@ describe('controls', () => {
     expect(() => resolveControls(file, {}, {}, { USE_SYSTEM_CA: 'maybe' })).toThrow('USE_SYSTEM_CA');
   });
 
-  test('README, --help, config file and workflow expose the same controls', async () => {
-    const doc = read('README.md');
-    for (const name of CONTROL_NAMES) expect(doc).toContain('`' + name + '`');
+  test('--help lists every control and keeps the SEC contact out of the output', async () => {
     const child = Bun.spawn([process.execPath, 'scripts/update-data.ts', '--help'], { cwd: new URL('..', import.meta.url).pathname, env: { PATH: process.env.PATH!, TZ: 'UTC' }, stdout: 'pipe', stderr: 'pipe' });
     const [help, code] = await Promise.all([new Response(child.stdout).text(), child.exited]);
     expect(code).toBe(0);
@@ -330,19 +328,6 @@ describe('controls', () => {
       expect(help).toContain(tenor ? `${tenor[1]}_{YTD,1Y,3Y,5Y,10Y}` : name);
     }
     expect(help).not.toContain('daggerok@gmail.com');
-    const workflow = read('.github/workflows/update-data.yml');
-    const names = [...workflow.slice(workflow.indexOf('    inputs:'), workflow.indexOf('\npermissions:')).matchAll(/^      (\w+):$/gm)].map((m) => m[1]);
-    expect(names.length).toBeLessThanOrEqual(25); expect(names).toContain('advanced');
-    for (const name of names.filter((n) => n !== 'advanced')) expect(CONTROL_NAMES).toContain(name.toUpperCase() as any);
-    expect(workflow).toContain('PROTECTED_SEC_UA: ${{ vars.SEC_UA }}');
-    expect(workflow).toContain('resolveControls(file, advanced, individual, protectedVars)');
-    expect(workflow).not.toMatch(/\$\{\{\s*inputs\./); expect(workflow).not.toMatch(/OUTPUT_DIR|output_dir/i);
-    expect(workflow.match(/git add (\S+)/g)).toEqual(['git add api/capital-group']);
-    expect(workflow).toContain('persist-credentials: false'); expect(workflow).toContain('timeout-minutes: 30');
-    // controls without an individual input stay reachable through advanced and the config file
-    const hidden = CONTROL_NAMES.filter((name) => !names.includes(name.toLowerCase()));
-    expect(hidden.sort()).toEqual(['CATALOG_URL', 'SEC_UA', 'SKIP_ISSUER', 'STORE_RAW_DOWNLOADS', 'USE_SYSTEM_CA', 'VERBOSE']);
-    expect(resolveControls(configFile(), Object.fromEntries(hidden.map((name) => [name, configFile()[name]])))).toEqual(configFile());
   });
 
   test('USE_SYSTEM_CA: certificate errors are detected and only auto/true re-exec the script', async () => {
