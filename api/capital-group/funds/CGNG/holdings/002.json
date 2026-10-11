@@ -2,7 +2,7 @@
  "ticker": "CGNG",
  "page": 2,
  "pageSize": 250,
- "totalRows": 257,
+ "totalRows": 253,
  "headers": [
   "Name",
   "Ticker",
@@ -14,67 +14,31 @@
  ],
  "rows": [
   {
-   "Name": "SOUTH AFRICAN RAND",
-   "Ticker": "",
-   "Identifier": "999ZARZ99",
+   "Name": "ASTOR TRANSFORMATOR ENERJI T COMMON STOCK",
+   "Ticker": "ASTOR",
+   "Identifier": "BMHB9P905",
    "Weight": "0",
-   "Market Value": "0",
-   "Shares Held": "0.01",
-   "Asset Category": "Cash & Equivalent"
-  },
-  {
-   "Name": "BRL Spot FX",
-   "Ticker": "",
-   "Identifier": "BRL999999",
-   "Weight": "0",
-   "Market Value": "-38.74",
-   "Shares Held": "-455228.78",
-   "Asset Category": "Spot FX"
+   "Market Value": "7448.51",
+   "Shares Held": "1856",
+   "Asset Category": "Equity"
   },
   {
    "Name": "CRASUS CHEMICAL INC COMMON STOCK",
    "Ticker": "646A",
    "Identifier": "BXD1C7903",
    "Weight": "0",
-   "Market Value": "60901.28",
+   "Market Value": "53696.15",
    "Shares Held": "40600",
    "Asset Category": "Equity"
   },
   {
-   "Name": "GBP Spot FX",
+   "Name": "KRW Spot FX",
    "Ticker": "",
-   "Identifier": "GBP999999",
+   "Identifier": "KRW999999",
    "Weight": "0",
-   "Market Value": "10.07",
-   "Shares Held": "-67390.26",
+   "Market Value": "-2245.52",
+   "Shares Held": "-3592445945",
    "Asset Category": "Spot FX"
-  },
-  {
-   "Name": "HKD Spot FX",
-   "Ticker": "",
-   "Identifier": "HKD999999",
-   "Weight": "0",
-   "Market Value": "-46.74",
-   "Shares Held": "3321071.78",
-   "Asset Category": "Spot FX"
-  },
-  {
-   "Name": "SAR Spot FX",
-   "Ticker": "",
-   "Identifier": "SAR999999",
-   "Weight": "0",
-   "Market Value": "-170.25",
-   "Shares Held": "-1920550.38",
-   "Asset Category": "Spot FX"
-  },
-  {
-   "Name": "NET OTHER ASSETS",
-   "Ticker": "",
-   "Identifier": "",
-   "Weight": "-0.14",
-   "Market Value": "-4316650.7",
-   "Shares Held": "0",
-   "Asset Category": "Cash & Equivalent"
   }
  ]
 }

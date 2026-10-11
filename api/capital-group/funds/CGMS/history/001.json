@@ -2,7 +2,7 @@
  "ticker": "CGMS",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 988,
+ "totalRows": 993,
  "headers": [
   "Date",
   "NAV",
@@ -5937,6 +5937,36 @@
    "NAV": "26.24",
    "Market Price": "26.24",
    "Premium/Discount": "-0.01"
+  },
+  {
+   "Date": "Oct 05 2026",
+   "NAV": "26.24",
+   "Market Price": "26.25",
+   "Premium/Discount": "0.04"
+  },
+  {
+   "Date": "Oct 06 2026",
+   "NAV": "26.32",
+   "Market Price": "26.34",
+   "Premium/Discount": "0.08"
+  },
+  {
+   "Date": "Oct 07 2026",
+   "NAV": "26.3",
+   "Market Price": "26.3",
+   "Premium/Discount": "0"
+  },
+  {
+   "Date": "Oct 08 2026",
+   "NAV": "26.33",
+   "Market Price": "26.35",
+   "Premium/Discount": "0.07"
+  },
+  {
+   "Date": "Oct 09 2026",
+   "NAV": "26.34",
+   "Market Price": "26.37",
+   "Premium/Discount": "0.12"
   }
  ]
 }
