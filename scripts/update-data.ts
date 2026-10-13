@@ -1189,7 +1189,8 @@ export function pickEftsCik(payload: JsonRecord, fundName: string): string | nul
 // Yahoo chart layer: daily history, distributions, quote meta
 // ---------------------------------------------------------------------------
 
-export type ChartDay = { date: string; close: number; adjClose: number; volume: number };
+// adjCloseRaw: Yahoo's unrounded value, only used to tell float noise from a real change (never persisted).
+export type ChartDay = { date: string; close: number; adjClose: number; volume: number; adjCloseRaw?: number };
 
 export type ParsedChart = {
   exchangeName: string;
@@ -1227,6 +1228,7 @@ export function parseChart(payload: JsonRecord): ParsedChart {
       // meaningful precision for a price and absorbs that jitter.
       adjClose: round(adjClose, 2),
       volume: typeof volumes[i] === 'number' ? (volumes[i] as number) : 0,
+      adjCloseRaw: adjClose,
     });
   }
   const events = ((result.events || {}) as JsonRecord).dividends as Record<string, JsonRecord> | undefined;
@@ -1712,6 +1714,25 @@ function officialHistoryRows(points: HistoryPoint[]): JsonRecord[] {
     'Market Price': point.marketPrice === null ? '' : String(point.marketPrice),
     'Premium/Discount': point.premiumDiscount === null ? '' : String(point.premiumDiscount),
   }));
+}
+
+// Yahoo's adjusted close is float32 and its last digits move with the request's period2, so a value
+// sitting on a cent boundary (31.544998 vs 31.545001) flips between runs. Within that noise the
+// published cent is kept: a rerun with the same source data changes nothing. Close and Volume
+// update as usual; a real change beyond the noise is written.
+export const ADJ_CLOSE_NOISE = 1e-4;
+export function keepPublishedAdjClose(days: ChartDay[], published: JsonRecord[], publishedHeaders: string[]): ChartDay[] {
+  if (publishedHeaders.join('|') !== YAHOO_HISTORY_HEADERS.join('|')) return days;
+  const cents = new Map<string, number>();
+  for (const row of published) {
+    const value = numberOrNull(row['Adj Close']);
+    if (value !== null) cents.set(String(row.Date), value);
+  }
+  return days.map((day) => {
+    const prior = cents.get(formatEdgarDate(day.date));
+    const raw = day.adjCloseRaw ?? day.adjClose;
+    return prior !== undefined && prior !== day.adjClose && Math.abs(raw - prior) <= 0.005 + ADJ_CLOSE_NOISE ? { ...day, adjClose: prior } : day;
+  });
 }
 
 // Yahoo fallback rows, identical to the sibling feeds.
@@ -2216,9 +2237,9 @@ async function processFund(
       marketTime = chart.regularMarketTime;
       firstTradeDate = chart.firstTradeDate;
       if (!dividends.length) dividends = chart.dividends;
-      chartDays = chart.days;
+      chartDays = keepPublishedAdjClose(chart.days, previousHistoryRows, previousHistoryHeaders);
       // A shorter HISTORY_RANGE never shrinks the published series: older published rows are merged back.
-      history = mergeHistoryRows(previousHistoryRows, previousHistoryHeaders, YAHOO_HISTORY_HEADERS, historyRows(chart.days));
+      history = mergeHistoryRows(previousHistoryRows, previousHistoryHeaders, YAHOO_HISTORY_HEADERS, historyRows(chartDays));
       historyHeaders = YAHOO_HISTORY_HEADERS;
       historySource = 'Yahoo Finance public chart API (adjusted close)';
     } catch (error) {

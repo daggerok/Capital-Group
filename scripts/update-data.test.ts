@@ -706,6 +706,40 @@ describe('pipeline', () => {
     });
   });
 
+  test('two runs on the same source data write zero changes even when Yahoo adjusted closes jitter across a cent boundary', async () => {
+    // the issuer history is down on the first publication, so the history pages carry the Yahoo fallback with
+    // Adj Close; reruns with SKIP_ISSUER keep refreshing that fallback from Yahoo. SKIP_ISSUER itself swaps the
+    // issuer sections of meta.json for the published ones, so only the history pages are compared here.
+    await withFeed({ dead: { CGUS: ['history'] } }, async ({ run, dir }) => {
+      // Yahoo float32 noise seen live: AAM SPDV 2024-11-12 came back as 31.544998 and 31.545001 a minute apart
+      const issuer = globalThis.fetch;
+      const jittered = (tail: number[]) => {
+        globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+          const response = await issuer(input, init);
+          if (!String(input).includes('finance/chart')) return response;
+          const payload = await response.json();
+          const adjclose: number[] = payload.chart.result[0].indicators.adjclose[0].adjclose;
+          payload.chart.result[0].indicators.adjclose = [{ adjclose: adjclose.map((value, i) => (i >= adjclose.length - tail.length ? tail[i - adjclose.length + tail.length] : value)) }];
+          return Response.json(payload);
+        }) as typeof fetch;
+      };
+      const history = async () => JSON.parse(await readFile(join(dir, 'funds', 'CGUS', 'history', '001.json'), 'utf8'));
+      jittered([23.915001, 24.984999, 25.995001]);
+      await run({ TICKERS: 'CGUS' });
+      expect((await history()).headers).toEqual(['Date', 'Close', 'Adj Close', 'Volume']);
+      const pages = async () => snapshot(join(dir, 'funds', 'CGUS', 'history'));
+      const first = await pages();
+      await Bun.sleep(20); // any rewrite would move the mtime
+      jittered([23.914998, 24.985002, 25.994999]);
+      await run({ TICKERS: 'CGUS', SKIP_ISSUER: '1' });
+      expect(await pages()).toEqual(first);
+      // a real change beyond the noise is still written
+      jittered([23.9, 24.97, 25.98]);
+      await run({ TICKERS: 'CGUS', SKIP_ISSUER: '1' });
+      expect((await history()).rows.slice(-3).map((row: any) => row['Adj Close'])).toEqual(['23.9', '24.97', '25.98']);
+    });
+  });
+
   test('a failed source keeps the fund exactly as published; N-PORT only replaces strictly older holdings', async () => {
     await withFeed({}, async ({ run, dir, meta }) => {
       await run({ TICKERS: 'CGUS' });
