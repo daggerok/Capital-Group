@@ -22,10 +22,12 @@ function outputConfigEntries(config: Record<string, any>): [string, string][] {
     performanceRanges: 'PERFORMANCE', totalReturnRanges: 'TOTAL_RETURN',
     skipVanEck: 'SKIP_VANECK', skipProShares: 'SKIP_PROSHARES',
     skipWisdomTree: 'SKIP_WISDOMTREE', skipGoldmanSachs: 'SKIP_GOLDMANSACHS',
+    skipGlobalX: 'SKIP_GLOBALX', skipNorthernTrust: 'SKIP_NORTHERNTRUST',
   };
-  const range = (v: any): string => v?.source ?? `${Number.isFinite(v?.min) ? v.min : ''}:${Number.isFinite(v?.max) ? v.max : ''}`;
+  const range = (v: any): string => typeof v === 'string' ? v : v?.source ?? `${Number.isFinite(v?.min) ? v.min : ''}:${Number.isFinite(v?.max) ? v.max : ''}`;
   for (const [key, value] of Object.entries(config)) {
-    const name = aliases[key] ?? key.replace(/([a-z0-9])([A-Z])/g, '$1_$2').toUpperCase();
+    if (['proxyGapMs', 'fetchTimeoutMs', 'retryDelayMs'].includes(key)) continue;
+    const name = aliases[key] ?? (/^[A-Z0-9_]+$/.test(key) ? key : key.replace(/([a-z0-9])([A-Z])/g, '$1_$2').toUpperCase());
     if (name === 'PERFORMANCE' || name === 'TOTAL_RETURN') {
       for (const period of ['YTD', '1Y', '3Y', '5Y', '10Y']) values.set(`${name}_${period}`, range(value?.[period]));
     } else if (['AUM', 'TER', 'DIVIDEND_YIELD', 'SEC_YIELD'].includes(name)) {
@@ -40,13 +42,18 @@ function outputConfigEntries(config: Record<string, any>): [string, string][] {
     return (ai < 0 ? first.length : ai) - (bi < 0 ? first.length : bi) || a.localeCompare(b);
   });
 }
+function outputConfigValue(key: string, value: string): string {
+  if (/TOKEN|PASSWORD|SECRET|COOKIE|SEC_UA/i.test(key)) return '<redacted>';
+  if (key === 'TICKERS' && ['', 'null', 'undefined'].includes(value)) return 'all';
+  return outputClean(value);
+}
 function outputPrintConfig(brand: string, config: Record<string, any>): void {
   const entries: [string, string][] = [...outputConfigEntries(config), ['VERBOSE', String(outputVerbose())]];
-  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${/TOKEN|PASSWORD|SECRET|COOKIE|SEC_UA/i.test(key) ? '<redacted>' : outputClean(value)}`).join('\n')}`);
+  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${outputConfigValue(key, value)}`).join('\n')}`);
 }
 function outputHasOutputFilters(config: Record<string, any>): boolean {
   return outputConfigEntries(config).some(([name, value]) =>
-    /^(TICKERS|CATEGORY|AUM|TER|DIVIDEND_YIELD|SEC_YIELD|PERFORMANCE_|TOTAL_RETURN_)/.test(name) &&
+    /^(CATEGORY|AUM|TER|DIVIDEND_YIELD|SEC_YIELD|PERFORMANCE_|TOTAL_RETURN_)/.test(name) &&
     !['', ':', 'null', 'all'].includes(value));
 }
 function outputPrintFilter(selected: number, total: number, deferred = false): void {
@@ -78,18 +85,29 @@ async function outputInspectFund(root: URL | string, ticker: string): Promise<{ 
 }
 const outputCount = (value: any): unknown => typeof value === 'number' ? value : Array.isArray(value) ? value.length : value?.totalRows ?? value?.rows?.length ?? null;
 const outputScalar = (value: any): any => value && typeof value === 'object' ? value.display ?? value.value ?? null : value;
+const outputUnits: Record<string, number> = { K: 1e3, M: 1e6, B: 1e9, T: 1e12, THOUSAND: 1e3, MILLION: 1e6, BILLION: 1e9, TRILLION: 1e12 };
 function outputMoney(value: any): string {
-  const raw = outputScalar(value);
+  const raw = value && typeof value === 'object' && typeof value.value === 'number' && Number.isFinite(value.value) ? value.value : outputScalar(value);
   if (raw === null || raw === undefined || raw === '—' || raw === '--') return 'null';
   const text = String(raw).replace(/[$,\s]/g, '');
-  const match = text.match(/^([+-]?[\d.]+)([KMBT])?$/i);
+  const match = text.match(/^([+-]?[\d.]+)(K|M|B|T|Thousand|Million|Billion|Trillion)?$/i);
   if (!match) return outputClean(raw);
-  const number = Number(match[1]) * ({ K: 1e3, M: 1e6, B: 1e9, T: 1e12 }[match[2]?.toUpperCase() as 'K' | 'M' | 'B' | 'T'] ?? 1);
+  const number = Number(match[1]) * (outputUnits[match[2]?.toUpperCase() ?? ''] ?? 1);
   if (!Number.isFinite(number)) return 'null';
   for (const [unit, scale] of [['T', 1e12], ['B', 1e9], ['M', 1e6], ['K', 1e3]] as const) {
     if (Math.abs(number) >= scale) return `$${(number / scale).toFixed(1)}${unit}`;
   }
   return `$${number.toFixed(2)}`;
+}
+/** Yields: rounded to 2 decimals without trailing zeros; placeholders are omitted like null. */
+function outputPercent(value: any): unknown {
+  const raw = outputScalar(value);
+  if (raw === null || raw === undefined) return null;
+  if (typeof raw === 'number') return Number.isFinite(raw) ? Number(raw.toFixed(2)) : null;
+  const text = String(raw).trim().replace(/%$/, '').trim();
+  if (['', '-', '—', '--', 'n/a'].includes(text.toLowerCase())) return null;
+  const number = Number(text.replace(/,/g, ''));
+  return Number.isFinite(number) ? Number(number.toFixed(2)) : outputClean(raw);
 }
 function outputFundLine(index: number, total: number, ticker: string, status: string, data: any = {}, reason?: unknown): string {
   const width = Math.max(2, String(total).length);
@@ -110,21 +128,34 @@ function outputFundLine(index: number, total: number, ticker: string, status: st
     field('divs', outputCount(data.worksheets?.Distributions ?? data.distributions)),
     field('netAssets', outputMoney(data.netAssets ?? data.aum)),
     field('total', outputMoney(data.totalFundNetAssets ?? data.totalNetAssets)),
-    field('div', outputScalar(data.trailingYield ?? data.yields?.effectiveYield ?? data.yields?.dividendYield ?? data.dividendYield ?? metrics.dividendYield)),
-    field('sec', outputScalar(data.secYield ?? data.yields?.secYield ?? metrics.secYield)),
+    field('div', outputPercent(data.trailingYield ?? data.yields?.effectiveYield ?? data.yields?.dividendYield ?? data.dividendYield ?? metrics.dividendYield)),
+    field('sec', outputPercent(data.secYield ?? data.yields?.secYield ?? metrics.secYield)),
     field('wp', data.workplaceRaw),
   ].filter(part => part !== '').join(' ');
   return `[ ${String(index).padStart(width)}/${String(total).padEnd(width)}  ] ${outputClean(ticker).padEnd(5)} ${status.padEnd(9)}${detail ? ` ${detail}` : ''}${reason ? ` reason=${outputClean(reason)}` : ''}`;
 }
 function outputCreateReporter(root: URL | string, total: number) {
   let completed = 0;
+  const tally = new Map<string, number>();
   return {
     before: (ticker: string) => outputInspectFund(root, ticker),
     async result(ticker: string, before: { digest: string }, status?: string, reason?: unknown, extra: any = {}) {
       const after = await outputInspectFund(root, ticker);
-      console.log(outputFundLine(++completed, total, ticker, status ?? (before.digest === after.digest ? 'unchanged' : 'updated'), { ...after.meta, ...extra }, reason));
+      const final = status ?? (before.digest === after.digest ? 'unchanged' : 'updated');
+      tally.set(final, (tally.get(final) ?? 0) + 1);
+      console.log(outputFundLine(++completed, total, ticker, final, { ...after.meta, ...extra }, reason));
+    },
+    /** First [ done ] line: the statuses of every fund line this reporter printed. */
+    summary(startedAt: number): string {
+      const order = ['updated', 'unchanged', 'kept', 'skipped', 'failed'];
+      const statuses = [...order, ...[...tally.keys()].filter(status => !order.includes(status))];
+      return `[ done     ] ${completed} fund${completed === 1 ? '' : 's'}: ${statuses.map(status => `${tally.get(status) ?? 0} ${status}`).join(', ')} in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`;
     },
   };
+}
+/** Second [ done ] line: published totals. */
+function outputCounts(funds: number, holdings: number, history: number): string {
+  return `[ done     ] counts: ${funds.toLocaleString('en-US')} funds / ${holdings.toLocaleString('en-US')} holdings rows / ${history.toLocaleString('en-US')} history rows`;
 }
 
 import { mkdir, readFile, writeFile, readdir, rm, appendFile, rename } from 'node:fs/promises';
@@ -2453,10 +2484,10 @@ export function loadFundTickerMap(config: UpdaterConfig): Promise<Map<string, Se
     try {
       const payload = await fetchJson(SEC_FUND_TICKERS_URL, '[edgar   ] fund ticker table', secHeaders(config), config);
       const map = parseFundTickerMap(payload);
-      outputNote(`[ edgar    ] SEC fund ticker table: ${map.size} ETF / mutual-fund share classes`);
+      outputNote(`[ edgar    ] SEC fund ticker table: ${Array.isArray(payload?.data) ? payload.data.length : map.size} ETF / mutual-fund share classes`);
       return map;
     } catch (error) {
-      console.warn(`[ edgar    ] fund ticker table: ${errorMessage(error)} — falling back to full-text search`);
+      outputNote(`[ edgar    ] fund ticker table: ${errorMessage(error)} — falling back to full-text search`);
       return new Map<string, SecSeriesRef>();
     }
   })();
@@ -2468,10 +2499,10 @@ export function loadCompanyTickerMap(config: UpdaterConfig): Promise<Map<string,
     try {
       const payload = await fetchJson(SEC_COMPANY_TICKERS_URL, '[ edgar    ] company ticker table', secHeaders(config), config);
       const map = parseCompanyTickerMap(payload);
-      outputNote(`[ edgar    ] SEC company ticker table: ${map.size} issuer names`);
+      outputNote(`[ edgar    ] SEC company ticker table: ${Object.keys(payload ?? {}).length} issuer names`);
       return map;
     } catch (error) {
-      console.warn(`[ edgar    ] company ticker table: ${errorMessage(error)} — N-PORT tickers stay "-"`);
+      outputNote(`[ edgar    ] company ticker table: ${errorMessage(error)} — N-PORT tickers stay "-"`);
       return new Map<string, string>();
     }
   })();
@@ -2680,12 +2711,12 @@ export async function runUpdater(options: RunUpdaterOptions): Promise<RunUpdater
   if (options.apiRoot) setApiRoot(options.apiRoot);
   const now = options.now ?? Date.now;
   const startedAt = now();
+  const runStartedAt = Date.now();
   const deadlineMs = options.deadlineMs ?? RUN_SOFT_DEADLINE_MS;
   await mkdir(API_ROOT, { recursive: true });
   const requestSleepMs = Math.max(0, config.requestSleep) * 1000;
   discoveryGate = createRequestGate(requestSleepMs);
   outputPrintConfig('Capital Group', config);
-  console.log('');
   const catalog = new Map<string, CatalogFund>();
   const previousIndex = await readPreviousIndex();
   for (const [ticker, row] of previousIndex) catalog.set(ticker, catalogFundFromIndex(ticker, row));
@@ -2714,7 +2745,9 @@ export async function runUpdater(options: RunUpdaterOptions): Promise<RunUpdater
 
   // 2) Bounded, resumable batch run over the catalog (iShares/SPDR cursor).
   const dataFilters = Boolean(config.aumRange || config.terRange || config.dividendYieldRange || config.secYieldRange || Object.keys(config.performanceRanges).length || Object.keys(config.totalReturnRanges).length);
-  const scopes = await readCursorScopes();
+  // A TICKERS run never reads, writes or deletes the cursor (First-Trust rule).
+  const useCursor = !config.tickers.length;
+  const scopes = useCursor ? await readCursorScopes() : {};
   const unfiltered = !config.tickers.length && !dataFilters;
   const staticScope = (): string => (unfiltered ? 'all' : `filtered:${universe.filter((fund) => !config.tickers.length || config.tickers.includes(fund.ticker)).map((fund) => fund.ticker).join(',')}`);
   const scopeKey = staticScope();
@@ -2746,6 +2779,7 @@ export async function runUpdater(options: RunUpdaterOptions): Promise<RunUpdater
   const skipped: string[] = [];
   let startedCount = 0;
   let deadlineReached = false;
+  let notStarted = 0;
 
   outputPrintFilter(candidates.length, universe.length, dataFilters);
   const output = outputCreateReporter(API_ROOT, batch.length);
@@ -2754,7 +2788,7 @@ export async function runUpdater(options: RunUpdaterOptions): Promise<RunUpdater
       if (now() - startedAt >= deadlineMs) {
         if (queue.length && !deadlineReached) {
           deadlineReached = true;
-          console.warn(`[ deadline ] soft deadline of ${Math.round(deadlineMs / 1000)}s reached; ${queue.length} fund(s) not started, the index is still written`);
+          notStarted = queue.length;
         }
         return;
       }
@@ -2804,7 +2838,9 @@ export async function runUpdater(options: RunUpdaterOptions): Promise<RunUpdater
   // filtered funds must still move on). A full unfiltered pass resets the "all" scope; a TICKERS or filtered
   // run never touches the cursor of another scope.
   let nextCursor: string | null = cursor;
-  if (config.maxFetches > 0) {
+  if (!useCursor) {
+    // TICKERS run: update-state.json stays as it is
+  } else if (config.maxFetches > 0) {
     if (startedCount > 0) nextCursor = batch[startedCount - 1].ticker;
     if (startedCount > 0) await writeCursorScope(scopeKey, nextCursor);
   } else if (unfiltered) {
@@ -2812,11 +2848,12 @@ export async function runUpdater(options: RunUpdaterOptions): Promise<RunUpdater
     nextCursor = null;
   }
 
-  console.log('');
-  console.log(`[ done     ] ${results.length} funds updated, ${keptFromPrevious.length} kept from previous runs, ${failed.length} failures`);
-  console.log(`[ done     ] counts: ${counts.funds} funds / ${counts.holdings.toLocaleString('en-US')} holdings rows / ${counts.history.toLocaleString('en-US')} history rows`);
+  // Printed after the pool drains so it never lands between fund lines.
+  if (deadlineReached) console.log(`[ deadline ] soft deadline of ${Math.round(deadlineMs / 1000)}s reached; ${notStarted} fund(s) not started, the index is still written`);
+  console.log(output.summary(runStartedAt));
+  console.log(outputCounts(counts.funds, counts.holdings, counts.history));
   console.log(
-    `[ cursor   ] ${config.maxFetches > 0 && nextCursor ? `next run continues after ${nextCursor}` : 'full pass complete (cursor reset)'}`,
+    `[ cursor   ] ${!useCursor ? 'TICKERS run: cursor untouched' : config.maxFetches > 0 && nextCursor ? `next run continues after ${nextCursor}` : 'full pass complete (cursor reset)'}`,
   );
 
   if (process.env.GITHUB_STEP_SUMMARY) {

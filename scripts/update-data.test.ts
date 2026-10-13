@@ -802,10 +802,12 @@ describe('pipeline', () => {
       const concurrent = await run({ MAX_FETCHES: '2', CONCURRENCY: '2' });
       expect(concurrent.selected).toEqual(['CGUS', 'CGXU']);
       expect((await readCursorScopes()).all).toBe('CGXU'); // furthest started fund in queue order, not the last to finish
+      // a TICKERS run never reads, writes or deletes the cursor: update-state.json stays byte-identical
+      const stateBefore = await readFile(join(dir, 'update-state.json'), 'utf8');
       expect((await run({ TICKERS: 'CGMU', MAX_FETCHES: '1' })).selected).toEqual(['CGMU']);
-      expect(JSON.parse(await readFile(join(dir, 'update-state.json'), 'utf8')).scopes.all).toBe('CGXU');
+      expect(await readFile(join(dir, 'update-state.json'), 'utf8')).toBe(stateBefore);
       await run({ TICKERS: 'CGMU' });
-      expect((await readCursorScopes()).all).toBe('CGXU');
+      expect(await readFile(join(dir, 'update-state.json'), 'utf8')).toBe(stateBefore);
       await run({}); // an unfiltered full pass resets it
       expect((await readCursorScopes()).all).toBeUndefined();
       await writeCursorScope('all', 'CGCP');
@@ -824,8 +826,15 @@ describe('pipeline', () => {
     expect(RUN_SOFT_DEADLINE_MS).toBe(25 * 60_000);
     await withFeed({ catalog: ['CGCP', 'CGMU', 'CGUS'] }, async ({ run, dir }) => {
       let clock = 0;
-      const report = await run({ MAX_FETCHES: '3' }, undefined, { deadlineMs: 5_000, now: () => { clock += 4_000; return clock; } });
+      const lines: string[] = [];
+      const silent = console.log;
+      console.log = (line: unknown) => { lines.push(String(line)); };
+      const report = await run({ MAX_FETCHES: '3' }, undefined, { deadlineMs: 5_000, now: () => { clock += 4_000; return clock; } }).finally(() => { console.log = silent; });
       expect(report.deadlineReached).toBe(true); expect(report.updated.length).toBeLessThan(3);
+      // The deadline note comes after every fund line, right before the two [ done ] lines.
+      const deadline = lines.findIndex((line) => line.startsWith('[ deadline ]'));
+      expect(deadline).toBeGreaterThan(-1);
+      expect(lines.slice(deadline + 1, deadline + 3).every((line) => line.startsWith('[ done     ]'))).toBe(true);
       expect(JSON.parse(await readFile(join(dir, 'index.json'), 'utf8')).funds).toHaveLength(3);
       expect((await readCursorScopes()).all).toBe(report.selected[report.updated.length + report.failed.length + report.skipped.length - 1]);
     });
