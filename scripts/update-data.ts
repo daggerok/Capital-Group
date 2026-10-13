@@ -2779,6 +2779,7 @@ export async function runUpdater(options: RunUpdaterOptions): Promise<RunUpdater
   const skipped: string[] = [];
   let startedCount = 0;
   let deadlineReached = false;
+  let notStarted = 0;
 
   outputPrintFilter(candidates.length, universe.length, dataFilters);
   const output = outputCreateReporter(API_ROOT, batch.length);
@@ -2787,7 +2788,7 @@ export async function runUpdater(options: RunUpdaterOptions): Promise<RunUpdater
       if (now() - startedAt >= deadlineMs) {
         if (queue.length && !deadlineReached) {
           deadlineReached = true;
-          console.warn(`[ deadline ] soft deadline of ${Math.round(deadlineMs / 1000)}s reached; ${queue.length} fund(s) not started, the index is still written`);
+          notStarted = queue.length;
         }
         return;
       }
@@ -2847,6 +2848,8 @@ export async function runUpdater(options: RunUpdaterOptions): Promise<RunUpdater
     nextCursor = null;
   }
 
+  // Printed after the pool drains so it never lands between fund lines.
+  if (deadlineReached) console.log(`[ deadline ] soft deadline of ${Math.round(deadlineMs / 1000)}s reached; ${notStarted} fund(s) not started, the index is still written`);
   console.log(output.summary(runStartedAt));
   console.log(outputCounts(counts.funds, counts.holdings, counts.history));
   console.log(
