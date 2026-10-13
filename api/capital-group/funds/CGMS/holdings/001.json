@@ -2,7 +2,7 @@
  "ticker": "CGMS",
  "page": 1,
  "pageSize": 250,
- "totalRows": 1619,
+ "totalRows": 1614,
  "headers": [
   "Name",
   "Ticker",
@@ -17,17 +17,17 @@
    "Name": "CAPITAL GROUP CENTRAL CASH FUN CAPITAL GROUP CNTRL CSH M",
    "Ticker": "",
    "Identifier": "14020B102",
-   "Weight": "3.35",
-   "Market Value": "181713896.05",
-   "Shares Held": "1817502.46",
+   "Weight": "3.28",
+   "Market Value": "179357246.1",
+   "Shares Held": "1793572.46",
    "Asset Category": "Cash & Equivalent"
   },
   {
    "Name": "US TREASURY N/B 05/46 5",
    "Ticker": "",
    "Identifier": "912810UV8",
-   "Weight": "0.94",
-   "Market Value": "51127482.75",
+   "Weight": "0.93",
+   "Market Value": "51139778.78",
    "Shares Held": "55400000",
    "Asset Category": "Fixed Income"
   },
@@ -35,8 +35,8 @@
    "Name": "RD MICHIGAN PROP OWNER I SR SECURED 144A 03/45 7.5",
    "Ticker": "",
    "Identifier": "74941YAA0",
-   "Weight": "0.58",
-   "Market Value": "31346866.43",
+   "Weight": "0.57",
+   "Market Value": "31066773.85",
    "Shares Held": "34653000",
    "Asset Category": "Fixed Income"
   },
@@ -53,27 +53,18 @@
    "Name": "JPMORGAN CHASE + CO SUBORDINATED 07/41 VAR",
    "Ticker": "",
    "Identifier": "48128BAT8",
-   "Weight": "0.52",
-   "Market Value": "28146884.98",
-   "Shares Held": "29428000",
+   "Weight": "0.53",
+   "Market Value": "29093982.62",
+   "Shares Held": "30428000",
    "Asset Category": "Fixed Income"
   },
   {
    "Name": "WAYMO LLC UNITRANCHE TERM LOAN",
    "Ticker": "",
    "Identifier": "BA0012HZ6",
-   "Weight": "0.5",
+   "Weight": "0.49",
    "Market Value": "26924975",
    "Shares Held": "27335000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "SWITCH ABS ISSUER, LLC SWTCH 2026 3A A21 144A",
-   "Ticker": "",
-   "Identifier": "871044BF9",
-   "Weight": "0.43",
-   "Market Value": "23250207.81",
-   "Shares Held": "23185000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -86,11 +77,20 @@
    "Asset Category": "Fixed Income"
   },
   {
+   "Name": "SWITCH ABS ISSUER, LLC SWTCH 2026 3A A21 144A",
+   "Ticker": "",
+   "Identifier": "871044BF9",
+   "Weight": "0.42",
+   "Market Value": "23250207.81",
+   "Shares Held": "23185000",
+   "Asset Category": "Fixed Income"
+  },
+  {
    "Name": "META PLATFORMS INC SR UNSECURED 08/52 4.45",
    "Ticker": "",
    "Identifier": "30303M8J4",
-   "Weight": "0.41",
-   "Market Value": "22009592.37",
+   "Weight": "0.4",
+   "Market Value": "21977743",
    "Shares Held": "32338000",
    "Asset Category": "Fixed Income"
   },
@@ -99,7 +99,7 @@
    "Ticker": "",
    "Identifier": "060505GR9",
    "Weight": "0.39",
-   "Market Value": "21111330.54",
+   "Market Value": "21090846.56",
    "Shares Held": "22800000",
    "Asset Category": "Fixed Income"
   },
@@ -108,17 +108,8 @@
    "Ticker": "",
    "Identifier": "18912UAA0",
    "Weight": "0.37",
-   "Market Value": "20201505.85",
+   "Market Value": "20227205.41",
    "Shares Held": "20263000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "CONNECT FINCO SARL/CONNE SR SECURED 144A 09/29 9",
-   "Ticker": "",
-   "Identifier": "20752TAB0",
-   "Weight": "0.37",
-   "Market Value": "19833881.99",
-   "Shares Held": "19045000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -126,8 +117,26 @@
    "Ticker": "",
    "Identifier": "05351KAW9",
    "Weight": "0.36",
-   "Market Value": "19751181",
+   "Market Value": "19735580",
    "Shares Held": "20000000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "CONNECT FINCO SARL/CONNE SR SECURED 144A 09/29 9",
+   "Ticker": "",
+   "Identifier": "20752TAB0",
+   "Weight": "0.36",
+   "Market Value": "19831615.64",
+   "Shares Held": "19045000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "CHARTER COMM OPT LLC/CAP SR SECURED 04/51 3.7",
+   "Ticker": "",
+   "Identifier": "161175BV5",
+   "Weight": "0.35",
+   "Market Value": "19340468.05",
+   "Shares Held": "34958000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -135,26 +144,8 @@
    "Ticker": "",
    "Identifier": "55342UAQ7",
    "Weight": "0.35",
-   "Market Value": "18921194.4",
+   "Market Value": "18987828.36",
    "Shares Held": "19331000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "CARLYLE GLOBAL MARKET STRATEGI CGMS 2018 4A BR2 144A",
-   "Ticker": "",
-   "Identifier": "14315RBE0",
-   "Weight": "0.34",
-   "Market Value": "18309150",
-   "Shares Held": "18300000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "CHARTER COMM OPT LLC/CAP SR SECURED 04/51 3.7",
-   "Ticker": "",
-   "Identifier": "161175BV5",
-   "Weight": "0.34",
-   "Market Value": "18331801.95",
-   "Shares Held": "33208000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -162,8 +153,17 @@
    "Ticker": "",
    "Identifier": "78442FAZ1",
    "Weight": "0.34",
-   "Market Value": "18255931.84",
+   "Market Value": "18390471.27",
    "Shares Held": "22361000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "CARLYLE GLOBAL MARKET STRATEGI CGMS 2018 4A BR2 144A",
+   "Ticker": "",
+   "Identifier": "14315RBE0",
+   "Weight": "0.33",
+   "Market Value": "18309150",
+   "Shares Held": "18300000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -171,7 +171,7 @@
    "Ticker": "",
    "Identifier": "71360HAB3",
    "Weight": "0.33",
-   "Market Value": "17869196.85",
+   "Market Value": "17847419.9",
    "Shares Held": "19357288.4",
    "Asset Category": "Fixed Income"
   },
@@ -180,8 +180,17 @@
    "Ticker": "",
    "Identifier": "20451RAB8",
    "Weight": "0.32",
-   "Market Value": "17469180.03",
+   "Market Value": "17486007.37",
    "Shares Held": "18457100",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "FORD MOTOR CREDIT CO LLC SR UNSECURED 02/35 6.5",
+   "Ticker": "",
+   "Identifier": "345397G56",
+   "Weight": "0.32",
+   "Market Value": "17247146.74",
+   "Shares Held": "17674000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -189,16 +198,25 @@
    "Ticker": "",
    "Identifier": "47233WLL1",
    "Weight": "0.32",
-   "Market Value": "17448388.9",
+   "Market Value": "17437092.9",
    "Shares Held": "19240000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "KENNEDY WILSON INC COMPANY GUAR 144A 06/31 7",
+   "Ticker": "",
+   "Identifier": "489399AR6",
+   "Weight": "0.31",
+   "Market Value": "16955180.61",
+   "Shares Held": "17175000",
    "Asset Category": "Fixed Income"
   },
   {
    "Name": "MARS INC SR UNSECURED 144A 03/35 5.2",
    "Ticker": "",
    "Identifier": "571676BA2",
-   "Weight": "0.32",
-   "Market Value": "17186889.99",
+   "Weight": "0.31",
+   "Market Value": "17183112.92",
    "Shares Held": "18041000",
    "Asset Category": "Fixed Income"
   },
@@ -206,18 +224,9 @@
    "Name": "ARES STRATEGIC INCOME FU SR UNSECURED 04/31 5.55",
    "Ticker": "",
    "Identifier": "04020EAW7",
-   "Weight": "0.31",
-   "Market Value": "16621526.39",
+   "Weight": "0.3",
+   "Market Value": "16597821.17",
    "Shares Held": "17555000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "NISSAN MOTOR CO SR UNSECURED 144A 07/35 8.125",
-   "Ticker": "",
-   "Identifier": "654922AD5",
-   "Weight": "0.31",
-   "Market Value": "16562184.28",
-   "Shares Held": "16550000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -225,17 +234,8 @@
    "Ticker": "",
    "Identifier": "15135BAX9",
    "Weight": "0.3",
-   "Market Value": "16379606.5",
+   "Market Value": "16413512.31",
    "Shares Held": "19209000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "FORD MOTOR CREDIT CO LLC SR UNSECURED 02/35 6.5",
-   "Ticker": "",
-   "Identifier": "345397G56",
-   "Weight": "0.3",
-   "Market Value": "16514844.19",
-   "Shares Held": "16924000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -243,8 +243,17 @@
    "Ticker": "",
    "Identifier": "47077WAF5",
    "Weight": "0.3",
-   "Market Value": "16500000",
+   "Market Value": "16541250",
    "Shares Held": "16500000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "NISSAN MOTOR CO SR UNSECURED 144A 07/35 8.125",
+   "Ticker": "",
+   "Identifier": "654922AD5",
+   "Weight": "0.3",
+   "Market Value": "16558646.88",
+   "Shares Held": "16550000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -252,7 +261,7 @@
    "Ticker": "",
    "Identifier": "19260QAD9",
    "Weight": "0.29",
-   "Market Value": "15854450.3",
+   "Market Value": "15919815.22",
    "Shares Held": "18614000",
    "Asset Category": "Fixed Income"
   },
@@ -261,17 +270,8 @@
    "Ticker": "",
    "Identifier": "35566ABE8",
    "Weight": "0.29",
-   "Market Value": "15752445.74",
+   "Market Value": "15742374.08",
    "Shares Held": "11680000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "KENNEDY WILSON INC COMPANY GUAR 144A 06/31 7",
-   "Ticker": "",
-   "Identifier": "489399AR6",
-   "Weight": "0.29",
-   "Market Value": "15511012.85",
-   "Shares Held": "15675000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -279,7 +279,7 @@
    "Ticker": "",
    "Identifier": "83304AAL0",
    "Weight": "0.29",
-   "Market Value": "16007432.08",
+   "Market Value": "16105712.01",
    "Shares Held": "16840000",
    "Asset Category": "Fixed Income"
   },
@@ -288,7 +288,7 @@
    "Ticker": "",
    "Identifier": "84615QAE3",
    "Weight": "0.29",
-   "Market Value": "15875331.15",
+   "Market Value": "15902716.2",
    "Shares Held": "17500000",
    "Asset Category": "Fixed Income"
   },
@@ -297,8 +297,17 @@
    "Ticker": "",
    "Identifier": "22207AAC6",
    "Weight": "0.28",
-   "Market Value": "15328930.18",
+   "Market Value": "15368730.85",
    "Shares Held": "16128000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "GRAY MEDIA INC SECURED 144A 07/32 9.625",
+   "Ticker": "",
+   "Identifier": "389375AN6",
+   "Weight": "0.28",
+   "Market Value": "15263522.56",
+   "Shares Held": "15659000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -311,20 +320,11 @@
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "EQUIPMENTSHARE EQS 2025 2M A 144A",
-   "Ticker": "",
-   "Identifier": "69122AAA3",
-   "Weight": "0.28",
-   "Market Value": "15010129.6",
-   "Shares Held": "15469647.75",
-   "Asset Category": "Fixed Income"
-  },
-  {
    "Name": "TRANSDIGM INC COMPANY GUAR 144A 05/33 6.375",
    "Ticker": "",
    "Identifier": "893647BY2",
    "Weight": "0.28",
-   "Market Value": "15188858.45",
+   "Market Value": "15207952.39",
    "Shares Held": "15710000",
    "Asset Category": "Fixed Income"
   },
@@ -333,7 +333,7 @@
    "Ticker": "",
    "Identifier": "05618UAC0",
    "Weight": "0.27",
-   "Market Value": "14698735.13",
+   "Market Value": "14699014.24",
    "Shares Held": "14768000",
    "Asset Category": "Fixed Income"
   },
@@ -342,26 +342,17 @@
    "Ticker": "",
    "Identifier": "09581CAG6",
    "Weight": "0.27",
-   "Market Value": "14569231.79",
+   "Market Value": "14553683.06",
    "Shares Held": "15078000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "GRAY MEDIA INC SECURED 144A 07/32 9.625",
+   "Name": "SERVICE PROPERTIES TRUST SR UNSECURED 02/30 4.375",
    "Ticker": "",
-   "Identifier": "389375AN6",
+   "Identifier": "44106MAY8",
    "Weight": "0.27",
-   "Market Value": "14530655.8",
-   "Shares Held": "14909000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "ION PLAT FIN US/SARL SR SECURED 144A 05/29 8.75",
-   "Ticker": "",
-   "Identifier": "46206AAD4",
-   "Weight": "0.27",
-   "Market Value": "14421452.92",
-   "Shares Held": "14668000",
+   "Market Value": "14604441.64",
+   "Shares Held": "16456000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -369,7 +360,7 @@
    "Ticker": "",
    "Identifier": "65346UAB5",
    "Weight": "0.27",
-   "Market Value": "14455002.7",
+   "Market Value": "14509001.58",
    "Shares Held": "15030000",
    "Asset Category": "Fixed Income"
   },
@@ -378,8 +369,17 @@
    "Ticker": "",
    "Identifier": "682691AK6",
    "Weight": "0.27",
-   "Market Value": "14605408.36",
+   "Market Value": "14628025.07",
    "Shares Held": "14973000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "EQUIPMENTSHARE EQS 2025 2M A 144A",
+   "Ticker": "",
+   "Identifier": "69122AAA3",
+   "Weight": "0.27",
+   "Market Value": "14997213.22",
+   "Shares Held": "15469647.75",
    "Asset Category": "Fixed Income"
   },
   {
@@ -387,8 +387,17 @@
    "Ticker": "",
    "Identifier": "82967NBM9",
    "Weight": "0.27",
-   "Market Value": "14895915.19",
+   "Market Value": "14893387.39",
    "Shares Held": "17036000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "B+G FOODS INC SR SECURED 144A 09/28 8",
+   "Ticker": "",
+   "Identifier": "05508WAC9",
+   "Weight": "0.26",
+   "Market Value": "14378119.24",
+   "Shares Held": "15328000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -396,7 +405,7 @@
    "Ticker": "",
    "Identifier": "05620TAC9",
    "Weight": "0.26",
-   "Market Value": "14048297.88",
+   "Market Value": "14033158.07",
    "Shares Held": "15830000",
    "Asset Category": "Fixed Income"
   },
@@ -405,17 +414,17 @@
    "Ticker": "",
    "Identifier": "36173WAA2",
    "Weight": "0.26",
-   "Market Value": "14079949.99",
+   "Market Value": "14059940.96",
    "Shares Held": "14008000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "SERVICE PROPERTIES TRUST SR UNSECURED 02/30 4.375",
+   "Name": "ION PLAT FIN US/SARL SR SECURED 144A 05/29 8.75",
    "Ticker": "",
-   "Identifier": "44106MAY8",
+   "Identifier": "46206AAD4",
    "Weight": "0.26",
-   "Market Value": "14103923.26",
-   "Shares Held": "15956000",
+   "Market Value": "14333893.76",
+   "Shares Held": "14668000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -423,7 +432,7 @@
    "Ticker": "",
    "Identifier": "15089QAY0",
    "Weight": "0.25",
-   "Market Value": "13520745.9",
+   "Market Value": "13545026.21",
    "Shares Held": "13054000",
    "Asset Category": "Fixed Income"
   },
@@ -432,35 +441,8 @@
    "Ticker": "",
    "Identifier": "382550BT7",
    "Weight": "0.25",
-   "Market Value": "13588802.89",
+   "Market Value": "13643734.84",
    "Shares Held": "14525000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "ORACLE CORP SR UNSECURED 02/56 6.7",
-   "Ticker": "",
-   "Identifier": "68389XEB7",
-   "Weight": "0.25",
-   "Market Value": "13304464.34",
-   "Shares Held": "16168000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "B+G FOODS INC SR SECURED 144A 09/28 8",
-   "Ticker": "",
-   "Identifier": "05508WAC9",
-   "Weight": "0.24",
-   "Market Value": "13146509.42",
-   "Shares Held": "14078000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "CCO HLDGS LLC/CAP CORP SR UNSECURED 144A 02/36 7.375",
-   "Ticker": "",
-   "Identifier": "1248EPCV3",
-   "Weight": "0.24",
-   "Market Value": "12783138.28",
-   "Shares Held": "14232000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -468,17 +450,17 @@
    "Ticker": "",
    "Identifier": "44409MAC0",
    "Weight": "0.24",
-   "Market Value": "13203458.83",
+   "Market Value": "13238227.84",
    "Shares Held": "15310000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "RIO GRANDE LNG LLC SR SECURED 144A 06/36 5.75",
+   "Name": "ORACLE CORP SR UNSECURED 02/56 6.7",
    "Ticker": "",
-   "Identifier": "76711AAD9",
+   "Identifier": "68389XEB7",
    "Weight": "0.24",
-   "Market Value": "12846445.54",
-   "Shares Held": "13560000",
+   "Market Value": "13287323.35",
+   "Shares Held": "16168000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -486,17 +468,35 @@
    "Ticker": "",
    "Identifier": "99S2A2MM1",
    "Weight": "0.24",
-   "Market Value": "13063260",
+   "Market Value": "13204352",
    "Shares Held": "-140000000",
    "Asset Category": "Swap"
+  },
+  {
+   "Name": "CCO HLDGS LLC/CAP CORP SR UNSECURED 144A 02/36 7.375",
+   "Ticker": "",
+   "Identifier": "1248EPCV3",
+   "Weight": "0.23",
+   "Market Value": "12598893.66",
+   "Shares Held": "14232000",
+   "Asset Category": "Fixed Income"
   },
   {
    "Name": "DIRECTV FINANCING LLC SR SECURED 144A 02/30 8.875",
    "Ticker": "",
    "Identifier": "254945AA6",
    "Weight": "0.23",
-   "Market Value": "12695793.35",
+   "Market Value": "12670831.4",
    "Shares Held": "12550000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "EQUIPMENTSHARE.COM INC SECURED 144A 07/34 7.125",
+   "Ticker": "",
+   "Identifier": "29450YAD1",
+   "Weight": "0.23",
+   "Market Value": "12323083.13",
+   "Shares Held": "13855000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -504,7 +504,7 @@
    "Ticker": "",
    "Identifier": "440930AA3",
    "Weight": "0.23",
-   "Market Value": "12546983.8",
+   "Market Value": "12727420.16",
    "Shares Held": "13000000",
    "Asset Category": "Fixed Income"
   },
@@ -513,7 +513,7 @@
    "Ticker": "",
    "Identifier": "451102BZ9",
    "Weight": "0.23",
-   "Market Value": "12703692.74",
+   "Market Value": "12707324.01",
    "Shares Held": "12886000",
    "Asset Category": "Fixed Income"
   },
@@ -522,7 +522,7 @@
    "Ticker": "",
    "Identifier": "46285MAA8",
    "Weight": "0.23",
-   "Market Value": "12751961.47",
+   "Market Value": "12785489.05",
    "Shares Held": "13811000",
    "Asset Category": "Fixed Income"
   },
@@ -531,7 +531,7 @@
    "Ticker": "",
    "Identifier": "651229BE5",
    "Weight": "0.23",
-   "Market Value": "12297836.91",
+   "Market Value": "12348691.25",
    "Shares Held": "12461000",
    "Asset Category": "Fixed Income"
   },
@@ -540,8 +540,17 @@
    "Ticker": "",
    "Identifier": "737446AV6",
    "Weight": "0.23",
-   "Market Value": "12734721.19",
+   "Market Value": "12738215.31",
    "Shares Held": "13470000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "RIO GRANDE LNG LLC SR SECURED 144A 06/36 5.75",
+   "Ticker": "",
+   "Identifier": "76711AAD9",
+   "Weight": "0.23",
+   "Market Value": "12838278.63",
+   "Shares Held": "13560000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -549,7 +558,7 @@
    "Ticker": "",
    "Identifier": "00287YDU0",
    "Weight": "0.22",
-   "Market Value": "11968131.36",
+   "Market Value": "11961282.2",
    "Shares Held": "12439000",
    "Asset Category": "Fixed Income"
   },
@@ -558,7 +567,7 @@
    "Ticker": "",
    "Identifier": "01309QAD0",
    "Weight": "0.22",
-   "Market Value": "11889528.27",
+   "Market Value": "11948460.55",
    "Shares Held": "13259000",
    "Asset Category": "Fixed Income"
   },
@@ -567,7 +576,7 @@
    "Ticker": "",
    "Identifier": "03770DAD5",
    "Weight": "0.22",
-   "Market Value": "11992918.17",
+   "Market Value": "11967032.59",
    "Shares Held": "12152000",
    "Asset Category": "Fixed Income"
   },
@@ -576,7 +585,7 @@
    "Ticker": "",
    "Identifier": "03770DAL7",
    "Weight": "0.22",
-   "Market Value": "12197816.56",
+   "Market Value": "12182105.61",
    "Shares Held": "12775000",
    "Asset Category": "Fixed Income"
   },
@@ -585,26 +594,8 @@
    "Ticker": "",
    "Identifier": "05619PAC0",
    "Weight": "0.22",
-   "Market Value": "11914960.59",
+   "Market Value": "11915074.49",
    "Shares Held": "11990000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "CCO HLDGS LLC/CAP CORP SR UNSECURED 144A 06/33 4.5",
-   "Ticker": "",
-   "Identifier": "1248EPCL5",
-   "Weight": "0.22",
-   "Market Value": "11752371.95",
-   "Shares Held": "14586000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "EQUIPMENTSHARE.COM INC SECURED 144A 07/34 7.125",
-   "Ticker": "",
-   "Identifier": "29450YAD1",
-   "Weight": "0.22",
-   "Market Value": "11744255.04",
-   "Shares Held": "13105000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -612,7 +603,7 @@
    "Ticker": "",
    "Identifier": "345397G31",
    "Weight": "0.22",
-   "Market Value": "11845296.62",
+   "Market Value": "11845600.59",
    "Shares Held": "12048000",
    "Asset Category": "Fixed Income"
   },
@@ -621,17 +612,8 @@
    "Ticker": "",
    "Identifier": "42704LAG9",
    "Weight": "0.22",
-   "Market Value": "12132075.47",
+   "Market Value": "12131894.56",
    "Shares Held": "12061000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "ION PLAT FIN US/SARL SR SECURED 144A 08/29 9",
-   "Ticker": "",
-   "Identifier": "46206AAF9",
-   "Weight": "0.22",
-   "Market Value": "11724931.57",
-   "Shares Held": "11912000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -639,7 +621,7 @@
    "Ticker": "",
    "Identifier": "489399AS4",
    "Weight": "0.22",
-   "Market Value": "12039950.48",
+   "Market Value": "12016823.7",
    "Shares Held": "12250000",
    "Asset Category": "Fixed Income"
   },
@@ -648,8 +630,17 @@
    "Ticker": "",
    "Identifier": "58940BBP0",
    "Weight": "0.22",
-   "Market Value": "12158985.73",
+   "Market Value": "12149968.61",
    "Shares Held": "12337000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "MOLINA HEALTHCARE INC SR UNSECURED 144A 05/32 3.875",
+   "Ticker": "",
+   "Identifier": "60855RAL4",
+   "Weight": "0.22",
+   "Market Value": "11996928.37",
+   "Shares Held": "13630000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -657,7 +648,7 @@
    "Ticker": "",
    "Identifier": "65346UAA7",
    "Weight": "0.22",
-   "Market Value": "11799956.49",
+   "Market Value": "11819046.35",
    "Shares Held": "12297000",
    "Asset Category": "Fixed Income"
   },
@@ -666,7 +657,7 @@
    "Ticker": "",
    "Identifier": "73108RAB4",
    "Weight": "0.22",
-   "Market Value": "12175892.82",
+   "Market Value": "12182507.18",
    "Shares Held": "13071864.56",
    "Asset Category": "Fixed Income"
   },
@@ -675,7 +666,7 @@
    "Ticker": "",
    "Identifier": "78457AAG6",
    "Weight": "0.22",
-   "Market Value": "12047968.68",
+   "Market Value": "12047978.31",
    "Shares Held": "12048000",
    "Asset Category": "Fixed Income"
   },
@@ -684,7 +675,7 @@
    "Ticker": "",
    "Identifier": "871607AE7",
    "Weight": "0.22",
-   "Market Value": "12046621.51",
+   "Market Value": "12028354.79",
    "Shares Held": "12770000",
    "Asset Category": "Fixed Income"
   },
@@ -693,7 +684,7 @@
    "Ticker": "",
    "Identifier": "87406BAA0",
    "Weight": "0.22",
-   "Market Value": "11946943.59",
+   "Market Value": "11935701.86",
    "Shares Held": "12633000",
    "Asset Category": "Fixed Income"
   },
@@ -702,8 +693,26 @@
    "Ticker": "",
    "Identifier": "87422VAP3",
    "Weight": "0.22",
-   "Market Value": "11919093.75",
+   "Market Value": "11942048.12",
    "Shares Held": "12359000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "US TREASURY N/B 09/28 4.75",
+   "Ticker": "",
+   "Identifier": "91282CRP8",
+   "Weight": "0.22",
+   "Market Value": "12291591.72",
+   "Shares Held": "12300000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "CCO HLDGS LLC/CAP CORP SR UNSECURED 144A 06/33 4.5",
+   "Ticker": "",
+   "Identifier": "1248EPCL5",
+   "Weight": "0.21",
+   "Market Value": "11576740.46",
+   "Shares Held": "14586000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -711,7 +720,7 @@
    "Ticker": "",
    "Identifier": "18589GAA3",
    "Weight": "0.21",
-   "Market Value": "11519234.27",
+   "Market Value": "11592554.69",
    "Shares Held": "11585000",
    "Asset Category": "Fixed Income"
   },
@@ -720,8 +729,17 @@
    "Ticker": "",
    "Identifier": "45262BAH6",
    "Weight": "0.21",
-   "Market Value": "11433053.95",
+   "Market Value": "11415613.96",
    "Shares Held": "11620000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "ION PLAT FIN US/SARL SR SECURED 144A 08/29 9",
+   "Ticker": "",
+   "Identifier": "46206AAF9",
+   "Weight": "0.21",
+   "Market Value": "11647434.48",
+   "Shares Held": "11912000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -729,17 +747,8 @@
    "Ticker": "",
    "Identifier": "63938CAQ1",
    "Weight": "0.21",
-   "Market Value": "11593896.66",
+   "Market Value": "11633755.29",
    "Shares Held": "12390000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "NEUBERGER BERMAN LOAN ADVISERS NEUBL 2024 2A BR 144A",
-   "Ticker": "",
-   "Identifier": "64135NAS2",
-   "Weight": "0.21",
-   "Market Value": "11205010.53",
-   "Shares Held": "11185905",
    "Asset Category": "Fixed Income"
   },
   {
@@ -747,7 +756,7 @@
    "Ticker": "",
    "Identifier": "65505PAC1",
    "Weight": "0.21",
-   "Market Value": "11226637.81",
+   "Market Value": "11232093.27",
    "Shares Held": "11815000",
    "Asset Category": "Fixed Income"
   },
@@ -756,17 +765,8 @@
    "Ticker": "",
    "Identifier": "695114DE5",
    "Weight": "0.21",
-   "Market Value": "11327330.45",
+   "Market Value": "11353946.54",
    "Shares Held": "12935000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "PIKES PEAK CLO PIPK 2022 11A BR2 144A",
-   "Ticker": "",
-   "Identifier": "72132KBA2",
-   "Weight": "0.21",
-   "Market Value": "11180626.18",
-   "Shares Held": "11174000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -774,7 +774,7 @@
    "Ticker": "",
    "Identifier": "78017TAB9",
    "Weight": "0.21",
-   "Market Value": "11552348.46",
+   "Market Value": "11515656.92",
    "Shares Held": "12387000",
    "Asset Category": "Fixed Income"
   },
@@ -783,7 +783,7 @@
    "Ticker": "",
    "Identifier": "909214BX5",
    "Weight": "0.21",
-   "Market Value": "11606350.32",
+   "Market Value": "11613023.04",
    "Shares Held": "12419000",
    "Asset Category": "Fixed Income"
   },
@@ -792,8 +792,17 @@
    "Ticker": "",
    "Identifier": "019576AF4",
    "Weight": "0.2",
-   "Market Value": "10876587.67",
+   "Market Value": "10886721.91",
    "Shares Held": "10862000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "CAPITAL ONE FINANCIAL CO SR UNSECURED 01/37 VAR",
+   "Ticker": "",
+   "Identifier": "14040HDQ5",
+   "Weight": "0.2",
+   "Market Value": "10920515.72",
+   "Shares Held": "11786000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -801,17 +810,8 @@
    "Ticker": "",
    "Identifier": "143658BY7",
    "Weight": "0.2",
-   "Market Value": "10881523.14",
+   "Market Value": "10876238.87",
    "Shares Held": "10986000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "CHARTER COMM OPT LLC/CAP SR SECURED 04/53 5.25",
-   "Ticker": "",
-   "Identifier": "161175CK8",
-   "Weight": "0.2",
-   "Market Value": "10713734.92",
-   "Shares Held": "15285000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -819,17 +819,8 @@
    "Ticker": "",
    "Identifier": "458140CM0",
    "Weight": "0.2",
-   "Market Value": "10793398.4",
+   "Market Value": "10784436.86",
    "Shares Held": "12800000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "MOLINA HEALTHCARE INC SR UNSECURED 144A 05/32 3.875",
-   "Ticker": "",
-   "Identifier": "60855RAL4",
-   "Weight": "0.2",
-   "Market Value": "11113491.9",
-   "Shares Held": "12630000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -842,11 +833,20 @@
    "Asset Category": "Fixed Income"
   },
   {
+   "Name": "NEUBERGER BERMAN LOAN ADVISERS NEUBL 2024 2A BR 144A",
+   "Ticker": "",
+   "Identifier": "64135NAS2",
+   "Weight": "0.2",
+   "Market Value": "11204976.97",
+   "Shares Held": "11185905",
+   "Asset Category": "Fixed Income"
+  },
+  {
    "Name": "NYC COMMERCIAL MORTGAGE TRUST NYC 2026 245P D 144A",
    "Ticker": "",
    "Identifier": "67127CAG5",
    "Weight": "0.2",
-   "Market Value": "10789419.55",
+   "Market Value": "10751066.4",
    "Shares Held": "10872000",
    "Asset Category": "Fixed Income"
   },
@@ -855,7 +855,7 @@
    "Ticker": "",
    "Identifier": "68389XDR3",
    "Weight": "0.2",
-   "Market Value": "10761491.22",
+   "Market Value": "10778162.32",
    "Shares Held": "14550000",
    "Asset Category": "Fixed Income"
   },
@@ -869,11 +869,29 @@
    "Asset Category": "Fixed Income"
   },
   {
+   "Name": "PIKES PEAK CLO PIPK 2022 11A BR2 144A",
+   "Ticker": "",
+   "Identifier": "72132KBA2",
+   "Weight": "0.2",
+   "Market Value": "11180626.18",
+   "Shares Held": "11174000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "ROYAL CARIBBEAN CRUISES SR UNSECURED 02/38 5.25",
+   "Ticker": "",
+   "Identifier": "78017TAD5",
+   "Weight": "0.2",
+   "Market Value": "11033820.78",
+   "Shares Held": "12276000",
+   "Asset Category": "Fixed Income"
+  },
+  {
    "Name": "ADVANCE AUTO PARTS COMPANY GUAR 144A 08/33 7.375",
    "Ticker": "",
    "Identifier": "00751YAL0",
    "Weight": "0.19",
-   "Market Value": "10373585.03",
+   "Market Value": "10381173.6",
    "Shares Held": "10480000",
    "Asset Category": "Fixed Income"
   },
@@ -882,7 +900,7 @@
    "Ticker": "",
    "Identifier": "05377RFF6",
    "Weight": "0.19",
-   "Market Value": "10338647.12",
+   "Market Value": "10337691.54",
    "Shares Held": "10353000",
    "Asset Category": "Fixed Income"
   },
@@ -891,17 +909,8 @@
    "Ticker": "",
    "Identifier": "123913AA3",
    "Weight": "0.19",
-   "Market Value": "10380254.99",
+   "Market Value": "10371110.4",
    "Shares Held": "10420000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "CAPITAL ONE FINANCIAL CO SR UNSECURED 01/37 VAR",
-   "Ticker": "",
-   "Identifier": "14040HDQ5",
-   "Weight": "0.19",
-   "Market Value": "10241976.35",
-   "Shares Held": "11036000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -909,8 +918,17 @@
    "Ticker": "",
    "Identifier": "15089QAP9",
    "Weight": "0.19",
-   "Market Value": "10479846.91",
+   "Market Value": "10504535.99",
    "Shares Held": "10270000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "CHARTER COMM OPT LLC/CAP SR SECURED 04/53 5.25",
+   "Ticker": "",
+   "Identifier": "161175CK8",
+   "Weight": "0.19",
+   "Market Value": "10603854.57",
+   "Shares Held": "15285000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -918,7 +936,7 @@
    "Ticker": "",
    "Identifier": "17327CBA0",
    "Weight": "0.19",
-   "Market Value": "10500967.14",
+   "Market Value": "10483409.7",
    "Shares Held": "11093000",
    "Asset Category": "Fixed Income"
   },
@@ -927,8 +945,17 @@
    "Ticker": "",
    "Identifier": "253651AK9",
    "Weight": "0.19",
-   "Market Value": "10188265.86",
+   "Market Value": "10220560.32",
    "Shares Held": "10020000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "DOW CHEMICAL CO/THE SR UNSECURED 03/36 5.65",
+   "Ticker": "",
+   "Identifier": "260543DP5",
+   "Weight": "0.19",
+   "Market Value": "10459305.74",
+   "Shares Held": "11031000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -936,7 +963,7 @@
    "Ticker": "",
    "Identifier": "513272AE4",
    "Weight": "0.19",
-   "Market Value": "10185632.02",
+   "Market Value": "10190909.87",
    "Shares Held": "11189000",
    "Asset Category": "Fixed Income"
   },
@@ -945,7 +972,7 @@
    "Ticker": "",
    "Identifier": "55939AAA5",
    "Weight": "0.19",
-   "Market Value": "10221558.2",
+   "Market Value": "10240058.65",
    "Shares Held": "10630000",
    "Asset Category": "Fixed Income"
   },
@@ -954,7 +981,7 @@
    "Ticker": "",
    "Identifier": "665530AB7",
    "Weight": "0.19",
-   "Market Value": "10333845.19",
+   "Market Value": "10343785.63",
    "Shares Held": "10051000",
    "Asset Category": "Fixed Income"
   },
@@ -963,7 +990,7 @@
    "Ticker": "",
    "Identifier": "682691AG5",
    "Weight": "0.19",
-   "Market Value": "10333674.93",
+   "Market Value": "10377458.37",
    "Shares Held": "10471000",
    "Asset Category": "Fixed Income"
   },
@@ -972,17 +999,17 @@
    "Ticker": "",
    "Identifier": "695114DQ8",
    "Weight": "0.19",
-   "Market Value": "10146455.91",
+   "Market Value": "10143408.47",
    "Shares Held": "10468000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "ROYAL CARIBBEAN CRUISES SR UNSECURED 02/38 5.25",
+   "Name": "SPACE EXPLORATION TECH SR UNSECURED 144A 07/56 6.65",
    "Ticker": "",
-   "Identifier": "78017TAD5",
+   "Identifier": "84615QAJ2",
    "Weight": "0.19",
-   "Market Value": "10382360.31",
-   "Shares Held": "11526000",
+   "Market Value": "10223874.33",
+   "Shares Held": "11945000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -990,7 +1017,7 @@
    "Ticker": "",
    "Identifier": "87183XAD5",
    "Weight": "0.19",
-   "Market Value": "10544803.15",
+   "Market Value": "10529075.45",
    "Shares Held": "10752000",
    "Asset Category": "Fixed Income"
   },
@@ -999,7 +1026,7 @@
    "Ticker": "",
    "Identifier": "99S2AYTD4",
    "Weight": "0.19",
-   "Market Value": "10454581",
+   "Market Value": "10569374",
    "Shares Held": "-115000000",
    "Asset Category": "Swap"
   },
@@ -1017,7 +1044,7 @@
    "Ticker": "",
    "Identifier": "00751YAE6",
    "Weight": "0.18",
-   "Market Value": "9951813.82",
+   "Market Value": "9962419.02",
    "Shares Held": "10836000",
    "Asset Category": "Fixed Income"
   },
@@ -1026,7 +1053,7 @@
    "Ticker": "",
    "Identifier": "10112RBJ2",
    "Weight": "0.18",
-   "Market Value": "9657292.48",
+   "Market Value": "9647659.89",
    "Shares Held": "10112000",
    "Asset Category": "Fixed Income"
   },
@@ -1035,7 +1062,7 @@
    "Ticker": "",
    "Identifier": "143658CA8",
    "Weight": "0.18",
-   "Market Value": "9817809.36",
+   "Market Value": "9795841.34",
    "Shares Held": "10185000",
    "Asset Category": "Fixed Income"
   },
@@ -1044,7 +1071,7 @@
    "Ticker": "",
    "Identifier": "144567AA2",
    "Weight": "0.18",
-   "Market Value": "9649262.04",
+   "Market Value": "9658884.54",
    "Shares Held": "9955000",
    "Asset Category": "Fixed Income"
   },
@@ -1053,17 +1080,8 @@
    "Ticker": "",
    "Identifier": "21871DAG8",
    "Weight": "0.18",
-   "Market Value": "9986983.01",
+   "Market Value": "9983812.97",
    "Shares Held": "10675000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "DOW CHEMICAL CO/THE SR UNSECURED 03/36 5.65",
-   "Ticker": "",
-   "Identifier": "260543DP5",
-   "Weight": "0.18",
-   "Market Value": "9884202.17",
-   "Shares Held": "10407000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1071,17 +1089,8 @@
    "Ticker": "",
    "Identifier": "278768AA4",
    "Weight": "0.18",
-   "Market Value": "9509901.18",
-   "Shares Held": "9490048",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "HALSEYPOINT CLO LTD. HLSY 2020 2A BR2 144A",
-   "Ticker": "",
-   "Identifier": "40638TAZ5",
-   "Weight": "0.18",
-   "Market Value": "9553426.97",
-   "Shares Held": "9594000",
+   "Market Value": "9918135.74",
+   "Shares Held": "9890048",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1089,7 +1098,7 @@
    "Ticker": "",
    "Identifier": "81761LAC6",
    "Weight": "0.18",
-   "Market Value": "9932085.72",
+   "Market Value": "9904544.98",
    "Shares Held": "9677000",
    "Asset Category": "Fixed Income"
   },
@@ -1098,7 +1107,7 @@
    "Ticker": "",
    "Identifier": "83616KAL1",
    "Weight": "0.18",
-   "Market Value": "9965820.5",
+   "Market Value": "9965790.65",
    "Shares Held": "9950000",
    "Asset Category": "Fixed Income"
   },
@@ -1107,7 +1116,7 @@
    "Ticker": "",
    "Identifier": "87165BAU7",
    "Weight": "0.18",
-   "Market Value": "9805627.01",
+   "Market Value": "9818970.17",
    "Shares Held": "9803000",
    "Asset Category": "Fixed Income"
   },
@@ -1116,17 +1125,8 @@
    "Ticker": "",
    "Identifier": "89788MAS1",
    "Weight": "0.18",
-   "Market Value": "9889419.42",
+   "Market Value": "9879122.95",
    "Shares Held": "10115000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "UNIVISION COMMUNICATIONS SR SECURED 144A 07/31 8.5",
-   "Ticker": "",
-   "Identifier": "914906AZ5",
-   "Weight": "0.18",
-   "Market Value": "9567048.98",
-   "Shares Held": "9920000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1134,7 +1134,7 @@
    "Ticker": "",
    "Identifier": "00791GAC1",
    "Weight": "0.17",
-   "Market Value": "9149339.97",
+   "Market Value": "9154101.27",
    "Shares Held": "9496000",
    "Asset Category": "Fixed Income"
   },
@@ -1143,7 +1143,7 @@
    "Ticker": "",
    "Identifier": "040133AA8",
    "Weight": "0.17",
-   "Market Value": "9027437.13",
+   "Market Value": "9058961.51",
    "Shares Held": "9133000",
    "Asset Category": "Fixed Income"
   },
@@ -1152,7 +1152,7 @@
    "Ticker": "",
    "Identifier": "05329WAT9",
    "Weight": "0.17",
-   "Market Value": "9491815.73",
+   "Market Value": "9470249.11",
    "Shares Held": "9840000",
    "Asset Category": "Fixed Income"
   },
@@ -1161,7 +1161,7 @@
    "Ticker": "",
    "Identifier": "058498BA3",
    "Weight": "0.17",
-   "Market Value": "9085544.07",
+   "Market Value": "9113289.84",
    "Shares Held": "9501000",
    "Asset Category": "Fixed Income"
   },
@@ -1170,7 +1170,7 @@
    "Ticker": "",
    "Identifier": "126650EF3",
    "Weight": "0.17",
-   "Market Value": "9299999.17",
+   "Market Value": "9287350.95",
    "Shares Held": "10179000",
    "Asset Category": "Fixed Income"
   },
@@ -1179,17 +1179,8 @@
    "Ticker": "",
    "Identifier": "20681AAA9",
    "Weight": "0.17",
-   "Market Value": "9351266.95",
+   "Market Value": "9309157.22",
    "Shares Held": "9775000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "EQUIPMENTSHARE.COM INC SECURED 144A 05/32 8.625",
-   "Ticker": "",
-   "Identifier": "29450YAB5",
-   "Weight": "0.17",
-   "Market Value": "8977994.37",
-   "Shares Held": "9160000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1197,7 +1188,7 @@
    "Ticker": "",
    "Identifier": "345397H48",
    "Weight": "0.17",
-   "Market Value": "9151986.82",
+   "Market Value": "9141834.22",
    "Shares Held": "9331000",
    "Asset Category": "Fixed Income"
   },
@@ -1206,8 +1197,17 @@
    "Ticker": "",
    "Identifier": "37185LAS1",
    "Weight": "0.17",
-   "Market Value": "9491247.08",
+   "Market Value": "9486261.62",
    "Shares Held": "9800000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "HALSEYPOINT CLO LTD. HLSY 2020 2A BR2 144A",
+   "Ticker": "",
+   "Identifier": "40638TAZ5",
+   "Weight": "0.17",
+   "Market Value": "9553417.38",
+   "Shares Held": "9594000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1215,7 +1215,7 @@
    "Ticker": "",
    "Identifier": "44813DAA4",
    "Weight": "0.17",
-   "Market Value": "9241214.15",
+   "Market Value": "9228325.32",
    "Shares Held": "9834000",
    "Asset Category": "Fixed Income"
   },
@@ -1224,7 +1224,7 @@
    "Ticker": "",
    "Identifier": "45344LAE3",
    "Weight": "0.17",
-   "Market Value": "9060519.14",
+   "Market Value": "9092516.9",
    "Shares Held": "9044000",
    "Asset Category": "Fixed Income"
   },
@@ -1233,7 +1233,7 @@
    "Ticker": "",
    "Identifier": "46206AAB8",
    "Weight": "0.17",
-   "Market Value": "9325860.14",
+   "Market Value": "9290660.77",
    "Shares Held": "9386000",
    "Asset Category": "Fixed Income"
   },
@@ -1242,7 +1242,7 @@
    "Ticker": "",
    "Identifier": "46266TAH1",
    "Weight": "0.17",
-   "Market Value": "9321254.71",
+   "Market Value": "9322597.56",
    "Shares Held": "9470000",
    "Asset Category": "Fixed Income"
   },
@@ -1251,7 +1251,7 @@
    "Ticker": "",
    "Identifier": "571676BC8",
    "Weight": "0.17",
-   "Market Value": "9278600.12",
+   "Market Value": "9252438.41",
    "Shares Held": "10274000",
    "Asset Category": "Fixed Income"
   },
@@ -1260,7 +1260,7 @@
    "Ticker": "",
    "Identifier": "62548HAB7",
    "Weight": "0.17",
-   "Market Value": "9425054.35",
+   "Market Value": "9425030.83",
    "Shares Held": "9408000",
    "Asset Category": "Fixed Income"
   },
@@ -1269,7 +1269,7 @@
    "Ticker": "",
    "Identifier": "651229BF2",
    "Weight": "0.17",
-   "Market Value": "9346742.53",
+   "Market Value": "9353351.07",
    "Shares Held": "9430000",
    "Asset Category": "Fixed Income"
   },
@@ -1278,7 +1278,7 @@
    "Ticker": "",
    "Identifier": "685218AF6",
    "Weight": "0.17",
-   "Market Value": "9478551.84",
+   "Market Value": "9464994.3",
    "Shares Held": "10362000",
    "Asset Category": "Fixed Income"
   },
@@ -1287,7 +1287,7 @@
    "Ticker": "",
    "Identifier": "693475BZ7",
    "Weight": "0.17",
-   "Market Value": "9099187.39",
+   "Market Value": "9069259.03",
    "Shares Held": "9471000",
    "Asset Category": "Fixed Income"
   },
@@ -1296,7 +1296,7 @@
    "Ticker": "",
    "Identifier": "70052LAC7",
    "Weight": "0.17",
-   "Market Value": "9489102.94",
+   "Market Value": "9502454.56",
    "Shares Held": "9834000",
    "Asset Category": "Fixed Income"
   },
@@ -1305,7 +1305,7 @@
    "Ticker": "",
    "Identifier": "83408KAC3",
    "Weight": "0.17",
-   "Market Value": "9379440.42",
+   "Market Value": "9381940.75",
    "Shares Held": "9210000",
    "Asset Category": "Fixed Income"
   },
@@ -1314,7 +1314,7 @@
    "Ticker": "",
    "Identifier": "83545GBE1",
    "Weight": "0.17",
-   "Market Value": "9216969.6",
+   "Market Value": "9223716.17",
    "Shares Held": "10056000",
    "Asset Category": "Fixed Income"
   },
@@ -1323,8 +1323,17 @@
    "Ticker": "",
    "Identifier": "852234AS2",
    "Weight": "0.17",
-   "Market Value": "9039710.34",
+   "Market Value": "9062098.87",
    "Shares Held": "9140000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "UNIVISION COMMUNICATIONS SR SECURED 144A 07/31 8.5",
+   "Ticker": "",
+   "Identifier": "914906AZ5",
+   "Weight": "0.17",
+   "Market Value": "9550583.17",
+   "Shares Held": "9920000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1332,7 +1341,7 @@
    "Ticker": "",
    "Identifier": "00751YAG1",
    "Weight": "0.16",
-   "Market Value": "8739699.93",
+   "Market Value": "8749605.06",
    "Shares Held": "10398000",
    "Asset Category": "Fixed Income"
   },
@@ -1341,7 +1350,7 @@
    "Ticker": "",
    "Identifier": "031162DW7",
    "Weight": "0.16",
-   "Market Value": "8726112.26",
+   "Market Value": "8719277.8",
    "Shares Held": "9434000",
    "Asset Category": "Fixed Income"
   },
@@ -1350,7 +1359,7 @@
    "Ticker": "",
    "Identifier": "04686JAL5",
    "Weight": "0.16",
-   "Market Value": "8910532.67",
+   "Market Value": "8934812.06",
    "Shares Held": "9976000",
    "Asset Category": "Fixed Income"
   },
@@ -1359,7 +1368,7 @@
    "Ticker": "",
    "Identifier": "054989AD0",
    "Weight": "0.16",
-   "Market Value": "8745136.97",
+   "Market Value": "8731372.41",
    "Shares Held": "8383000",
    "Asset Category": "Fixed Income"
   },
@@ -1368,7 +1377,7 @@
    "Ticker": "",
    "Identifier": "05595QAA0",
    "Weight": "0.16",
-   "Market Value": "8885827.15",
+   "Market Value": "8885841.38",
    "Shares Held": "8897000",
    "Asset Category": "Fixed Income"
   },
@@ -1377,7 +1386,7 @@
    "Ticker": "",
    "Identifier": "05619PAA4",
    "Weight": "0.16",
-   "Market Value": "8675849.46",
+   "Market Value": "8676043.15",
    "Shares Held": "8725000",
    "Asset Category": "Fixed Income"
   },
@@ -1386,7 +1395,7 @@
    "Ticker": "",
    "Identifier": "088921AA9",
    "Weight": "0.16",
-   "Market Value": "8780446.17",
+   "Market Value": "8765926.46",
    "Shares Held": "9148000",
    "Asset Category": "Fixed Income"
   },
@@ -1395,7 +1404,7 @@
    "Ticker": "",
    "Identifier": "143658BX9",
    "Weight": "0.16",
-   "Market Value": "8716921.87",
+   "Market Value": "8722575.41",
    "Shares Held": "8986000",
    "Asset Category": "Fixed Income"
   },
@@ -1404,7 +1413,7 @@
    "Ticker": "",
    "Identifier": "15089QAZ7",
    "Weight": "0.16",
-   "Market Value": "8776651.79",
+   "Market Value": "8773593",
    "Shares Held": "8772000",
    "Asset Category": "Fixed Income"
   },
@@ -1413,7 +1422,7 @@
    "Ticker": "",
    "Identifier": "20914UAH9",
    "Weight": "0.16",
-   "Market Value": "8653414.95",
+   "Market Value": "8634998.26",
    "Shares Held": "8158000",
    "Asset Category": "Fixed Income"
   },
@@ -1422,8 +1431,17 @@
    "Ticker": "",
    "Identifier": "278768AC0",
    "Weight": "0.16",
-   "Market Value": "8524240.94",
+   "Market Value": "8513426.08",
    "Shares Held": "7963464",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "EQUIPMENTSHARE.COM INC SECURED 144A 05/32 8.625",
+   "Ticker": "",
+   "Identifier": "29450YAB5",
+   "Weight": "0.16",
+   "Market Value": "8953900",
+   "Shares Held": "9160000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1431,7 +1449,7 @@
    "Ticker": "",
    "Identifier": "302635AP2",
    "Weight": "0.16",
-   "Market Value": "8545849.06",
+   "Market Value": "8552693.21",
    "Shares Held": "8950000",
    "Asset Category": "Fixed Income"
   },
@@ -1440,8 +1458,17 @@
    "Ticker": "",
    "Identifier": "345397H89",
    "Weight": "0.16",
-   "Market Value": "8813391.33",
+   "Market Value": "8807996.17",
    "Shares Held": "9480000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "GOLDMAN SACHS PRIVATE CR SR UNSECURED 01/31 5.875",
+   "Ticker": "",
+   "Identifier": "38152BAH4",
+   "Weight": "0.16",
+   "Market Value": "8914200.56",
+   "Shares Held": "9247000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1449,7 +1476,7 @@
    "Ticker": "",
    "Identifier": "44267DAE7",
    "Weight": "0.16",
-   "Market Value": "8784398.33",
+   "Market Value": "8763819.43",
    "Shares Held": "9171000",
    "Asset Category": "Fixed Income"
   },
@@ -1458,26 +1485,8 @@
    "Ticker": "",
    "Identifier": "44267DAH0",
    "Weight": "0.16",
-   "Market Value": "8584753.84",
+   "Market Value": "8601215.96",
    "Shares Held": "9130000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "IRON MOUNTAIN INC COMPANY GUAR 144A 01/35 6.25",
-   "Ticker": "",
-   "Identifier": "46284VAR2",
-   "Weight": "0.16",
-   "Market Value": "8419494.45",
-   "Shares Held": "8855000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "KINETIC ABS ISSUER LLC UNITK 2026 2A C 144A",
-   "Ticker": "",
-   "Identifier": "494600AC3",
-   "Weight": "0.16",
-   "Market Value": "8483108.03",
-   "Shares Held": "8825000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1485,7 +1494,7 @@
    "Ticker": "",
    "Identifier": "50249AAP8",
    "Weight": "0.16",
-   "Market Value": "8676924.6",
+   "Market Value": "8650625.05",
    "Shares Held": "8833000",
    "Asset Category": "Fixed Income"
   },
@@ -1494,7 +1503,7 @@
    "Ticker": "",
    "Identifier": "60510MBU1",
    "Weight": "0.16",
-   "Market Value": "8513739.48",
+   "Market Value": "8510552.61",
    "Shares Held": "8583000",
    "Asset Category": "Fixed Income"
   },
@@ -1503,7 +1512,7 @@
    "Ticker": "",
    "Identifier": "62548HAA9",
    "Weight": "0.16",
-   "Market Value": "8825806.79",
+   "Market Value": "8825790.05",
    "Shares Held": "8814000",
    "Asset Category": "Fixed Income"
   },
@@ -1512,7 +1521,7 @@
    "Ticker": "",
    "Identifier": "651229AX4",
    "Weight": "0.16",
-   "Market Value": "8648647.87",
+   "Market Value": "8661529.09",
    "Shares Held": "9011000",
    "Asset Category": "Fixed Income"
   },
@@ -1521,7 +1530,7 @@
    "Ticker": "",
    "Identifier": "682691AF7",
    "Weight": "0.16",
-   "Market Value": "8471271",
+   "Market Value": "8502747.15",
    "Shares Held": "8475000",
    "Asset Category": "Fixed Income"
   },
@@ -1530,7 +1539,7 @@
    "Ticker": "",
    "Identifier": "83408KAB5",
    "Weight": "0.16",
-   "Market Value": "8603582.81",
+   "Market Value": "8601439.8",
    "Shares Held": "8451000",
    "Asset Category": "Fixed Income"
   },
@@ -1539,17 +1548,8 @@
    "Ticker": "",
    "Identifier": "84615QAC7",
    "Weight": "0.16",
-   "Market Value": "8794091.39",
+   "Market Value": "8802381.51",
    "Shares Held": "9413000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "SPACE EXPLORATION TECH SR UNSECURED 144A 07/56 6.65",
-   "Ticker": "",
-   "Identifier": "84615QAJ2",
-   "Weight": "0.16",
-   "Market Value": "8901077.13",
-   "Shares Held": "10445000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1557,7 +1557,7 @@
    "Ticker": "",
    "Identifier": "85571BBG9",
    "Weight": "0.16",
-   "Market Value": "8903976.74",
+   "Market Value": "8928695.46",
    "Shares Held": "9355000",
    "Asset Category": "Fixed Income"
   },
@@ -1566,17 +1566,8 @@
    "Ticker": "",
    "Identifier": "86881WAF9",
    "Weight": "0.16",
-   "Market Value": "8498986.39",
+   "Market Value": "8499284.22",
    "Shares Held": "8683000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "UNIVISION COMMUNICATIONS SR SECURED 144A 06/30 7.375",
-   "Ticker": "",
-   "Identifier": "914906AX0",
-   "Weight": "0.16",
-   "Market Value": "8442614.43",
-   "Shares Held": "8744000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1584,7 +1575,7 @@
    "Ticker": "",
    "Identifier": "914906BA9",
    "Weight": "0.16",
-   "Market Value": "8651640.68",
+   "Market Value": "8625775.37",
    "Shares Held": "8880000",
    "Asset Category": "Fixed Income"
   },
@@ -1593,7 +1584,7 @@
    "Ticker": "",
    "Identifier": "Y2700RAA0",
    "Weight": "0.16",
-   "Market Value": "8421382.53",
+   "Market Value": "8486452.16",
    "Shares Held": "9740000",
    "Asset Category": "Fixed Income"
   },
@@ -1602,7 +1593,7 @@
    "Ticker": "",
    "Identifier": "02530CAJ7",
    "Weight": "0.15",
-   "Market Value": "8375257.33",
+   "Market Value": "8369929.26",
    "Shares Held": "8071000",
    "Asset Category": "Fixed Income"
   },
@@ -1611,7 +1602,7 @@
    "Ticker": "",
    "Identifier": "02530EAJ3",
    "Weight": "0.15",
-   "Market Value": "8300774.91",
+   "Market Value": "8295687.76",
    "Shares Held": "8071000",
    "Asset Category": "Fixed Income"
   },
@@ -1620,17 +1611,8 @@
    "Ticker": "",
    "Identifier": "032095BA8",
    "Weight": "0.15",
-   "Market Value": "8297137.49",
+   "Market Value": "8283508.14",
    "Shares Held": "9100000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "ELEVANCE HEALTH INC SR UNSECURED 01/36 5",
-   "Ticker": "",
-   "Identifier": "036752BK8",
-   "Weight": "0.15",
-   "Market Value": "7878366.1",
-   "Shares Held": "8484000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1638,7 +1620,7 @@
    "Ticker": "",
    "Identifier": "039956AA5",
    "Weight": "0.15",
-   "Market Value": "8316875.21",
+   "Market Value": "8393936.79",
    "Shares Held": "8626000",
    "Asset Category": "Fixed Income"
   },
@@ -1647,17 +1629,17 @@
    "Ticker": "",
    "Identifier": "05571ABA2",
    "Weight": "0.15",
-   "Market Value": "7981902.46",
+   "Market Value": "7968275.79",
    "Shares Held": "8224000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "CAESARS ENTERTAIN INC SR SECURED 144A 02/32 6.5",
+   "Name": "CCO HLDGS LLC/CAP CORP SR UNSECURED 144A 01/34 4.25",
    "Ticker": "",
-   "Identifier": "12769GAC4",
+   "Identifier": "1248EPCP6",
    "Weight": "0.15",
-   "Market Value": "7912584.01",
-   "Shares Held": "8424000",
+   "Market Value": "8026825.22",
+   "Shares Held": "10613000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1665,7 +1647,7 @@
    "Ticker": "",
    "Identifier": "153527AP1",
    "Weight": "0.15",
-   "Market Value": "7923896.75",
+   "Market Value": "7944224.48",
    "Shares Held": "8715000",
    "Asset Category": "Fixed Income"
   },
@@ -1674,7 +1656,7 @@
    "Ticker": "",
    "Identifier": "185899AS0",
    "Weight": "0.15",
-   "Market Value": "8066714.83",
+   "Market Value": "8078735.4",
    "Shares Held": "8025000",
    "Asset Category": "Fixed Income"
   },
@@ -1683,8 +1665,17 @@
    "Ticker": "",
    "Identifier": "29281RAA7",
    "Weight": "0.15",
-   "Market Value": "8181291.57",
+   "Market Value": "8198077.01",
    "Shares Held": "7851000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "ENTERGY CORP JR SUBORDINA 12/56 VAR",
+   "Ticker": "",
+   "Identifier": "29364GAT0",
+   "Weight": "0.15",
+   "Market Value": "8097805.34",
+   "Shares Held": "8387000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1692,7 +1683,7 @@
    "Ticker": "",
    "Identifier": "35565XBE9",
    "Weight": "0.15",
-   "Market Value": "8310025.26",
+   "Market Value": "8305160.97",
    "Shares Held": "6430000",
    "Asset Category": "Fixed Income"
   },
@@ -1701,26 +1692,26 @@
    "Ticker": "",
    "Identifier": "38141GD43",
    "Weight": "0.15",
-   "Market Value": "8184262.62",
+   "Market Value": "8169267.98",
    "Shares Held": "8972000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "GOLDMAN SACHS PRIVATE CR SR UNSECURED 01/31 5.875",
+   "Name": "IRON MOUNTAIN INC COMPANY GUAR 144A 01/35 6.25",
    "Ticker": "",
-   "Identifier": "38152BAH4",
+   "Identifier": "46284VAR2",
    "Weight": "0.15",
-   "Market Value": "7960625.89",
-   "Shares Held": "8247000",
+   "Market Value": "8454848.75",
+   "Shares Held": "8855000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "LONG RIDGE ENERGY LLC SR SECURED 144A 02/32 8.75",
+   "Name": "KINETIC ABS ISSUER LLC UNITK 2026 2A C 144A",
    "Ticker": "",
-   "Identifier": "54288CAA1",
+   "Identifier": "494600AC3",
    "Weight": "0.15",
-   "Market Value": "7907373.44",
-   "Shares Held": "7867000",
+   "Market Value": "8474504.54",
+   "Shares Held": "8825000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1728,7 +1719,7 @@
    "Ticker": "",
    "Identifier": "55342UAR5",
    "Weight": "0.15",
-   "Market Value": "8282274.06",
+   "Market Value": "8303149.08",
    "Shares Held": "8857280",
    "Asset Category": "Fixed Income"
   },
@@ -1737,7 +1728,7 @@
    "Ticker": "",
    "Identifier": "63938CAR9",
    "Weight": "0.15",
-   "Market Value": "8110979.83",
+   "Market Value": "8179619.75",
    "Shares Held": "8115000",
    "Asset Category": "Fixed Income"
   },
@@ -1746,7 +1737,7 @@
    "Ticker": "",
    "Identifier": "68389XDZ5",
    "Weight": "0.15",
-   "Market Value": "8170311.72",
+   "Market Value": "8164599.28",
    "Shares Held": "9317000",
    "Asset Category": "Fixed Income"
   },
@@ -1755,7 +1746,7 @@
    "Ticker": "",
    "Identifier": "693475BW4",
    "Weight": "0.15",
-   "Market Value": "8292400.38",
+   "Market Value": "8282037.73",
    "Shares Held": "8473000",
    "Asset Category": "Fixed Income"
   },
@@ -1764,7 +1755,7 @@
    "Ticker": "",
    "Identifier": "69932AAV7",
    "Weight": "0.15",
-   "Market Value": "8261067.98",
+   "Market Value": "8261210.35",
    "Shares Held": "8500000",
    "Asset Category": "Fixed Income"
   },
@@ -1773,8 +1764,8 @@
    "Ticker": "",
    "Identifier": "71654QDE9",
    "Weight": "0.15",
-   "Market Value": "8043524.6",
-   "Shares Held": "8413000",
+   "Market Value": "8420432.85",
+   "Shares Held": "8813000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1782,8 +1773,17 @@
    "Ticker": "",
    "Identifier": "74825NAA5",
    "Weight": "0.15",
-   "Market Value": "7938502.74",
+   "Market Value": "7944968.41",
    "Shares Held": "8010000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "RWE FINANCE US LLC COMPANY GUAR 144A 09/36 6",
+   "Ticker": "",
+   "Identifier": "749983AG7",
+   "Weight": "0.15",
+   "Market Value": "8078076.18",
+   "Shares Held": "8275000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1791,7 +1791,7 @@
    "Ticker": "",
    "Identifier": "78398JAA2",
    "Weight": "0.15",
-   "Market Value": "8226984.37",
+   "Market Value": "8211593.3",
    "Shares Held": "8227000",
    "Asset Category": "Fixed Income"
   },
@@ -1800,7 +1800,7 @@
    "Ticker": "",
    "Identifier": "79546VAQ9",
    "Weight": "0.15",
-   "Market Value": "8021799.21",
+   "Market Value": "8036218.99",
    "Shares Held": "8049000",
    "Asset Category": "Fixed Income"
   },
@@ -1809,7 +1809,7 @@
    "Ticker": "",
    "Identifier": "86765KAD1",
    "Weight": "0.15",
-   "Market Value": "8076110.82",
+   "Market Value": "8117162.76",
    "Shares Held": "8350000",
    "Asset Category": "Fixed Income"
   },
@@ -1818,7 +1818,7 @@
    "Ticker": "",
    "Identifier": "893647CA3",
    "Weight": "0.15",
-   "Market Value": "8076358.13",
+   "Market Value": "8068177.43",
    "Shares Held": "8250000",
    "Asset Category": "Fixed Income"
   },
@@ -1827,7 +1827,7 @@
    "Ticker": "",
    "Identifier": "893647CB1",
    "Weight": "0.15",
-   "Market Value": "7949749.75",
+   "Market Value": "7960718.39",
    "Shares Held": "8402000",
    "Asset Category": "Fixed Income"
   },
@@ -1836,8 +1836,17 @@
    "Ticker": "",
    "Identifier": "91159HJU5",
    "Weight": "0.15",
-   "Market Value": "8381093.04",
+   "Market Value": "8372294.57",
    "Shares Held": "8740000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "UNIVISION COMMUNICATIONS SR SECURED 144A 06/30 7.375",
+   "Ticker": "",
+   "Identifier": "914906AX0",
+   "Weight": "0.15",
+   "Market Value": "8452503.9",
+   "Shares Held": "8744000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1845,7 +1854,7 @@
    "Ticker": "",
    "Identifier": "922966AD8",
    "Weight": "0.15",
-   "Market Value": "8053520",
+   "Market Value": "8061408",
    "Shares Held": "8000000",
    "Asset Category": "Fixed Income"
   },
@@ -1854,8 +1863,44 @@
    "Ticker": "",
    "Identifier": "009920AE9",
    "Weight": "0.14",
-   "Market Value": "7432955.93",
+   "Market Value": "7432981.18",
    "Shares Held": "7426000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "AMERICAN EXPRESS CO JR SUBORDINA 12/99 VAR",
+   "Ticker": "",
+   "Identifier": "025816EV7",
+   "Weight": "0.14",
+   "Market Value": "7676738.05",
+   "Shares Held": "7737000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "AMWINS GROUP INC SR UNSECURED 144A 06/29 4.875",
+   "Ticker": "",
+   "Identifier": "031921AB5",
+   "Weight": "0.14",
+   "Market Value": "7474087.53",
+   "Shares Held": "7857000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "ELEVANCE HEALTH INC SR UNSECURED 01/36 5",
+   "Ticker": "",
+   "Identifier": "036752BK8",
+   "Weight": "0.14",
+   "Market Value": "7868709.44",
+   "Shares Held": "8484000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "BLACKSTONE PRIVATE CRE SR UNSECURED 11/31 6.2",
+   "Ticker": "",
+   "Identifier": "09261HCD7",
+   "Weight": "0.14",
+   "Market Value": "7708631.65",
+   "Shares Held": "8003000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1863,17 +1908,17 @@
    "Ticker": "",
    "Identifier": "123911AJ8",
    "Weight": "0.14",
-   "Market Value": "7470234.87",
+   "Market Value": "7461190.92",
    "Shares Held": "7679000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "CCO HLDGS LLC/CAP CORP SR UNSECURED 144A 01/34 4.25",
+   "Name": "CAESARS ENTERTAIN INC SR SECURED 144A 02/32 6.5",
    "Ticker": "",
-   "Identifier": "1248EPCP6",
+   "Identifier": "12769GAC4",
    "Weight": "0.14",
-   "Market Value": "7571481.87",
-   "Shares Held": "9863000",
+   "Market Value": "7927141.11",
+   "Shares Held": "8424000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1881,7 +1926,7 @@
    "Ticker": "",
    "Identifier": "14040HDF9",
    "Weight": "0.14",
-   "Market Value": "7736604.04",
+   "Market Value": "7729147.54",
    "Shares Held": "7824000",
    "Asset Category": "Fixed Income"
   },
@@ -1890,7 +1935,7 @@
    "Ticker": "",
    "Identifier": "21882EAB4",
    "Weight": "0.14",
-   "Market Value": "7499635",
+   "Market Value": "7497144.16",
    "Shares Held": "7480000",
    "Asset Category": "Fixed Income"
   },
@@ -1899,26 +1944,8 @@
    "Ticker": "",
    "Identifier": "22303XAA3",
    "Weight": "0.14",
-   "Market Value": "7849831.51",
+   "Market Value": "7870003.47",
    "Shares Held": "8340000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "ENTERGY CORP JR SUBORDINA 12/56 VAR",
-   "Ticker": "",
-   "Identifier": "29364GAT0",
-   "Weight": "0.14",
-   "Market Value": "7604680.89",
-   "Shares Held": "7887000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "FAIR ISAAC CORP COMPANY GUAR 144A 05/33 6",
-   "Ticker": "",
-   "Identifier": "303250AG9",
-   "Weight": "0.14",
-   "Market Value": "7352201.86",
-   "Shares Held": "8005000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1926,17 +1953,8 @@
    "Ticker": "",
    "Identifier": "30768CAA0",
    "Weight": "0.14",
-   "Market Value": "7690679.31",
+   "Market Value": "7679608.8",
    "Shares Held": "8005862.09",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "FORD MOTOR CREDIT CO LLC SR UNSECURED 03/34 6.125",
-   "Ticker": "",
-   "Identifier": "345397E66",
-   "Weight": "0.14",
-   "Market Value": "7347875.5",
-   "Shares Held": "7646000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1944,7 +1962,7 @@
    "Ticker": "",
    "Identifier": "38141GF41",
    "Weight": "0.14",
-   "Market Value": "7465762.24",
+   "Market Value": "7450110.71",
    "Shares Held": "7952000",
    "Asset Category": "Fixed Income"
   },
@@ -1953,7 +1971,7 @@
    "Ticker": "",
    "Identifier": "44332PAJ0",
    "Weight": "0.14",
-   "Market Value": "7723721.57",
+   "Market Value": "7702412.87",
    "Shares Held": "7665000",
    "Asset Category": "Fixed Income"
   },
@@ -1962,7 +1980,7 @@
    "Ticker": "",
    "Identifier": "451102CF2",
    "Weight": "0.14",
-   "Market Value": "7709739.95",
+   "Market Value": "7765011.36",
    "Shares Held": "8140000",
    "Asset Category": "Fixed Income"
   },
@@ -1971,26 +1989,17 @@
    "Ticker": "",
    "Identifier": "456142AA6",
    "Weight": "0.14",
-   "Market Value": "7664887.11",
+   "Market Value": "7673627.99",
    "Shares Held": "7835000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "PACIFICORP 1ST MORTGAGE 02/34 5.45",
+   "Name": "LONG RIDGE ENERGY LLC SR SECURED 144A 02/32 8.75",
    "Ticker": "",
-   "Identifier": "695114DD7",
+   "Identifier": "54288CAA1",
    "Weight": "0.14",
-   "Market Value": "7370799.84",
-   "Shares Held": "7660000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "RWE FINANCE US LLC COMPANY GUAR 144A 09/36 6",
-   "Ticker": "",
-   "Identifier": "749983AG7",
-   "Weight": "0.14",
-   "Market Value": "7793496.58",
-   "Shares Held": "7975000",
+   "Market Value": "7912093.64",
+   "Shares Held": "7867000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1998,7 +2007,7 @@
    "Ticker": "",
    "Identifier": "78438PAA0",
    "Weight": "0.14",
-   "Market Value": "7386289.58",
+   "Market Value": "7401847.11",
    "Shares Held": "7550000",
    "Asset Category": "Fixed Income"
   },
@@ -2007,7 +2016,7 @@
    "Ticker": "",
    "Identifier": "86765KAC3",
    "Weight": "0.14",
-   "Market Value": "7388824.65",
+   "Market Value": "7405295.25",
    "Shares Held": "7275000",
    "Asset Category": "Fixed Income"
   },
@@ -2016,7 +2025,7 @@
    "Ticker": "",
    "Identifier": "871607AG2",
    "Weight": "0.14",
-   "Market Value": "7590886.48",
+   "Market Value": "7593660.36",
    "Shares Held": "8550000",
    "Asset Category": "Fixed Income"
   },
@@ -2025,7 +2034,7 @@
    "Ticker": "",
    "Identifier": "87422VAQ1",
    "Weight": "0.14",
-   "Market Value": "7452886.78",
+   "Market Value": "7467552.28",
    "Shares Held": "7615000",
    "Asset Category": "Fixed Income"
   },
@@ -2034,7 +2043,7 @@
    "Ticker": "",
    "Identifier": "90279XAA0",
    "Weight": "0.14",
-   "Market Value": "7646290.97",
+   "Market Value": "7653962.03",
    "Shares Held": "7830000",
    "Asset Category": "Fixed Income"
   },
@@ -2043,7 +2052,7 @@
    "Ticker": "",
    "Identifier": "922966AB2",
    "Weight": "0.14",
-   "Market Value": "7469956.88",
+   "Market Value": "7490110.26",
    "Shares Held": "7005000",
    "Asset Category": "Fixed Income"
   },
@@ -2052,7 +2061,7 @@
    "Ticker": "",
    "Identifier": "922966AC0",
    "Weight": "0.14",
-   "Market Value": "7396230.48",
+   "Market Value": "7403788.03",
    "Shares Held": "7440000",
    "Asset Category": "Fixed Income"
   },
@@ -2061,44 +2070,17 @@
    "Ticker": "",
    "Identifier": "922966AF3",
    "Weight": "0.14",
-   "Market Value": "7716337.58",
+   "Market Value": "7722622.49",
    "Shares Held": "7760000",
    "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "SWAP CCPC MORGAN STANLEY COC SWAP CCPC CASH COLLATERAL",
-   "Ticker": "",
-   "Identifier": "922MCV907",
-   "Weight": "0.14",
-   "Market Value": "7496000",
-   "Shares Held": "7496000",
-   "Asset Category": "Equity"
   },
   {
    "Name": "VENTURE GLOBAL CALCASIEU SR SECURED 144A 01/30 6.25",
    "Ticker": "",
    "Identifier": "92328MAE3",
    "Weight": "0.14",
-   "Market Value": "7438935.6",
+   "Market Value": "7431327.49",
    "Shares Held": "7424000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "AMWINS GROUP INC SR UNSECURED 144A 06/29 4.875",
-   "Ticker": "",
-   "Identifier": "031921AB5",
-   "Weight": "0.13",
-   "Market Value": "6963737.45",
-   "Shares Held": "7357000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "ASBURY AUTOMOTIVE GROUP COMPANY GUAR 144A 11/29 4.625",
-   "Ticker": "",
-   "Identifier": "043436AW4",
-   "Weight": "0.13",
-   "Market Value": "6791812.9",
-   "Shares Held": "7140000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -2106,7 +2088,7 @@
    "Ticker": "",
    "Identifier": "04963XAJ3",
    "Weight": "0.13",
-   "Market Value": "6873106.17",
+   "Market Value": "6848053.33",
    "Shares Held": "6887000",
    "Asset Category": "Fixed Income"
   },
@@ -2115,26 +2097,8 @@
    "Ticker": "",
    "Identifier": "07133RBC8",
    "Weight": "0.13",
-   "Market Value": "6967567.94",
+   "Market Value": "6967442.94",
    "Shares Held": "6944000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "BIOMARIN PHARMACEUTICAL COMPANY GUAR 144A 02/34 5.5",
-   "Ticker": "",
-   "Identifier": "09061GAL5",
-   "Weight": "0.13",
-   "Market Value": "6802212.24",
-   "Shares Held": "7265000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "BLACKSTONE PRIVATE CRE SR UNSECURED 11/31 6.2",
-   "Ticker": "",
-   "Identifier": "09261HCD7",
-   "Weight": "0.13",
-   "Market Value": "7004578.22",
-   "Shares Held": "7253000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -2142,7 +2106,7 @@
    "Ticker": "",
    "Identifier": "100018AD2",
    "Weight": "0.13",
-   "Market Value": "7296096.56",
+   "Market Value": "7376149.99",
    "Shares Held": "7961000",
    "Asset Category": "Fixed Income"
   },
@@ -2151,7 +2115,7 @@
    "Ticker": "",
    "Identifier": "11135FCM1",
    "Weight": "0.13",
-   "Market Value": "7074088.82",
+   "Market Value": "7052780.54",
    "Shares Held": "7657000",
    "Asset Category": "Fixed Income"
   },
@@ -2160,7 +2124,7 @@
    "Ticker": "",
    "Identifier": "12653CAK4",
    "Weight": "0.13",
-   "Market Value": "7164365.98",
+   "Market Value": "7161841.72",
    "Shares Held": "7051000",
    "Asset Category": "Fixed Income"
   },
@@ -2169,7 +2133,7 @@
    "Ticker": "",
    "Identifier": "12653CAL2",
    "Weight": "0.13",
-   "Market Value": "7322805.58",
+   "Market Value": "7342342.9",
    "Shares Held": "7220000",
    "Asset Category": "Fixed Income"
   },
@@ -2178,7 +2142,7 @@
    "Ticker": "",
    "Identifier": "126650EL0",
    "Weight": "0.13",
-   "Market Value": "7188326.37",
+   "Market Value": "7168849.33",
    "Shares Held": "7703000",
    "Asset Category": "Fixed Income"
   },
@@ -2187,7 +2151,7 @@
    "Ticker": "",
    "Identifier": "12769GAA8",
    "Weight": "0.13",
-   "Market Value": "7097677.21",
+   "Market Value": "7107428.34",
    "Shares Held": "7720000",
    "Asset Category": "Fixed Income"
   },
@@ -2196,17 +2160,8 @@
    "Ticker": "",
    "Identifier": "15135BAZ4",
    "Weight": "0.13",
-   "Market Value": "6858866.38",
+   "Market Value": "6897948.95",
    "Shares Held": "8089000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "CHARTER COMM OPT LLC/CAP SR SECURED 12/55 6.7",
-   "Ticker": "",
-   "Identifier": "161175CT9",
-   "Weight": "0.13",
-   "Market Value": "6856999.91",
-   "Shares Held": "8187000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -2214,7 +2169,7 @@
    "Ticker": "",
    "Identifier": "16411QAX9",
    "Weight": "0.13",
-   "Market Value": "7244164.18",
+   "Market Value": "7235652.98",
    "Shares Held": "7703000",
    "Asset Category": "Fixed Income"
   },
@@ -2223,7 +2178,7 @@
    "Ticker": "",
    "Identifier": "185899AQ4",
    "Weight": "0.13",
-   "Market Value": "6974890.65",
+   "Market Value": "6980297.27",
    "Shares Held": "6988000",
    "Asset Category": "Fixed Income"
   },
@@ -2232,7 +2187,7 @@
    "Ticker": "",
    "Identifier": "185899AR2",
    "Weight": "0.13",
-   "Market Value": "6977258.83",
+   "Market Value": "6986990.35",
    "Shares Held": "7035000",
    "Asset Category": "Fixed Income"
   },
@@ -2241,8 +2196,8 @@
    "Ticker": "",
    "Identifier": "20752KAP8",
    "Weight": "0.13",
-   "Market Value": "6989400",
-   "Shares Held": "8472000",
+   "Market Value": "7133775",
+   "Shares Held": "8647000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -2250,7 +2205,7 @@
    "Ticker": "",
    "Identifier": "20753PAD3",
    "Weight": "0.13",
-   "Market Value": "7117112.68",
+   "Market Value": "7033469.21",
    "Shares Held": "8799000",
    "Asset Category": "Fixed Income"
   },
@@ -2259,8 +2214,53 @@
    "Ticker": "",
    "Identifier": "260543DK6",
    "Weight": "0.13",
-   "Market Value": "6903380.3",
+   "Market Value": "6917246.27",
    "Shares Held": "8241000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "META PLATFORMS INC SR UNSECURED 11/65 5.75",
+   "Ticker": "",
+   "Identifier": "30303M8Y1",
+   "Weight": "0.13",
+   "Market Value": "6903664.89",
+   "Shares Held": "8852000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "FAIR ISAAC CORP COMPANY GUAR 144A 05/33 6",
+   "Ticker": "",
+   "Identifier": "303250AG9",
+   "Weight": "0.13",
+   "Market Value": "7380734.08",
+   "Shares Held": "8005000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "FLORIDA POWER + LIGHT CO 1ST MORTGAGE 06/34 5.3",
+   "Ticker": "",
+   "Identifier": "341081GU5",
+   "Weight": "0.13",
+   "Market Value": "7139529.74",
+   "Shares Held": "7350000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "FORD MOTOR CREDIT CO LLC SR UNSECURED 03/34 6.125",
+   "Ticker": "",
+   "Identifier": "345397E66",
+   "Weight": "0.13",
+   "Market Value": "7350169.84",
+   "Shares Held": "7646000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "FORD MOTOR CREDIT CO LLC SR UNSECURED 03/32 6.532",
+   "Ticker": "",
+   "Identifier": "345397G98",
+   "Weight": "0.13",
+   "Market Value": "7144719.28",
+   "Shares Held": "7148000",
    "Asset Category": "Fixed Income"
   }
  ]

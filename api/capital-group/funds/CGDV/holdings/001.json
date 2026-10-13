@@ -2,7 +2,7 @@
  "ticker": "CGDV",
  "page": 1,
  "pageSize": 250,
- "totalRows": 58,
+ "totalRows": 59,
  "headers": [
   "Name",
   "Ticker",
@@ -17,8 +17,8 @@
    "Name": "MICROSOFT CORP COMMON STOCK USD.00000625",
    "Ticker": "MSFT",
    "Identifier": "594918104",
-   "Weight": "8",
-   "Market Value": "3113926740.54",
+   "Weight": "8.13",
+   "Market Value": "3188168578.98",
    "Shares Held": "5958414",
    "Asset Category": "Equity"
   },
@@ -26,8 +26,8 @@
    "Name": "NVIDIA CORP COMMON STOCK USD.001",
    "Ticker": "NVDA",
    "Identifier": "67066G104",
-   "Weight": "6.99",
-   "Market Value": "2720785515.68",
+   "Weight": "6.91",
+   "Market Value": "2706619676.48",
    "Shares Held": "11804866",
    "Asset Category": "Equity"
   },
@@ -35,8 +35,8 @@
    "Name": "META PLATFORMS INC CLASS A COMMON STOCK USD.000006",
    "Ticker": "META",
    "Identifier": "30303M102",
-   "Weight": "5.23",
-   "Market Value": "2037038337.03",
+   "Weight": "5.18",
+   "Market Value": "2030765223.09",
    "Shares Held": "2825727",
    "Asset Category": "Equity"
   },
@@ -44,8 +44,8 @@
    "Name": "BROADCOM INC COMMON STOCK",
    "Ticker": "AVGO",
    "Identifier": "11135F101",
-   "Weight": "4.69",
-   "Market Value": "1825024575.88",
+   "Weight": "4.67",
+   "Market Value": "1832119134.68",
    "Shares Held": "5067542",
    "Asset Category": "Equity"
   },
@@ -53,8 +53,8 @@
    "Name": "ALPHABET INC CL A COMMON STOCK USD.001",
    "Ticker": "GOOGL",
    "Identifier": "02079K305",
-   "Weight": "3.71",
-   "Market Value": "1444386493.2",
+   "Weight": "3.72",
+   "Market Value": "1458362152.8",
    "Shares Held": "4147080",
    "Asset Category": "Equity"
   },
@@ -62,8 +62,8 @@
    "Name": "ORACLE CORP COMMON STOCK USD.01",
    "Ticker": "ORCL",
    "Identifier": "68389X105",
-   "Weight": "3.05",
-   "Market Value": "1187066888.7",
+   "Weight": "3.17",
+   "Market Value": "1241595222",
    "Shares Held": "8780730",
    "Asset Category": "Equity"
   },
@@ -72,7 +72,7 @@
    "Ticker": "RTX",
    "Identifier": "75513E101",
    "Weight": "2.85",
-   "Market Value": "1108878888.96",
+   "Market Value": "1118805376.41",
    "Shares Held": "6016053",
    "Asset Category": "Equity"
   },
@@ -80,8 +80,8 @@
    "Name": "GENERAL ELECTRIC COMMON STOCK USD.01",
    "Ticker": "GE",
    "Identifier": "369604301",
-   "Weight": "2.82",
-   "Market Value": "1098331960.46",
+   "Weight": "2.83",
+   "Market Value": "1107603920.6",
    "Shares Held": "3593783",
    "Asset Category": "Equity"
   },
@@ -89,8 +89,8 @@
    "Name": "CISCO SYSTEMS INC COMMON STOCK USD.001",
    "Ticker": "CSCO",
    "Identifier": "17275R102",
-   "Weight": "2.74",
-   "Market Value": "1067996300.24",
+   "Weight": "2.81",
+   "Market Value": "1100531656.24",
    "Shares Held": "9295816",
    "Asset Category": "Equity"
   },
@@ -98,17 +98,17 @@
    "Name": "CAPITAL GROUP CENTRAL CASH FUN CAPITAL GROUP CNTRL CSH M",
    "Ticker": "",
    "Identifier": "14020B102",
-   "Weight": "2.54",
-   "Market Value": "988327346.49",
-   "Shares Held": "9885250.52",
+   "Weight": "2.55",
+   "Market Value": "999316051.5",
+   "Shares Held": "9993160.52",
    "Asset Category": "Cash & Equivalent"
   },
   {
    "Name": "APPLE INC COMMON STOCK USD.00001",
    "Ticker": "AAPL",
    "Identifier": "037833100",
-   "Weight": "2.39",
-   "Market Value": "929947441.3",
+   "Weight": "2.35",
+   "Market Value": "919621369.6",
    "Shares Held": "2731765",
    "Asset Category": "Equity"
   },
@@ -116,8 +116,8 @@
    "Name": "TAIWAN SEMICONDUCTOR SP ADR ADR",
    "Ticker": "TSM",
    "Identifier": "874039100",
-   "Weight": "2.35",
-   "Market Value": "915486744.77",
+   "Weight": "2.31",
+   "Market Value": "906131785.13",
    "Shares Held": "1998923",
    "Asset Category": "Equity"
   },
@@ -125,18 +125,18 @@
    "Name": "CARRIER GLOBAL CORP COMMON STOCK USD.01",
    "Ticker": "CARR",
    "Identifier": "14448C104",
-   "Weight": "2.3",
-   "Market Value": "896830788",
+   "Weight": "2.28",
+   "Market Value": "892493616",
    "Shares Held": "16063600",
    "Asset Category": "Equity"
   },
   {
-   "Name": "COMCAST CORP CLASS A COMMON STOCK USD.01",
-   "Ticker": "CMCSA",
-   "Identifier": "20030N101",
-   "Weight": "2.28",
-   "Market Value": "888039284.16",
-   "Shares Held": "41868896",
+   "Name": "AMAZON.COM INC COMMON STOCK USD.01",
+   "Ticker": "AMZN",
+   "Identifier": "023135106",
+   "Weight": "2.25",
+   "Market Value": "880598036.22",
+   "Shares Held": "3355554",
    "Asset Category": "Equity"
   },
   {
@@ -144,43 +144,43 @@
    "Ticker": "BATS",
    "Identifier": "028758902",
    "Weight": "2.25",
-   "Market Value": "874491872.11",
-   "Shares Held": "15883597",
+   "Market Value": "882975137.72",
+   "Shares Held": "15900079",
    "Asset Category": "Equity"
   },
   {
-   "Name": "AMAZON.COM INC COMMON STOCK USD.01",
-   "Ticker": "AMZN",
-   "Identifier": "023135106",
-   "Weight": "2.19",
-   "Market Value": "852512049.24",
-   "Shares Held": "3355554",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "STARBUCKS CORP COMMON STOCK USD.001",
-   "Ticker": "SBUX",
-   "Identifier": "855244109",
-   "Weight": "2.17",
-   "Market Value": "845918313.63",
-   "Shares Held": "9075403",
+   "Name": "COMCAST CORP CLASS A COMMON STOCK USD.01",
+   "Ticker": "CMCSA",
+   "Identifier": "20030N101",
+   "Weight": "2.21",
+   "Market Value": "865011391.36",
+   "Shares Held": "41868896",
    "Asset Category": "Equity"
   },
   {
    "Name": "UNION PACIFIC CORP COMMON STOCK USD2.5",
    "Ticker": "UNP",
    "Identifier": "907818108",
-   "Weight": "2.17",
-   "Market Value": "843502956.4",
+   "Weight": "2.15",
+   "Market Value": "843927436.68",
    "Shares Held": "3032002",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "STARBUCKS CORP COMMON STOCK USD.001",
+   "Ticker": "SBUX",
+   "Identifier": "855244109",
+   "Weight": "2.1",
+   "Market Value": "823592822.25",
+   "Shares Held": "9075403",
    "Asset Category": "Equity"
   },
   {
    "Name": "APPLIED MATERIALS INC COMMON STOCK USD.01",
    "Ticker": "AMAT",
    "Identifier": "038222105",
-   "Weight": "2.08",
-   "Market Value": "811697110.42",
+   "Weight": "2.06",
+   "Market Value": "807651129.18",
    "Shares Held": "1592906",
    "Asset Category": "Equity"
   },
@@ -188,8 +188,8 @@
    "Name": "JPMORGAN CHASE + CO COMMON STOCK USD1.0",
    "Ticker": "JPM",
    "Identifier": "46625H100",
-   "Weight": "2.07",
-   "Market Value": "804631418.6",
+   "Weight": "2.06",
+   "Market Value": "808443111.7",
    "Shares Held": "2427830",
    "Asset Category": "Equity"
   },
@@ -198,7 +198,7 @@
    "Ticker": "LIN",
    "Identifier": "G54950103",
    "Weight": "1.91",
-   "Market Value": "744661956.8",
+   "Market Value": "747800141.92",
    "Shares Held": "1545904",
    "Asset Category": "Equity"
   },
@@ -206,8 +206,8 @@
    "Name": "ELI LILLY + CO COMMON STOCK",
    "Ticker": "LLY",
    "Identifier": "532457108",
-   "Weight": "1.84",
-   "Market Value": "717401060.8",
+   "Weight": "1.85",
+   "Market Value": "723332377.71",
    "Shares Held": "613373",
    "Asset Category": "Equity"
   },
@@ -216,7 +216,7 @@
    "Ticker": "RCL",
    "Identifier": "V7780T103",
    "Weight": "1.83",
-   "Market Value": "713761851.57",
+   "Market Value": "715917772.02",
    "Shares Held": "2536377",
    "Asset Category": "Equity"
   },
@@ -224,8 +224,8 @@
    "Name": "ABBVIE INC COMMON STOCK USD.01",
    "Ticker": "ABBV",
    "Identifier": "00287Y109",
-   "Weight": "1.65",
-   "Market Value": "643951027.14",
+   "Weight": "1.67",
+   "Market Value": "653524485.99",
    "Shares Held": "2363817",
    "Asset Category": "Equity"
   },
@@ -234,8 +234,17 @@
    "Ticker": "PM",
    "Identifier": "718172109",
    "Weight": "1.55",
-   "Market Value": "604453365",
+   "Market Value": "606533528.7",
    "Shares Held": "3014730",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "MASTERCARD INC   A COMMON STOCK USD.0001",
+   "Ticker": "MA",
+   "Identifier": "57636Q104",
+   "Weight": "1.52",
+   "Market Value": "597611833.2",
+   "Shares Held": "1014380",
    "Asset Category": "Equity"
   },
   {
@@ -243,17 +252,8 @@
    "Ticker": "IP",
    "Identifier": "460146103",
    "Weight": "1.5",
-   "Market Value": "583664587.12",
+   "Market Value": "588058548.88",
    "Shares Held": "18308174",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "MASTERCARD INC   A COMMON STOCK USD.0001",
-   "Ticker": "MA",
-   "Identifier": "57636Q104",
-   "Weight": "1.49",
-   "Market Value": "582142538.2",
-   "Shares Held": "1014380",
    "Asset Category": "Equity"
   },
   {
@@ -261,7 +261,7 @@
    "Ticker": "XOM",
    "Identifier": "30233Q108",
    "Weight": "1.21",
-   "Market Value": "471453227",
+   "Market Value": "472684321.48",
    "Shares Held": "2797942",
    "Asset Category": "Equity"
   },
@@ -270,7 +270,7 @@
    "Ticker": "MDT",
    "Identifier": "G5960L103",
    "Weight": "1.21",
-   "Market Value": "471510321.75",
+   "Market Value": "475432857.76",
    "Shares Held": "5373337",
    "Asset Category": "Equity"
   },
@@ -278,8 +278,8 @@
    "Name": "SMURFIT WESTROCK PLC COMMON STOCK",
    "Ticker": "SW",
    "Identifier": "G8267P108",
-   "Weight": "1.16",
-   "Market Value": "450544505.5",
+   "Weight": "1.15",
+   "Market Value": "448805371.1",
    "Shares Held": "10869590",
    "Asset Category": "Equity"
   },
@@ -287,8 +287,8 @@
    "Name": "UBER TECHNOLOGIES INC COMMON STOCK USD.00001",
    "Ticker": "UBER",
    "Identifier": "90353T100",
-   "Weight": "1.07",
-   "Market Value": "414963450.56",
+   "Weight": "1.08",
+   "Market Value": "422466348.94",
    "Shares Held": "5907794",
    "Asset Category": "Equity"
   },
@@ -296,9 +296,18 @@
    "Name": "SEAGATE TECHNOLOGY HOLDINGS COMMON STOCK USD.00001",
    "Ticker": "STX",
    "Identifier": "G7997R103",
-   "Weight": "1.07",
-   "Market Value": "416951928.3",
+   "Weight": "1.08",
+   "Market Value": "421351092",
    "Shares Held": "538124",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "CORNING INC COMMON STOCK USD.5",
+   "Ticker": "GLW",
+   "Identifier": "219350105",
+   "Weight": "1.04",
+   "Market Value": "409032881.68",
+   "Shares Held": "2610626",
    "Asset Category": "Equity"
   },
   {
@@ -306,43 +315,34 @@
    "Ticker": "CRM",
    "Identifier": "79466L302",
    "Weight": "1.03",
-   "Market Value": "400415450",
+   "Market Value": "402753257.5",
    "Shares Held": "1757750",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "CORNING INC COMMON STOCK USD.5",
-   "Ticker": "GLW",
-   "Identifier": "219350105",
-   "Weight": "1.02",
-   "Market Value": "398981971.58",
-   "Shares Held": "2610626",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "TC ENERGY CORP COMMON STOCK",
-   "Ticker": "TRP",
-   "Identifier": "87807B909",
-   "Weight": "0.96",
-   "Market Value": "372082796.27",
-   "Shares Held": "6198256",
    "Asset Category": "Equity"
   },
   {
    "Name": "AMGEN INC COMMON STOCK USD.0001",
    "Ticker": "AMGN",
    "Identifier": "031162100",
-   "Weight": "0.94",
-   "Market Value": "366932315.2",
+   "Weight": "0.95",
+   "Market Value": "373623624.6",
    "Shares Held": "900580",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "TC ENERGY CORP COMMON STOCK",
+   "Ticker": "TRP",
+   "Identifier": "87807B909",
+   "Weight": "0.95",
+   "Market Value": "372342918.88",
+   "Shares Held": "6198256",
    "Asset Category": "Equity"
   },
   {
    "Name": "PROLOGIS INC REIT USD.01",
    "Ticker": "PLD",
    "Identifier": "74340W103",
-   "Weight": "0.92",
-   "Market Value": "357384840.19",
+   "Weight": "0.91",
+   "Market Value": "357937682.39",
    "Shares Held": "2764211",
    "Asset Category": "Equity"
   },
@@ -350,8 +350,8 @@
    "Name": "WELLS FARGO + CO COMMON STOCK USD1.666",
    "Ticker": "WFC",
    "Identifier": "949746101",
-   "Weight": "0.9",
-   "Market Value": "348730857.8",
+   "Weight": "0.91",
+   "Market Value": "355192773",
    "Shares Held": "4251260",
    "Asset Category": "Equity"
   },
@@ -359,8 +359,8 @@
    "Name": "NEXTERA ENERGY INC COMMON STOCK USD.01",
    "Ticker": "NEE",
    "Identifier": "65339F101",
-   "Weight": "0.89",
-   "Market Value": "346653731.79",
+   "Weight": "0.88",
+   "Market Value": "346698536.46",
    "Shares Held": "4480467",
    "Asset Category": "Equity"
   },
@@ -368,8 +368,8 @@
    "Name": "MICRON TECHNOLOGY INC COMMON STOCK USD.1",
    "Ticker": "MU",
    "Identifier": "595112103",
-   "Weight": "0.88",
-   "Market Value": "342860968.32",
+   "Weight": "0.87",
+   "Market Value": "340596942",
    "Shares Held": "330998",
    "Asset Category": "Equity"
   },
@@ -377,9 +377,18 @@
    "Name": "MONDELEZ INTERNATIONAL INC A COMMON STOCK",
    "Ticker": "MDLZ",
    "Identifier": "609207105",
-   "Weight": "0.88",
-   "Market Value": "341161485.44",
+   "Weight": "0.87",
+   "Market Value": "339699445.12",
    "Shares Held": "5623232",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "ABBOTT LABORATORIES COMMON STOCK",
+   "Ticker": "ABT",
+   "Identifier": "002824100",
+   "Weight": "0.86",
+   "Market Value": "336623697.6",
+   "Shares Held": "3379756",
    "Asset Category": "Equity"
   },
   {
@@ -387,7 +396,7 @@
    "Ticker": "GD",
    "Identifier": "369550108",
    "Weight": "0.86",
-   "Market Value": "333462168.83",
+   "Market Value": "336468620.11",
    "Shares Held": "1015693",
    "Asset Category": "Equity"
   },
@@ -395,27 +404,9 @@
    "Name": "ILLINOIS TOOL WORKS COMMON STOCK USD.01",
    "Ticker": "ITW",
    "Identifier": "452308109",
-   "Weight": "0.86",
-   "Market Value": "335180302.07",
-   "Shares Held": "1266217",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "ABBOTT LABORATORIES COMMON STOCK",
-   "Ticker": "ABT",
-   "Identifier": "002824100",
    "Weight": "0.85",
-   "Market Value": "332872168.44",
-   "Shares Held": "3379756",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "MCDONALD S CORP COMMON STOCK USD.01",
-   "Ticker": "MCD",
-   "Identifier": "580135101",
-   "Weight": "0.83",
-   "Market Value": "324285539.9",
-   "Shares Held": "1368871",
+   "Market Value": "334445896.21",
+   "Shares Held": "1266217",
    "Asset Category": "Equity"
   },
   {
@@ -423,17 +414,17 @@
    "Ticker": "CNQ",
    "Identifier": "136385101",
    "Weight": "0.82",
-   "Market Value": "319018355.1",
+   "Market Value": "322920720.3",
    "Shares Held": "6503942",
    "Asset Category": "Equity"
   },
   {
-   "Name": "INTEL CORP COMMON STOCK USD.001",
-   "Ticker": "INTC",
-   "Identifier": "458140100",
-   "Weight": "0.77",
-   "Market Value": "300821450.2",
-   "Shares Held": "2809315",
+   "Name": "MCDONALD S CORP COMMON STOCK USD.01",
+   "Ticker": "MCD",
+   "Identifier": "580135101",
+   "Weight": "0.82",
+   "Market Value": "321999525.33",
+   "Shares Held": "1368871",
    "Asset Category": "Equity"
   },
   {
@@ -441,8 +432,17 @@
    "Ticker": "MO",
    "Identifier": "02209S103",
    "Weight": "0.75",
-   "Market Value": "292972339.1",
+   "Market Value": "294038886.4",
    "Shares Held": "4102105",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "INTEL CORP COMMON STOCK USD.001",
+   "Ticker": "INTC",
+   "Identifier": "458140100",
+   "Weight": "0.75",
+   "Market Value": "294135280.5",
+   "Shares Held": "2809315",
    "Asset Category": "Equity"
   },
   {
@@ -450,8 +450,26 @@
    "Ticker": "APD",
    "Identifier": "009158106",
    "Weight": "0.73",
-   "Market Value": "284340115.8",
+   "Market Value": "287281776.6",
    "Shares Held": "1021410",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "APOLLO GLOBAL MANAGEMENT INC COMMON STOCK USD.0001",
+   "Ticker": "APO",
+   "Identifier": "03769M106",
+   "Weight": "0.67",
+   "Market Value": "261796479",
+   "Shares Held": "2206460",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "UNITEDHEALTH GROUP INC COMMON STOCK USD.01",
+   "Ticker": "UNH",
+   "Identifier": "91324P102",
+   "Weight": "0.67",
+   "Market Value": "261850513.6",
+   "Shares Held": "690352",
    "Asset Category": "Equity"
   },
   {
@@ -459,26 +477,8 @@
    "Ticker": "VRTX",
    "Identifier": "92532F100",
    "Weight": "0.67",
-   "Market Value": "260097717",
+   "Market Value": "263627706.88",
    "Shares Held": "516836",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "UNITEDHEALTH GROUP INC COMMON STOCK USD.01",
-   "Ticker": "UNH",
-   "Identifier": "91324P102",
-   "Weight": "0.66",
-   "Market Value": "256086074.4",
-   "Shares Held": "690352",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "APOLLO GLOBAL MANAGEMENT INC COMMON STOCK USD.0001",
-   "Ticker": "APO",
-   "Identifier": "03769M106",
-   "Weight": "0.65",
-   "Market Value": "254404838",
-   "Shares Held": "2206460",
    "Asset Category": "Equity"
   },
   {
@@ -486,7 +486,7 @@
    "Ticker": "FANG",
    "Identifier": "25278X109",
    "Weight": "0.6",
-   "Market Value": "234500928.64",
+   "Market Value": "235051457.74",
    "Shares Held": "1223398",
    "Asset Category": "Equity"
   },
@@ -494,8 +494,8 @@
    "Name": "NET OTHER ASSETS",
    "Ticker": "",
    "Identifier": "",
-   "Weight": "0.15",
-   "Market Value": "59713461.15",
+   "Weight": "0.12",
+   "Market Value": "48139300.37",
    "Shares Held": "0",
    "Asset Category": "Cash & Equivalent"
   },
@@ -504,8 +504,8 @@
    "Ticker": "",
    "Identifier": "999USDZ92",
    "Weight": "0.03",
-   "Market Value": "10841219.59",
-   "Shares Held": "10841219.59",
+   "Market Value": "10456219.89",
+   "Shares Held": "10456219.89",
    "Asset Category": "Cash & Equivalent"
   },
   {
@@ -513,7 +513,7 @@
    "Ticker": "",
    "Identifier": "999CADZ91",
    "Weight": "0",
-   "Market Value": "88.35",
+   "Market Value": "88.07",
    "Shares Held": "125.63",
    "Asset Category": "Cash & Equivalent"
   },
@@ -522,7 +522,7 @@
    "Ticker": "",
    "Identifier": "999EURZ94",
    "Weight": "0",
-   "Market Value": "132.92",
+   "Market Value": "132.77",
    "Shares Held": "118.54",
    "Asset Category": "Cash & Equivalent"
   },
@@ -534,6 +534,15 @@
    "Market Value": "0.01",
    "Shares Held": "0.01",
    "Asset Category": "Cash & Equivalent"
+  },
+  {
+   "Name": "GBP Spot FX",
+   "Ticker": "",
+   "Identifier": "GBP999999",
+   "Weight": "0",
+   "Market Value": "-320.39",
+   "Shares Held": "696415.97",
+   "Asset Category": "Spot FX"
   }
  ]
 }
