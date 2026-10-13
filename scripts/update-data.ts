@@ -2745,7 +2745,9 @@ export async function runUpdater(options: RunUpdaterOptions): Promise<RunUpdater
 
   // 2) Bounded, resumable batch run over the catalog (iShares/SPDR cursor).
   const dataFilters = Boolean(config.aumRange || config.terRange || config.dividendYieldRange || config.secYieldRange || Object.keys(config.performanceRanges).length || Object.keys(config.totalReturnRanges).length);
-  const scopes = await readCursorScopes();
+  // A TICKERS run never reads, writes or deletes the cursor (First-Trust rule).
+  const useCursor = !config.tickers.length;
+  const scopes = useCursor ? await readCursorScopes() : {};
   const unfiltered = !config.tickers.length && !dataFilters;
   const staticScope = (): string => (unfiltered ? 'all' : `filtered:${universe.filter((fund) => !config.tickers.length || config.tickers.includes(fund.ticker)).map((fund) => fund.ticker).join(',')}`);
   const scopeKey = staticScope();
@@ -2835,7 +2837,9 @@ export async function runUpdater(options: RunUpdaterOptions): Promise<RunUpdater
   // filtered funds must still move on). A full unfiltered pass resets the "all" scope; a TICKERS or filtered
   // run never touches the cursor of another scope.
   let nextCursor: string | null = cursor;
-  if (config.maxFetches > 0) {
+  if (!useCursor) {
+    // TICKERS run: update-state.json stays as it is
+  } else if (config.maxFetches > 0) {
     if (startedCount > 0) nextCursor = batch[startedCount - 1].ticker;
     if (startedCount > 0) await writeCursorScope(scopeKey, nextCursor);
   } else if (unfiltered) {
@@ -2846,7 +2850,7 @@ export async function runUpdater(options: RunUpdaterOptions): Promise<RunUpdater
   console.log(output.summary(runStartedAt));
   console.log(outputCounts(counts.funds, counts.holdings, counts.history));
   console.log(
-    `[ cursor   ] ${config.maxFetches > 0 && nextCursor ? `next run continues after ${nextCursor}` : 'full pass complete (cursor reset)'}`,
+    `[ cursor   ] ${!useCursor ? 'TICKERS run: cursor untouched' : config.maxFetches > 0 && nextCursor ? `next run continues after ${nextCursor}` : 'full pass complete (cursor reset)'}`,
   );
 
   if (process.env.GITHUB_STEP_SUMMARY) {

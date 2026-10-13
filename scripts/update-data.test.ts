@@ -802,10 +802,12 @@ describe('pipeline', () => {
       const concurrent = await run({ MAX_FETCHES: '2', CONCURRENCY: '2' });
       expect(concurrent.selected).toEqual(['CGUS', 'CGXU']);
       expect((await readCursorScopes()).all).toBe('CGXU'); // furthest started fund in queue order, not the last to finish
+      // a TICKERS run never reads, writes or deletes the cursor: update-state.json stays byte-identical
+      const stateBefore = await readFile(join(dir, 'update-state.json'), 'utf8');
       expect((await run({ TICKERS: 'CGMU', MAX_FETCHES: '1' })).selected).toEqual(['CGMU']);
-      expect(JSON.parse(await readFile(join(dir, 'update-state.json'), 'utf8')).scopes.all).toBe('CGXU');
+      expect(await readFile(join(dir, 'update-state.json'), 'utf8')).toBe(stateBefore);
       await run({ TICKERS: 'CGMU' });
-      expect((await readCursorScopes()).all).toBe('CGXU');
+      expect(await readFile(join(dir, 'update-state.json'), 'utf8')).toBe(stateBefore);
       await run({}); // an unfiltered full pass resets it
       expect((await readCursorScopes()).all).toBeUndefined();
       await writeCursorScope('all', 'CGCP');
