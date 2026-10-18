@@ -45,50 +45,50 @@
   "value": 0.08
  },
  "aum": {
-  "display": "$2,031.90 M",
-  "value": 2031900000,
-  "asOfDate": "Sep 30 2026",
+  "display": "$2,149.60 M",
+  "value": 2149600000,
+  "asOfDate": "Oct 15 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
   "dividendYield": 1.53,
   "dividendYieldText": "1.53%",
   "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
-  "distributionRate": 1.45,
-  "secYield": 1.58,
-  "secYieldText": "1.58%",
-  "secYieldKind": "official 30-day SEC yield, as of Aug 31 2026",
-  "unsubsidizedSecYield": 1.58
+  "distributionRate": 1.61,
+  "secYield": 1.66,
+  "secYieldText": "1.66%",
+  "secYieldKind": "official 30-day SEC yield, as of Sep 30 2026",
+  "unsubsidizedSecYield": 1.66
  },
  "returns": {
   "derivedFrom": "official Capital Group NAV total returns (fund-detail JSON); qtd derived from the daily NAV history with published distributions reinvested",
   "monthEnd": {
-   "asOfDate": "Aug 31 2026",
-   "mo1": -0.12,
-   "mo1Text": "-0.12%",
+   "asOfDate": "Sep 30 2026",
+   "mo1": -2.7,
+   "mo1Text": "-2.70%",
    "qtd": 3.15,
    "qtdText": "3.15%",
-   "ytd": 9.45,
-   "ytdText": "9.45%",
-   "yr1": 13.97,
-   "yr1Text": "13.97%",
+   "ytd": 6.49,
+   "ytdText": "6.49%",
+   "yr1": 8.25,
+   "yr1Text": "8.25%",
    "yr3": null,
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 15.35,
-   "sinceInceptionText": "15.35%"
+   "sinceInception": 13.38,
+   "sinceInceptionText": "13.38%"
   },
   "quarterEnd": {
-   "asOfDate": "Jun 30 2026",
-   "ytd": 8.59,
-   "yr1": 16.56,
+   "asOfDate": "Sep 30 2026",
+   "ytd": 6.49,
+   "yr1": 8.25,
    "yr3": null,
    "yr5": null,
    "yr10": null,
-   "sinceInception": 16.3
+   "sinceInception": 13.38
   }
  },
  "distributions": {

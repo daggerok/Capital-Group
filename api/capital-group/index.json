@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-18T03:59:34Z",
+ "generatedAt": "2026-10-18T06:09:46Z",
  "source": {
   "provider": "Capital Group official ETF catalog, fund facts, daily holdings XLSX and daily NAV/distributions JSON; SEC EDGAR and Yahoo fallbacks",
   "site": "https://www.capitalgroup.com",
@@ -259,8 +259,8 @@
    "terGrossValue": 0.33,
    "nav": "$33.07",
    "navValue": 33.07,
-   "aum": "$2,031.90 M",
-   "aumValue": 2031900000,
+   "aum": "$2,149.60 M",
+   "aumValue": 2149600000,
    "asOfDate": "Oct 16 2026",
    "inceptionDate": "Jun 25 2024",
    "exchange": "NYSE Arca, Inc.",
@@ -275,51 +275,51 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "Aug 31 2026",
-     "mo1": -0.12,
-     "mo1Text": "-0.12%",
+     "asOfDate": "Sep 30 2026",
+     "mo1": -2.7,
+     "mo1Text": "-2.70%",
      "qtd": 3.15,
      "qtdText": "3.15%",
-     "ytd": 9.45,
-     "ytdText": "9.45%",
-     "yr1": 13.97,
-     "yr1Text": "13.97%",
+     "ytd": 6.49,
+     "ytdText": "6.49%",
+     "yr1": 8.25,
+     "yr1Text": "8.25%",
      "yr3": null,
      "yr3Text": "—",
      "yr5": null,
      "yr5Text": "—",
      "yr10": null,
      "yr10Text": "—",
-     "sinceInception": 15.35,
-     "sinceInceptionText": "15.35%"
+     "sinceInception": 13.38,
+     "sinceInceptionText": "13.38%"
     },
     "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "ytd": 8.59,
-     "yr1": 16.56,
+     "asOfDate": "Sep 30 2026",
+     "ytd": 6.49,
+     "yr1": 8.25,
      "yr3": null,
      "yr5": null,
      "yr10": null,
-     "sinceInception": 16.3
+     "sinceInception": 13.38
     }
    },
    "metrics": {
-    "ytd": 9.45,
-    "tr1y": 13.97,
+    "ytd": 6.49,
+    "tr1y": 8.25,
     "tr3y": null,
     "tr5y": null,
     "tr10y": null,
     "cagr3y": null,
     "cagr5y": null,
     "cagr10y": null,
-    "siAnn": 15.35,
+    "siAnn": 13.38,
     "dividendYield": 1.53,
     "dividendYieldText": "1.53%",
     "dividendYieldBasis": "indicated",
-    "secYield": 1.58,
-    "secYieldText": "1.58%",
+    "secYield": 1.66,
+    "secYieldText": "1.66%",
     "returnsBasis": "official Capital Group NAV total returns (fund-detail JSON)",
-    "performanceAsOf": "2026-08-31"
+    "performanceAsOf": "2026-09-30"
    },
    "holdings": 75,
    "history": 581
