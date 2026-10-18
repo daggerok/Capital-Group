@@ -2,7 +2,7 @@
  "ticker": "CGNG",
  "page": 2,
  "pageSize": 250,
- "totalRows": 256,
+ "totalRows": 253,
  "headers": [
   "Name",
   "Ticker",
@@ -14,57 +14,30 @@
  ],
  "rows": [
   {
-   "Name": "EUR Spot FX",
-   "Ticker": "",
-   "Identifier": "EUR999999",
-   "Weight": "0",
-   "Market Value": "10.93",
-   "Shares Held": "83880",
-   "Asset Category": "Spot FX"
-  },
-  {
    "Name": "HKD Spot FX",
    "Ticker": "",
    "Identifier": "HKD999999",
    "Weight": "0",
-   "Market Value": "-164.21",
-   "Shares Held": "5698333.13",
+   "Market Value": "-274.28",
+   "Shares Held": "7007541.57",
    "Asset Category": "Spot FX"
   },
   {
-   "Name": "KRW Spot FX",
+   "Name": "ZAR Spot FX",
    "Ticker": "",
-   "Identifier": "KRW999999",
+   "Identifier": "ZAR999999",
    "Weight": "0",
-   "Market Value": "6453.3",
-   "Shares Held": "-3592445945",
+   "Market Value": "10604.94",
+   "Shares Held": "32902850.81",
    "Asset Category": "Spot FX"
   },
   {
-   "Name": "SAR Spot FX",
+   "Name": "NET OTHER ASSETS",
    "Ticker": "",
-   "Identifier": "SAR999999",
-   "Weight": "0",
-   "Market Value": "17.19",
-   "Shares Held": "539401.62",
-   "Asset Category": "Spot FX"
-  },
-  {
-   "Name": "TRY Spot FX",
-   "Ticker": "",
-   "Identifier": "TRY999999",
-   "Weight": "0",
-   "Market Value": "-0.09",
-   "Shares Held": "-364773.19",
-   "Asset Category": "Spot FX"
-  },
-  {
-   "Name": "US DOLLAR",
-   "Ticker": "",
-   "Identifier": "999USDZ92",
-   "Weight": "-0.04",
-   "Market Value": "-1125686.7",
-   "Shares Held": "-1125686.7",
+   "Identifier": "",
+   "Weight": "-0.36",
+   "Market Value": "-10944059.3",
+   "Shares Held": "0",
    "Asset Category": "Cash & Equivalent"
   }
  ]

@@ -2,7 +2,7 @@
  "ticker": "CGGE",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 576,
+ "totalRows": 581,
  "headers": [
   "Date",
   "NAV",
@@ -3465,6 +3465,36 @@
    "NAV": "35.01",
    "Market Price": "35.07",
    "Premium/Discount": "0.16"
+  },
+  {
+   "Date": "Oct 12 2026",
+   "NAV": "34.95",
+   "Market Price": "34.93",
+   "Premium/Discount": "-0.05"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "NAV": "34.82",
+   "Market Price": "34.91",
+   "Premium/Discount": "0.25"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "NAV": "34.55",
+   "Market Price": "34.49",
+   "Premium/Discount": "-0.18"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "NAV": "34.52",
+   "Market Price": "34.64",
+   "Premium/Discount": "0.35"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "NAV": "34.43",
+   "Market Price": "34.33",
+   "Premium/Discount": "-0.3"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "CGIC",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 576,
+ "totalRows": 581,
  "headers": [
   "Date",
   "NAV",
@@ -3465,6 +3465,36 @@
    "NAV": "35.66",
    "Market Price": "35.74",
    "Premium/Discount": "0.22"
+  },
+  {
+   "Date": "Oct 12 2026",
+   "NAV": "35.54",
+   "Market Price": "35.51",
+   "Premium/Discount": "-0.09"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "NAV": "35.43",
+   "Market Price": "35.58",
+   "Premium/Discount": "0.42"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "NAV": "35.23",
+   "Market Price": "35.11",
+   "Premium/Discount": "-0.34"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "NAV": "35.12",
+   "Market Price": "35.36",
+   "Premium/Discount": "0.69"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "NAV": "35.44",
+   "Market Price": "35.25",
+   "Premium/Discount": "-0.54"
   }
  ]
 }
