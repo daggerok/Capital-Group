@@ -33,21 +33,21 @@
  "nav": {
   "display": "$25.93",
   "value": 25.93,
-  "asOfDate": "Oct 16 2026"
+  "asOfDate": "Oct 19 2026"
  },
  "marketPrice": {
   "display": "$25.98",
   "value": 25.98,
-  "asOfDate": "Oct 16 2026"
+  "asOfDate": "Oct 19 2026"
  },
  "premiumDiscount": {
-  "display": "0.18%",
-  "value": 0.18
+  "display": "0.19%",
+  "value": 0.19
  },
  "aum": {
-  "display": "$1,657.20 M",
-  "value": 1657200000,
-  "asOfDate": "Oct 16 2026",
+  "display": "$1,656.90 M",
+  "value": 1656900000,
+  "asOfDate": "Oct 19 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
@@ -255,9 +255,9 @@
    "holdings/005.json"
   ],
   "pageSize": 250,
-  "totalRows": 1093,
-  "asOfDate": "2026-10-16",
-  "asOf": "Oct 16 2026",
+  "totalRows": 1098,
+  "asOfDate": "2026-10-19",
+  "asOf": "Oct 19 2026",
   "source": "Capital Group daily holdings XLSX"
  },
  "history": {
@@ -265,8 +265,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 768,
-  "asOf": "Oct 16 2026",
+  "totalRows": 769,
+  "asOf": "Oct 19 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }

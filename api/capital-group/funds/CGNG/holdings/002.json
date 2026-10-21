@@ -2,7 +2,7 @@
  "ticker": "CGNG",
  "page": 2,
  "pageSize": 250,
- "totalRows": 253,
+ "totalRows": 258,
  "headers": [
   "Name",
   "Ticker",
@@ -14,30 +14,75 @@
  ],
  "rows": [
   {
-   "Name": "MEXICAN PESO (NEW)",
+   "Name": "EUR Spot FX",
    "Ticker": "",
-   "Identifier": "999MXNZ92",
-   "Weight": "-0.01",
-   "Market Value": "-185273.11",
-   "Shares Held": "-3428942.1",
+   "Identifier": "EUR999999",
+   "Weight": "0",
+   "Market Value": "-101.8",
+   "Shares Held": "151515.44",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "INR Spot FX",
+   "Ticker": "",
+   "Identifier": "INR999999",
+   "Weight": "0",
+   "Market Value": "-368.31",
+   "Shares Held": "57565030.02",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "JPY Spot FX",
+   "Ticker": "",
+   "Identifier": "JPY999999",
+   "Weight": "0",
+   "Market Value": "-9777.23",
+   "Shares Held": "612902425",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "KRW Spot FX",
+   "Ticker": "",
+   "Identifier": "KRW999999",
+   "Weight": "0",
+   "Market Value": "-538.21",
+   "Shares Held": "-316620087",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "THB Spot FX",
+   "Ticker": "",
+   "Identifier": "THB999999",
+   "Weight": "0",
+   "Market Value": "-147.51",
+   "Shares Held": "-17999874.2",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "TRY Spot FX",
+   "Ticker": "",
+   "Identifier": "TRY999999",
+   "Weight": "0",
+   "Market Value": "-1003.51",
+   "Shares Held": "-61536024.81",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "NET OTHER ASSETS",
+   "Ticker": "",
+   "Identifier": "",
+   "Weight": "-0.17",
+   "Market Value": "-5101132.32",
+   "Shares Held": "0",
    "Asset Category": "Cash & Equivalent"
   },
   {
    "Name": "US DOLLAR",
    "Ticker": "",
    "Identifier": "999USDZ92",
-   "Weight": "-0.1",
-   "Market Value": "-2978808.13",
-   "Shares Held": "-2978808.13",
-   "Asset Category": "Cash & Equivalent"
-  },
-  {
-   "Name": "NET OTHER ASSETS",
-   "Ticker": "",
-   "Identifier": "",
-   "Weight": "-0.44",
-   "Market Value": "-13391148.68",
-   "Shares Held": "0",
+   "Weight": "-0.3",
+   "Market Value": "-9153099.19",
+   "Shares Held": "-9153099.19",
    "Asset Category": "Cash & Equivalent"
   }
  ]

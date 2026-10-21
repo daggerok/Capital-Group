@@ -2,7 +2,7 @@
  "ticker": "CGIE",
  "page": 1,
  "pageSize": 250,
- "totalRows": 82,
+ "totalRows": 81,
  "headers": [
   "Name",
   "Ticker",
@@ -17,8 +17,8 @@
    "Name": "ASML HOLDING NV COMMON STOCK EUR.09",
    "Ticker": "ASML",
    "Identifier": "ACI02GTQ9",
-   "Weight": "4.9",
-   "Market Value": "120886405.71",
+   "Weight": "4.98",
+   "Market Value": "122114439.66",
    "Shares Held": "72810",
    "Asset Category": "Equity"
   },
@@ -27,7 +27,7 @@
    "Ticker": "TTE",
    "Identifier": "B15C55900",
    "Weight": "2.85",
-   "Market Value": "70274711.05",
+   "Market Value": "69940169.71",
    "Shares Held": "774684",
    "Asset Category": "Equity"
   },
@@ -35,8 +35,8 @@
    "Name": "SAP SE COMMON STOCK",
    "Ticker": "SAP",
    "Identifier": "484628904",
-   "Weight": "2.46",
-   "Market Value": "60660601.18",
+   "Weight": "2.48",
+   "Market Value": "60695075.61",
    "Shares Held": "270911",
    "Asset Category": "Equity"
   },
@@ -44,8 +44,8 @@
    "Name": "TAIWAN SEMICONDUCTOR SP ADR ADR",
    "Ticker": "TSM",
    "Identifier": "874039100",
-   "Weight": "2.41",
-   "Market Value": "59589961.42",
+   "Weight": "2.48",
+   "Market Value": "60689012.84",
    "Shares Held": "144422",
    "Asset Category": "Equity"
   },
@@ -53,8 +53,8 @@
    "Name": "SKANDINAVISKA ENSKILDA BAN A COMMON STOCK SEK10.0",
    "Ticker": "",
    "Identifier": "481334902",
-   "Weight": "2.37",
-   "Market Value": "58531269.53",
+   "Weight": "2.36",
+   "Market Value": "57807302.37",
    "Shares Held": "2646318",
    "Asset Category": "Equity"
   },
@@ -62,8 +62,8 @@
    "Name": "ROLLS ROYCE HOLDINGS PLC COMMON STOCK GBP.2",
    "Ticker": "RR.",
    "Identifier": "B63H84900",
-   "Weight": "2.3",
-   "Market Value": "56867008.39",
+   "Weight": "2.28",
+   "Market Value": "55961843.33",
    "Shares Held": "3159020",
    "Asset Category": "Equity"
   },
@@ -71,8 +71,8 @@
    "Name": "RECRUIT HOLDINGS CO LTD COMMON STOCK",
    "Ticker": "6098.0",
    "Identifier": "BQRRZ0906",
-   "Weight": "2.1",
-   "Market Value": "51752511.16",
+   "Weight": "2.15",
+   "Market Value": "52565263.32",
    "Shares Held": "443900",
    "Asset Category": "Equity"
   },
@@ -80,8 +80,8 @@
    "Name": "AIRBUS SE COMMON STOCK EUR1.0",
    "Ticker": "AIR",
    "Identifier": "401225909",
-   "Weight": "2",
-   "Market Value": "49335446.72",
+   "Weight": "1.96",
+   "Market Value": "48101481.8",
    "Shares Held": "220776",
    "Asset Category": "Equity"
   },
@@ -89,44 +89,44 @@
    "Name": "UNICREDIT SPA COMMON STOCK",
    "Ticker": "UCG",
    "Identifier": "BYMXPS901",
-   "Weight": "1.97",
-   "Market Value": "48717484.9",
+   "Weight": "1.94",
+   "Market Value": "47547949.73",
    "Shares Held": "568905",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "CAPITAL GROUP CENTRAL CASH FUN CAPITAL GROUP CNTRL CSH M",
+   "Ticker": "",
+   "Identifier": "14020B102",
+   "Weight": "1.93",
+   "Market Value": "47200697.87",
+   "Shares Held": "472101.4",
+   "Asset Category": "Cash & Equivalent"
+  },
+  {
+   "Name": "SAFRAN SA COMMON STOCK EUR.2",
+   "Ticker": "SAF",
+   "Identifier": "B058TZ909",
+   "Weight": "1.92",
+   "Market Value": "47163804.83",
+   "Shares Held": "133426",
    "Asset Category": "Equity"
   },
   {
    "Name": "RWE AG COMMON STOCK",
    "Ticker": "RWE",
    "Identifier": "476896907",
-   "Weight": "1.95",
-   "Market Value": "48084289.26",
-   "Shares Held": "724619",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "SAFRAN SA COMMON STOCK EUR.2",
-   "Ticker": "SAF",
-   "Identifier": "B058TZ909",
-   "Weight": "1.93",
-   "Market Value": "47538652.09",
-   "Shares Held": "133426",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "IBERDROLA SA COMMON STOCK EUR.75",
-   "Ticker": "IBE",
-   "Identifier": "B288C9908",
    "Weight": "1.9",
-   "Market Value": "46843524.29",
-   "Shares Held": "1921511",
+   "Market Value": "46451341.92",
+   "Shares Held": "724619",
    "Asset Category": "Equity"
   },
   {
    "Name": "RESONA HOLDINGS INC COMMON STOCK",
    "Ticker": "8308.0",
    "Identifier": "642155907",
-   "Weight": "1.88",
-   "Market Value": "46474317.86",
+   "Weight": "1.89",
+   "Market Value": "46212742.67",
    "Shares Held": "3135900",
    "Asset Category": "Equity"
   },
@@ -134,17 +134,26 @@
    "Name": "HITACHI LTD COMMON STOCK",
    "Ticker": "6501.0",
    "Identifier": "642910004",
-   "Weight": "1.88",
-   "Market Value": "46406145.76",
+   "Weight": "1.89",
+   "Market Value": "46267745.82",
    "Shares Held": "1270700",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "IBERDROLA SA COMMON STOCK EUR.75",
+   "Ticker": "IBE",
+   "Identifier": "B288C9908",
+   "Weight": "1.87",
+   "Market Value": "45733797.61",
+   "Shares Held": "1921511",
    "Asset Category": "Equity"
   },
   {
    "Name": "BAE SYSTEMS PLC COMMON STOCK GBP.025",
    "Ticker": "BA.",
    "Identifier": "026349902",
-   "Weight": "1.82",
-   "Market Value": "44973357.33",
+   "Weight": "1.8",
+   "Market Value": "44187429.23",
    "Shares Held": "1701147",
    "Asset Category": "Equity"
   },
@@ -152,26 +161,17 @@
    "Name": "EURONEXT NV COMMON STOCK EUR1.6",
    "Ticker": "ENX",
    "Identifier": "BNBNSG902",
-   "Weight": "1.74",
-   "Market Value": "42872532.11",
+   "Weight": "1.77",
+   "Market Value": "43300915.71",
    "Shares Held": "228137",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "ENGIE COMMON STOCK EUR1.0",
-   "Ticker": "ENGI",
-   "Identifier": "B0C2CQ902",
-   "Weight": "1.7",
-   "Market Value": "41885368.82",
-   "Shares Held": "1591213",
    "Asset Category": "Equity"
   },
   {
    "Name": "DBS GROUP HOLDINGS LTD COMMON STOCK",
    "Ticker": "D05",
    "Identifier": "617520903",
-   "Weight": "1.66",
-   "Market Value": "40961165.12",
+   "Weight": "1.68",
+   "Market Value": "41136227.64",
    "Shares Held": "707300",
    "Asset Category": "Equity"
   },
@@ -179,35 +179,44 @@
    "Name": "MITSUBISHI CORP COMMON STOCK",
    "Ticker": "8058.0",
    "Identifier": "659678007",
-   "Weight": "1.64",
-   "Market Value": "40480368.37",
+   "Weight": "1.66",
+   "Market Value": "40637409.65",
    "Shares Held": "1353300",
    "Asset Category": "Equity"
   },
   {
-   "Name": "LVMH MOET HENNESSY LOUIS VUI COMMON STOCK EUR.3",
-   "Ticker": "MC",
-   "Identifier": "406141903",
-   "Weight": "1.61",
-   "Market Value": "39754928.24",
-   "Shares Held": "89095",
+   "Name": "ENGIE COMMON STOCK EUR1.0",
+   "Ticker": "ENGI",
+   "Identifier": "B0C2CQ902",
+   "Weight": "1.66",
+   "Market Value": "40619609.62",
+   "Shares Held": "1591213",
    "Asset Category": "Equity"
   },
   {
    "Name": "L OREAL COMMON STOCK EUR.2",
    "Ticker": "OR",
    "Identifier": "405780909",
-   "Weight": "1.6",
-   "Market Value": "39433206.66",
+   "Weight": "1.59",
+   "Market Value": "38966328.65",
    "Shares Held": "86118",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "LVMH MOET HENNESSY LOUIS VUI COMMON STOCK EUR.3",
+   "Ticker": "MC",
+   "Identifier": "406141903",
+   "Weight": "1.59",
+   "Market Value": "38954921.69",
+   "Shares Held": "89095",
    "Asset Category": "Equity"
   },
   {
    "Name": "HONG KONG EXCHANGES + CLEAR COMMON STOCK",
    "Ticker": "388.0",
    "Identifier": "626735906",
-   "Weight": "1.57",
-   "Market Value": "38691976.2",
+   "Weight": "1.58",
+   "Market Value": "38690497.18",
    "Shares Held": "810600",
    "Asset Category": "Equity"
   },
@@ -215,8 +224,8 @@
    "Name": "SHOPIFY INC   CLASS A COMMON STOCK",
    "Ticker": "SHOP",
    "Identifier": "82509L107",
-   "Weight": "1.55",
-   "Market Value": "38278972.16",
+   "Weight": "1.58",
+   "Market Value": "38626716.48",
    "Shares Held": "225808",
    "Asset Category": "Equity"
   },
@@ -224,8 +233,8 @@
    "Name": "TOKYO ELECTRON LTD COMMON STOCK",
    "Ticker": "8035.0",
    "Identifier": "689567006",
-   "Weight": "1.51",
-   "Market Value": "37374378.94",
+   "Weight": "1.48",
+   "Market Value": "36262535.48",
    "Shares Held": "555500",
    "Asset Category": "Equity"
   },
@@ -233,9 +242,18 @@
    "Name": "ABB LTD REG COMMON STOCK CHF.12",
    "Ticker": "ABBN",
    "Identifier": "710889908",
-   "Weight": "1.41",
-   "Market Value": "34813259.28",
+   "Weight": "1.4",
+   "Market Value": "34246069.07",
    "Shares Held": "378999",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "MARUBENI CORP COMMON STOCK",
+   "Ticker": "8002.0",
+   "Identifier": "656946001",
+   "Weight": "1.39",
+   "Market Value": "34129097.45",
+   "Shares Held": "1095600",
    "Asset Category": "Equity"
   },
   {
@@ -243,26 +261,8 @@
    "Ticker": "ITX",
    "Identifier": "ACI08XL68",
    "Weight": "1.38",
-   "Market Value": "34083227.13",
+   "Market Value": "33729007.37",
    "Shares Held": "542866",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "MARUBENI CORP COMMON STOCK",
-   "Ticker": "8002.0",
-   "Identifier": "656946001",
-   "Weight": "1.37",
-   "Market Value": "33867593.28",
-   "Shares Held": "1095600",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "DSV A/S COMMON STOCK DKK1.0",
-   "Ticker": "DSV",
-   "Identifier": "B1WT5G909",
-   "Weight": "1.37",
-   "Market Value": "33878000.29",
-   "Shares Held": "182742",
    "Asset Category": "Equity"
   },
   {
@@ -270,53 +270,44 @@
    "Ticker": "BATS",
    "Identifier": "028758902",
    "Weight": "1.36",
-   "Market Value": "33647952.41",
+   "Market Value": "33449200.39",
    "Shares Held": "566415",
    "Asset Category": "Equity"
   },
   {
-   "Name": "BANCO BILBAO VIZCAYA ARGENTA COMMON STOCK EUR.49",
-   "Ticker": "BBVA",
-   "Identifier": "550190904",
-   "Weight": "1.34",
-   "Market Value": "32983573.24",
-   "Shares Held": "1266010",
+   "Name": "DSV A/S COMMON STOCK DKK1.0",
+   "Ticker": "DSV",
+   "Identifier": "B1WT5G909",
+   "Weight": "1.36",
+   "Market Value": "33205635.41",
+   "Shares Held": "182742",
    "Asset Category": "Equity"
   },
   {
    "Name": "SONY GROUP CORP COMMON STOCK",
    "Ticker": "6758.0",
    "Identifier": "682150008",
-   "Weight": "1.33",
-   "Market Value": "32865751.45",
+   "Weight": "1.34",
+   "Market Value": "32758978.24",
    "Shares Held": "1311600",
    "Asset Category": "Equity"
   },
   {
-   "Name": "BANCO SANTANDER SA COMMON STOCK EUR.5",
-   "Ticker": "SAN",
-   "Identifier": "570594903",
-   "Weight": "1.31",
-   "Market Value": "32291968.45",
-   "Shares Held": "2387467",
+   "Name": "BANCO BILBAO VIZCAYA ARGENTA COMMON STOCK EUR.49",
+   "Ticker": "BBVA",
+   "Identifier": "550190904",
+   "Weight": "1.32",
+   "Market Value": "32261233.48",
+   "Shares Held": "1266010",
    "Asset Category": "Equity"
   },
   {
    "Name": "SIEMENS AG REG COMMON STOCK",
    "Ticker": "SIE",
    "Identifier": "572797900",
-   "Weight": "1.31",
-   "Market Value": "32448407.7",
+   "Weight": "1.3",
+   "Market Value": "31833960.36",
    "Shares Held": "106669",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "NATWEST GROUP PLC COMMON STOCK GBP1.0769",
-   "Ticker": "NWG",
-   "Identifier": "BM8PJY904",
-   "Weight": "1.31",
-   "Market Value": "32465103.27",
-   "Shares Held": "3657306",
    "Asset Category": "Equity"
   },
   {
@@ -324,34 +315,52 @@
    "Ticker": "DB1",
    "Identifier": "702196908",
    "Weight": "1.3",
-   "Market Value": "32088589.21",
+   "Market Value": "31821066.26",
    "Shares Held": "92245",
    "Asset Category": "Equity"
   },
   {
-   "Name": "BNP PARIBAS COMMON STOCK EUR2.0",
-   "Ticker": "BNP",
-   "Identifier": "730968906",
-   "Weight": "1.3",
-   "Market Value": "32011352.85",
-   "Shares Held": "318047",
+   "Name": "BANCO SANTANDER SA COMMON STOCK EUR.5",
+   "Ticker": "SAN",
+   "Identifier": "570594903",
+   "Weight": "1.29",
+   "Market Value": "31508811.87",
+   "Shares Held": "2387467",
    "Asset Category": "Equity"
   },
   {
    "Name": "KEYENCE CORP COMMON STOCK",
    "Ticker": "6861.0",
    "Identifier": "649099009",
-   "Weight": "1.27",
-   "Market Value": "31384942.56",
+   "Weight": "1.29",
+   "Market Value": "31526799.12",
    "Shares Held": "61400",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "NATWEST GROUP PLC COMMON STOCK GBP1.0769",
+   "Ticker": "NWG",
+   "Identifier": "BM8PJY904",
+   "Weight": "1.29",
+   "Market Value": "31528416.11",
+   "Shares Held": "3657306",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "BNP PARIBAS COMMON STOCK EUR2.0",
+   "Ticker": "BNP",
+   "Identifier": "730968906",
+   "Weight": "1.27",
+   "Market Value": "31138605.54",
+   "Shares Held": "318047",
    "Asset Category": "Equity"
   },
   {
    "Name": "TOKIO MARINE HOLDINGS INC COMMON STOCK",
    "Ticker": "8766.0",
    "Identifier": "651312902",
-   "Weight": "1.26",
-   "Market Value": "31002532.04",
+   "Weight": "1.25",
+   "Market Value": "30705866.6",
    "Shares Held": "8773500",
    "Asset Category": "Equity"
   },
@@ -360,7 +369,7 @@
    "Ticker": "B",
    "Identifier": "06849F108",
    "Weight": "1.24",
-   "Market Value": "30617816.58",
+   "Market Value": "30332790.36",
    "Shares Held": "750069",
    "Asset Category": "Equity"
   },
@@ -369,7 +378,7 @@
    "Ticker": "AMS",
    "Identifier": "B3MSM2900",
    "Weight": "1.22",
-   "Market Value": "30135806.92",
+   "Market Value": "30004128.45",
    "Shares Held": "492875",
    "Asset Category": "Equity"
   },
@@ -378,25 +387,16 @@
    "Ticker": "RYAAY",
    "Identifier": "783513203",
    "Weight": "1.15",
-   "Market Value": "28300250.68",
+   "Market Value": "28284091.42",
    "Shares Held": "538642",
    "Asset Category": "Equity"
-  },
-  {
-   "Name": "CAPITAL GROUP CENTRAL CASH FUN CAPITAL GROUP CNTRL CSH M",
-   "Ticker": "",
-   "Identifier": "14020B102",
-   "Weight": "1.12",
-   "Market Value": "27591216.2",
-   "Shares Held": "275912.16",
-   "Asset Category": "Cash & Equivalent"
   },
   {
    "Name": "ITOCHU CORP COMMON STOCK",
    "Ticker": "8001.0",
    "Identifier": "646780007",
-   "Weight": "1.11",
-   "Market Value": "27491267.45",
+   "Weight": "1.14",
+   "Market Value": "27826830.65",
    "Shares Held": "1901700",
    "Asset Category": "Equity"
   },
@@ -404,8 +404,8 @@
    "Name": "GLENCORE PLC COMMON STOCK USD.01",
    "Ticker": "GLEN",
    "Identifier": "B4T3BW902",
-   "Weight": "1.1",
-   "Market Value": "27151751.75",
+   "Weight": "1.07",
+   "Market Value": "26203811.86",
    "Shares Held": "3493603",
    "Asset Category": "Equity"
   },
@@ -413,36 +413,45 @@
    "Name": "ESSILORLUXOTTICA COMMON STOCK EUR.18",
    "Ticker": "EL",
    "Identifier": "721247906",
-   "Weight": "1.06",
-   "Market Value": "26177330.15",
+   "Weight": "1.05",
+   "Market Value": "25713532.29",
    "Shares Held": "150845",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "IMPERIAL BRANDS PLC COMMON STOCK GBP.1",
-   "Ticker": "IMB",
-   "Identifier": "045449907",
-   "Weight": "1.04",
-   "Market Value": "25659474.3",
-   "Shares Held": "668690",
    "Asset Category": "Equity"
   },
   {
    "Name": "JAPAN POST BANK CO LTD COMMON STOCK",
    "Ticker": "7182.0",
    "Identifier": "BYT816903",
-   "Weight": "1.03",
-   "Market Value": "25545189.4",
+   "Weight": "1.04",
+   "Market Value": "25587069.06",
    "Shares Held": "1301100",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "IMPERIAL BRANDS PLC COMMON STOCK GBP.1",
+   "Ticker": "IMB",
+   "Identifier": "045449907",
+   "Weight": "1.03",
+   "Market Value": "25139858.88",
+   "Shares Held": "668690",
    "Asset Category": "Equity"
   },
   {
    "Name": "ASTRAZENECA PLC COMMON STOCK USD.25",
    "Ticker": "AZN",
    "Identifier": "098952906",
-   "Weight": "1.02",
-   "Market Value": "25267168.92",
+   "Weight": "1.03",
+   "Market Value": "25126561.5",
    "Shares Held": "152316",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "RELX PLC COMMON STOCK GBP.00144397",
+   "Ticker": "REL",
+   "Identifier": "B2B0DG904",
+   "Weight": "1.03",
+   "Market Value": "25261461.76",
+   "Shares Held": "646530",
    "Asset Category": "Equity"
   },
   {
@@ -450,17 +459,8 @@
    "Ticker": "4519.0",
    "Identifier": "619640006",
    "Weight": "1.02",
-   "Market Value": "25255984.68",
+   "Market Value": "25092307.79",
    "Shares Held": "628100",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "RELX PLC COMMON STOCK GBP.00144397",
-   "Ticker": "REL",
-   "Identifier": "B2B0DG904",
-   "Weight": "1.02",
-   "Market Value": "25110738.77",
-   "Shares Held": "646530",
    "Asset Category": "Equity"
   },
   {
@@ -468,7 +468,7 @@
    "Ticker": "NESN",
    "Identifier": "712387901",
    "Weight": "0.99",
-   "Market Value": "24327605.22",
+   "Market Value": "24280504.29",
    "Shares Held": "243158",
    "Asset Category": "Equity"
   },
@@ -476,9 +476,18 @@
    "Name": "AIA GROUP LTD COMMON STOCK",
    "Ticker": "1299.0",
    "Identifier": "B4TX8S909",
-   "Weight": "0.98",
-   "Market Value": "24246843.1",
+   "Weight": "0.99",
+   "Market Value": "24245916.26",
    "Shares Held": "2596000",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "ANHEUSER BUSCH INBEV SA/NV COMMON STOCK",
+   "Ticker": "ABI",
+   "Identifier": "ACI0PX3F9",
+   "Weight": "0.97",
+   "Market Value": "23721106.12",
+   "Shares Held": "286782",
    "Asset Category": "Equity"
   },
   {
@@ -486,25 +495,16 @@
    "Ticker": "HLMA",
    "Identifier": "040520009",
    "Weight": "0.96",
-   "Market Value": "23648143.02",
+   "Market Value": "23493614.64",
    "Shares Held": "517577",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "ANHEUSER BUSCH INBEV SA/NV COMMON STOCK",
-   "Ticker": "ABI",
-   "Identifier": "ACI0PX3F9",
-   "Weight": "0.96",
-   "Market Value": "23826540.11",
-   "Shares Held": "286782",
    "Asset Category": "Equity"
   },
   {
    "Name": "NINTENDO CO LTD COMMON STOCK",
    "Ticker": "7974.0",
    "Identifier": "663955003",
-   "Weight": "0.94",
-   "Market Value": "23253588.4",
+   "Weight": "0.95",
+   "Market Value": "23341629.14",
    "Shares Held": "433300",
    "Asset Category": "Equity"
   },
@@ -513,17 +513,8 @@
    "Ticker": "NOVOB",
    "Identifier": "BP6KMJ909",
    "Weight": "0.91",
-   "Market Value": "22502231.59",
+   "Market Value": "22178999.82",
    "Shares Held": "576507",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "KINGSPAN GROUP PLC COMMON STOCK EUR.13",
-   "Ticker": "KRX",
-   "Identifier": "449123900",
-   "Weight": "0.9",
-   "Market Value": "22197227.33",
-   "Shares Held": "204762",
    "Asset Category": "Equity"
   },
   {
@@ -531,16 +522,25 @@
    "Ticker": "SU",
    "Identifier": "483410007",
    "Weight": "0.9",
-   "Market Value": "22192386.92",
+   "Market Value": "22074935",
    "Shares Held": "77951",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "KINGSPAN GROUP PLC COMMON STOCK EUR.13",
+   "Ticker": "KRX",
+   "Identifier": "449123900",
+   "Weight": "0.89",
+   "Market Value": "21808076.63",
+   "Shares Held": "204762",
    "Asset Category": "Equity"
   },
   {
    "Name": "PANASONIC HOLDINGS CORP COMMON STOCK",
    "Ticker": "6752.0",
    "Identifier": "657270005",
-   "Weight": "0.88",
-   "Market Value": "21699071.49",
+   "Weight": "0.89",
+   "Market Value": "21732404.92",
    "Shares Held": "866400",
    "Asset Category": "Equity"
   },
@@ -549,7 +549,7 @@
    "Ticker": "7741.0",
    "Identifier": "644150005",
    "Weight": "0.82",
-   "Market Value": "20228424.95",
+   "Market Value": "20102604.86",
    "Shares Held": "124600",
    "Asset Category": "Equity"
   },
@@ -557,26 +557,17 @@
    "Name": "DANONE COMMON STOCK EUR.25",
    "Ticker": "BN",
    "Identifier": "B1Y9TB906",
-   "Weight": "0.81",
-   "Market Value": "20088252",
+   "Weight": "0.8",
+   "Market Value": "19724836.96",
    "Shares Held": "290333",
    "Asset Category": "Equity"
-  },
-  {
-   "Name": "US DOLLAR",
-   "Ticker": "",
-   "Identifier": "999USDZ92",
-   "Weight": "0.8",
-   "Market Value": "19665076.45",
-   "Shares Held": "19665076.45",
-   "Asset Category": "Cash & Equivalent"
   },
   {
    "Name": "MERCADOLIBRE INC COMMON STOCK USD.001",
    "Ticker": "MELI",
    "Identifier": "58733R102",
-   "Weight": "0.74",
-   "Market Value": "18336332",
+   "Weight": "0.75",
+   "Market Value": "18393520.56",
    "Shares Held": "9998",
    "Asset Category": "Equity"
   },
@@ -585,35 +576,26 @@
    "Ticker": "SGO",
    "Identifier": "738048909",
    "Weight": "0.74",
-   "Market Value": "18156498.8",
+   "Market Value": "18077794.35",
    "Shares Held": "242774",
-   "Asset Category": "Equity"
-  },
-  {
-   "Name": "ANTOFAGASTA PLC COMMON STOCK",
-   "Ticker": "ANTO",
-   "Identifier": "004561908",
-   "Weight": "0.72",
-   "Market Value": "17673318.48",
-   "Shares Held": "389994",
    "Asset Category": "Equity"
   },
   {
    "Name": "SK HYNIX INC COMMON STOCK KRW5000.0",
    "Ticker": "A000660",
    "Identifier": "645026907",
-   "Weight": "0.72",
-   "Market Value": "17800460.67",
+   "Weight": "0.73",
+   "Market Value": "17899976.7",
    "Shares Held": "18652",
    "Asset Category": "Equity"
   },
   {
-   "Name": "STANDARD CHARTERED PLC COMMON STOCK USD.5",
-   "Ticker": "STAN",
-   "Identifier": "040828907",
-   "Weight": "0.68",
-   "Market Value": "16864992.39",
-   "Shares Held": "594891",
+   "Name": "ANTOFAGASTA PLC COMMON STOCK",
+   "Ticker": "ANTO",
+   "Identifier": "004561908",
+   "Weight": "0.71",
+   "Market Value": "17432635.61",
+   "Shares Held": "389994",
    "Asset Category": "Equity"
   },
   {
@@ -621,8 +603,17 @@
    "Ticker": "6503.0",
    "Identifier": "659704001",
    "Weight": "0.68",
-   "Market Value": "16859147.44",
+   "Market Value": "16625585.62",
    "Shares Held": "532200",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "STANDARD CHARTERED PLC COMMON STOCK USD.5",
+   "Ticker": "STAN",
+   "Identifier": "040828907",
+   "Weight": "0.67",
+   "Market Value": "16453478.85",
+   "Shares Held": "594891",
    "Asset Category": "Equity"
   },
   {
@@ -630,7 +621,7 @@
    "Ticker": "6367.0",
    "Identifier": "625072004",
    "Weight": "0.67",
-   "Market Value": "16482103.86",
+   "Market Value": "16497508.67",
    "Shares Held": "122000",
    "Asset Category": "Equity"
   },
@@ -639,7 +630,7 @@
    "Ticker": "6857.0",
    "Identifier": "687049007",
    "Weight": "0.67",
-   "Market Value": "16631747.84",
+   "Market Value": "16535130.87",
    "Shares Held": "76100",
    "Asset Category": "Equity"
   },
@@ -647,8 +638,8 @@
    "Name": "TENCENT HOLDINGS LTD COMMON STOCK HKD.00002",
    "Ticker": "700.0",
    "Identifier": "BMMV2K903",
-   "Weight": "0.63",
-   "Market Value": "15678347.07",
+   "Weight": "0.64",
+   "Market Value": "15677747.76",
    "Shares Held": "294500",
    "Asset Category": "Equity"
   },
@@ -657,7 +648,7 @@
    "Ticker": "ONC",
    "Identifier": "07725L102",
    "Weight": "0.62",
-   "Market Value": "15216712.86",
+   "Market Value": "15262479.27",
    "Shares Held": "41231",
    "Asset Category": "Equity"
   },
@@ -665,8 +656,8 @@
    "Name": "RESONAC HOLDINGS CORP COMMON STOCK",
    "Ticker": "4004.0",
    "Identifier": "680546009",
-   "Weight": "0.55",
-   "Market Value": "13498351.21",
+   "Weight": "0.57",
+   "Market Value": "13911693.47",
    "Shares Held": "141800",
    "Asset Category": "Equity"
   },
@@ -674,8 +665,8 @@
    "Name": "RHEINMETALL AG COMMON STOCK",
    "Ticker": "RHM",
    "Identifier": "533458907",
-   "Weight": "0.53",
-   "Market Value": "13043645.24",
+   "Weight": "0.52",
+   "Market Value": "12647770.52",
    "Shares Held": "10645",
    "Asset Category": "Equity"
   },
@@ -684,7 +675,7 @@
    "Ticker": "",
    "Identifier": "",
    "Weight": "0.17",
-   "Market Value": "4148940",
+   "Market Value": "4046161.82",
    "Shares Held": "0",
    "Asset Category": "Cash & Equivalent"
   },
@@ -693,7 +684,7 @@
    "Ticker": "",
    "Identifier": "999EURZ94",
    "Weight": "0",
-   "Market Value": "85196.05",
+   "Market Value": "84979.99",
    "Shares Held": "75800.54",
    "Asset Category": "Cash & Equivalent"
   },
@@ -702,7 +693,7 @@
    "Ticker": "",
    "Identifier": "999GBPZ94",
    "Weight": "0",
-   "Market Value": "28.28",
+   "Market Value": "28.23",
    "Shares Held": "21.22",
    "Asset Category": "Cash & Equivalent"
   },
@@ -711,7 +702,7 @@
    "Ticker": "",
    "Identifier": "999JPYZ94",
    "Weight": "0",
-   "Market Value": "27.81",
+   "Market Value": "27.71",
    "Shares Held": "4394",
    "Asset Category": "Cash & Equivalent"
   },
@@ -729,8 +720,17 @@
    "Ticker": "",
    "Identifier": "999SEKZ96",
    "Weight": "0",
-   "Market Value": "18.42",
+   "Market Value": "18.41",
    "Shares Held": "182.65",
+   "Asset Category": "Cash & Equivalent"
+  },
+  {
+   "Name": "US DOLLAR",
+   "Ticker": "",
+   "Identifier": "999USDZ92",
+   "Weight": "0",
+   "Market Value": "35829.94",
+   "Shares Held": "35829.94",
    "Asset Category": "Cash & Equivalent"
   },
   {
@@ -738,17 +738,8 @@
    "Ticker": "",
    "Identifier": "HKD999999",
    "Weight": "0",
-   "Market Value": "-55.54",
+   "Market Value": "-65.01",
    "Shares Held": "1943583.24",
-   "Asset Category": "Spot FX"
-  },
-  {
-   "Name": "JPY Spot FX",
-   "Ticker": "",
-   "Identifier": "JPY999999",
-   "Weight": "0",
-   "Market Value": "-1.92",
-   "Shares Held": "-5975609",
    "Asset Category": "Spot FX"
   }
  ]
