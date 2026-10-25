@@ -2,7 +2,7 @@
  "ticker": "CGGG",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 333,
+ "totalRows": 337,
  "headers": [
   "Date",
   "NAV",
@@ -2007,6 +2007,30 @@
    "NAV": "28.03",
    "Market Price": "28.07",
    "Premium/Discount": "0.12"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "NAV": "28.03",
+   "Market Price": "28.03",
+   "Premium/Discount": "-0.01"
+  },
+  {
+   "Date": "Oct 21 2026",
+   "NAV": "28.27",
+   "Market Price": "28.29",
+   "Premium/Discount": "0.05"
+  },
+  {
+   "Date": "Oct 22 2026",
+   "NAV": "27.39",
+   "Market Price": "27.38",
+   "Premium/Discount": "-0.03"
+  },
+  {
+   "Date": "Oct 23 2026",
+   "NAV": "27.21",
+   "Market Price": "27.21",
+   "Premium/Discount": "-0.01"
   }
  ]
 }

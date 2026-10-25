@@ -2,7 +2,7 @@
  "ticker": "CGUI",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 582,
+ "totalRows": 586,
  "headers": [
   "Date",
   "NAV",
@@ -3501,6 +3501,30 @@
    "NAV": "25.25",
    "Market Price": "25.26",
    "Premium/Discount": "0.02"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "NAV": "25.25",
+   "Market Price": "25.27",
+   "Premium/Discount": "0.08"
+  },
+  {
+   "Date": "Oct 21 2026",
+   "NAV": "25.25",
+   "Market Price": "25.28",
+   "Premium/Discount": "0.1"
+  },
+  {
+   "Date": "Oct 22 2026",
+   "NAV": "25.27",
+   "Market Price": "25.3",
+   "Premium/Discount": "0.12"
+  },
+  {
+   "Date": "Oct 23 2026",
+   "NAV": "25.27",
+   "Market Price": "25.29",
+   "Premium/Discount": "0.08"
   }
  ]
 }

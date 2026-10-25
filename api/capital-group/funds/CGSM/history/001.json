@@ -2,7 +2,7 @@
  "ticker": "CGSM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 769,
+ "totalRows": 773,
  "headers": [
   "Date",
   "NAV",
@@ -4623,6 +4623,30 @@
    "NAV": "25.93",
    "Market Price": "25.98",
    "Premium/Discount": "0.19"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "NAV": "25.94",
+   "Market Price": "25.99",
+   "Premium/Discount": "0.21"
+  },
+  {
+   "Date": "Oct 21 2026",
+   "NAV": "25.96",
+   "Market Price": "26",
+   "Premium/Discount": "0.17"
+  },
+  {
+   "Date": "Oct 22 2026",
+   "NAV": "26.06",
+   "Market Price": "26.1",
+   "Premium/Discount": "0.15"
+  },
+  {
+   "Date": "Oct 23 2026",
+   "NAV": "26.08",
+   "Market Price": "26.13",
+   "Premium/Discount": "0.2"
   }
  ]
 }
