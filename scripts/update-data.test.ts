@@ -13,7 +13,7 @@ import {
   withRequestLane, workbookRows, writePages, removeStalePages,
   runUpdater, setApiRoot, writeFileAtomic, writeIfChanged, mergeHistoryRows, ageGuardReturns, isoStamp, readCursorScopes, writeCursorScope,
   loadFundTickerMap, resetSecTableCaches, RUN_SOFT_DEADLINE_MS,
-  formatIssuerDate, normalizeNumberText, numberOrNull, formatEdgarDate, toIsoDate, isoToEpoch, parseRange, parseAumRange, HISTORY_HEADERS, YAHOO_HISTORY_HEADERS, navTotalReturnDays, normalizeHoldingName, normalizeHoldingNameCore, cleanHoldingTicker, nportUrlFor, parseNportAccessions, parseFundTickerMap, parseCompanyTickerMap, edgarSeriesFilingsUrl, parseEdgarAtomFilings, parseNport, pickEftsCik, parseChart, annualizedToTotal, totalToAnnualized, indicatedYield, inferDistributionFrequency, priceReturns, lastCompletedQuarterEnd, deriveCatalogMetrics, returnsBasisLabel, performanceAsOf, dividendYieldBasisFromKind, normalizeYieldBasis, DIVIDEND_YIELD_BASES,
+  formatIssuerDate, holdingsGuard, normalizeNumberText, numberOrNull, formatEdgarDate, toIsoDate, isoToEpoch, parseRange, parseAumRange, HISTORY_HEADERS, YAHOO_HISTORY_HEADERS, navTotalReturnDays, normalizeHoldingName, normalizeHoldingNameCore, cleanHoldingTicker, nportUrlFor, parseNportAccessions, parseFundTickerMap, parseCompanyTickerMap, edgarSeriesFilingsUrl, parseEdgarAtomFilings, parseNport, pickEftsCik, parseChart, annualizedToTotal, totalToAnnualized, indicatedYield, inferDistributionFrequency, priceReturns, lastCompletedQuarterEnd, deriveCatalogMetrics, returnsBasisLabel, performanceAsOf, dividendYieldBasisFromKind, normalizeYieldBasis, DIVIDEND_YIELD_BASES,
 } from './update-data';
 
 // ---------------------------------------------------------------------------
@@ -72,7 +72,7 @@ function holdingsWorkbook(ticker: string, rows: string[][]): Buffer {
 }
 const HOLDINGS_ROWS = [
   ['Microsoft Corp', 'MSFT', 'US5949181045', '594918104', 'Equity', '1000', '10', '0.05'],
-  ['Amazon.com Inc', 'AMZN', 'US0231351067', '023135106', 'Equity', '2000', '20', '0.0762'],
+  ['Amazon.com Inc', 'AMZN', 'US0231351067', '023135106', 'Equity', '2000', '20', '0.8762'],
   ['Cash', '--', '--', '--', 'Cash', '10', '10', '0.01'],
 ];
 const factsSample = (ticker = 'CGUS') => ({
@@ -207,7 +207,7 @@ function installIssuerMock(knobs: Knobs = {}): () => void {
       return knobs.nport ? new Response(`<feed><entry><accession-number>0001870102-26-000001</accession-number><filing-date>${knobs.nport.repPdDate}</filing-date><filing-href>https://www.sec.gov/Archives/edgar/data/1870102/000187010226000001/0001870102-26-000001-index.htm</filing-href><filing-type>NPORT-P</filing-type></entry></feed>`) : gone();
     }
     if (url.endsWith('primary_doc.xml') && knobs.nport) {
-      return new Response(`<nportRegDoc><genInfo><regName>Capital Group Exchange-Traded Fund Trust</regName><regCik>0001870102</regCik><seriesName>Capital Group Core Equity ETF</seriesName><seriesId>S000068402</seriesId><repPdDate>${knobs.nport.repPdDate}</repPdDate></genInfo><invstOrSec><name>Apple Inc</name><cusip>037833100</cusip><balance>10</balance><valUSD>1000</valUSD><pctVal>5</pctVal><assetCat>EC</assetCat></invstOrSec></nportRegDoc>`);
+      return new Response(`<nportRegDoc><genInfo><regName>Capital Group Exchange-Traded Fund Trust</regName><regCik>0001870102</regCik><seriesName>Capital Group Core Equity ETF</seriesName><seriesId>S000068402</seriesId><repPdDate>${knobs.nport.repPdDate}</repPdDate></genInfo><invstOrSec><name>Apple Inc</name><cusip>037833100</cusip><balance>10</balance><valUSD>1000</valUSD><pctVal>45</pctVal><assetCat>EC</assetCat></invstOrSec><invstOrSec><name>Microsoft Corp</name><cusip>594918104</cusip><balance>5</balance><valUSD>700</valUSD><pctVal>30</pctVal><assetCat>EC</assetCat></invstOrSec><invstOrSec><name>Amazon.com Inc</name><cusip>023135106</cusip><balance>4</balance><valUSD>400</valUSD><pctVal>20</pctVal><assetCat>EC</assetCat></invstOrSec></nportRegDoc>`);
     }
     throw new Error(`unexpected request: ${url}`);
   }) as typeof fetch;
@@ -405,7 +405,7 @@ describe('parsing', () => {
     const book = holdingsWorkbook('CGUS', HOLDINGS_ROWS);
     const parsed = parseIssuerHoldings(book, 'CGUS');
     expect(parsed.asOfDate).toBe('2026-09-24'); expect(parsed.rows.length).toBe(3);
-    expect(parsed.rows[0].Ticker).toBe('AMZN'); expect(parsed.rows[0].Weight).toBe('7.62'); expect(parsed.rows[0].Identifier).toBe('023135106');
+    expect(parsed.rows[0].Ticker).toBe('AMZN'); expect(parsed.rows[0].Weight).toBe('87.62'); expect(parsed.rows[0].Identifier).toBe('023135106');
     expect(parsed.rows.find((r) => r.Ticker === 'MSFT')?.Identifier).toBe('594918104');
     expect(parsed.rows.find((r) => r.Name === 'Cash')?.Ticker).toBe('');
     expect(parseIssuerHoldings(book, 'CGUS')).toEqual(parsed);
@@ -426,6 +426,21 @@ describe('parsing', () => {
     expect(() => issuerPricesUrl('CGUS', '', '')).toThrow();
     expect(HISTORY_HEADERS).toEqual(['Date', 'NAV', 'Market Price', 'Premium/Discount']);
     expect(YAHOO_HISTORY_HEADERS).toEqual(['Date', 'Close', 'Adj Close', 'Volume']);
+  });
+
+  test('holdings guard: header-only, renamed weight column, broken weights, a bad weight sum and a halved sheet are rejected', () => {
+    const headers = ['Name', 'Ticker', 'Weight'];
+    const rows = [{ Name: 'A', Ticker: 'A', Weight: '60%' }, { Name: 'B', Ticker: 'B', Weight: '40%' }];
+    expect(holdingsGuard(headers, rows, 2)).toBeNull();
+    expect(holdingsGuard(headers, [['A', 'A', '60'], ['B', 'B', '40']], null)).toBeNull();
+    expect(holdingsGuard([], [], 0)).toBeNull(); // nothing published before: an empty sheet is honest
+    expect(holdingsGuard(headers, [], 505)).toContain('no holdings rows');
+    expect(holdingsGuard(['Name', 'Ticker', 'Wt'], rows, 2)).toContain('no weight column');
+    expect(holdingsGuard(headers, rows.map((row) => ({ ...row, Weight: '6\u200B0' })), 2)).toContain('numeric weight');
+    const allocation = [{ Name: 'Cash&Collateral', Ticker: '-', Weight: '100' }, { Name: 'Equities', Ticker: '-', Weight: '476' }];
+    expect(holdingsGuard(headers, allocation, 2)).toContain('outside 50..150');
+    expect(holdingsGuard(headers, allocation, 2, ['sum'])).toBeNull();
+    expect(holdingsGuard(headers, rows, 5)).toContain('less than half');
   });
 
   test('SEC and EDGAR: N-PORT positions, submissions, EFTS, ticker tables and series feed', () => {
@@ -761,6 +776,20 @@ describe('pipeline', () => {
       expect(report.failed).toEqual([]);
       const stored = await meta('CGUS');
       expect(stored.holdings.source).toContain('SEC EDGAR Form N-PORT-P'); expect(stored.holdings.asOfDate).toBe('2026-08-31');
+    });
+  });
+
+  test('holdings that fail the guard keep the fund exactly as published and report it failed', async () => {
+    await withFeed({}, async ({ run, dir }) => {
+      await run({ TICKERS: 'CGUS' });
+      const before = await snapshot(dir);
+      // the issuer leaves "--" in two of three weight cells: the parser drops those rows, the sheet shrinks to one row
+      const broken = HOLDINGS_ROWS.map((row, index) => (index === 1 ? row : [...row.slice(0, 7), '--']));
+      const good = globalThis.fetch;
+      globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) => (String(input).includes('/download/daily-holdings') ? new Response(new Uint8Array(holdingsWorkbook('CGUS', broken))) : good(input, init))) as unknown as typeof fetch;
+      const report = await run({ TICKERS: 'CGUS' });
+      expect(report.failed).toEqual(['CGUS']); expect(report.exitCode).toBe(1);
+      expect(await snapshot(dir)).toEqual(before);
     });
   });
 
