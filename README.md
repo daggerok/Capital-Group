@@ -55,7 +55,7 @@ The **Update Capital Group ETF data** GitHub Actions workflow runs weekly and ex
 | Fund facts | Server-rendered Next.js JSON in each [fund page](https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgus) (no browser execution) |
 | Holdings per fund | `/api/investments/investment-service/v1/etfs/{TICKER}/download/daily-holdings?audience=advisor` on `www.capitalgroup.com` (full XLSX, parsed with built-in zlib) |
 | Daily history, distributions | Same API base, `premium-discount-details?fromDate=YYYY-MM-DD&toDate=YYYY-MM-DD` and `historical-distributions?include=all` |
-| Fallback | SEC EDGAR N-PORT-P for holdings (only when newer than the published holdings), Yahoo Finance chart API for history of funds that have no official history yet; a fund whose issuer data fails keeps its previous complete publication |
+| Fallback | SEC EDGAR N-PORT-P for holdings (only the fund's own filing and only when strictly newer than the published holdings), Yahoo Finance chart API for history of funds that have no official history yet; a fund whose issuer data fails keeps its previous complete publication |
 
 The published feed covers all 25 catalog funds. SEC and Yahoo fallbacks are used only when the issuer data is unavailable
 
@@ -65,12 +65,17 @@ Official figures come from Capital Group: NAV returns, expense ratios, 30-day SE
 
 The issuer's first HTML request can redirect to a public cookie bootstrap; the updater repeats the request using an in-memory same-origin session. No credentials, cookies or entire HTML documents are stored. Some endpoints mentioned in issuer JavaScript return 404 directly; the implementation uses verified HTML payloads and working public downloads instead. The issuer currently repeats month-end data in `quarterlyReturns`; non-quarter-end dates are not mislabeled as quarter-end returns. Holdings weights are converted from fractions to percent without forcing them to sum to 100%; issuer rounding is preserved. Different funds have different registrant CIKs (CGUS `0001870102`; CGCP/CGMU `0001870117`); the SEC fallback resolves the fund's own series, not an arbitrary latest trust filing.
 
+- The holdings XLSX gives the local exchange code of every listing and names no exchange (Marubeni `8002.0`, AstraZeneca's London line `AZN` next to its U.S. ADR, Telenor and TE Connectivity could both be `TEL`), so a ticker is published only for an equity with a U.S. listing: a U.S. ISIN (ADRs and New York shares included) or a CINS, the CUSIP number a foreign issuer gets for U.S. trading (Royal Caribbean, Linde, Accenture). Foreign listings, preferred stock, bonds, cash, futures, swaps and forwards have Ticker `-` and keep their CUSIP or ISIN as the Identifier, so the Watchlist never merges two companies
+- SEC EDGAR N-PORT-P holdings are used only when the issuer holdings are unavailable, `EDGAR_FALLBACK` is on, the filing names the fund's own series (a fund missing from SEC's fund ticker table is found through its registrant and matched by name) and its report period is strictly newer than the published holdings (the newest report period first, read from the trust's own EDGAR folder). N-PORT identifiers are the position's own (a derivative never takes its reference security's CUSIP or ticker), a ticker is set only for U.S. common stock traded in USD and never on two different securities, and a missing weight or value stays an empty cell, never `0`
+- A fund younger than one year (calendar anniversary of its inception, inclusive) publishes no 1-year or since-inception return, and no 3, 5 or 10-year one before those anniversaries, official or derived; the month-end and quarter-end tables follow the same rule
+- Dates are read as plain calendar text (`08/21/2026`, `Aug 21 2026`, ISO), never through the local time zone, so local runs match CI
+
 Each fund carries a derived `metrics` object that powers the catalog columns shared with the sibling sites:
 
 - `ytd` / `tr1y` - official YTD and 1-year returns -> *YTD Return*, *TR 1Y*
 - `cagr3y` / `cagr5y` / `cagr10y` - published annualized 3Y/5Y/10Y figures -> *CAGR 3Y/5Y/10Y*
 - `tr3y` / `tr5y` / `tr10y` - cumulative 3Y/5Y/10Y figures `(1 + CAGR)^n - 1` -> *TR 3Y/5Y/10Y*
-- `siAnn` - since-inception annualized -> *SI Ann.*; only for funds at least one year old (derived values need one year of full history). Figures for a horizon longer than the fund's age at the returns date (for example 3Y for a fund under three years old, which Capital Group still publishes) are `null`
+- `siAnn` - since-inception annualized -> *SI Ann.*; only for funds at least one year old (derived values need one year of full history). Figures for a horizon longer than the fund's age at the returns date (for example 3Y for a fund under three years old, which Capital Group still publishes) are `null`, official or derived
 - `dividendYield` - indicated yield (latest distribution × payments per year ÷ price; semi-annual is 2)
 - `dividendYieldBasis` - code of the definition behind `dividendYield`, `null` exactly when the yield is `null` (the free text stays in `meta.yields.dividendYieldKind`); a retained yield keeps its own code:
 
@@ -88,7 +93,7 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 - `terValue` is the NET expense ratio (after waivers; the gross one only when no net figure exists) and `terGrossValue` the GROSS ratio; `meta.expenseRatio` carries `value`, `net` and `gross`
 - Each fund is either fully refreshed or kept exactly as published: when a required source fails (fund facts, daily holdings, official daily history) the fund's previous complete state stays untouched and the run reports it as failed (non-zero exit), so the workflow can safely commit a partial run. A fund never published before is written best-effort. When the daily price API is newer than the fund-facts payload, its NAV, market price and premium/discount (and date) win
 - Issuer facts never go backward: capitalgroup.com serves the fund pages from a Next.js ISR cache that can return a weeks-old prerender, so an AUM, SEC yield (with the unsubsidized yield and distribution rate), month-end or quarter-end return dated before the published one is dropped, the published fact is kept and the run prints a `[ product  ]` warning
-- Catalog funds without published data get a row with `dataFile: null` and a complete `metrics` object of nulls; new catalog funds are printed as `NEW FUNDS: A, B` and appended to `$GITHUB_STEP_SUMMARY`
+- Catalog funds without published data get a row with `dataFile: null` and a complete `metrics` object of nulls. `NEW FUNDS: A, B` is printed (and added to `$GITHUB_STEP_SUMMARY`) when a fund is published for the first time, also when its first read failed and a later run succeeds; `NEW FUNDS (not published yet): C` names new catalog funds whose first read failed. A catalog-only row that the live catalog no longer lists (for example an old mistyped `TICKERS` entry) is dropped
 
 ### Update controls
 
@@ -101,11 +106,11 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 | `TER` | `:` | Expense ratio range in percent (`min:max`) |
 | `DIVIDEND_YIELD` | `:` | Indicated dividend yield range in percent |
 | `SEC_YIELD` | `:` | Published 30-day SEC yield range in percent |
-| `TICKERS` | empty | Space, comma or semicolon separated ticker allowlist, for example `CGUS CGCP CGMU`; empty means all |
+| `TICKERS` | empty | Space, comma or semicolon separated ticker allowlist, for example `CGUS CGCP CGMU`; empty means all; a ticker that is neither in the live catalog nor a published fund is an error before any fund request (nothing is written) |
 | `HOLDINGS_PAGE_SIZE` | `250` | Rows in each generated holdings JSON page |
 | `HISTORY_PAGE_SIZE` | `1000` | Rows in each generated history JSON page |
 | `MAX_RETRIES` | `2` | Retries after the first request, integer of at least 1; 403, 408, 425, 429 and 5xx are retried with backoff, other issuer HTTP errors fail promptly |
-| `HISTORY_RANGE` | `max` | Yahoo fallback chart window (explicit period1/period2), `max` or `Ny` (for example `5y`); official history always covers inception onward and a shorter window never shrinks a published series: older rows are merged back |
+| `HISTORY_RANGE` | `max` | Yahoo fallback chart window (explicit period1/period2), `max` or `Ny` (for example `5y`); official history always covers inception onward and a shorter window never shrinks a published series: the older published rows are kept (Adj Close rescaled by the overlapping days) and count for the 3, 5, 10-year and since-inception returns, and a window that does not join them keeps the published history |
 | `PERFORMANCE_YTD`, `PERFORMANCE_1Y`, `PERFORMANCE_3Y`, `PERFORMANCE_5Y`, `PERFORMANCE_10Y` | `:` | NAV return ranges in percent, annualized for 3Y and longer |
 | `TOTAL_RETURN_YTD`, `TOTAL_RETURN_1Y`, `TOTAL_RETURN_3Y`, `TOTAL_RETURN_5Y`, `TOTAL_RETURN_10Y` | `:` | Cumulative total return ranges in percent |
 | `STORE_RAW_DOWNLOADS` | `false` | Keep financial JSON snapshots under each selected fund's `raw/`; never cookies or auth headers |
