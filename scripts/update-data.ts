@@ -2121,6 +2121,47 @@ export function productFromIssuer(facts: ReturnType<typeof parseIssuerFacts>): P
     latestDividend: null, monthEnd: { ...facts.monthEnd, mo3: null }, monthEndMarket: { ...facts.marketMonthEnd, mo3: null },
     cumulative: { ...EMPTY_CUMULATIVE }, cumulativeAsOfDate: null, holdings: null };
 }
+/**
+ * Issuer facts never go backward. capitalgroup.com renders the fund pages from a Next.js ISR cache (`x-nextjs-cache: STALE`,
+ * `stale-while-revalidate=86400`, several origins behind Akamai), so a request can get an old prerender: on 2026-10-25 CGIB,
+ * CGIC, CGNG, CGSM and CGUS came back with AUM as of Sep 30 and SEC yield as of Aug 31 (the issuer state of Oct 2) while
+ * Oct 22 and Sep 30 were published. A dated fact older than the published one is replaced by the published fact (AUM; SEC
+ * yield with the unsubsidized yield and distribution rate; month-end and quarter-end returns). Returns what was kept.
+ */
+export function keepNewerIssuerFacts(product: ProductData, fund: CatalogFund, published: JsonRecord): string[] {
+  const kept: string[] = [];
+  const older = (fresh: string | null, publishedDate: string): boolean => Boolean(fresh && publishedDate && fresh < publishedDate);
+  const returnsOf = (block: SourceObject): CatalogReturns => ({ ytd: numberOrNull(block.ytd), yr1: numberOrNull(block.yr1), yr3: numberOrNull(block.yr3),
+    yr5: numberOrNull(block.yr5), yr10: numberOrNull(block.yr10), sinceInception: numberOrNull(block.sinceInception) });
+  const aum = sourceObject(published.aum), aumDate = sheetDateKey(aum.asOfDate);
+  if (older(product.netAssetsDate, aumDate) && numberOrNull(aum.value) !== null) {
+    kept.push(`AUM ${aumDate} (fresh ${product.netAssetsDate})`);
+    product.netAssets = numberOrNull(aum.value);
+    product.netAssetsDate = aumDate;
+  }
+  const yields = sourceObject(published.yields);
+  const yieldDate = sheetDateKey(/as of ([A-Za-z]{3} \d{2} \d{4})$/.exec(String(yields.secYieldKind ?? ''))?.[1]);
+  if (older(product.secYieldDate, yieldDate)) {
+    kept.push(`SEC yield ${yieldDate} (fresh ${product.secYieldDate})`);
+    product.secYield = numberOrNull(yields.secYield);
+    product.unsubsidizedSecYield = numberOrNull(yields.unsubsidizedSecYield);
+    product.secYieldDate = yieldDate;
+    fund.distributionRate = numberOrNull(yields.distributionRate);
+  }
+  const returns = sourceObject(published.returns), monthEnd = sourceObject(returns.monthEnd), quarterEnd = sourceObject(returns.quarterEnd);
+  const monthEndDate = sheetDateKey(monthEnd.asOfDate), quarterEndDate = sheetDateKey(quarterEnd.asOfDate);
+  if (older(product.monthEnd.asOfDate, monthEndDate)) {
+    kept.push(`month-end returns ${monthEndDate} (fresh ${product.monthEnd.asOfDate})`);
+    product.monthEnd = { ...returnsOf(monthEnd), asOfDate: monthEndDate, mo1: numberOrNull(monthEnd.mo1), mo3: null };
+    product.monthEndMarket = { ...EMPTY_RETURNS, asOfDate: null, mo1: null, mo3: null };
+  }
+  if (older(fund.quarterEndAsOfDate, quarterEndDate)) {
+    kept.push(`quarter-end returns ${quarterEndDate} (fresh ${fund.quarterEndAsOfDate})`);
+    fund.quarterEnd = returnsOf(quarterEnd);
+    fund.quarterEndAsOfDate = quarterEndDate;
+  }
+  return kept;
+}
 async function loadIssuerProduct(fund: CatalogFund, config: UpdaterConfig): Promise<ProductData> {
   const html = await (await issuerFetch(issuerFundUrl(fund.ticker), config)).text();
   const payload = parseIssuerFlight(html, fund.ticker), facts = parseIssuerFacts(payload, fund.ticker);
@@ -2170,7 +2211,12 @@ async function processFund(
   const failedSources: string[] = [];
   let factsOk = false;
   if (!config.skipIssuer) {
-    try { product = await loadIssuerProduct(fund, config); factsOk = true; }
+    try {
+      product = await loadIssuerProduct(fund, config);
+      factsOk = true;
+      const kept = keepNewerIssuerFacts(product, fund, previousMeta);
+      if (kept.length) console.warn(`[ product  ] ${ticker}: issuer page older than the published facts, kept the published ${kept.join(', ')}`);
+    }
     catch (error) { failedSources.push('issuer facts'); outputNote(`[ product  ] ${ticker}: ${errorMessage(error)} — trying holdings fallbacks`); }
     try {
       const response = await issuerFetch(issuerHoldingsUrl(ticker), config);

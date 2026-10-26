@@ -141,6 +141,8 @@ type Knobs = {
   catalog?: string[];
   dead?: Record<string, string[]>; // ticker (or ALL) -> sources: facts, holdings, history, yahoo
   facts?: Record<string, { net?: string; gross?: string; secYield?: string | null; inception?: string; returns?: Record<string, string | null>; nav?: string; priceDate?: string; assets?: string }>;
+  // fact dates on the fund page: an ISR prerender can be weeks older than the published facts
+  factDates?: Record<string, { assets?: string; yield?: string; quarter?: string }>;
   noDistributions?: boolean;
   historyDays?: number;
   yahooDays?: number;
@@ -177,6 +179,10 @@ function installIssuerMock(knobs: Knobs = {}): () => void {
       if (own.nav) facts.dailyDetails.priceDistribution.navPrice = own.nav;
       if (own.priceDate) facts.dailyDetails.priceDistribution.asOfDate = own.priceDate;
       if (own.assets) facts.dailyDetails.fundFacts.assetsInMillions = own.assets;
+      const dates = knobs.factDates?.[ticker];
+      if (dates?.assets) facts.dailyDetails.fundFacts.assetsInMillionDate = dates.assets;
+      if (dates?.yield) facts.details.yield.asOfDate = dates.yield;
+      if (dates?.quarter) facts.details.quarterlyReturns.asOfDate = dates.quarter;
       return new Response(flightHtml(facts));
     }
     if (url.includes('/download/daily-holdings')) {
@@ -791,6 +797,24 @@ describe('pipeline', () => {
       expect(report.failed).toEqual([]);
       const stored = await meta('CGUS');
       expect(stored.holdings.source).toContain('SEC EDGAR Form N-PORT-P'); expect(stored.holdings.asOfDate).toBe('2026-08-31');
+    });
+  });
+
+  test('issuer facts never go backward: an older fund page keeps the published AUM, SEC yield and returns, a newer one wins', async () => {
+    await withFeed({}, async ({ run, dir, meta }) => {
+      await run({ TICKERS: 'CGUS' });
+      const read = () => Promise.all(['funds/CGUS/meta.json', 'index.json'].map((file) => readFile(join(dir, file), 'utf8')));
+      const before = await read();
+      // a weeks-old prerender: every dated fact is older than the published one and carries other numbers
+      const oldReturns = { asOfDate: '7/31/26', navMonth1: '1.5', navYtdMonthly: '10.1', navYear1: '15.2', navYear3: '20.3', navYear5: null, navYear10: null, navLifetime: '9.4' };
+      const stale = await run({ TICKERS: 'CGUS' }, {
+        facts: { CGUS: { assets: '9000', secYield: '0.5', returns: oldReturns } },
+        factDates: { CGUS: { assets: '9/10/26', yield: '7/31/26', quarter: '6/30/26' } },
+      });
+      expect(stale.failed).toEqual([]);
+      expect(await read()).toEqual(before);
+      await run({ TICKERS: 'CGUS' }, { facts: { CGUS: { assets: '12000' } }, factDates: { CGUS: { assets: '9/25/26' } } });
+      expect((await meta('CGUS')).aum).toMatchObject({ value: 12_000_000_000, asOfDate: 'Sep 25 2026' });
     });
   });
 
