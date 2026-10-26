@@ -474,7 +474,7 @@ describe('parsing 2', () => {
     const filing = parseNportFiling(xml);
     expect([filing.seriesId, filing.repPdDate, filing.netAssets, filing.positions.length]).toEqual(['S000068402', '2026-06-30', 87_850_000_000, 3]);
     const tickers = nportTickers(filing.positions, parseSecCompanyNames({ 0: { ticker: 'AAPL', title: 'Apple Inc.' }, 1: { ticker: 'T', title: 'AT&T INC.' } }));
-    expect(tickers.slice(0, 2)).toEqual(['AAPL', 'WFC']); // the reader gives the preferred its filed common-stock ticker
+    expect(tickers.slice(0, 2)).toEqual(['AAPL', '']); // the shared block keeps the filed common-stock ticker off the preferred (Q31)
     const sheet = nportHoldingsSheet(filing, tickers);
     expect(sheet.headers).toEqual(['Name', 'Ticker', 'Identifier', 'Weight', 'Market Value', 'Shares Held', 'Asset Category']);
     expect(sheet.rows[0]).toEqual({ Name: 'Apple Inc', Ticker: 'AAPL', Identifier: '037833100', Weight: '8.24', 'Market Value': '26312454069.9', 'Shares Held': '124827810', 'Asset Category': 'EC' });
