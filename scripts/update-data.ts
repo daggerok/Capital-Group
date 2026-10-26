@@ -1136,6 +1136,22 @@ export function parseNport(xml: string): ParsedNport {
   };
 }
 
+// A registrant files one N-PORT-P per series, and the registrant-submissions and
+// full-text-search paths return the trust's newest filing, not necessarily this
+// fund's: a filing is used only when its series id equals the fund's SEC series
+// id, or, when no series id is known, its series name matches the fund name:
+// exactly after normalization, or (fallback, with a warning) one name contains the other.
+export function nportBelongsToFund(parsed: Pick<ParsedNport, 'seriesId' | 'seriesName'>, seriesId: string, fundName: string, warn: (message: string) => void = console.warn): boolean {
+  if (seriesId) return parsed.seriesId.toUpperCase() === seriesId.toUpperCase();
+  const filed = normalizeHoldingName(parsed.seriesName);
+  const wanted = normalizeHoldingName(fundName);
+  if (!filed || !wanted) return false;
+  if (filed === wanted) return true;
+  if (!filed.includes(wanted) && !wanted.includes(filed)) return false;
+  warn(`[ edgar    ] N-PORT series "${parsed.seriesName}" matches "${fundName}" only partially (no series id known); used`);
+  return true;
+}
+
 // EDGAR full-text search maps a fund ticker to the registrant that filed its
 // N-PORT-P, so the fallback works for every Capital Group ETF without a hand-kept
 // CIK table.
@@ -1150,7 +1166,7 @@ export function eftsSearchUrl(query: string): string {
   return `${SEC_EFTS_HOST}/search-index?${params.toString()}`;
 }
 
-export function pickEftsCik(payload: JsonRecord, fundName: string): string | null {
+export function pickEftsCik(payload: JsonRecord, fundName: string, warn: (message: string) => void = console.warn): string | null {
   // EDGAR returns { hits: { hits: [...] } }; older/simplified payloads (and the
   // unit-test fixtures) use a flat { hits: [...] } array.
   const hits: unknown[] = Array.isArray(payload?.hits)
@@ -1159,6 +1175,10 @@ export function pickEftsCik(payload: JsonRecord, fundName: string): string | nul
       ? ((payload.hits as JsonRecord).hits as unknown[])
       : [];
   const wanted = normalizeHoldingName(fundName);
+  // An exact normalized-name match wins over earlier hits; otherwise the first hit that the old rule accepted
+  // (a name that contains or is contained in the fund name, or a hit without names) is used, with a warning
+  // when it was only a partial name match.
+  let fallback: { cik: string; partialName: string } | null = null;
   for (const raw of hits) {
     if (!raw || typeof raw !== 'object') continue;
     const hit = raw as JsonRecord;
@@ -1176,15 +1196,16 @@ export function pickEftsCik(payload: JsonRecord, fundName: string): string | nul
     const cik = rawCik.replace(/\D/g, '').padStart(10, '0');
     if (!cik || cik === '0000000000') continue;
     if (wanted && names.length) {
-      const matched = names.some((name) => {
-        const normalized = normalizeHoldingName(name.replace(/\(CIK\s*\d+\)/i, ''));
-        return normalized && (wanted.includes(normalized) || normalized.includes(wanted));
-      });
-      if (!matched) continue;
+      const normalizedNames = names.map((name) => normalizeHoldingName(name.replace(/\(CIK\s*\d+\)/i, ''))).filter(Boolean);
+      if (normalizedNames.includes(wanted)) return cik;
+      const near = normalizedNames.find((normalized) => wanted.includes(normalized) || normalized.includes(wanted));
+      if (near) fallback ??= { cik, partialName: near };
+      continue;
     }
-    return cik;
+    fallback ??= { cik, partialName: '' };
   }
-  return null;
+  if (fallback?.partialName) warn(`[ edgar    ] full-text search: "${fallback.partialName}" matches "${fundName}" only partially; using CIK ${fallback.cik}`);
+  return fallback?.cik ?? null;
 }
 
 // ---------------------------------------------------------------------------
@@ -2171,12 +2192,7 @@ async function processFund(
         const parsed = parseNport(await fetchText(filing.accession.url, `[ nport    ] ${ticker}`, secHeaders(config), config));
         // A registrant files one N-PORT-P per series: only accept the document
         // that really belongs to this fund, never the trust's newest filing.
-        const filedSeries = normalizeHoldingName(parsed.seriesName);
-        const wantedSeries = normalizeHoldingName(fund.name);
-        const belongsToFund = filing.seriesId
-          ? parsed.seriesId.toUpperCase() === filing.seriesId.toUpperCase()
-          : Boolean(filedSeries && wantedSeries && (filedSeries === wantedSeries || filedSeries.includes(wantedSeries) || wantedSeries.includes(filedSeries)));
-        if (!belongsToFund) {
+        if (!nportBelongsToFund(parsed, filing.seriesId, fund.name)) {
           outputNote(`[ edgar    ] ${ticker}: ${filing.accession.accession} reports "${parsed.seriesName || 'unknown series'}" — skipped`);
         } else if (previousHoldingsAsOf && (!parsed.repPdDate || toIsoDate(parsed.repPdDate) <= previousHoldingsAsOf)) {
           // An N-PORT report is at most a quarter old: it never replaces holdings that are newer than its period.
