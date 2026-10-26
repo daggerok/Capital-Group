@@ -13,7 +13,7 @@ import {
   withRequestLane, workbookRows, writePages, removeStalePages,
   runUpdater, setApiRoot, writeFileAtomic, writeIfChanged, mergeHistoryRows, ageGuardReturns, isoStamp, readCursorScopes, writeCursorScope,
   loadFundTickerMap, resetSecTableCaches, RUN_SOFT_DEADLINE_MS,
-  formatIssuerDate, holdingsGuard, normalizeNumberText, numberOrNull, formatEdgarDate, toIsoDate, isoToEpoch, parseRange, parseAumRange, HISTORY_HEADERS, YAHOO_HISTORY_HEADERS, navTotalReturnDays, normalizeHoldingName, normalizeHoldingNameCore, cleanHoldingTicker, nportUrlFor, parseNportAccessions, parseFundTickerMap, parseCompanyTickerMap, edgarSeriesFilingsUrl, parseEdgarAtomFilings, parseNport, pickEftsCik, parseChart, annualizedToTotal, totalToAnnualized, indicatedYield, inferDistributionFrequency, priceReturns, lastCompletedQuarterEnd, deriveCatalogMetrics, returnsBasisLabel, performanceAsOf, dividendYieldBasisFromKind, normalizeYieldBasis, DIVIDEND_YIELD_BASES,
+  formatIssuerDate, holdingsGuard, normalizeNumberText, numberOrNull, formatEdgarDate, toIsoDate, isoToEpoch, parseRange, parseAumRange, HISTORY_HEADERS, YAHOO_HISTORY_HEADERS, navTotalReturnDays, normalizeHoldingName, normalizeHoldingNameCore, cleanHoldingTicker, nportUrlFor, parseNportAccessions, parseFundTickerMap, parseCompanyTickerMap, edgarSeriesFilingsUrl, parseEdgarAtomFilings, parseNport, pickEftsCik, nportBelongsToFund, parseChart, annualizedToTotal, totalToAnnualized, indicatedYield, inferDistributionFrequency, priceReturns, lastCompletedQuarterEnd, deriveCatalogMetrics, returnsBasisLabel, performanceAsOf, dividendYieldBasisFromKind, normalizeYieldBasis, DIVIDEND_YIELD_BASES,
 } from './update-data';
 
 // ---------------------------------------------------------------------------
@@ -472,6 +472,21 @@ describe('parsing', () => {
       { _source: { ciks: ['0001667919'], display_names: ['FIRST TRUST EXCHANGE-TRADED FUND VIII  (CIK 0001667919)'] } },
       { _source: { ciks: ['0001870102'], display_names: ['CAPITAL GROUP EXCHANGE-TRADED FUND TRUST  (CIK 0001870102)'] } }] } };
     expect(pickEftsCik(real, 'Capital Group Exchange-Traded Fund Trust')).toBe('0001870102');
+    // without a series id: an exact normalized name is silent and wins over an earlier partial hit; a partial match alone warns
+    const warnings: string[] = [];
+    const warn = (message: string) => { warnings.push(message); };
+    const cgus = 'Capital Group Core Equity ETF';
+    expect(nportBelongsToFund({ seriesId: 'S000099999', seriesName: cgus }, 'S000068402', cgus, warn)).toBe(false); // the series id decides
+    expect(nportBelongsToFund({ seriesId: '', seriesName: 'CAPITAL GROUP CORE EQUITY ETF' }, '', cgus, warn)).toBe(true);
+    expect(nportBelongsToFund({ seriesId: '', seriesName: 'Capital Group Dividend Value ETF' }, '', cgus, warn)).toBe(false);
+    expect(warnings).toHaveLength(0);
+    expect(nportBelongsToFund({ seriesId: '', seriesName: 'Capital Group Core Equity ETF II' }, '', cgus, warn)).toBe(true);
+    expect(warnings).toHaveLength(1);
+    const partialHit = { _source: { display_names: ['Capital Group Core Equity ETF II  (CIK 0000000111)'] } };
+    expect(pickEftsCik({ hits: [partialHit, { _source: { display_names: [`${cgus}  (CIK 0001870102)`] } }] }, cgus, warn)).toBe('0001870102');
+    expect(warnings).toHaveLength(1);
+    expect(pickEftsCik({ hits: [partialHit] }, cgus, warn)).toBe('0000000111');
+    expect(warnings).toHaveLength(2);
     const map = parseFundTickerMap({ fields: ['cik', 'seriesId', 'classId', 'symbol'], data: [[1870102, 'S000068402', 'C000218810', 'CGUS'], [1870102, 'S000061995', 'C000200806', 'cgmu'], [0, 'S000000000', 'C000000000', 'ZZZ']] });
     expect(map.get('CGUS')).toEqual({ cik: '0001870102', seriesId: 'S000068402', classId: 'C000218810' });
     expect(map.get('CGMU')?.seriesId).toBe('S000061995'); expect(map.has('ZZZ')).toBe(false);
