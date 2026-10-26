@@ -7,7 +7,7 @@ import { join } from 'node:path';
 import { deflateRawSync } from 'node:zlib';
 import type { DividendYieldBasis } from './update-data';
 import {
-  CONTROL_NAMES, createRequestGate, createRequestQueue, fetchWithRetry, issuerFrequency, issuerPricesUrl, parseIssuerCatalog,
+  CLOSED_FUNDS, CONTROL_NAMES, closedFund, createRequestGate, createRequestQueue, fetchWithRetry, issuerFrequency, issuerPricesUrl, parseIssuerCatalog,
   parseIssuerDistributions, parseIssuerFacts, parseIssuerFlight, parseIssuerHoldings, parseIssuerPrices, parseIssuerReturns,
   readConfig, resolveControls, installSystemCa, isCertError, retainUnavailable, samePublishedContent, sourceDate, sourceNumber, unzipIssuerWorkbook,
   withRequestLane, workbookRows, writePages, removeStalePages,
@@ -433,7 +433,9 @@ describe('parsing', () => {
     expect(HISTORY_HEADERS).toEqual(['Date', 'NAV', 'Market Price', 'Premium/Discount']);
     expect(YAHOO_HISTORY_HEADERS).toEqual(['Date', 'Close', 'Adj Close', 'Volume']);
   });
+});
 
+describe('parsing 2', () => {
   test('holdings guard: header-only, renamed weight column, broken weights, a bad weight sum and a halved sheet are rejected', () => {
     const headers = ['Name', 'Ticker', 'Weight'];
     const rows = [{ Name: 'A', Ticker: 'A', Weight: '60%' }, { Name: 'B', Ticker: 'B', Weight: '40%' }];
@@ -614,6 +616,11 @@ describe('metrics', () => {
       expect(label.length).toBeGreaterThan(10); expect(label).not.toBe('-'); expect(label.includes('Yahoo')).toBe(yahoo);
     }
   });
+});
+
+describe('metrics 2', () => {
+  const noOfficial = { ytd: null, yr1: null, yr3: null, yr5: null, yr10: null, sinceInception: null };
+  const noDerived = { asOfDate: '2026-09-25', ytd: null, yr1: null, cagr3y: null, cagr5y: null, cagr10y: null, siAnn: null, mo1: null, qtd: null };
 
   test('dividendYieldBasis: code per yield source, null with a null yield, one key set on fresh, rebuilt and placeholder rows', () => {
     const none = { ...noDerived };
@@ -799,7 +806,9 @@ describe('pipeline', () => {
       expect(stored.holdings.source).toContain('SEC EDGAR Form N-PORT-P'); expect(stored.holdings.asOfDate).toBe('2026-08-31');
     });
   });
+});
 
+describe('pipeline 2', () => {
   test('issuer facts never go backward: an older fund page keeps the published AUM, SEC yield and returns, a newer one wins', async () => {
     await withFeed({}, async ({ run, dir, meta }) => {
       await run({ TICKERS: 'CGUS' });
@@ -832,6 +841,51 @@ describe('pipeline', () => {
     });
   });
 
+  test('a closed fund is never fetched or reported failed: its files stay as published, its index row says closed, a rerun writes nothing', async () => {
+    const entry = { ticker: 'CGCP', closed: '2026-10-01', source: 'https://www.sec.gov/Archives/edgar/data/1/notice.htm' };
+    expect(() => closedFund([{ ...entry, closed: 'soon' }], 'CGCP')).toThrow('CLOSED_FUNDS');
+    expect(closedFund([entry], 'cgcp')).toEqual(entry);
+    await withFeed({ catalog: ['CGUS', 'CGCP', 'CGMU'] }, async ({ run, dir, row }) => {
+      await run({});
+      const fundFiles = async () => (await snapshot(dir)).filter(([path]) => path.includes('/funds/CGCP/'));
+      const first = await fundFiles();
+      const firstRow = await row('CGCP');
+      const calls: string[] = [];
+      const broken = HOLDINGS_ROWS.map((cells, index) => (index === 1 ? [...cells.slice(0, 7), '0.1'] : cells)); // weights add up to 16: the guard would reject them
+      const install = (catalog: string[]) => {
+        const good = globalThis.fetch;
+        globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+          const url = String(input); calls.push(url);
+          if (url.endsWith('exchange-traded-funds.html')) return new Response(catalog.map((ticker) => `<a href="/advisor/investments/exchange-traded-funds/details/${ticker.toLowerCase()}">${ticker}</a>`).join(''));
+          return url.includes('/download/daily-holdings') && /cgcp/i.test(url) ? new Response(new Uint8Array(holdingsWorkbook('CGCP', broken))) : good(input, init);
+        }) as unknown as typeof fetch;
+      };
+      install(['CGUS', 'CGCP', 'CGMU']);
+      CLOSED_FUNDS.push(entry);
+      try {
+        const report = await run({ TICKERS: 'CGCP' });
+        expect(calls.filter((url) => /cgcp/i.test(url))).toEqual([]);
+        expect([report.failed, report.skipped, report.selected, report.exitCode]).toEqual([[], [], [], 0]);
+        expect(await fundFiles()).toEqual(first);
+        const rows = JSON.parse(await readFile(join(dir, 'index.json'), 'utf8')).funds;
+        expect(rows.map((fund: any) => fund.ticker)).toEqual(['CGCP', 'CGMU', 'CGUS']);
+        expect(rows.filter((fund: any) => fund.status === 'closed')).toHaveLength(1);
+        expect(await row('CGCP')).toEqual({ ...firstRow, status: 'closed', closedDate: '2026-10-01', closedSource: entry.source, dataFile: './funds/CGCP/meta.json' });
+        const closed = await snapshot(dir);
+        await Bun.sleep(20); // any rewrite would move the mtime
+        install(['CGUS', 'CGMU']); // the live catalog drops the closed fund: its row and files stay, TICKERS still accepts it
+        expect((await run({ TICKERS: 'CGCP' })).exitCode).toBe(0);
+        expect(await snapshot(dir)).toEqual(closed);
+        const full = await run({}); // a full rerun refreshes the open funds with the same data: zero diff
+        expect([full.selected, full.failed, full.exitCode]).toEqual([['CGMU', 'CGUS'], [], 0]);
+        expect(await snapshot(dir)).toEqual(closed);
+        expect(calls.filter((url) => /cgcp/i.test(url))).toEqual([]);
+      } finally {
+        CLOSED_FUNDS.splice(CLOSED_FUNDS.indexOf(entry), 1);
+      }
+    });
+  });
+
   test('history is never replaced by a different source or truncated', async () => {
     await withFeed({ historyDays: 900 }, async ({ run, meta, dir }) => {
       await run({ TICKERS: 'CGUS' });
@@ -859,7 +913,9 @@ describe('pipeline', () => {
     expect(mergeHistoryRows(previous, ['Date', 'Close'], ['Date', 'NAV'], [{ Date: 'Jun 01 2026', NAV: '3' }])).toHaveLength(1);
     expect(mergeHistoryRows([], [], ['Date'], [{ Date: 'Jun 01 2026' }])).toHaveLength(1);
   });
+});
 
+describe('pipeline 3', () => {
   test('retention helpers and writes: real zero is kept, writes are atomic, stale pages go last', async () => {
     expect(retainUnavailable({ yields: { secYield: null, dividendYield: 0 }, name: '—' }, { yields: { secYield: 3, dividendYield: 4 }, name: 'Fund' })).toEqual({ yields: { secYield: 3, dividendYield: 0 }, name: 'Fund' });
     expect(samePublishedContent(JSON.stringify({ generatedAt: 'old', source: { catalogReadAt: 'old', value: 0 } }), { generatedAt: 'new', source: { catalogReadAt: 'new', value: 0 } })).toBe(true);
