@@ -11,9 +11,10 @@ import {
   parseIssuerDistributions, parseIssuerFacts, parseIssuerFlight, parseIssuerHoldings, parseIssuerPrices, parseIssuerReturns,
   readConfig, resolveControls, installSystemCa, isCertError, retainUnavailable, samePublishedContent, sourceDate, sourceNumber, unzipIssuerWorkbook,
   withRequestLane, workbookRows, writePages, removeStalePages,
-  runUpdater, setApiRoot, writeFileAtomic, writeIfChanged, mergeHistoryRows, ageGuardReturns, isoStamp, readCursorScopes, writeCursorScope,
-  loadFundTickerMap, resetSecTableCaches, RUN_SOFT_DEADLINE_MS,
-  formatIssuerDate, holdingsGuard, normalizeNumberText, numberOrNull, formatEdgarDate, toIsoDate, isoToEpoch, parseRange, parseAumRange, HISTORY_HEADERS, YAHOO_HISTORY_HEADERS, navTotalReturnDays, normalizeHoldingName, normalizeHoldingNameCore, cleanHoldingTicker, nportUrlFor, parseNportAccessions, parseFundTickerMap, parseCompanyTickerMap, edgarSeriesFilingsUrl, parseEdgarAtomFilings, parseNport, pickEftsCik, nportBelongsToFund, parseChart, annualizedToTotal, totalToAnnualized, indicatedYield, inferDistributionFrequency, priceReturns, lastCompletedQuarterEnd, deriveCatalogMetrics, returnsBasisLabel, performanceAsOf, dividendYieldBasisFromKind, normalizeYieldBasis, DIVIDEND_YIELD_BASES,
+  runUpdater, setApiRoot, writeFileAtomic, writeIfChanged, isoStamp, readCursorScopes, writeCursorScope,
+  loadFundTickerTable, resetSecState, RUN_SOFT_DEADLINE_MS, HOLDINGS_GUARD_RELAX, holdingsWeightCount, issuerHoldingTicker,
+  nportHoldingsSheet, nportIsFresh, nportTickers, parseNportFiling, parseSecCompanyNames, parseSecFundTickers,
+  formatIssuerDate, holdingsGuard, normalizeNumberText, numberOrNull, formatEdgarDate, toIsoDate, isoToEpoch, parseRange, parseAumRange, HISTORY_HEADERS, YAHOO_HISTORY_HEADERS, navTotalReturnDays, normalizeHoldingName, pickEftsCik, parseChart, annualizedToTotal, totalToAnnualized, indicatedYield, inferDistributionFrequency, priceReturns, lastCompletedQuarterEnd, deriveCatalogMetrics, returnsBasisLabel, performanceAsOf, dividendYieldBasisFromKind, normalizeYieldBasis, DIVIDEND_YIELD_BASES,
 } from './update-data';
 
 // ---------------------------------------------------------------------------
@@ -147,7 +148,7 @@ type Knobs = {
   historyDays?: number;
   yahooDays?: number;
   holdingsDate?: string;
-  nport?: { repPdDate: string } | null;
+  nport?: { repPdDate: string; noWeights?: boolean } | null;
   secDelayMs?: number;
 };
 const mockDays = (count: number): string[] => Array.from({ length: count }, (_, index) => new Date(Date.parse('2026-09-25T00:00:00Z') - (count - 1 - index) * 86_400_000).toISOString().slice(0, 10));
@@ -201,19 +202,21 @@ function installIssuerMock(knobs: Knobs = {}): () => void {
     if (url.includes('query1.finance.yahoo.com/v8/finance/chart')) {
       if (dead.has('yahoo')) return gone();
       const dayList = mockDays(knobs.yahooDays ?? 300);
-      return Response.json({ chart: { result: [{ timestamp: dayList.map((day) => Math.floor(Date.parse(`${day}T00:00:00Z`) / 1000)), indicators: { quote: [{ close: dayList.map((_, index) => 40 + index * 0.01), volume: dayList.map(() => 1) }], adjclose: [{ adjclose: dayList.map((_, index) => 40 + index * 0.01) }] }, events: {}, meta: { regularMarketPrice: 44, exchangeName: 'NYSE', firstTradeDate: 1645488000 } }], error: null } });
+      const price = (day: string) => Math.round((40 + (Date.parse(`${day}T00:00:00Z`) - Date.parse('2024-01-01T00:00:00Z')) / 86_400_000 * 0.01) * 100) / 100;
+      return Response.json({ chart: { result: [{ timestamp: dayList.map((day) => Math.floor(Date.parse(`${day}T00:00:00Z`) / 1000)), indicators: { quote: [{ close: dayList.map(price), volume: dayList.map(() => 1) }], adjclose: [{ adjclose: dayList.map(price) }] }, events: {}, meta: { regularMarketPrice: 44, exchangeName: 'NYSE', firstTradeDate: 1645488000 } }], error: null } });
     }
     if (url.includes('company_tickers_mf.json')) {
       count('company_tickers_mf');
       await Bun.sleep(knobs.secDelayMs ?? 0);
       return Response.json({ fields: ['cik', 'seriesId', 'classId', 'symbol'], data: [[1870102, 'S000068402', 'C000218810', ticker || 'CGUS']] });
     }
-    if (url.includes('company_tickers.json')) return Response.json({});
+    if (url.includes('company_tickers.json')) return Response.json({ 0: { ticker: 'AAPL', title: 'Apple Inc.' }, 1: { ticker: 'MSFT', title: 'MICROSOFT CORP' } });
+    if (url.includes('data.sec.gov/submissions/')) return gone();
     if (url.includes('browse-edgar')) {
       return knobs.nport ? new Response(`<feed><entry><accession-number>0001870102-26-000001</accession-number><filing-date>${knobs.nport.repPdDate}</filing-date><filing-href>https://www.sec.gov/Archives/edgar/data/1870102/000187010226000001/0001870102-26-000001-index.htm</filing-href><filing-type>NPORT-P</filing-type></entry></feed>`) : gone();
     }
     if (url.endsWith('primary_doc.xml') && knobs.nport) {
-      return new Response(`<nportRegDoc><genInfo><regName>Capital Group Exchange-Traded Fund Trust</regName><regCik>0001870102</regCik><seriesName>Capital Group Core Equity ETF</seriesName><seriesId>S000068402</seriesId><repPdDate>${knobs.nport.repPdDate}</repPdDate></genInfo><invstOrSec><name>Apple Inc</name><cusip>037833100</cusip><balance>10</balance><valUSD>1000</valUSD><pctVal>45</pctVal><assetCat>EC</assetCat></invstOrSec><invstOrSec><name>Microsoft Corp</name><cusip>594918104</cusip><balance>5</balance><valUSD>700</valUSD><pctVal>30</pctVal><assetCat>EC</assetCat></invstOrSec><invstOrSec><name>Amazon.com Inc</name><cusip>023135106</cusip><balance>4</balance><valUSD>400</valUSD><pctVal>20</pctVal><assetCat>EC</assetCat></invstOrSec></nportRegDoc>`);
+      return new Response(`<nportRegDoc><genInfo><regName>Capital Group Exchange-Traded Fund Trust</regName><regCik>0001870102</regCik><seriesName>Capital Group Core Equity ETF</seriesName><seriesId>S000068402</seriesId><repPdDate>${knobs.nport.repPdDate}</repPdDate></genInfo>${[['Apple Inc', '037833100', '10', '1000', '45'], ['Microsoft Corp', '594918104', '5', '700', '30'], ['Amazon.com Inc', '023135106', '4', '', '20']].map(([name, cusip, balance, value, weight]) => `<invstOrSec><name>${name}</name><cusip>${cusip}</cusip><balance>${balance}</balance>${value ? `<valUSD>${value}</valUSD>` : ''}${knobs.nport?.noWeights ? '' : `<pctVal>${weight}</pctVal>`}<curCd>USD</curCd><assetCat>EC</assetCat></invstOrSec>`).join('')}</nportRegDoc>`);
     }
     throw new Error(`unexpected request: ${url}`);
   }) as typeof fetch;
@@ -385,6 +388,15 @@ describe('parsing', () => {
     expect(isoStamp(new Date('2026-10-03T04:05:06.789Z'))).toBe('2026-10-03T04:05:06Z');
   });
 
+  test('dates: month-name and U.S. dates are the same calendar day in every time zone', () => {
+    for (const tz of ['Asia/Tokyo', 'America/Los_Angeles', 'UTC']) {
+      process.env.TZ = tz;
+      expect(['Oct 24, 2026', 'October 24 2026', 'Oct 24 2026', '10/24/2026', '2026-10-24T00:00:00Z'].map((raw) => toIsoDate(raw))).toEqual(Array(5).fill('2026-10-24'));
+      expect([sourceDate('10/24/26'), sourceDate('Oct 24 2026'), sourceDate('02/30/2026')]).toEqual(['2026-10-24', '2026-10-24', null]);
+      expect(toIsoDate('not a date')).toBe('not a date');
+    }
+  });
+
   test('issuer catalog, Flight payload, fund facts and returns', () => {
     expect(parseIssuerCatalog('<a href="/advisor/investments/exchange-traded-funds/details/cgus">CGUS</a><a href="/advisor/investments/exchange-traded-funds/details/cgcp">CGCP</a><a href="/advisor/investments/exchange-traded-funds/details/cgus">again</a>')).toEqual(['CGCP', 'CGUS']);
     expect(() => parseIssuerCatalog('<title>American Funds</title>')).toThrow('no fund links');
@@ -413,7 +425,7 @@ describe('parsing', () => {
     expect(parsed.asOfDate).toBe('2026-09-24'); expect(parsed.rows.length).toBe(3);
     expect(parsed.rows[0].Ticker).toBe('AMZN'); expect(parsed.rows[0].Weight).toBe('87.62'); expect(parsed.rows[0].Identifier).toBe('023135106');
     expect(parsed.rows.find((r) => r.Ticker === 'MSFT')?.Identifier).toBe('594918104');
-    expect(parsed.rows.find((r) => r.Name === 'Cash')?.Ticker).toBe('');
+    expect(parsed.rows.find((r) => r.Name === 'Cash')?.Ticker).toBe('-');
     expect(parseIssuerHoldings(book, 'CGUS')).toEqual(parsed);
     expect(() => parseIssuerHoldings(book, 'CGCP')).toThrow('mismatch');
     expect(() => unzipIssuerWorkbook(book.subarray(0, 100))).toThrow();
@@ -451,66 +463,64 @@ describe('parsing 2', () => {
     expect(holdingsGuard(headers, rows, 5)).toContain('less than half');
   });
 
-  test('SEC and EDGAR: N-PORT positions, submissions, EFTS, ticker tables and series feed', () => {
-    const parsed = parseNport(`
-      <nportRegDoc><genInfo><regName>Capital Group Exchange-Traded Fund Trust</regName><regCik>0001870102</regCik>
-      <seriesName>Capital Group Core Equity ETF</seriesName><seriesId>S000068402</seriesId>
-      <repPdDate>2026-06-30</repPdDate></genInfo>
-      <invstOrSec><name>Apple Inc</name><cusip>037833100</cusip><balance>124827810</balance>
-      <valUSD>26312454069.90</valUSD><pctVal>8.24</pctVal><assetCat>EC</assetCat></invstOrSec>
-      <invstOrSec><title>US TREASURY 4.125% 05/15/2028</title>
-      <identifiers><cusip value="912810H80"/></identifiers><balance>5000000</balance>
-      <valUSD>5100000</valUSD><pctVal>2.5</pctVal><assetCat>OB</assetCat></invstOrSec>
-      </nportRegDoc>`);
-    expect(parsed.seriesName).toBe('Capital Group Core Equity ETF'); expect(parsed.regCik).toBe('0001870102'); expect(parsed.repPdDate).toBe('2026-06-30');
-    expect(parsed.holdings.length).toBe(2); expect(parsed.holdings[0].Identifier).toBe('037833100'); expect(parsed.holdings[0].Ticker).toBe('-');
-    expect(parsed.holdings[1].Identifier).toBe('912810H80'); expect(parsed.holdings[1].Name).toBe('US TREASURY 4.125% 05/15/2028');
-    expect(parsed.totalValue).toBeCloseTo(26317554069.9, 1); expect(parsed.netAssets).toBeNull();
-    expect(parseNport('<genInfo><seriesName>X</seriesName></genInfo><fundInfo><totAssets>9</totAssets><netAssets>87850000000.00</netAssets></fundInfo>').netAssets).toBe(87850000000);
-    expect(parseNport('<invstOrSec><name>FUND X</name><cusip>N/A</cusip><identifiers><other value="XSCUSIP1"/></identifiers><valUSD>10</valUSD></invstOrSec>').holdings[0].Identifier).toBe('XSCUSIP1');
-    expect(parseNport('<genInfo><seriesName>Empty</seriesName></genInfo>')).toMatchObject({ holdings: [], totalValue: 0 });
-    const accessions = parseNportAccessions({ cik: '913760', filings: { recent: {
-      form: ['NPORT-P', '13F-HR', 'NPORT-P'], accessionNumber: ['0000913760-26-000111', '0000913760-26-000112', '0000913760-26-000113'],
-      filingDate: ['2026-07-21', '2026-08-10', '2026-04-21'], reportDate: ['2026-06-30', '2026-06-30', '2026-03-31'] } } });
-    expect(accessions.map((entry) => entry.accession)).toEqual(['0000913760-26-000111', '0000913760-26-000113']);
-    expect(accessions[0].url).toBe(nportUrlFor('0000913760', '0000913760-26-000111'));
+  test('SEC EDGAR fallback (shared nport-reader): ticker table, N-PORT sheet with the brand headers, empty missing numbers, tickers only on U.S. common stock', () => {
+    const map = parseSecFundTickers({ fields: ['cik', 'seriesId', 'classId', 'symbol'], data: [[1870102, 'S000068402', 'C000218810', 'CGUS'], [1870102, 'S000061995', 'C000200806', 'cgmu']] });
+    expect(map.get('CGUS')).toEqual({ cik: '0001870102', seriesId: 'S000068402', classId: 'C000218810' });
+    expect(map.get('CGMU')?.seriesId).toBe('S000061995');
+    const xml = `<edgarSubmission><genInfo><regName>Capital Group Exchange-Traded Fund Trust</regName><regCik>0001870102</regCik><seriesName>Capital Group Core Equity ETF</seriesName><seriesId>S000068402</seriesId><repPdDate>2026-06-30</repPdDate></genInfo><fundInfo><netAssets>87850000000.00</netAssets></fundInfo>
+<invstOrSec><name>Apple Inc</name><cusip>037833100</cusip><identifiers><isin value="US0378331005"/></identifiers><balance>124827810.00000000</balance><curCd>USD</curCd><valUSD>26312454069.90</valUSD><pctVal>8.24</pctVal><assetCat>EC</assetCat></invstOrSec>
+<invstOrSec><name>Wells Fargo &amp; Co</name><cusip>949746804</cusip><identifiers><ticker value="WFC"/></identifiers><balance>1000</balance><curCd>USD</curCd><valUSD>1200000</valUSD><pctVal>0.4</pctVal><assetCat>EP</assetCat></invstOrSec>
+<invstOrSec><title>US TREASURY 4.125% 05/15/2028</title><cusip>912810H80</cusip><identifiers><ticker value="T"/></identifiers><balance>5000000</balance><curCd>USD</curCd><valUSD>5100000</valUSD><assetCat>DBT</assetCat><debtSec><maturityDt>2028-05-15</maturityDt><annualizedRt>4.125</annualizedRt></debtSec></invstOrSec></invstOrSecs></edgarSubmission>`;
+    const filing = parseNportFiling(xml);
+    expect([filing.seriesId, filing.repPdDate, filing.netAssets, filing.positions.length]).toEqual(['S000068402', '2026-06-30', 87_850_000_000, 3]);
+    const tickers = nportTickers(filing.positions, parseSecCompanyNames({ 0: { ticker: 'AAPL', title: 'Apple Inc.' }, 1: { ticker: 'T', title: 'AT&T INC.' } }));
+    expect(tickers.slice(0, 2)).toEqual(['AAPL', 'WFC']); // the reader gives the preferred its filed common-stock ticker
+    const sheet = nportHoldingsSheet(filing, tickers);
+    expect(sheet.headers).toEqual(['Name', 'Ticker', 'Identifier', 'Weight', 'Market Value', 'Shares Held', 'Asset Category']);
+    expect(sheet.rows[0]).toEqual({ Name: 'Apple Inc', Ticker: 'AAPL', Identifier: '037833100', Weight: '8.24', 'Market Value': '26312454069.9', 'Shares Held': '124827810', 'Asset Category': 'EC' });
+    // the preferred keeps no ticker (WFC is the common stock), the Treasury no "T" and an empty weight, never 0
+    expect(sheet.rows.slice(1).map((row) => [row.Ticker, row.Identifier, row.Weight])).toEqual([['-', '949746804', '0.4'], ['-', '912810H80', '']]);
+    // freshness: a report replaces published holdings only when strictly newer; nothing published accepts any report
+    expect(nportIsFresh('2026-06-30', '2026-09-24', 2504)).toBe(false);
+    expect(nportIsFresh('2026-09-24', '2026-09-24', 2504)).toBe(false);
+    expect(nportIsFresh('2026-06-30', '2026-03-31', 100)).toBe(true);
+    expect(nportIsFresh('2026-06-30', null, 0)).toBe(true);
+    expect(nportIsFresh('2026-06-30', null, 100)).toBe(false); // published rows without a date cannot be compared: keep them
+    // funds missing from SEC's fund ticker table: the EDGAR full-text search names the registrant, an exact name wins
     const efts = { hits: [{ _source: { display_names: { cik: 12345, names: ['Some Other Trust'] } } }, { _source: { display_names: { cik: 1870102, names: ['Capital Group Core Equity ETF', 'CAPITAL GROUP EXCHANGE-TRADED FUND TRUST'] } } }] };
     expect(pickEftsCik(efts, 'Capital Group Core Equity ETF')).toBe('0001870102'); expect(pickEftsCik(efts, 'Unknown Fund')).toBeNull();
     const real = { hits: { total: { value: 2, relation: 'eq' }, hits: [
       { _source: { ciks: ['0001667919'], display_names: ['FIRST TRUST EXCHANGE-TRADED FUND VIII  (CIK 0001667919)'] } },
       { _source: { ciks: ['0001870102'], display_names: ['CAPITAL GROUP EXCHANGE-TRADED FUND TRUST  (CIK 0001870102)'] } }] } };
     expect(pickEftsCik(real, 'Capital Group Exchange-Traded Fund Trust')).toBe('0001870102');
-    // without a series id: an exact normalized name is silent and wins over an earlier partial hit; a partial match alone warns
     const warnings: string[] = [];
-    const warn = (message: string) => { warnings.push(message); };
     const cgus = 'Capital Group Core Equity ETF';
-    expect(nportBelongsToFund({ seriesId: 'S000099999', seriesName: cgus }, 'S000068402', cgus, warn)).toBe(false); // the series id decides
-    expect(nportBelongsToFund({ seriesId: '', seriesName: 'CAPITAL GROUP CORE EQUITY ETF' }, '', cgus, warn)).toBe(true);
-    expect(nportBelongsToFund({ seriesId: '', seriesName: 'Capital Group Dividend Value ETF' }, '', cgus, warn)).toBe(false);
-    expect(warnings).toHaveLength(0);
-    expect(nportBelongsToFund({ seriesId: '', seriesName: 'Capital Group Core Equity ETF II' }, '', cgus, warn)).toBe(true);
-    expect(warnings).toHaveLength(1);
     const partialHit = { _source: { display_names: ['Capital Group Core Equity ETF II  (CIK 0000000111)'] } };
-    expect(pickEftsCik({ hits: [partialHit, { _source: { display_names: [`${cgus}  (CIK 0001870102)`] } }] }, cgus, warn)).toBe('0001870102');
+    expect(pickEftsCik({ hits: [partialHit, { _source: { display_names: [`${cgus}  (CIK 0001870102)`] } }] }, cgus, (message) => warnings.push(message))).toBe('0001870102');
+    expect(pickEftsCik({ hits: [partialHit] }, cgus, (message) => warnings.push(message))).toBe('0000000111');
     expect(warnings).toHaveLength(1);
-    expect(pickEftsCik({ hits: [partialHit] }, cgus, warn)).toBe('0000000111');
-    expect(warnings).toHaveLength(2);
-    const map = parseFundTickerMap({ fields: ['cik', 'seriesId', 'classId', 'symbol'], data: [[1870102, 'S000068402', 'C000218810', 'CGUS'], [1870102, 'S000061995', 'C000200806', 'cgmu'], [0, 'S000000000', 'C000000000', 'ZZZ']] });
-    expect(map.get('CGUS')).toEqual({ cik: '0001870102', seriesId: 'S000068402', classId: 'C000218810' });
-    expect(map.get('CGMU')?.seriesId).toBe('S000061995'); expect(map.has('ZZZ')).toBe(false);
-    expect(parseFundTickerMap({}).size).toBe(0); expect(parseFundTickerMap({ fields: ['cik'], data: ['nope'] }).size).toBe(0);
-    const companies = parseCompanyTickerMap({ '0': { cik_str: 1045810, ticker: 'NVDA', title: 'NVIDIA CORP' }, '2': { cik_str: 1, ticker: '', title: 'No Ticker Inc' } });
-    expect(companies.get(normalizeHoldingName('NVIDIA Corp'))).toBe('NVDA'); expect(companies.get(normalizeHoldingName('No Ticker Inc'))).toBeUndefined();
-    const url = edgarSeriesFilingsUrl('S000060812', 5);
-    for (const part of ['https://www.sec.gov/cgi-bin/browse-edgar?', 'CIK=S000060812', 'type=NPORT-P', 'output=atom', 'count=5']) expect(url).toContain(part);
-    const atom = `<feed>
-      <entry><accession-number>0001209466-26-000952</accession-number><filing-date>2026-06-29</filing-date><filing-href>https://www.sec.gov/Archives/edgar/data/1209466/000120946626000952/0001209466-26-000952-index.htm</filing-href><filing-type>NPORT-P</filing-type></entry>
-      <entry><accession-number>0001209466-26-000514</accession-number><filing-date>2026-04-01</filing-date><filing-href>https://www.sec.gov/Archives/edgar/data/1209466/000120946626000514/0001209466-26-000514-index.htm</filing-href><filing-type>NPORT-P</filing-type></entry>
-      <entry><accession-number>0001209466-26-000001</accession-number><filing-date>2026-01-05</filing-date><filing-type>N-CEN</filing-type></entry></feed>`;
-    const filings = parseEdgarAtomFilings(atom);
-    expect(filings.map((entry) => entry.accession)).toEqual(['0001209466-26-000952', '0001209466-26-000514']);
-    expect(filings[0].url).toBe('https://www.sec.gov/Archives/edgar/data/1209466/000120946626000952/primary_doc.xml');
-    expect(parseEdgarAtomFilings('')).toEqual([]); expect(parseEdgarAtomFilings('<feed><entry><filing-type>10-K</filing-type></entry></feed>')).toEqual([]);
+  });
+
+  test('ticker hygiene: a holdings ticker only for a U.S. listing; local codes, preferred, debt and cash rows get -', () => {
+    // real capitalgroup.com rows (CGDG, CGIC, CGCP, CGCB): the XLSX names no exchange, only ISIN, CUSIP and SEDOL
+    const row = (ticker: string, name: string, isin: string, cusip: string, sedol: string, asset = 'Equity') => issuerHoldingTicker({ ticker, asset, name, isin, cusip, sedol });
+    expect(row('8002.0', 'MARUBENI CORP COMMON STOCK', 'JP3877600001', '656946001', '6569464')).toBe('-');
+    expect(row('AZN', 'ASTRAZENECA PLC COMMON STOCK USD.25', 'GB0009895292', '098952906', '0989529')).toBe('-'); // London line, not the ADR
+    expect(row('SPIE', 'SPIE SA COMMON STOCK EUR.47', 'FR0012757854', 'BRB38F901', 'BYZFYS3')).toBe('-'); // issue number 90: internal
+    expect(row('ABI', 'ANHEUSER BUSCH INBEV SA/NV COM', 'BE0974293251', 'ACI0PX3F9', 'BYYHL23')).toBe('-');
+    expect(row('LUN', 'LUNDIN MINING CORP COMMON STOCK', 'CA5503721063', '550372957', '2866857')).toBe('-'); // Toronto line
+    expect(row('RCL', 'ROYAL CARIBBEAN CRUISES LTD COMMON STOCK', 'LR0008862868', 'V7780T103', '2754907')).toBe('RCL'); // CINS: U.S. trading
+    expect(row('TEL', 'TE CONNECTIVITY PLC COMMON STOCK', 'IE000IVNQZ81', 'G87052109', 'BRC3N84')).toBe('TEL');
+    expect(row('TSM', 'TAIWAN SEMICONDUCTOR SP ADR ADR', 'US8740391003', '874039100', '2113382')).toBe('TSM');
+    expect(row('ORCL-PD', 'ORACLE CORP PREFERRED STOCK 01/29 6.5', 'US68389X2045', '68389X204', 'BTTQ6B4')).toBe('-');
+    expect(row('CMQXX', 'CAPITAL GROUP CENTRAL CASH FUN', 'US14020B1026', '14020B102', '', 'Cash & Equivalent')).toBe('-');
+    expect(row('USZ26', 'US LONG BOND(CBT) DEC26', '', 'ADI39KYC0', '', 'Future')).toBe('-');
+    const header = [...HOLDINGS_HEADER, 'SEDOL 1'];
+    const book = zip({ 'xl/worksheets/sheet1.xml': `<worksheet><sheetData><row r="1">${cell('A1', 'CGDG - Capital Group Dividend Growers ETF As Of 10/22/2026')}</row><row r="2">${header.map((h, i) => cell(`${String.fromCharCode(65 + i)}2`, h)).join('')}</row>${[
+      ['MARUBENI CORP COMMON STOCK', '8002.0', 'JP3877600001', '6.56946001E8', 'Equity', '7.099220349E7', '2245200.0', '0.0121', '6569464.0'],
+      ['PHILIP MORRIS INTERNATIONAL COMMON STOCK', 'PM', 'US7181721090', '7.18172109E8', 'Equity', '2.4514113316E8', '1215134.0', '0.0419', 'B2PKRQ3'],
+    ].map((cells, r) => `<row r="${r + 3}">${cells.map((v, i) => cell(`${String.fromCharCode(65 + i)}${r + 3}`, v)).join('')}</row>`).join('')}</sheetData></worksheet>` }, true);
+    expect(parseIssuerHoldings(book, 'CGDG').rows.map((r) => [r.Ticker, r.Identifier])).toEqual([['PM', '718172109'], ['-', '656946001']]);
   });
 
   test('Yahoo chart and holding name/ticker normalization', () => {
@@ -526,9 +536,7 @@ describe('parsing 2', () => {
     expect(normalizeHoldingName('Alphabet Inc. Class C Capital Stock')).toBe('ALPHABET CL C'); expect(normalizeHoldingName('Alphabet Inc Cl C')).toBe('ALPHABET CL C');
     expect(normalizeHoldingName('Alphabet Inc Cl A')).not.toBe(normalizeHoldingName('Alphabet Inc Cl C'));
     expect(normalizeHoldingName('Berkshire Hathaway Inc Del')).toBe('BERKSHIRE HATHAWAY'); expect(normalizeHoldingName('Berkshire Hathaway Inc Cap Stock Class A')).toBe('BERKSHIRE HATHAWAY CL A');
-    expect(normalizeHoldingName('')).toBe(''); expect(normalizeHoldingName('---')).toBe(''); expect(normalizeHoldingNameCore('Apple Inc.')).toBe('APPLE');
-    expect(cleanHoldingTicker('brk-b')).toBe('BRK-B'); expect(cleanHoldingTicker('SCE^L')).toBe('SCE^L'); expect(cleanHoldingTicker('BF/A')).toBe('BF/A');
-    for (const junk of ['', 'N/A', 'see file']) expect(cleanHoldingTicker(junk)).toBe('');
+    expect(normalizeHoldingName('')).toBe(''); expect(normalizeHoldingName('---')).toBe('');
   });
 });
 
@@ -661,11 +669,17 @@ describe('metrics 2', () => {
       expect(published.metrics.tr1y).toBe(17.8);
       expect((await meta('CGBL')).returns.monthEnd.yr3).toBeNull();
     });
-    const base = { ytd: 1, yr1: 2, yr3: 3, yr5: 4, yr10: 5, sinceInception: 6 };
-    expect(ageGuardReturns(base, '2023-09-26', '2026-08-31')).toMatchObject({ yr1: 2, yr3: null, yr5: null, yr10: null, sinceInception: 6 });
-    expect(ageGuardReturns(base, '2026-03-01', '2026-08-31')).toMatchObject({ ytd: 1, yr1: null, sinceInception: null });
-    expect(ageGuardReturns(base, '2010-01-01', '2026-08-31')).toEqual(base);
-    expect(ageGuardReturns(base, null, '2026-08-31')).toEqual(base);
+  });
+
+  test('a fund younger than one year publishes no 1y, 3y or since-inception return, official or derived from its NAV history', async () => {
+    const returns = { asOfDate: '8/31/26', navMonth1: '0.8', navYtdMonthly: '12.5', navYear1: '17.8', navYear3: '16.48', navYear5: null, navYear10: null, navLifetime: '17.69' };
+    // 400 days of NAV history: without the rule the derived 1-year and since-inception figures would fill the nulled official ones
+    await withFeed({ catalog: ['CGBL'], facts: { CGBL: { inception: '1/15/26', returns } }, historyDays: 400 }, async ({ run, row }) => {
+      await run({ TICKERS: 'CGBL' });
+      const published = await row('CGBL');
+      expect([published.metrics.ytd, published.metrics.tr1y, published.metrics.cagr3y, published.metrics.siAnn]).toEqual([12.5, null, null, null]);
+      expect([published.returns.monthEnd.yr1, published.returns.monthEnd.sinceInception]).toEqual([null, null]);
+    });
   });
 
   test('published rows: TER net/gross, no float artifacts, fresher daily NAV wins, fresh nulls stay null', async () => {
@@ -732,9 +746,9 @@ describe('pipeline', () => {
       expect(rows.every((fund: any) => fund.dataFile !== null)).toBe(true);
       expect((await readdir(join(dir, 'funds'))).sort()).toEqual(['CGCP', 'CGMU', 'CGUS']);
       const report = await run({ TICKERS: 'CGUS' }, { catalog: ['CGUS', 'CGCP', 'CGMU', 'CGXU'] });
-      expect(report.newFunds).toEqual(['CGXU']);
-      expect(await readFile(summary, 'utf8')).toContain('NEW FUNDS: CGXU');
-      await expect(run({ TICKERS: 'NOPE' })).rejects.toThrow('absent from catalog');
+      expect([report.newFunds, report.pendingFunds]).toEqual([[], ['CGXU']]);
+      expect(await readFile(summary, 'utf8')).toContain('NEW FUNDS (not published yet): CGXU');
+      await expect(run({ TICKERS: 'NOPE' })).rejects.toThrow('TICKERS: NOPE not in');
       expect(await feed()).toHaveLength(4);
     });
   });
@@ -798,12 +812,15 @@ describe('pipeline', () => {
       expect((await meta('CGUS')).holdings).toMatchObject({ source: 'Capital Group daily holdings XLSX', asOfDate: '2026-09-24' });
       expect(await read()).toEqual(before);
     });
-    await withFeed({ holdingsDate: '6/1/2026' }, async ({ run, meta }) => {
+    await withFeed({ holdingsDate: '6/1/2026' }, async ({ run, meta, dir }) => {
       await run({ TICKERS: 'CGUS' });
       const report = await run({ TICKERS: 'CGUS', EDGAR_FALLBACK: '1' }, { dead: { CGUS: ['holdings'] }, nport: { repPdDate: '2026-08-31' } });
       expect(report.failed).toEqual([]);
       const stored = await meta('CGUS');
       expect(stored.holdings.source).toContain('SEC EDGAR Form N-PORT-P'); expect(stored.holdings.asOfDate).toBe('2026-08-31');
+      const sheet = JSON.parse(await readFile(join(dir, 'funds', 'CGUS', 'holdings', '001.json'), 'utf8'));
+      expect(sheet.headers).toEqual(['Name', 'Ticker', 'Identifier', 'Weight', 'Market Value', 'Shares Held', 'Asset Category']);
+      expect(sheet.rows.map((row: any) => [row.Ticker, row.Weight, row['Market Value']])).toEqual([['AAPL', '45', '1000'], ['MSFT', '30', '700'], ['-', '20', '']]);
     });
   });
 });
@@ -908,10 +925,6 @@ describe('pipeline 2', () => {
       expect((await meta('CGUS')).history.totalRows).toBe(50);
       expect(JSON.parse(await readFile(join(dir, 'funds', 'CGUS', 'history', '001.json'), 'utf8')).headers).toEqual(['Date', 'NAV', 'Market Price', 'Premium/Discount']);
     });
-    const previous = [{ Date: 'Jan 02 2026', Close: '1' }, { Date: 'Jun 01 2026', Close: '2' }];
-    expect(mergeHistoryRows(previous, ['Date', 'Close'], ['Date', 'Close'], [{ Date: 'Jun 01 2026', Close: '3' }]).map((r) => r.Close)).toEqual(['1', '3']);
-    expect(mergeHistoryRows(previous, ['Date', 'Close'], ['Date', 'NAV'], [{ Date: 'Jun 01 2026', NAV: '3' }])).toHaveLength(1);
-    expect(mergeHistoryRows([], [], ['Date'], [{ Date: 'Jun 01 2026' }])).toHaveLength(1);
   });
 });
 
@@ -1051,6 +1064,76 @@ globalThis.fetch = async (input) => {
   }, 60000);
 });
 
+describe('pipeline 4', () => {
+  test('a HISTORY_RANGE run after a full run keeps the older history and writes nothing (Q25)', async () => {
+    // the issuer history is down on the first publication, so the Yahoo chart is the history source (later runs skip the
+    // issuer pages); a 1-year window is the tail of the full series
+    await withFeed({ dead: { CGUS: ['history'] }, yahooDays: 900 }, async ({ run, dir, meta }) => {
+      await run({ TICKERS: 'CGUS' });
+      await run({ TICKERS: 'CGUS', SKIP_ISSUER: '1' });
+      expect((await meta('CGUS')).history.totalRows).toBe(900);
+      const first = await snapshot(dir);
+      await Bun.sleep(20); // any rewrite would move the mtime
+      await run({ TICKERS: 'CGUS', SKIP_ISSUER: '1', HISTORY_RANGE: '1y' }, { yahooDays: 300 });
+      expect(await snapshot(dir)).toEqual(first);
+    });
+  });
+
+  test('a relaxed guard still keeps numeric published weights from an N-PORT sheet without weights (Q24)', async () => {
+    await withFeed({ holdingsDate: '6/1/2026' }, async ({ run, dir }) => {
+      await run({ TICKERS: 'CGUS' });
+      const before = await snapshot(dir);
+      HOLDINGS_GUARD_RELAX.CGUS = ['numeric', 'sum'];
+      try {
+        const report = await run({ TICKERS: 'CGUS', EDGAR_FALLBACK: '1' }, { dead: { CGUS: ['holdings'] }, nport: { repPdDate: '2026-08-31', noWeights: true } });
+        expect([report.failed, report.exitCode]).toEqual([['CGUS'], 1]);
+      } finally {
+        delete HOLDINGS_GUARD_RELAX.CGUS;
+      }
+      expect(await snapshot(dir)).toEqual(before);
+      expect(holdingsWeightCount(['Name', 'Weight'], [['A', '-'], ['B', '2']])).toBe(1);
+    });
+  });
+
+  test('TICKERS outside the live catalog stops the run before any fund request; a stale catalog-only row is dropped (Q27)', async () => {
+    await withFeed({ catalog: ['CGUS'] }, async ({ run, dir }) => {
+      await run({});
+      const index = JSON.parse(await readFile(join(dir, 'index.json'), 'utf8'));
+      const stale = { ...index.funds[0], ticker: 'NOPE', name: 'NOPE', dataFile: null, holdings: 0, history: 0 };
+      await writeFile(join(dir, 'index.json'), JSON.stringify({ ...index, funds: [...index.funds, stale] }));
+      const before = await snapshot(dir);
+      mockUrls.length = 0;
+      await expect(run({ TICKERS: 'NOPE' })).rejects.toThrow('TICKERS: NOPE not in the Capital Group catalog or published feed; nothing was fetched or written');
+      expect(mockUrls.filter((url) => !url.endsWith('exchange-traded-funds.html'))).toEqual([]);
+      expect(await snapshot(dir)).toEqual(before);
+      await run({});
+      expect(JSON.parse(await readFile(join(dir, 'index.json'), 'utf8')).funds.map((fund: any) => fund.ticker)).toEqual(['CGUS']);
+    });
+  });
+
+  test('NEW FUNDS announces a fund on its first successful publish, a failed new fund as not published yet (Q28)', async () => {
+    await withFeed({ catalog: ['CGUS'] }, async ({ run, dir }) => {
+      await run({});
+      process.env.GITHUB_STEP_SUMMARY = join(dir, '..', `${dir.split('/').pop()}-summary.md`);
+      const lines: string[] = [];
+      console.log = (line: unknown) => { if (/^NEW FUNDS/.test(String(line))) lines.push(String(line)); };
+      const grown = { catalog: ['CGUS', 'CGCP', 'CGMU'], dead: { CGMU: ['facts', 'holdings', 'history', 'yahoo'] } };
+      try {
+        await run({}, grown);
+        expect(lines).toEqual(['NEW FUNDS: CGCP', 'NEW FUNDS (not published yet): CGMU']);
+        expect(await readFile(process.env.GITHUB_STEP_SUMMARY, 'utf8')).toContain('### NEW FUNDS\n\nNEW FUNDS: CGCP\nNEW FUNDS (not published yet): CGMU\n');
+        lines.length = 0;
+        await run({}, grown);
+        expect(lines).toEqual([]);
+        await run({}, { catalog: grown.catalog });
+        expect(lines).toEqual(['NEW FUNDS: CGMU']);
+      } finally {
+        await rm(process.env.GITHUB_STEP_SUMMARY, { force: true });
+      }
+    });
+  });
+});
+
 // ---------------------------------------------------------------------------
 // network: pacing, timeout, bounded retries, real parallelism, request URLs (all mocked, no sockets)
 // ---------------------------------------------------------------------------
@@ -1156,10 +1239,10 @@ describe('network', () => {
   test('concurrent workers share one SEC fund-ticker request', async () => {
     const restore = installIssuerMock({ secDelayMs: 30 });
     try {
-      resetSecTableCaches();
+      resetSecState();
       const config = readConfig({ REQUEST_SLEEP: '0' });
-      const maps = await Promise.all([loadFundTickerMap(config), loadFundTickerMap(config), loadFundTickerMap(config)]);
+      const maps = await Promise.all([loadFundTickerTable(config), loadFundTickerTable(config), loadFundTickerTable(config)]);
       expect(mockCounts.get('company_tickers_mf')).toBe(1); expect(maps[0]).toBe(maps[2]);
-    } finally { restore(); resetSecTableCaches(); }
+    } finally { restore(); resetSecState(); }
   });
 });
