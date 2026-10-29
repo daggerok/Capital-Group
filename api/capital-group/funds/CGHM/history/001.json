@@ -2,7 +2,7 @@
  "ticker": "CGHM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 586,
+ "totalRows": 589,
  "headers": [
   "Date",
   "NAV",
@@ -3525,6 +3525,24 @@
    "NAV": "24.63",
    "Market Price": "24.7",
    "Premium/Discount": "0.28"
+  },
+  {
+   "Date": "Oct 26 2026",
+   "NAV": "24.7",
+   "Market Price": "24.77",
+   "Premium/Discount": "0.28"
+  },
+  {
+   "Date": "Oct 27 2026",
+   "NAV": "24.69",
+   "Market Price": "24.76",
+   "Premium/Discount": "0.27"
+  },
+  {
+   "Date": "Oct 28 2026",
+   "NAV": "24.69",
+   "Market Price": "24.75",
+   "Premium/Discount": "0.26"
   }
  ]
 }

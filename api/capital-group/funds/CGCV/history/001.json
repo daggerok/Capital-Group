@@ -2,7 +2,7 @@
  "ticker": "CGCV",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 586,
+ "totalRows": 589,
  "headers": [
   "Date",
   "NAV",
@@ -3525,6 +3525,24 @@
    "NAV": "32.97",
    "Market Price": "33",
    "Premium/Discount": "0.09"
+  },
+  {
+   "Date": "Oct 26 2026",
+   "NAV": "33.19",
+   "Market Price": "33.22",
+   "Premium/Discount": "0.11"
+  },
+  {
+   "Date": "Oct 27 2026",
+   "NAV": "33.27",
+   "Market Price": "33.3",
+   "Premium/Discount": "0.09"
+  },
+  {
+   "Date": "Oct 28 2026",
+   "NAV": "33.34",
+   "Market Price": "33.4",
+   "Premium/Discount": "0.18"
   }
  ]
 }

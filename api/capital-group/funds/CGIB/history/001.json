@@ -2,7 +2,7 @@
  "ticker": "CGIB",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 586,
+ "totalRows": 589,
  "headers": [
   "Date",
   "NAV",
@@ -3525,6 +3525,24 @@
    "NAV": "25.09",
    "Market Price": "25.1",
    "Premium/Discount": "0.04"
+  },
+  {
+   "Date": "Oct 26 2026",
+   "NAV": "25.04",
+   "Market Price": "25.1",
+   "Premium/Discount": "0.25"
+  },
+  {
+   "Date": "Oct 27 2026",
+   "NAV": "25.06",
+   "Market Price": "25.1",
+   "Premium/Discount": "0.14"
+  },
+  {
+   "Date": "Oct 28 2026",
+   "NAV": "25.04",
+   "Market Price": "25.08",
+   "Premium/Discount": "0.16"
   }
  ]
 }

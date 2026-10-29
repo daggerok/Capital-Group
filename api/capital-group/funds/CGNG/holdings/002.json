@@ -2,7 +2,7 @@
  "ticker": "CGNG",
  "page": 2,
  "pageSize": 250,
- "totalRows": 255,
+ "totalRows": 256,
  "headers": [
   "Name",
   "Ticker",
@@ -14,48 +14,57 @@
  ],
  "rows": [
   {
-   "Name": "JPY Spot FX",
-   "Ticker": "",
-   "Identifier": "JPY999999",
+   "Name": "AED Spot FX",
+   "Ticker": "-",
+   "Identifier": "AED999999",
    "Weight": "0",
-   "Market Value": "-11272.13",
-   "Shares Held": "-654401338",
+   "Market Value": "-23.9",
+   "Shares Held": "298399.53",
    "Asset Category": "Spot FX"
   },
   {
-   "Name": "KRW Spot FX",
-   "Ticker": "",
-   "Identifier": "KRW999999",
+   "Name": "EUR Spot FX",
+   "Ticker": "-",
+   "Identifier": "EUR999999",
    "Weight": "0",
-   "Market Value": "161",
-   "Shares Held": "4466808019",
+   "Market Value": "462.71",
+   "Shares Held": "212166.94",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "HKD Spot FX",
+   "Ticker": "-",
+   "Identifier": "HKD999999",
+   "Weight": "0",
+   "Market Value": "-138.83",
+   "Shares Held": "5141575.02",
    "Asset Category": "Spot FX"
   },
   {
    "Name": "PHP Spot FX",
-   "Ticker": "",
+   "Ticker": "-",
    "Identifier": "PHP999999",
    "Weight": "0",
-   "Market Value": "-31.79",
-   "Shares Held": "741641.9",
+   "Market Value": "5.01",
+   "Shares Held": "1940938.73",
    "Asset Category": "Spot FX"
   },
   {
-   "Name": "ZAR Spot FX",
-   "Ticker": "",
-   "Identifier": "ZAR999999",
+   "Name": "SAR Spot FX",
+   "Ticker": "-",
+   "Identifier": "SAR999999",
    "Weight": "0",
-   "Market Value": "-1147.21",
-   "Shares Held": "2589462.24",
+   "Market Value": "-72.44",
+   "Shares Held": "-453599.57",
    "Asset Category": "Spot FX"
   },
   {
-   "Name": "US DOLLAR",
-   "Ticker": "",
-   "Identifier": "999USDZ92",
-   "Weight": "-0.09",
-   "Market Value": "-2771598.45",
-   "Shares Held": "-2771598.45",
+   "Name": "NET OTHER ASSETS",
+   "Ticker": "-",
+   "Identifier": "",
+   "Weight": "-0.39",
+   "Market Value": "-11887731.74",
+   "Shares Held": "0",
    "Asset Category": "Cash & Equivalent"
   }
  ]
