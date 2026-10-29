@@ -744,6 +744,9 @@ describe('pipeline', () => {
       const rows = await feed();
       expect(rows.map((fund: any) => fund.ticker)).toEqual(['CGCP', 'CGMU', 'CGUS']);
       expect(rows.every((fund: any) => fund.dataFile !== null)).toBe(true);
+      // the 52-week keys are in every row, computed from its history pages (range-52w block)
+      const RANGE_KEYS = ['week52Low', 'week52High', 'range52w', 'range52wClose', 'range52wAsOf', 'range52wSince', 'range52wBasis'];
+      for (const fund of rows) expect(Object.keys(fund.metrics)).toEqual(expect.arrayContaining(RANGE_KEYS));
       expect((await readdir(join(dir, 'funds'))).sort()).toEqual(['CGCP', 'CGMU', 'CGUS']);
       const report = await run({ TICKERS: 'CGUS' }, { catalog: ['CGUS', 'CGCP', 'CGMU', 'CGXU'] });
       expect([report.newFunds, report.pendingFunds]).toEqual([[], ['CGXU']]);
