@@ -147,11 +147,12 @@ type Knobs = {
   noDistributions?: boolean;
   historyDays?: number;
   yahooDays?: number;
+  yahooLaterDays?: number; // the Yahoo chart ends this many days after the published series
   holdingsDate?: string;
   nport?: { repPdDate: string; noWeights?: boolean } | null;
   secDelayMs?: number;
 };
-const mockDays = (count: number): string[] => Array.from({ length: count }, (_, index) => new Date(Date.parse('2026-09-25T00:00:00Z') - (count - 1 - index) * 86_400_000).toISOString().slice(0, 10));
+const mockDays = (count: number, later = 0): string[] => Array.from({ length: count }, (_, index) => new Date(Date.parse('2026-09-25T00:00:00Z') + later * 86_400_000 - (count - 1 - index) * 86_400_000).toISOString().slice(0, 10));
 const usDate = (iso: string): string => `${iso.slice(5, 7)}/${iso.slice(8, 10)}/${iso.slice(0, 4)}`;
 const mockCounts = new Map<string, number>();
 const mockUrls: string[] = [];
@@ -201,7 +202,7 @@ function installIssuerMock(knobs: Knobs = {}): () => void {
     }
     if (url.includes('query1.finance.yahoo.com/v8/finance/chart')) {
       if (dead.has('yahoo')) return gone();
-      const dayList = mockDays(knobs.yahooDays ?? 300);
+      const dayList = mockDays(knobs.yahooDays ?? 300, knobs.yahooLaterDays);
       const price = (day: string) => Math.round((40 + (Date.parse(`${day}T00:00:00Z`) - Date.parse('2024-01-01T00:00:00Z')) / 86_400_000 * 0.01) * 100) / 100;
       return Response.json({ chart: { result: [{ timestamp: dayList.map((day) => Math.floor(Date.parse(`${day}T00:00:00Z`) / 1000)), indicators: { quote: [{ close: dayList.map(price), volume: dayList.map(() => 1) }], adjclose: [{ adjclose: dayList.map(price) }] }, events: {}, meta: { regularMarketPrice: 44, exchangeName: 'NYSE', firstTradeDate: 1645488000 } }], error: null } });
     }
@@ -1079,6 +1080,12 @@ describe('pipeline 4', () => {
       await Bun.sleep(20); // any rewrite would move the mtime
       await run({ TICKERS: 'CGUS', SKIP_ISSUER: '1', HISTORY_RANGE: '1y' }, { yahooDays: 300 });
       expect(await snapshot(dir)).toEqual(first);
+      // a truncated default-range (`max`) answer never shrinks the history either (Yahoo served 2 bars for Franklin DVAL and USFI on 2026-10-29):
+      // one that joins the published days keeps them all, one that does not join keeps the fund as published
+      await run({ TICKERS: 'CGUS', SKIP_ISSUER: '1' }, { yahooDays: 2 });
+      expect(await snapshot(dir)).toEqual(first);
+      await run({ TICKERS: 'CGUS', SKIP_ISSUER: '1' }, { yahooDays: 1, yahooLaterDays: 60 });
+      expect((await meta('CGUS')).history.totalRows).toBe(900);
     });
   });
 
