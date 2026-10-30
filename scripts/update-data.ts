@@ -2033,11 +2033,13 @@ async function processFund(
   } else if (!config.skipYahoo && !previousIsOfficial) {
     try {
       const fetched = parseChart(await fetchJson(chartUrl(ticker, config), `[ chart    ] ${ticker}`, yahooHeaders(), config));
-      // Q25: a HISTORY_RANGE window never shrinks the published Yahoo history (and with it 3y, 5y, 10y and since inception):
-      // older published rows go in front, rescaled by the overlapping days; a window that does not join keeps the fund's history.
+      // Q25: a fresh chart never shrinks the published Yahoo history (and with it 3y, 5y, 10y and since inception): older published
+      // rows go in front, rescaled by the overlapping days; a chart that does not join keeps the fund's history. This covers a
+      // HISTORY_RANGE window and a truncated `max` answer (2026-10-29: Yahoo returned 2 bars for Franklin DVAL and USFI).
+      // A full `max` answer starts at inception: nothing published is older, so it comes back unchanged
       const publishedYahoo = previousHistoryHeaders.join('|') === YAHOO_HISTORY_HEADERS.join('|') ? previousHistoryRows : [];
-      const chart = config.historyRange !== 'max' ? mergeWindowedChart(fetched, publishedYahoo, Array.isArray(previousMeta.distributions?.rows) ? previousMeta.distributions.rows : []) : fetched;
-      if (!chart) throw new Error(`chart window does not join the published history (${config.historyRange})`);
+      const chart = mergeWindowedChart(fetched, publishedYahoo, Array.isArray(previousMeta.distributions?.rows) ? previousMeta.distributions.rows : []);
+      if (!chart) throw new Error(`chart does not join the published history (${config.historyRange}, ${fetched.days.length} days)`);
       exchangeName = chart.exchangeName;
       navFromChart = chart.navPrice;
       priceFromChart = chart.regularMarketPrice;
