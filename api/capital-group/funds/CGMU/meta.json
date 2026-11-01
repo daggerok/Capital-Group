@@ -31,28 +31,28 @@
   "net": 0.27
  },
  "nav": {
-  "display": "$26.67",
-  "value": 26.67,
-  "asOfDate": "Oct 28 2026"
+  "display": "$26.68",
+  "value": 26.68,
+  "asOfDate": "Oct 30 2026"
  },
  "marketPrice": {
-  "display": "$26.70",
-  "value": 26.7,
-  "asOfDate": "Oct 28 2026"
+  "display": "$26.72",
+  "value": 26.72,
+  "asOfDate": "Oct 30 2026"
  },
  "premiumDiscount": {
-  "display": "0.13%",
-  "value": 0.13
+  "display": "0.15%",
+  "value": 0.15
  },
  "aum": {
-  "display": "$7,444.70 M",
-  "value": 7444700000,
-  "asOfDate": "Oct 28 2026",
+  "display": "$7,439.60 M",
+  "value": 7439600000,
+  "asOfDate": "Oct 29 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
-  "dividendYield": 3.47,
-  "dividendYieldText": "3.47%",
+  "dividendYield": 3.43,
+  "dividendYieldText": "3.43%",
   "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
   "distributionRate": 3.57,
   "secYield": 3.99,
@@ -66,8 +66,8 @@
    "asOfDate": "Sep 30 2026",
    "mo1": -3.47,
    "mo1Text": "-3.47%",
-   "qtd": 2.46,
-   "qtdText": "2.46%",
+   "qtd": 2.79,
+   "qtdText": "2.79%",
    "ytd": -2.93,
    "ytdText": "-2.93%",
    "yr1": -1.46,
@@ -287,6 +287,10 @@
    [
     "09/29/2026",
     "0.0773"
+   ],
+   [
+    "10/30/2026",
+    "0.0763"
    ]
   ]
  },
@@ -302,12 +306,13 @@
    "holdings/008.json",
    "holdings/009.json",
    "holdings/010.json",
-   "holdings/011.json"
+   "holdings/011.json",
+   "holdings/012.json"
   ],
   "pageSize": 250,
-  "totalRows": 2746,
-  "asOfDate": "2026-10-28",
-  "asOf": "Oct 28 2026",
+  "totalRows": 2794,
+  "asOfDate": "2026-10-29",
+  "asOf": "Oct 29 2026",
   "source": "Capital Group daily holdings XLSX"
  },
  "history": {
@@ -316,8 +321,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1006,
-  "asOf": "Oct 28 2026",
+  "totalRows": 1008,
+  "asOf": "Oct 30 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }

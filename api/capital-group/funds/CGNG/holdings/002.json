@@ -2,7 +2,7 @@
  "ticker": "CGNG",
  "page": 2,
  "pageSize": 250,
- "totalRows": 256,
+ "totalRows": 254,
  "headers": [
   "Name",
   "Ticker",
@@ -14,39 +14,21 @@
  ],
  "rows": [
   {
-   "Name": "AED Spot FX",
-   "Ticker": "-",
-   "Identifier": "AED999999",
-   "Weight": "0",
-   "Market Value": "-23.9",
-   "Shares Held": "298399.53",
-   "Asset Category": "Spot FX"
-  },
-  {
    "Name": "EUR Spot FX",
    "Ticker": "-",
    "Identifier": "EUR999999",
    "Weight": "0",
-   "Market Value": "462.71",
-   "Shares Held": "212166.94",
+   "Market Value": "-237.64",
+   "Shares Held": "373622.29",
    "Asset Category": "Spot FX"
   },
   {
-   "Name": "HKD Spot FX",
+   "Name": "GBP Spot FX",
    "Ticker": "-",
-   "Identifier": "HKD999999",
+   "Identifier": "GBP999999",
    "Weight": "0",
-   "Market Value": "-138.83",
-   "Shares Held": "5141575.02",
-   "Asset Category": "Spot FX"
-  },
-  {
-   "Name": "PHP Spot FX",
-   "Ticker": "-",
-   "Identifier": "PHP999999",
-   "Weight": "0",
-   "Market Value": "5.01",
-   "Shares Held": "1940938.73",
+   "Market Value": "126.4",
+   "Shares Held": "1052451.79",
    "Asset Category": "Spot FX"
   },
   {
@@ -54,17 +36,17 @@
    "Ticker": "-",
    "Identifier": "SAR999999",
    "Weight": "0",
-   "Market Value": "-72.44",
+   "Market Value": "-62.78",
    "Shares Held": "-453599.57",
    "Asset Category": "Spot FX"
   },
   {
-   "Name": "NET OTHER ASSETS",
+   "Name": "US DOLLAR",
    "Ticker": "-",
-   "Identifier": "",
-   "Weight": "-0.39",
-   "Market Value": "-11887731.74",
-   "Shares Held": "0",
+   "Identifier": "999USDZ92",
+   "Weight": "-0.32",
+   "Market Value": "-9776410.56",
+   "Shares Held": "-9776410.56",
    "Asset Category": "Cash & Equivalent"
   }
  ]
