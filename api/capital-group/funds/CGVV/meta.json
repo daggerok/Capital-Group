@@ -31,34 +31,34 @@
   "net": 0.33
  },
  "nav": {
-  "display": "$31.45",
-  "value": 31.45,
-  "asOfDate": "Oct 30 2026"
+  "display": "$31.26",
+  "value": 31.26,
+  "asOfDate": "Nov 06 2026"
  },
  "marketPrice": {
-  "display": "$31.46",
-  "value": 31.46,
-  "asOfDate": "Oct 30 2026"
+  "display": "$31.27",
+  "value": 31.27,
+  "asOfDate": "Nov 06 2026"
  },
  "premiumDiscount": {
   "display": "0.03%",
   "value": 0.03
  },
  "aum": {
-  "display": "$162.70 M",
-  "value": 162700000,
-  "asOfDate": "Oct 29 2026",
+  "display": "$181.90 M",
+  "value": 181900000,
+  "asOfDate": "Nov 05 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
-  "dividendYield": 0.68,
-  "dividendYieldText": "0.68%",
+  "dividendYield": 0.69,
+  "dividendYieldText": "0.69%",
   "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
-  "distributionRate": 0.85,
-  "secYield": 1.16,
-  "secYieldText": "1.16%",
-  "secYieldKind": "official 30-day SEC yield, as of Sep 30 2026",
-  "unsubsidizedSecYield": 1.16
+  "distributionRate": 0.83,
+  "secYield": 1.06,
+  "secYieldText": "1.06%",
+  "secYieldKind": "official 30-day SEC yield, as of Oct 31 2026",
+  "unsubsidizedSecYield": 1.06
  },
  "returns": {
   "derivedFrom": "official Capital Group NAV total returns (fund-detail JSON); qtd derived from the daily NAV history with published distributions reinvested",
@@ -66,8 +66,8 @@
    "asOfDate": "Sep 30 2026",
    "mo1": -3.53,
    "mo1Text": "-3.53%",
-   "qtd": 1.68,
-   "qtdText": "1.68%",
+   "qtd": 1.07,
+   "qtdText": "1.07%",
    "ytd": 15.23,
    "ytdText": "15.23%",
    "yr1": 18.03,
@@ -116,8 +116,8 @@
   ],
   "pageSize": 250,
   "totalRows": 67,
-  "asOfDate": "2026-10-29",
-  "asOf": "Oct 29 2026",
+  "asOfDate": "2026-11-05",
+  "asOf": "Nov 05 2026",
   "source": "Capital Group daily holdings XLSX"
  },
  "history": {
@@ -125,8 +125,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 342,
-  "asOf": "Oct 30 2026",
+  "totalRows": 347,
+  "asOf": "Nov 06 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }

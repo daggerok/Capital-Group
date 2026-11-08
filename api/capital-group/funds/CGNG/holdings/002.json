@@ -2,7 +2,7 @@
  "ticker": "CGNG",
  "page": 2,
  "pageSize": 250,
- "totalRows": 254,
+ "totalRows": 260,
  "headers": [
   "Name",
   "Ticker",
@@ -14,39 +14,93 @@
  ],
  "rows": [
   {
+   "Name": "PHILIPPINE PESO",
+   "Ticker": "-",
+   "Identifier": "999PHPZ98",
+   "Weight": "0",
+   "Market Value": "0.01",
+   "Shares Held": "0.55",
+   "Asset Category": "Cash & Equivalent"
+  },
+  {
+   "Name": "POLISH ZLOTY",
+   "Ticker": "-",
+   "Identifier": "999PLNZ98",
+   "Weight": "0",
+   "Market Value": "2.72",
+   "Shares Held": "10.67",
+   "Asset Category": "Cash & Equivalent"
+  },
+  {
+   "Name": "SAUDI RIYAL",
+   "Ticker": "-",
+   "Identifier": "999SARZ95",
+   "Weight": "0",
+   "Market Value": "97.12",
+   "Shares Held": "364.55",
+   "Asset Category": "Cash & Equivalent"
+  },
+  {
+   "Name": "THAILAND BAHT",
+   "Ticker": "-",
+   "Identifier": "999THBZ91",
+   "Weight": "0",
+   "Market Value": "0.03",
+   "Shares Held": "1.01",
+   "Asset Category": "Cash & Equivalent"
+  },
+  {
    "Name": "EUR Spot FX",
    "Ticker": "-",
    "Identifier": "EUR999999",
    "Weight": "0",
-   "Market Value": "-237.64",
-   "Shares Held": "373622.29",
+   "Market Value": "0.01",
+   "Shares Held": "-35.86",
    "Asset Category": "Spot FX"
   },
   {
-   "Name": "GBP Spot FX",
+   "Name": "PLN Spot FX",
    "Ticker": "-",
-   "Identifier": "GBP999999",
+   "Identifier": "PLN999999",
    "Weight": "0",
-   "Market Value": "126.4",
-   "Shares Held": "1052451.79",
+   "Market Value": "0",
+   "Shares Held": "-10.31",
    "Asset Category": "Spot FX"
   },
   {
-   "Name": "SAR Spot FX",
+   "Name": "ZAR Spot FX",
    "Ticker": "-",
-   "Identifier": "SAR999999",
+   "Identifier": "ZAR999999",
    "Weight": "0",
-   "Market Value": "-62.78",
-   "Shares Held": "-453599.57",
+   "Market Value": "-49.3",
+   "Shares Held": "-95389.58",
    "Asset Category": "Spot FX"
   },
   {
-   "Name": "US DOLLAR",
+   "Name": "EURO CURRENCY",
    "Ticker": "-",
-   "Identifier": "999USDZ92",
-   "Weight": "-0.32",
-   "Market Value": "-9776410.56",
-   "Shares Held": "-9776410.56",
+   "Identifier": "999EURZ94",
+   "Weight": "-0.01",
+   "Market Value": "-298464.98",
+   "Shares Held": "-266035.27",
+   "Asset Category": "Cash & Equivalent"
+  },
+  {
+   "Name": "TURKISH LIRA",
+   "Ticker": "-",
+   "Identifier": "999TRYZ90",
+   "Weight": "-0.01",
+   "Market Value": "-300816.69",
+   "Shares Held": "-15055048.33",
+   "Asset Category": "Cash & Equivalent"
+  },
+  {
+   "Name": "NEW TAIWAN DOLLAR",
+   "Ticker": "-",
+   "Identifier": "999TWDZ90",
+   "Weight": "-0.05",
+   "Market Value": "-1328747.22",
+   "Shares Held": "-43725749",
    "Asset Category": "Cash & Equivalent"
   }
  ]
