@@ -88,6 +88,13 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
   | `computed-trailing-12m` | not used by this brand |
 
 - `secYield` - 30-day SEC yield when published; `null` otherwise (an honest null is never replaced by an older number; the previous value survives only an issuer outage). The `*Text` fields are `null` when the value is unavailable
+- Swing metrics (shared `swing` block, the formulas of the Stocks feed) from the Yahoo Finance daily closes since listing (chart API, split-adjusted, not dividend-adjusted; the published NAV and market price history is not split-adjusted), with the last close as the price. Read for every fund the run updates; a failed chart, or one that starts more than 31 days after the published history, keeps the published values; `null` (never `0`) when the history is too short:
+  - `pctFrom52wHigh` - last close against the highest close of the last 52 weeks, in percent
+  - `athPrice`, `athDate`, `athBasis` - highest close of the whole history, its date and the history it covers (`daily closes since <first date>`)
+  - `pctFromAth` - last close against `athPrice`, in percent
+  - `volatility1y` - annualized volatility of the last 252 daily log returns, in percent (needs 253 closes)
+  - `sigmaFromMean60d` - distance of the last close from the mean of the last 60 closes, in sample standard deviations
+  - `high60d`, `low60d` - highest and lowest of the last 60 closes
 - `returnsBasis` - mandatory non-empty label of how the returns are computed: official Capital Group NAV total returns, or derived from the daily NAV history, or an estimate from Yahoo adjusted closes (mixed cases say which periods are derived or estimated); never empty or `-`
 - `performanceAsOf` - mandatory ISO `YYYY-MM-DD` date the returns are as of: the issuer performance table (month-end) date for official returns, the last price date of the derived series otherwise, and the oldest of the two for mixed values; it is not the NAV date, and is `null` only when truly unknown
 - `terValue` is the NET expense ratio (after waivers; the gross one only when no net figure exists) and `terGrossValue` the GROSS ratio; `meta.expenseRatio` carries `value`, `net` and `gross`
