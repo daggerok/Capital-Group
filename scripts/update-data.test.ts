@@ -748,6 +748,11 @@ describe('pipeline', () => {
       // the 52-week keys are in every row, computed from its history pages (range-52w block)
       const RANGE_KEYS = ['week52Low', 'week52High', 'range52w', 'range52wClose', 'range52wAsOf', 'range52wSince', 'range52wBasis'];
       for (const fund of rows) expect(Object.keys(fund.metrics)).toEqual(expect.arrayContaining(RANGE_KEYS));
+      // the swing keys from the Yahoo daily closes (period1=0) of the funds the run updated (swing block)
+      const SWING_KEYS = ['pctFrom52wHigh', 'athPrice', 'athDate', 'athBasis', 'pctFromAth', 'volatility1y', 'sigmaFromMean60d', 'high60d', 'low60d'];
+      for (const fund of rows) expect(Object.keys(fund.metrics).slice(-11, -2)).toEqual(SWING_KEYS);
+      expect(mockUrls.some((url) => /chart\/CGUS\?period1=0&period2=\d+&interval=1d/.test(url))).toBe(true);
+      expect([rows[2].metrics.athBasis, rows[2].metrics.athPrice, rows[2].metrics.high60d, rows[2].metrics.volatility1y]).toEqual(['daily closes since 2025-11-30', 49.98, 49.98, expect.any(Number)]);
       expect((await readdir(join(dir, 'funds'))).sort()).toEqual(['CGCP', 'CGMU', 'CGUS']);
       const report = await run({ TICKERS: 'CGUS' }, { catalog: ['CGUS', 'CGCP', 'CGMU', 'CGXU'] });
       expect([report.newFunds, report.pendingFunds]).toEqual([[], ['CGXU']]);
