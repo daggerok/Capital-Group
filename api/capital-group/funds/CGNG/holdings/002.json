@@ -2,7 +2,7 @@
  "ticker": "CGNG",
  "page": 2,
  "pageSize": 250,
- "totalRows": 260,
+ "totalRows": 255,
  "headers": [
   "Name",
   "Ticker",
@@ -14,93 +14,48 @@
  ],
  "rows": [
   {
-   "Name": "PHILIPPINE PESO",
-   "Ticker": "-",
-   "Identifier": "999PHPZ98",
-   "Weight": "0",
-   "Market Value": "0.01",
-   "Shares Held": "0.55",
-   "Asset Category": "Cash & Equivalent"
-  },
-  {
-   "Name": "POLISH ZLOTY",
-   "Ticker": "-",
-   "Identifier": "999PLNZ98",
-   "Weight": "0",
-   "Market Value": "2.72",
-   "Shares Held": "10.67",
-   "Asset Category": "Cash & Equivalent"
-  },
-  {
-   "Name": "SAUDI RIYAL",
-   "Ticker": "-",
-   "Identifier": "999SARZ95",
-   "Weight": "0",
-   "Market Value": "97.12",
-   "Shares Held": "364.55",
-   "Asset Category": "Cash & Equivalent"
-  },
-  {
-   "Name": "THAILAND BAHT",
-   "Ticker": "-",
-   "Identifier": "999THBZ91",
-   "Weight": "0",
-   "Market Value": "0.03",
-   "Shares Held": "1.01",
-   "Asset Category": "Cash & Equivalent"
-  },
-  {
-   "Name": "EUR Spot FX",
-   "Ticker": "-",
-   "Identifier": "EUR999999",
-   "Weight": "0",
-   "Market Value": "0.01",
-   "Shares Held": "-35.86",
-   "Asset Category": "Spot FX"
-  },
-  {
-   "Name": "PLN Spot FX",
-   "Ticker": "-",
-   "Identifier": "PLN999999",
-   "Weight": "0",
-   "Market Value": "0",
-   "Shares Held": "-10.31",
-   "Asset Category": "Spot FX"
-  },
-  {
-   "Name": "ZAR Spot FX",
-   "Ticker": "-",
-   "Identifier": "ZAR999999",
-   "Weight": "0",
-   "Market Value": "-49.3",
-   "Shares Held": "-95389.58",
-   "Asset Category": "Spot FX"
-  },
-  {
-   "Name": "EURO CURRENCY",
-   "Ticker": "-",
-   "Identifier": "999EURZ94",
-   "Weight": "-0.01",
-   "Market Value": "-298464.98",
-   "Shares Held": "-266035.27",
-   "Asset Category": "Cash & Equivalent"
-  },
-  {
-   "Name": "TURKISH LIRA",
-   "Ticker": "-",
-   "Identifier": "999TRYZ90",
-   "Weight": "-0.01",
-   "Market Value": "-300816.69",
-   "Shares Held": "-15055048.33",
-   "Asset Category": "Cash & Equivalent"
-  },
-  {
    "Name": "NEW TAIWAN DOLLAR",
    "Ticker": "-",
    "Identifier": "999TWDZ90",
-   "Weight": "-0.05",
-   "Market Value": "-1328747.22",
-   "Shares Held": "-43725749",
+   "Weight": "0",
+   "Market Value": "0.45",
+   "Shares Held": "15",
+   "Asset Category": "Cash & Equivalent"
+  },
+  {
+   "Name": "SOUTH AFRICAN RAND",
+   "Ticker": "-",
+   "Identifier": "999ZARZ99",
+   "Weight": "0",
+   "Market Value": "0",
+   "Shares Held": "0.01",
+   "Asset Category": "Cash & Equivalent"
+  },
+  {
+   "Name": "BRL Spot FX",
+   "Ticker": "-",
+   "Identifier": "BRL999999",
+   "Weight": "0",
+   "Market Value": "-1667.84",
+   "Shares Held": "-3947775.4",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "MEXICAN PESO (NEW)",
+   "Ticker": "-",
+   "Identifier": "999MXNZ92",
+   "Weight": "-0.02",
+   "Market Value": "-629262.52",
+   "Shares Held": "-11706170.75",
+   "Asset Category": "Cash & Equivalent"
+  },
+  {
+   "Name": "NET OTHER ASSETS",
+   "Ticker": "-",
+   "Identifier": "",
+   "Weight": "-0.04",
+   "Market Value": "-1348661.21",
+   "Shares Held": "0",
    "Asset Category": "Cash & Equivalent"
   }
  ]

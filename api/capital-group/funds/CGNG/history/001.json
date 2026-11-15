@@ -2,7 +2,7 @@
  "ticker": "CGNG",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 596,
+ "totalRows": 601,
  "headers": [
   "Date",
   "NAV",
@@ -3585,6 +3585,36 @@
    "NAV": "32.45",
    "Market Price": "32.55",
    "Premium/Discount": "0.3"
+  },
+  {
+   "Date": "Nov 09 2026",
+   "NAV": "33.14",
+   "Market Price": "33.52",
+   "Premium/Discount": "1.16"
+  },
+  {
+   "Date": "Nov 10 2026",
+   "NAV": "33.39",
+   "Market Price": "33.32",
+   "Premium/Discount": "-0.2"
+  },
+  {
+   "Date": "Nov 11 2026",
+   "NAV": "33.8",
+   "Market Price": "33.9",
+   "Premium/Discount": "0.3"
+  },
+  {
+   "Date": "Nov 12 2026",
+   "NAV": "33.5",
+   "Market Price": "33.53",
+   "Premium/Discount": "0.09"
+  },
+  {
+   "Date": "Nov 13 2026",
+   "NAV": "33.24",
+   "Market Price": "33.28",
+   "Premium/Discount": "0.11"
   }
  ]
 }

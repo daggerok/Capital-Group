@@ -31,28 +31,28 @@
   "net": 0.47
  },
  "nav": {
-  "display": "$37.80",
-  "value": 37.8,
-  "asOfDate": "Nov 06 2026"
+  "display": "$38.82",
+  "value": 38.82,
+  "asOfDate": "Nov 13 2026"
  },
  "marketPrice": {
-  "display": "$37.84",
-  "value": 37.84,
-  "asOfDate": "Nov 06 2026"
+  "display": "$38.89",
+  "value": 38.89,
+  "asOfDate": "Nov 13 2026"
  },
  "premiumDiscount": {
-  "display": "0.11%",
-  "value": 0.11
+  "display": "0.19%",
+  "value": 0.19
  },
  "aum": {
-  "display": "$5,904.10 M",
-  "value": 5904100000,
-  "asOfDate": "Nov 05 2026",
+  "display": "$6,048.90 M",
+  "value": 6048900000,
+  "asOfDate": "Nov 12 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
-  "dividendYield": 1.7,
-  "dividendYieldText": "1.70%",
+  "dividendYield": 1.66,
+  "dividendYieldText": "1.66%",
   "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
   "distributionRate": 2.26,
   "secYield": 2.24,
@@ -61,25 +61,25 @@
   "unsubsidizedSecYield": 2.24
  },
  "returns": {
-  "derivedFrom": "official Capital Group NAV total returns (fund-detail JSON); qtd derived from the daily NAV history with published distributions reinvested",
+  "derivedFrom": "derived from the official daily NAV history with published distributions reinvested (NAV total return), not official published returns",
   "monthEnd": {
-   "asOfDate": "Sep 30 2026",
+   "asOfDate": "Nov 13 2026",
    "mo1": -3.57,
    "mo1Text": "-3.57%",
-   "qtd": 2.77,
-   "qtdText": "2.77%",
-   "ytd": 5.89,
-   "ytdText": "5.89%",
-   "yr1": 9.61,
-   "yr1Text": "9.61%",
-   "yr3": 16.78,
-   "yr3Text": "16.78%",
+   "qtd": 5.55,
+   "qtdText": "5.55%",
+   "ytd": 10.98,
+   "ytdText": "10.98%",
+   "yr1": 12.98,
+   "yr1Text": "12.98%",
+   "yr3": 17.22,
+   "yr3Text": "17.22%",
    "yr5": null,
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 16.78,
-   "sinceInceptionText": "16.78%"
+   "sinceInception": 17.85,
+   "sinceInceptionText": "17.85%"
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -155,9 +155,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 109,
-  "asOfDate": "2026-11-05",
-  "asOf": "Nov 05 2026",
+  "totalRows": 110,
+  "asOfDate": "2026-11-12",
+  "asOf": "Nov 12 2026",
   "source": "Capital Group daily holdings XLSX"
  },
  "history": {
@@ -165,8 +165,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 783,
-  "asOf": "Nov 06 2026",
+  "totalRows": 788,
+  "asOf": "Nov 13 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }

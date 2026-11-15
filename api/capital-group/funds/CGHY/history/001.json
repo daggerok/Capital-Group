@@ -2,7 +2,7 @@
  "ticker": "CGHY",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 347,
+ "totalRows": 352,
  "headers": [
   "Date",
   "NAV",
@@ -2091,6 +2091,36 @@
    "NAV": "24.59",
    "Market Price": "24.61",
    "Premium/Discount": "0.09"
+  },
+  {
+   "Date": "Nov 09 2026",
+   "NAV": "24.66",
+   "Market Price": "24.68",
+   "Premium/Discount": "0.08"
+  },
+  {
+   "Date": "Nov 10 2026",
+   "NAV": "24.6",
+   "Market Price": "24.59",
+   "Premium/Discount": "-0.03"
+  },
+  {
+   "Date": "Nov 11 2026",
+   "NAV": "24.61",
+   "Market Price": "24.68",
+   "Premium/Discount": "0.3"
+  },
+  {
+   "Date": "Nov 12 2026",
+   "NAV": "24.57",
+   "Market Price": "24.5",
+   "Premium/Discount": "-0.28"
+  },
+  {
+   "Date": "Nov 13 2026",
+   "NAV": "24.53",
+   "Market Price": "24.52",
+   "Premium/Discount": "-0.04"
   }
  ]
 }

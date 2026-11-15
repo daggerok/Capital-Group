@@ -2,7 +2,7 @@
  "ticker": "CGMU",
  "page": 1,
  "pageSize": 250,
- "totalRows": 2937,
+ "totalRows": 3010,
  "headers": [
   "Name",
   "Ticker",
@@ -27,7 +27,7 @@
    "Ticker": "-",
    "Identifier": "09182TLY1",
    "Weight": "0.71",
-   "Market Value": "54391410",
+   "Market Value": "53790360",
    "Shares Held": "50000000",
    "Asset Category": "Fixed Income"
   },
@@ -35,18 +35,9 @@
    "Name": "PUERTO RICO CMWLTH PRC 11/43 ADJUSTABLE VAR",
    "Ticker": "-",
    "Identifier": "74514L3T2",
-   "Weight": "0.65",
-   "Market Value": "49281373.07",
-   "Shares Held": "71513174.09",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "NEW YORK NY NYC 03/42 ADJUSTABLE VAR",
-   "Ticker": "-",
-   "Identifier": "64966KTD5",
-   "Weight": "0.55",
-   "Market Value": "41515000",
-   "Shares Held": "41515000",
+   "Weight": "0.6",
+   "Market Value": "45630900.99",
+   "Shares Held": "66215901.93",
    "Asset Category": "Fixed Income"
   },
   {
@@ -54,16 +45,25 @@
    "Ticker": "-",
    "Identifier": "74529JRH0",
    "Weight": "0.55",
-   "Market Value": "42239293.33",
+   "Market Value": "41842183.1",
    "Shares Held": "43792000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "NEW YORK NY NYC 03/42 ADJUSTABLE VAR",
+   "Ticker": "-",
+   "Identifier": "64966KTD5",
+   "Weight": "0.54",
+   "Market Value": "41515000",
+   "Shares Held": "41515000",
    "Asset Category": "Fixed Income"
   },
   {
    "Name": "SOUTHEAST ENERGY AUTHORITY A C SEEPWR 10/30 FIXED 5",
    "Ticker": "-",
    "Identifier": "84136HCT8",
-   "Weight": "0.54",
-   "Market Value": "40727655.16",
+   "Weight": "0.53",
+   "Market Value": "40432992.41",
    "Shares Held": "38885000",
    "Asset Category": "Fixed Income"
   },
@@ -72,7 +72,7 @@
    "Ticker": "-",
    "Identifier": "09182TJX6",
    "Weight": "0.52",
-   "Market Value": "39513533.48",
+   "Market Value": "39336567.56",
    "Shares Held": "37085000",
    "Asset Category": "Fixed Income"
   },
@@ -80,9 +80,18 @@
    "Name": "NEW YORK ENERGY FIN DEV CORP NYEFAC 07/56 ADJUSTABLE VAR",
    "Ticker": "-",
    "Identifier": "64947PAA4",
-   "Weight": "0.49",
-   "Market Value": "37046743.45",
+   "Weight": "0.48",
+   "Market Value": "36969701.28",
    "Shares Held": "36685000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "NEW YORK CITY NY MUNI WTR FIN NYCUTL 06/48 ADJUSTABLE VAR",
+   "Ticker": "-",
+   "Identifier": "64972GJN5",
+   "Weight": "0.47",
+   "Market Value": "35840000",
+   "Shares Held": "35840000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -90,7 +99,7 @@
    "Ticker": "-",
    "Identifier": "09182TLC9",
    "Weight": "0.41",
-   "Market Value": "31521215.88",
+   "Market Value": "31353399",
    "Shares Held": "30800000",
    "Asset Category": "Fixed Income"
   },
@@ -107,8 +116,8 @@
    "Name": "CALIFORNIA CMNTY CHOICE FING A CCEDEV 06/36 FIXED 5",
    "Ticker": "-",
    "Identifier": "13013JJE7",
-   "Weight": "0.37",
-   "Market Value": "27872038.3",
+   "Weight": "0.36",
+   "Market Value": "27683595.16",
    "Shares Held": "26220000",
    "Asset Category": "Fixed Income"
   },
@@ -162,7 +171,7 @@
    "Ticker": "-",
    "Identifier": "88256FAV4",
    "Weight": "0.31",
-   "Market Value": "23712466.68",
+   "Market Value": "23619392.28",
    "Shares Held": "22320000",
    "Asset Category": "Fixed Income"
   },
@@ -185,38 +194,11 @@
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "COLORADO ST HLTH FACS AUTH REV COSMED 11/34 FIXED 5",
-   "Ticker": "-",
-   "Identifier": "19648FJ96",
-   "Weight": "0.28",
-   "Market Value": "21147125.56",
-   "Shares Held": "19030000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "NEW JERSEY ST HLTH CARE FACS F NJSMED 07/29 FIXED 5",
-   "Ticker": "-",
-   "Identifier": "645790VA1",
-   "Weight": "0.28",
-   "Market Value": "21047778",
-   "Shares Held": "20000000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "ALABAMA ST TOLL ROAD BRIDGE ATRTRN 10/32 FIXED 5",
-   "Ticker": "-",
-   "Identifier": "01065CAM5",
-   "Weight": "0.27",
-   "Market Value": "20332256.71",
-   "Shares Held": "19095000",
-   "Asset Category": "Fixed Income"
-  },
-  {
    "Name": "BLACK BELT ENERGY GAS DIST AL BBEUTL 10/35 FIXED 5",
    "Ticker": "-",
    "Identifier": "09182TEW3",
    "Weight": "0.27",
-   "Market Value": "20579602.74",
+   "Market Value": "20486606.84",
    "Shares Held": "20680000",
    "Asset Category": "Fixed Income"
   },
@@ -225,17 +207,17 @@
    "Ticker": "-",
    "Identifier": "09182TJC2",
    "Weight": "0.27",
-   "Market Value": "20603200",
+   "Market Value": "20509710",
    "Shares Held": "20000000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "BLACK BELT ENERGY GAS DIST AL BBEUTL 10/33 FIXED 5",
+   "Name": "COLORADO ST HLTH FACS AUTH REV COSMED 11/34 FIXED 5",
    "Ticker": "-",
-   "Identifier": "09182TJD0",
+   "Identifier": "19648FJ96",
    "Weight": "0.27",
-   "Market Value": "20316029.76",
-   "Shares Held": "19310000",
+   "Market Value": "20860611.78",
+   "Shares Held": "19030000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -243,17 +225,35 @@
    "Ticker": "-",
    "Identifier": "63607WCF9",
    "Weight": "0.27",
-   "Market Value": "20594057.81",
+   "Market Value": "20538742.66",
    "Shares Held": "19713872.82",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "PUERTO RICO CMWLTH PRC 11/51 ADJUSTABLE VAR",
+   "Name": "NEW JERSEY ST HLTH CARE FACS F NJSMED 07/29 FIXED 5",
    "Ticker": "-",
-   "Identifier": "74514L4C8",
+   "Identifier": "645790VA1",
    "Weight": "0.27",
-   "Market Value": "20189310.3",
-   "Shares Held": "28825400.2",
+   "Market Value": "20972188",
+   "Shares Held": "20000000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "ALABAMA ST TOLL ROAD BRIDGE ATRTRN 10/32 FIXED 5",
+   "Ticker": "-",
+   "Identifier": "01065CAM5",
+   "Weight": "0.26",
+   "Market Value": "20177755.24",
+   "Shares Held": "19095000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "BLACK BELT ENERGY GAS DIST AL BBEUTL 10/33 FIXED 5",
+   "Ticker": "-",
+   "Identifier": "09182TJD0",
+   "Weight": "0.26",
+   "Market Value": "20206020.69",
+   "Shares Held": "19310000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -261,7 +261,7 @@
    "Ticker": "-",
    "Identifier": "15569DAG7",
    "Weight": "0.26",
-   "Market Value": "19802378.62",
+   "Market Value": "19701532.99",
    "Shares Held": "18880000",
    "Asset Category": "Fixed Income"
   },
@@ -288,7 +288,7 @@
    "Ticker": "-",
    "Identifier": "91514ANG6",
    "Weight": "0.26",
-   "Market Value": "19879558.03",
+   "Market Value": "19849530.35",
    "Shares Held": "17750000",
    "Asset Category": "Fixed Income"
   },
@@ -297,7 +297,7 @@
    "Ticker": "-",
    "Identifier": "04110FAD7",
    "Weight": "0.25",
-   "Market Value": "19189186.9",
+   "Market Value": "19074413.73",
    "Shares Held": "19750000",
    "Asset Category": "Fixed Income"
   },
@@ -315,7 +315,7 @@
    "Ticker": "-",
    "Identifier": "717883J78",
    "Weight": "0.25",
-   "Market Value": "19021970.63",
+   "Market Value": "18993022.5",
    "Shares Held": "18750000",
    "Asset Category": "Fixed Income"
   },
@@ -324,7 +324,7 @@
    "Ticker": "-",
    "Identifier": "84136HBC6",
    "Weight": "0.25",
-   "Market Value": "18938405.33",
+   "Market Value": "18853974.7",
    "Shares Held": "18980000",
    "Asset Category": "Fixed Income"
   },
@@ -338,21 +338,21 @@
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "UNIV OF MICHIGAN MI UNVHGR 04/42 ADJUSTABLE VAR",
-   "Ticker": "-",
-   "Identifier": "914455LR9",
-   "Weight": "0.25",
-   "Market Value": "18660000",
-   "Shares Held": "18660000",
-   "Asset Category": "Fixed Income"
-  },
-  {
    "Name": "BLACK BELT ENERGY GAS DIST AL BBEUTL 01/34 FIXED 5",
    "Ticker": "-",
    "Identifier": "09182TKE6",
    "Weight": "0.24",
-   "Market Value": "18388728.87",
+   "Market Value": "18249554.16",
    "Shares Held": "17675000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "CALIFORNIA CMNTY CHOICE FING A CCEDEV 09/40 FIXED 5",
+   "Ticker": "-",
+   "Identifier": "13013JKD7",
+   "Weight": "0.24",
+   "Market Value": "17937827.89",
+   "Shares Held": "17625000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -369,7 +369,7 @@
    "Ticker": "-",
    "Identifier": "56035DDP4",
    "Weight": "0.24",
-   "Market Value": "18486166.52",
+   "Market Value": "18479002.43",
    "Shares Held": "18555000",
    "Asset Category": "Fixed Income"
   },
@@ -378,8 +378,26 @@
    "Ticker": "-",
    "Identifier": "61360PCY4",
    "Weight": "0.24",
-   "Market Value": "18135707.27",
+   "Market Value": "18149573.29",
    "Shares Held": "18135000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "PUERTO RICO CMWLTH PRC 11/51 ADJUSTABLE VAR",
+   "Ticker": "-",
+   "Identifier": "74514L4C8",
+   "Weight": "0.24",
+   "Market Value": "18631604.64",
+   "Shares Held": "26567579.85",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "UNIV OF MICHIGAN MI UNVHGR 04/42 ADJUSTABLE VAR",
+   "Ticker": "-",
+   "Identifier": "914455LR9",
+   "Weight": "0.24",
+   "Market Value": "18660000",
+   "Shares Held": "18660000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -387,7 +405,7 @@
    "Ticker": "-",
    "Identifier": "917567JT7",
    "Weight": "0.24",
-   "Market Value": "18585231.74",
+   "Market Value": "18559421.19",
    "Shares Held": "17710000",
    "Asset Category": "Fixed Income"
   },
@@ -396,17 +414,8 @@
    "Ticker": "-",
    "Identifier": "13013JEA0",
    "Weight": "0.23",
-   "Market Value": "17743537.47",
+   "Market Value": "17678735.47",
    "Shares Held": "17515000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "CALIFORNIA CMNTY CHOICE FING A CCEDEV 09/40 FIXED 5",
-   "Ticker": "-",
-   "Identifier": "13013JKD7",
-   "Weight": "0.23",
-   "Market Value": "17887083.75",
-   "Shares Held": "17625000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -414,17 +423,8 @@
    "Ticker": "-",
    "Identifier": "57585BTT5",
    "Weight": "0.22",
-   "Market Value": "16705909.48",
+   "Market Value": "16575348.79",
    "Shares Held": "15745000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "SOUTH CAROLINA ST JOBS ECON DE SCSMED 05/48 ADJUSTABLE VAR",
-   "Ticker": "-",
-   "Identifier": "83703FLR1",
-   "Weight": "0.22",
-   "Market Value": "16395000",
-   "Shares Held": "16395000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -432,7 +432,7 @@
    "Ticker": "-",
    "Identifier": "09182THJ9",
    "Weight": "0.21",
-   "Market Value": "15926646.16",
+   "Market Value": "15794483.32",
    "Shares Held": "15265000",
    "Asset Category": "Fixed Income"
   },
@@ -441,17 +441,8 @@
    "Ticker": "-",
    "Identifier": "09182TKW6",
    "Weight": "0.21",
-   "Market Value": "16355172.74",
+   "Market Value": "16251018.63",
    "Shares Held": "15675000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "BLACK BELT ENERGY GAS DIST AL BBEUTL 06/31 FIXED 5",
-   "Ticker": "-",
-   "Identifier": "09182TLB1",
-   "Weight": "0.21",
-   "Market Value": "15656389.47",
-   "Shares Held": "14970000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -459,8 +450,17 @@
    "Ticker": "-",
    "Identifier": "650028A60",
    "Weight": "0.21",
-   "Market Value": "15705090",
+   "Market Value": "15689998.5",
    "Shares Held": "15000000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "SOUTH CAROLINA ST JOBS ECON DE SCSMED 05/48 ADJUSTABLE VAR",
+   "Ticker": "-",
+   "Identifier": "83703FLR1",
+   "Weight": "0.21",
+   "Market Value": "16395000",
+   "Shares Held": "16395000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -468,7 +468,7 @@
    "Ticker": "-",
    "Identifier": "84136HBT9",
    "Weight": "0.21",
-   "Market Value": "15951868.18",
+   "Market Value": "15865601.32",
    "Shares Held": "15595000",
    "Asset Category": "Fixed Income"
   },
@@ -477,7 +477,7 @@
    "Ticker": "-",
    "Identifier": "880443JM9",
    "Weight": "0.21",
-   "Market Value": "15995092.19",
+   "Market Value": "15846974.42",
    "Shares Held": "15285000",
    "Asset Category": "Fixed Income"
   },
@@ -486,17 +486,17 @@
    "Ticker": "-",
    "Identifier": "91412HXS7",
    "Weight": "0.21",
-   "Market Value": "15855970.2",
+   "Market Value": "15774483.2",
    "Shares Held": "14000000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "FREDDIE MAC MULTIFAMILY FRETE 2026 ML33 AUS",
+   "Name": "BLACK BELT ENERGY GAS DIST AL BBEUTL 06/31 FIXED 5",
    "Ticker": "-",
-   "Identifier": "3137HQDQ1",
+   "Identifier": "09182TLB1",
    "Weight": "0.2",
-   "Market Value": "15167192.72",
-   "Shares Held": "15434729.05",
+   "Market Value": "15608617.21",
+   "Shares Held": "14970000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -513,17 +513,8 @@
    "Ticker": "-",
    "Identifier": "517845TW3",
    "Weight": "0.2",
-   "Market Value": "15225645.85",
+   "Market Value": "15242426.17",
    "Shares Held": "13550000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "LOS ANGELES CA DEPT OF WTR   P LOSUTL 07/37 FIXED 5",
-   "Ticker": "-",
-   "Identifier": "544532QK3",
-   "Weight": "0.2",
-   "Market Value": "14894700.63",
-   "Shares Held": "13685000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -531,8 +522,8 @@
    "Ticker": "-",
    "Identifier": "63607WBD5",
    "Weight": "0.2",
-   "Market Value": "15415408.38",
-   "Shares Held": "16105294.79",
+   "Market Value": "15278967.01",
+   "Shares Held": "16098533.7",
    "Asset Category": "Fixed Income"
   },
   {
@@ -549,7 +540,7 @@
    "Ticker": "-",
    "Identifier": "650028G56",
    "Weight": "0.2",
-   "Market Value": "15036534.8",
+   "Market Value": "15016044.4",
    "Shares Held": "14000000",
    "Asset Category": "Fixed Income"
   },
@@ -558,7 +549,7 @@
    "Ticker": "-",
    "Identifier": "708692BF4",
    "Weight": "0.2",
-   "Market Value": "15014340",
+   "Market Value": "15010792.5",
    "Shares Held": "15000000",
    "Asset Category": "Fixed Income"
   },
@@ -576,7 +567,7 @@
    "Ticker": "-",
    "Identifier": "13013JHD1",
    "Weight": "0.19",
-   "Market Value": "14684167.63",
+   "Market Value": "14649144.36",
    "Shares Held": "14335000",
    "Asset Category": "Fixed Income"
   },
@@ -585,8 +576,17 @@
    "Ticker": "-",
    "Identifier": "153476KK1",
    "Weight": "0.19",
-   "Market Value": "14168694.8",
+   "Market Value": "14145674.4",
    "Shares Held": "13000000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "FREDDIE MAC MULTIFAMILY FRETE 2026 ML33 AUS",
+   "Ticker": "-",
+   "Identifier": "3137HQDQ1",
+   "Weight": "0.19",
+   "Market Value": "14742226.78",
+   "Shares Held": "15434729.05",
    "Asset Category": "Fixed Income"
   },
   {
@@ -594,17 +594,17 @@
    "Ticker": "-",
    "Identifier": "353187CR6",
    "Weight": "0.19",
-   "Market Value": "14803402.52",
+   "Market Value": "14803187.92",
    "Shares Held": "14800000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "HARRIS CNTY TX CULTURAL EDU FA HAREDU 12/29 FIXED 5",
+   "Name": "LOS ANGELES CA DEPT OF WTR   P LOSUTL 07/37 FIXED 5",
    "Ticker": "-",
-   "Identifier": "414009UA6",
+   "Identifier": "544532QK3",
    "Weight": "0.19",
-   "Market Value": "14461865.22",
-   "Shares Held": "13660000",
+   "Market Value": "14849059.79",
+   "Shares Held": "13685000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -612,7 +612,7 @@
    "Ticker": "-",
    "Identifier": "64972GM76",
    "Weight": "0.19",
-   "Market Value": "14467113.7",
+   "Market Value": "14446173.3",
    "Shares Held": "13000000",
    "Asset Category": "Fixed Income"
   },
@@ -630,8 +630,17 @@
    "Ticker": "-",
    "Identifier": "19648HDK3",
    "Weight": "0.18",
-   "Market Value": "13750099.43",
+   "Market Value": "13684221.04",
    "Shares Held": "12035000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "NATIONAL FIN AUTH NH MUNI CTFS NFADEV 02/41 ADJUSTABLE VAR",
+   "Ticker": "-",
+   "Identifier": "63607WBR4",
+   "Weight": "0.18",
+   "Market Value": "13806528.03",
+   "Shares Held": "13884359.58",
    "Asset Category": "Fixed Income"
   },
   {
@@ -639,7 +648,7 @@
    "Ticker": "-",
    "Identifier": "63607WBU7",
    "Weight": "0.18",
-   "Market Value": "13524638.03",
+   "Market Value": "13445004.35",
    "Shares Held": "14353584.83",
    "Asset Category": "Fixed Income"
   },
@@ -657,7 +666,7 @@
    "Ticker": "-",
    "Identifier": "650028H48",
    "Weight": "0.18",
-   "Market Value": "13571145.55",
+   "Market Value": "13476728.7",
    "Shares Held": "13250000",
    "Asset Category": "Fixed Income"
   },
@@ -666,7 +675,7 @@
    "Ticker": "-",
    "Identifier": "74529JRJ6",
    "Weight": "0.18",
-   "Market Value": "13871101.51",
+   "Market Value": "13740693.17",
    "Shares Held": "14381000",
    "Asset Category": "Fixed Income"
   },
@@ -675,7 +684,7 @@
    "Ticker": "-",
    "Identifier": "8827503D2",
    "Weight": "0.18",
-   "Market Value": "13513430.42",
+   "Market Value": "13448184.94",
    "Shares Held": "11980000",
    "Asset Category": "Fixed Income"
   },
@@ -684,7 +693,7 @@
    "Ticker": "-",
    "Identifier": "914302NE0",
    "Weight": "0.18",
-   "Market Value": "13485636.05",
+   "Market Value": "13411536.6",
    "Shares Held": "12165000",
    "Asset Category": "Fixed Income"
   },
@@ -702,7 +711,7 @@
    "Ticker": "-",
    "Identifier": "09182TGC5",
    "Weight": "0.17",
-   "Market Value": "12713989.64",
+   "Market Value": "12677663.57",
    "Shares Held": "12150000",
    "Asset Category": "Fixed Income"
   },
@@ -711,7 +720,7 @@
    "Ticker": "-",
    "Identifier": "13013JHJ8",
    "Weight": "0.17",
-   "Market Value": "13127500.55",
+   "Market Value": "13018666.68",
    "Shares Held": "12340000",
    "Asset Category": "Fixed Income"
   },
@@ -720,7 +729,7 @@
    "Ticker": "-",
    "Identifier": "249182QJ8",
    "Weight": "0.17",
-   "Market Value": "13319107.52",
+   "Market Value": "13254169.05",
    "Shares Held": "12390000",
    "Asset Category": "Fixed Income"
   },
@@ -729,7 +738,7 @@
    "Ticker": "-",
    "Identifier": "292723BN2",
    "Weight": "0.17",
-   "Market Value": "12917078.25",
+   "Market Value": "12859967.58",
    "Shares Held": "12275000",
    "Asset Category": "Fixed Income"
   },
@@ -738,17 +747,8 @@
    "Ticker": "-",
    "Identifier": "292723DZ3",
    "Weight": "0.17",
-   "Market Value": "12922908",
+   "Market Value": "12853326.03",
    "Shares Held": "12170000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "FREDDIE MAC MULTIFAMILY FRETE 2026 ML38 AUS",
-   "Ticker": "-",
-   "Identifier": "3137GFF76",
-   "Weight": "0.17",
-   "Market Value": "12805304.27",
-   "Shares Held": "12095000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -756,7 +756,7 @@
    "Ticker": "-",
    "Identifier": "45203M6N6",
    "Weight": "0.17",
-   "Market Value": "12709215.38",
+   "Market Value": "12644822.77",
    "Shares Held": "11025000",
    "Asset Category": "Fixed Income"
   },
@@ -765,7 +765,7 @@
    "Ticker": "-",
    "Identifier": "646140KE2",
    "Weight": "0.17",
-   "Market Value": "12747887.12",
+   "Market Value": "12720292.3",
    "Shares Held": "12415000",
    "Asset Category": "Fixed Income"
   },
@@ -783,7 +783,7 @@
    "Ticker": "-",
    "Identifier": "93978UAA4",
    "Weight": "0.17",
-   "Market Value": "12892797.61",
+   "Market Value": "13044206.47",
    "Shares Held": "13791774.43",
    "Asset Category": "Fixed Income"
   },
@@ -792,8 +792,17 @@
    "Ticker": "-",
    "Identifier": "09182TGM3",
    "Weight": "0.16",
-   "Market Value": "12372990.63",
+   "Market Value": "12315757.53",
    "Shares Held": "11935000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "FREDDIE MAC MULTIFAMILY FRETE 2026 ML38 AUS",
+   "Ticker": "-",
+   "Identifier": "3137GFF76",
+   "Weight": "0.16",
+   "Market Value": "12496967.65",
+   "Shares Held": "12095000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -801,8 +810,17 @@
    "Ticker": "-",
    "Identifier": "3137HRVK2",
    "Weight": "0.16",
-   "Market Value": "12344077.33",
+   "Market Value": "12050750.65",
    "Shares Held": "11811590.74",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "HARRIS CNTY TX CULTURAL EDU FA HAREDU 12/29 FIXED 5",
+   "Ticker": "-",
+   "Identifier": "414009UA6",
+   "Weight": "0.16",
+   "Market Value": "12067125.66",
+   "Shares Held": "11435000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -810,7 +828,7 @@
    "Ticker": "-",
    "Identifier": "414009UC2",
    "Weight": "0.16",
-   "Market Value": "12094447.2",
+   "Market Value": "11936733.6",
    "Shares Held": "11000000",
    "Asset Category": "Fixed Income"
   },
@@ -819,26 +837,8 @@
    "Ticker": "-",
    "Identifier": "60637GJK6",
    "Weight": "0.16",
-   "Market Value": "12351169.63",
+   "Market Value": "12325318.8",
    "Shares Held": "11610000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "NATIONAL FIN AUTH NH MUNI CTFS NFADEV 02/41 ADJUSTABLE VAR",
-   "Ticker": "-",
-   "Identifier": "63607WBR4",
-   "Weight": "0.16",
-   "Market Value": "12405561.02",
-   "Shares Held": "12395154.05",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "KENTUCKY ST PUBLIC ENERGY AUTH KYSPWR 12/33 FIXED 5.5",
-   "Ticker": "-",
-   "Identifier": "74440DGU2",
-   "Weight": "0.16",
-   "Market Value": "11840091.68",
-   "Shares Held": "10910000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -846,17 +846,8 @@
    "Ticker": "-",
    "Identifier": "84136HAH6",
    "Weight": "0.16",
-   "Market Value": "11954087.59",
+   "Market Value": "11939713.31",
    "Shares Held": "11460000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "UNIV OF CALIFORNIA CA REVENUES UNVHGR 05/38 FIXED 5.25",
-   "Ticker": "-",
-   "Identifier": "91412HYU1",
-   "Weight": "0.16",
-   "Market Value": "11869733.44",
-   "Shares Held": "10185000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -864,7 +855,7 @@
    "Ticker": "-",
    "Identifier": "93974FGF4",
    "Weight": "0.16",
-   "Market Value": "12454553.08",
+   "Market Value": "12389385.22",
    "Shares Held": "11800000",
    "Asset Category": "Fixed Income"
   },
@@ -873,7 +864,7 @@
    "Ticker": "-",
    "Identifier": "96634RBA9",
    "Weight": "0.16",
-   "Market Value": "12234857.88",
+   "Market Value": "12197235.06",
    "Shares Held": "12455000",
    "Asset Category": "Fixed Income"
   },
@@ -882,7 +873,7 @@
    "Ticker": "-",
    "Identifier": "13033DAG0",
    "Weight": "0.15",
-   "Market Value": "11371636.13",
+   "Market Value": "11314708.02",
    "Shares Held": "11405010.61",
    "Asset Category": "Fixed Income"
   },
@@ -891,7 +882,7 @@
    "Ticker": "-",
    "Identifier": "3137HMC57",
    "Weight": "0.15",
-   "Market Value": "11661369.65",
+   "Market Value": "11389919.35",
    "Shares Held": "11824241.48",
    "Asset Category": "Fixed Income"
   },
@@ -900,7 +891,7 @@
    "Ticker": "-",
    "Identifier": "442332GC0",
    "Weight": "0.15",
-   "Market Value": "11166504.8",
+   "Market Value": "11149738.6",
    "Shares Held": "11000000",
    "Asset Category": "Fixed Income"
   },
@@ -909,7 +900,7 @@
    "Ticker": "-",
    "Identifier": "442349GG5",
    "Weight": "0.15",
-   "Market Value": "11306035.38",
+   "Market Value": "11249542.18",
    "Shares Held": "10585000",
    "Asset Category": "Fixed Income"
   },
@@ -918,7 +909,7 @@
    "Ticker": "-",
    "Identifier": "452153GC7",
    "Weight": "0.15",
-   "Market Value": "11734277.79",
+   "Market Value": "11721790.68",
    "Shares Held": "11575000",
    "Asset Category": "Fixed Income"
   },
@@ -927,7 +918,7 @@
    "Ticker": "-",
    "Identifier": "452252LG2",
    "Weight": "0.15",
-   "Market Value": "11293700.69",
+   "Market Value": "11291377.01",
    "Shares Held": "11280000",
    "Asset Category": "Fixed Income"
   },
@@ -936,26 +927,26 @@
    "Ticker": "-",
    "Identifier": "45470YKL4",
    "Weight": "0.15",
-   "Market Value": "11370222.91",
+   "Market Value": "11345512.78",
    "Shares Held": "10375000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "NEW YORK ST DORM AUTH ST PERSO NYSGEN 03/37 FIXED 5",
+   "Name": "MISSISSIPPI ST BUSINESS FIN CO MSSDEV 11/35 ADJUSTABLE VAR",
    "Ticker": "-",
-   "Identifier": "64990KJZ7",
+   "Identifier": "60528ACC6",
    "Weight": "0.15",
-   "Market Value": "11069531.25",
-   "Shares Held": "9880000",
+   "Market Value": "11800000",
+   "Shares Held": "11800000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "PUERTO RICO SALES TAX FING COR PRCGEN 07/46 ZEROCPNOID 0",
+   "Name": "KENTUCKY ST PUBLIC ENERGY AUTH KYSPWR 12/33 FIXED 5.5",
    "Ticker": "-",
-   "Identifier": "74529JQG3",
+   "Identifier": "74440DGU2",
    "Weight": "0.15",
-   "Market Value": "11109198.01",
-   "Shares Held": "30972000",
+   "Market Value": "11653653.97",
+   "Shares Held": "10910000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -963,8 +954,17 @@
    "Ticker": "-",
    "Identifier": "84136HCP6",
    "Weight": "0.15",
-   "Market Value": "11617710.5",
+   "Market Value": "11563085.6",
    "Shares Held": "11000000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "UNIV OF CALIFORNIA CA REVENUES UNVHGR 05/38 FIXED 5.25",
+   "Ticker": "-",
+   "Identifier": "91412HYU1",
+   "Weight": "0.15",
+   "Market Value": "11802379.02",
+   "Shares Held": "10185000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -972,7 +972,7 @@
    "Ticker": "-",
    "Identifier": "97705MU78",
    "Weight": "0.15",
-   "Market Value": "11194394",
+   "Market Value": "11154902",
    "Shares Held": "10000000",
    "Asset Category": "Fixed Income"
   },
@@ -981,7 +981,7 @@
    "Ticker": "-",
    "Identifier": "340618DR5",
    "Weight": "0.14",
-   "Market Value": "10385994.05",
+   "Market Value": "10352892",
    "Shares Held": "10730000",
    "Asset Category": "Fixed Income"
   },
@@ -990,7 +990,7 @@
    "Ticker": "-",
    "Identifier": "34061XAG7",
    "Weight": "0.14",
-   "Market Value": "10372189.97",
+   "Market Value": "10348958.52",
    "Shares Held": "10475000",
    "Asset Category": "Fixed Income"
   },
@@ -999,26 +999,8 @@
    "Ticker": "-",
    "Identifier": "34061XAM4",
    "Weight": "0.14",
-   "Market Value": "10940967.01",
+   "Market Value": "10738800.57",
    "Shares Held": "11095000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "ILLINOIS ST ILS 04/45 FIXED 5.25",
-   "Ticker": "-",
-   "Identifier": "452153RG6",
-   "Weight": "0.14",
-   "Market Value": "10281590",
-   "Shares Held": "10000000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "ILLINOIS ST ILS 10/47 FIXED 5.5",
-   "Ticker": "-",
-   "Identifier": "452153SJ9",
-   "Weight": "0.14",
-   "Market Value": "10356833",
-   "Shares Held": "10000000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1026,7 +1008,7 @@
    "Ticker": "-",
    "Identifier": "478271KP3",
    "Weight": "0.14",
-   "Market Value": "10804424",
+   "Market Value": "10748202",
    "Shares Held": "10000000",
    "Asset Category": "Fixed Income"
   },
@@ -1035,7 +1017,7 @@
    "Ticker": "-",
    "Identifier": "546399CN4",
    "Weight": "0.14",
-   "Market Value": "10986084.22",
+   "Market Value": "10985562.43",
    "Shares Held": "10985000",
    "Asset Category": "Fixed Income"
   },
@@ -1044,7 +1026,7 @@
    "Ticker": "-",
    "Identifier": "59333P7J1",
    "Weight": "0.14",
-   "Market Value": "10725820",
+   "Market Value": "10671557",
    "Shares Held": "10000000",
    "Asset Category": "Fixed Income"
   },
@@ -1053,17 +1035,26 @@
    "Ticker": "-",
    "Identifier": "64613CKG2",
    "Weight": "0.14",
-   "Market Value": "10649249",
+   "Market Value": "10592311",
    "Shares Held": "10000000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "NEW YORK CITY NY MUNI WTR FIN NYCUTL 06/48 ADJUSTABLE VAR",
+   "Name": "NEW YORK ST DORM AUTH ST PERSO NYSGEN 03/37 FIXED 5",
    "Ticker": "-",
-   "Identifier": "64972GJN5",
+   "Identifier": "64990KJZ7",
    "Weight": "0.14",
-   "Market Value": "11000000",
-   "Shares Held": "11000000",
+   "Market Value": "11018799.43",
+   "Shares Held": "9880000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "PUERTO RICO SALES TAX FING COR PRCGEN 07/46 ZEROCPNOID 0",
+   "Ticker": "-",
+   "Identifier": "74529JQG3",
+   "Weight": "0.14",
+   "Market Value": "10978784.21",
+   "Shares Held": "30972000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1071,7 +1062,7 @@
    "Ticker": "-",
    "Identifier": "797272TW1",
    "Weight": "0.14",
-   "Market Value": "10365206.68",
+   "Market Value": "10299632.76",
    "Shares Held": "9200000",
    "Asset Category": "Fixed Income"
   },
@@ -1080,7 +1071,7 @@
    "Ticker": "-",
    "Identifier": "84131TBT8",
    "Weight": "0.14",
-   "Market Value": "10475811.33",
+   "Market Value": "10449388.65",
    "Shares Held": "10090000",
    "Asset Category": "Fixed Income"
   },
@@ -1089,7 +1080,7 @@
    "Ticker": "-",
    "Identifier": "89602HJC2",
    "Weight": "0.14",
-   "Market Value": "10774859.18",
+   "Market Value": "10751600.07",
    "Shares Held": "10470000",
    "Asset Category": "Fixed Income"
   },
@@ -1098,7 +1089,7 @@
    "Ticker": "-",
    "Identifier": "93974FBS1",
    "Weight": "0.14",
-   "Market Value": "10927468",
+   "Market Value": "10872564",
    "Shares Held": "10000000",
    "Asset Category": "Fixed Income"
   },
@@ -1107,7 +1098,7 @@
    "Ticker": "-",
    "Identifier": "93974FBW2",
    "Weight": "0.14",
-   "Market Value": "10572824",
+   "Market Value": "10537154",
    "Shares Held": "10000000",
    "Asset Category": "Fixed Income"
   },
@@ -1125,17 +1116,8 @@
    "Ticker": "-",
    "Identifier": "3137GBHZ1",
    "Weight": "0.13",
-   "Market Value": "10047415.56",
+   "Market Value": "9814882.5",
    "Shares Held": "9809079.45",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "FREDDIE MAC MULTIFAMILY FRETE 2025 ML29 AUS",
-   "Ticker": "-",
-   "Identifier": "3137HLHX3",
-   "Weight": "0.13",
-   "Market Value": "9735071.69",
-   "Shares Held": "9893613.88",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1143,7 +1125,7 @@
    "Ticker": "-",
    "Identifier": "34061XAK8",
    "Weight": "0.13",
-   "Market Value": "9812306.78",
+   "Market Value": "9755408.24",
    "Shares Held": "9940000",
    "Asset Category": "Fixed Income"
   },
@@ -1152,7 +1134,7 @@
    "Ticker": "-",
    "Identifier": "45203M2J9",
    "Weight": "0.13",
-   "Market Value": "9867373.91",
+   "Market Value": "9815208.12",
    "Shares Held": "8940000",
    "Asset Category": "Fixed Income"
   },
@@ -1161,8 +1143,26 @@
    "Ticker": "-",
    "Identifier": "452153PG8",
    "Weight": "0.13",
-   "Market Value": "9957253.7",
+   "Market Value": "9880467.98",
    "Shares Held": "9780000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "ILLINOIS ST ILS 04/45 FIXED 5.25",
+   "Ticker": "-",
+   "Identifier": "452153RG6",
+   "Weight": "0.13",
+   "Market Value": "10193301",
+   "Shares Held": "10000000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "ILLINOIS ST ILS 10/47 FIXED 5.5",
+   "Ticker": "-",
+   "Identifier": "452153SJ9",
+   "Weight": "0.13",
+   "Market Value": "10257793",
+   "Shares Held": "10000000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1170,7 +1170,7 @@
    "Ticker": "-",
    "Identifier": "59465FAE0",
    "Weight": "0.13",
-   "Market Value": "9926065",
+   "Market Value": "9889544",
    "Shares Held": "10000000",
    "Asset Category": "Fixed Income"
   },
@@ -1179,7 +1179,7 @@
    "Ticker": "-",
    "Identifier": "60637AYU0",
    "Weight": "0.13",
-   "Market Value": "9882047.7",
+   "Market Value": "9840465",
    "Shares Held": "9000000",
    "Asset Category": "Fixed Income"
   },
@@ -1188,7 +1188,7 @@
    "Ticker": "-",
    "Identifier": "626207U85",
    "Weight": "0.13",
-   "Market Value": "10046387",
+   "Market Value": "10045265",
    "Shares Held": "10000000",
    "Asset Category": "Fixed Income"
   },
@@ -1197,17 +1197,8 @@
    "Ticker": "-",
    "Identifier": "646080ZU8",
    "Weight": "0.13",
-   "Market Value": "10049096.24",
+   "Market Value": "10033539.78",
    "Shares Held": "10120000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "NEW YORK ST TRANSPRTN DEV CORP NYTTRN 10/40 FIXED 5",
-   "Ticker": "-",
-   "Identifier": "650116CZ7",
-   "Weight": "0.13",
-   "Market Value": "9537545.9",
-   "Shares Held": "9500000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1215,17 +1206,8 @@
    "Ticker": "-",
    "Identifier": "74514L3M7",
    "Weight": "0.13",
-   "Market Value": "9752807.41",
+   "Market Value": "9584974.6",
    "Shares Held": "10072668",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "SOUTH CAROLINA ST HSG FIN   DE SCSHSG 07/55 FIXED 6.5",
-   "Ticker": "-",
-   "Identifier": "83712D7Q3",
-   "Weight": "0.13",
-   "Market Value": "9526869.39",
-   "Shares Held": "8675000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1233,7 +1215,7 @@
    "Ticker": "-",
    "Identifier": "83756LJJ5",
    "Weight": "0.13",
-   "Market Value": "10043956.78",
+   "Market Value": "9993578.18",
    "Shares Held": "8930000",
    "Asset Category": "Fixed Income"
   },
@@ -1242,7 +1224,7 @@
    "Ticker": "-",
    "Identifier": "84136HAU7",
    "Weight": "0.13",
-   "Market Value": "10172135",
+   "Market Value": "10127902",
    "Shares Held": "10000000",
    "Asset Category": "Fixed Income"
   },
@@ -1251,17 +1233,8 @@
    "Ticker": "-",
    "Identifier": "940158JM1",
    "Weight": "0.13",
-   "Market Value": "9694872",
+   "Market Value": "9682780.5",
    "Shares Held": "9000000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "BLACK BELT ENERGY GAS DIST AL BBEUTL 11/56 ADJUSTABLE VAR",
-   "Ticker": "-",
-   "Identifier": "09182TGL5",
-   "Weight": "0.12",
-   "Market Value": "8800174.1",
-   "Shares Held": "8500000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1269,7 +1242,7 @@
    "Ticker": "-",
    "Identifier": "09182THS9",
    "Weight": "0.12",
-   "Market Value": "9012034.93",
+   "Market Value": "8958422.57",
    "Shares Held": "8705000",
    "Asset Category": "Fixed Income"
   },
@@ -1287,7 +1260,7 @@
    "Ticker": "-",
    "Identifier": "292723DP5",
    "Weight": "0.12",
-   "Market Value": "9183441.52",
+   "Market Value": "9136599.12",
    "Shares Held": "8800000",
    "Asset Category": "Fixed Income"
   },
@@ -1296,8 +1269,17 @@
    "Ticker": "-",
    "Identifier": "3137GCRK1",
    "Weight": "0.12",
-   "Market Value": "9067965.53",
+   "Market Value": "8907098.7",
    "Shares Held": "8614643.19",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "FREDDIE MAC MULTIFAMILY FRETE 2025 ML29 AUS",
+   "Ticker": "-",
+   "Identifier": "3137HLHX3",
+   "Weight": "0.12",
+   "Market Value": "9502327.39",
+   "Shares Held": "9893613.88",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1305,7 +1287,7 @@
    "Ticker": "-",
    "Identifier": "432308V35",
    "Weight": "0.12",
-   "Market Value": "8993242.86",
+   "Market Value": "8945785.22",
    "Shares Held": "8420000",
    "Asset Category": "Fixed Income"
   },
@@ -1314,17 +1296,8 @@
    "Ticker": "-",
    "Identifier": "517845TY9",
    "Weight": "0.12",
-   "Market Value": "9322324.42",
+   "Market Value": "9327937.63",
    "Shares Held": "8460000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "LOS ANGELES CA DEPT OF WTR   P LOSUTL 07/36 FIXED 5",
-   "Ticker": "-",
-   "Identifier": "544532RD8",
-   "Weight": "0.12",
-   "Market Value": "8780643.2",
-   "Shares Held": "8000000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1341,7 +1314,7 @@
    "Ticker": "-",
    "Identifier": "592041A98",
    "Weight": "0.12",
-   "Market Value": "8956786.32",
+   "Market Value": "8869750.19",
    "Shares Held": "8140000",
    "Asset Category": "Fixed Income"
   },
@@ -1350,7 +1323,7 @@
    "Ticker": "-",
    "Identifier": "59333PZ92",
    "Weight": "0.12",
-   "Market Value": "9001526.98",
+   "Market Value": "9000099.37",
    "Shares Held": "8990000",
    "Asset Category": "Fixed Income"
   },
@@ -1368,7 +1341,7 @@
    "Ticker": "-",
    "Identifier": "60637B8J2",
    "Weight": "0.12",
-   "Market Value": "9056767.72",
+   "Market Value": "9015331.45",
    "Shares Held": "8455000",
    "Asset Category": "Fixed Income"
   },
@@ -1377,7 +1350,7 @@
    "Ticker": "-",
    "Identifier": "63607WBZ6",
    "Weight": "0.12",
-   "Market Value": "8921505.56",
+   "Market Value": "8888879.97",
    "Shares Held": "8969483.33",
    "Asset Category": "Fixed Income"
   },
@@ -1395,7 +1368,7 @@
    "Ticker": "-",
    "Identifier": "64972JJV1",
    "Weight": "0.12",
-   "Market Value": "9175032.67",
+   "Market Value": "9188130.88",
    "Shares Held": "8480000",
    "Asset Category": "Fixed Income"
   },
@@ -1404,7 +1377,7 @@
    "Ticker": "-",
    "Identifier": "64972KNM3",
    "Weight": "0.12",
-   "Market Value": "8966520.9",
+   "Market Value": "8936991.9",
    "Shares Held": "9000000",
    "Asset Category": "Fixed Income"
   },
@@ -1413,8 +1386,17 @@
    "Ticker": "-",
    "Identifier": "64990AZA6",
    "Weight": "0.12",
-   "Market Value": "8906713.6",
+   "Market Value": "8864124.8",
    "Shares Held": "8000000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "NEW YORK ST TRANSPRTN DEV CORP NYTTRN 10/40 FIXED 5",
+   "Ticker": "-",
+   "Identifier": "650116CZ7",
+   "Weight": "0.12",
+   "Market Value": "9421616.45",
+   "Shares Held": "9500000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1422,7 +1404,7 @@
    "Ticker": "-",
    "Identifier": "650116FH4",
    "Weight": "0.12",
-   "Market Value": "9409873.87",
+   "Market Value": "9354833.21",
    "Shares Held": "8890000",
    "Asset Category": "Fixed Income"
   },
@@ -1431,7 +1413,7 @@
    "Ticker": "-",
    "Identifier": "67886M8A0",
    "Weight": "0.12",
-   "Market Value": "8856879.2",
+   "Market Value": "8811104.8",
    "Shares Held": "8000000",
    "Asset Category": "Fixed Income"
   },
@@ -1440,7 +1422,7 @@
    "Ticker": "-",
    "Identifier": "771902HY2",
    "Weight": "0.12",
-   "Market Value": "9106209.47",
+   "Market Value": "9106204.33",
    "Shares Held": "8570000",
    "Asset Category": "Fixed Income"
   },
@@ -1449,8 +1431,17 @@
    "Ticker": "-",
    "Identifier": "79625GNE9",
    "Weight": "0.12",
-   "Market Value": "8891345.07",
+   "Market Value": "8865377.2",
    "Shares Held": "8905000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "SOUTH CAROLINA ST HSG FIN   DE SCSHSG 07/55 FIXED 6.5",
+   "Ticker": "-",
+   "Identifier": "83712D7Q3",
+   "Weight": "0.12",
+   "Market Value": "9481956.31",
+   "Shares Held": "8675000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1458,7 +1449,7 @@
    "Ticker": "-",
    "Identifier": "88285AJH2",
    "Weight": "0.12",
-   "Market Value": "8989413.16",
+   "Market Value": "8936316.54",
    "Shares Held": "8085000",
    "Asset Category": "Fixed Income"
   },
@@ -1467,7 +1458,7 @@
    "Ticker": "-",
    "Identifier": "93974FBQ5",
    "Weight": "0.12",
-   "Market Value": "8861647.93",
+   "Market Value": "8803583.87",
    "Shares Held": "7965000",
    "Asset Category": "Fixed Income"
   },
@@ -1476,7 +1467,7 @@
    "Ticker": "-",
    "Identifier": "041083B21",
    "Weight": "0.11",
-   "Market Value": "8594965.6",
+   "Market Value": "8558367.94",
    "Shares Held": "8120000",
    "Asset Category": "Fixed Income"
   },
@@ -1485,8 +1476,17 @@
    "Ticker": "-",
    "Identifier": "084538JH1",
    "Weight": "0.11",
-   "Market Value": "8169061.68",
+   "Market Value": "8137696.5",
    "Shares Held": "8872000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "BLACK BELT ENERGY GAS DIST AL BBEUTL 11/56 ADJUSTABLE VAR",
+   "Ticker": "-",
+   "Identifier": "09182TGL5",
+   "Weight": "0.11",
+   "Market Value": "8740285.65",
+   "Shares Held": "8500000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1494,7 +1494,7 @@
    "Ticker": "-",
    "Identifier": "13013JHG4",
    "Weight": "0.11",
-   "Market Value": "8330450.93",
+   "Market Value": "8215602.36",
    "Shares Held": "7835000",
    "Asset Category": "Fixed Income"
   },
@@ -1503,7 +1503,7 @@
    "Ticker": "-",
    "Identifier": "13033DAJ4",
    "Weight": "0.11",
-   "Market Value": "8139089.84",
+   "Market Value": "8082492.69",
    "Shares Held": "8714360.51",
    "Asset Category": "Fixed Income"
   },
@@ -1512,7 +1512,7 @@
    "Ticker": "-",
    "Identifier": "161045UE7",
    "Weight": "0.11",
-   "Market Value": "8433240.25",
+   "Market Value": "8391387.51",
    "Shares Held": "7395000",
    "Asset Category": "Fixed Income"
   },
@@ -1521,7 +1521,7 @@
    "Ticker": "-",
    "Identifier": "19648FXS8",
    "Weight": "0.11",
-   "Market Value": "8637042.4",
+   "Market Value": "8590072",
    "Shares Held": "8000000",
    "Asset Category": "Fixed Income"
   },
@@ -1530,17 +1530,8 @@
    "Ticker": "-",
    "Identifier": "25477GZM0",
    "Weight": "0.11",
-   "Market Value": "8068860.82",
+   "Market Value": "8042686.14",
    "Shares Held": "7715000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "E BATON ROUGE PARISH LA INDL D EASDEV 12/51 ADJUSTABLE VAR",
-   "Ticker": "-",
-   "Identifier": "270777AE5",
-   "Weight": "0.11",
-   "Market Value": "8000000",
-   "Shares Held": "8000000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1548,17 +1539,8 @@
    "Ticker": "-",
    "Identifier": "3137HDJL5",
    "Weight": "0.11",
-   "Market Value": "8445947.01",
+   "Market Value": "8205895.53",
    "Shares Held": "8572562.91",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "FREDDIE MAC MULTIFAMILY FRETE 2025 ML28 AUS",
-   "Ticker": "-",
-   "Identifier": "3137HJZX8",
-   "Weight": "0.11",
-   "Market Value": "8268166.94",
-   "Shares Held": "8562577.47",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1566,7 +1548,7 @@
    "Ticker": "-",
    "Identifier": "398194AA8",
    "Weight": "0.11",
-   "Market Value": "8720182.62",
+   "Market Value": "8703374.18",
    "Shares Held": "8550000",
    "Asset Category": "Fixed Income"
   },
@@ -1575,7 +1557,7 @@
    "Ticker": "-",
    "Identifier": "442349HU3",
    "Weight": "0.11",
-   "Market Value": "8742391.13",
+   "Market Value": "8671252.27",
    "Shares Held": "8450000",
    "Asset Category": "Fixed Income"
   },
@@ -1584,7 +1566,7 @@
    "Ticker": "-",
    "Identifier": "45203H5F5",
    "Weight": "0.11",
-   "Market Value": "8650399.17",
+   "Market Value": "8612236.54",
    "Shares Held": "8805000",
    "Asset Category": "Fixed Income"
   },
@@ -1593,17 +1575,17 @@
    "Ticker": "-",
    "Identifier": "45203MS36",
    "Weight": "0.11",
-   "Market Value": "8266937.91",
+   "Market Value": "8223464.48",
    "Shares Held": "7525000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "KING CNTY WA SCH DIST  411 ISS KINSCD 12/31 FIXED 4",
+   "Name": "LOS ANGELES CA DEPT OF WTR   P LOSUTL 07/36 FIXED 5",
    "Ticker": "-",
-   "Identifier": "4952246M4",
+   "Identifier": "544532RD8",
    "Weight": "0.11",
-   "Market Value": "8046295.99",
-   "Shares Held": "7715000",
+   "Market Value": "8742708",
+   "Shares Held": "8000000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1611,7 +1593,7 @@
    "Ticker": "-",
    "Identifier": "56035DHK1",
    "Weight": "0.11",
-   "Market Value": "8228167.81",
+   "Market Value": "8211409.81",
    "Shares Held": "7840000",
    "Asset Category": "Fixed Income"
   },
@@ -1625,20 +1607,11 @@
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "MICHIGAN FIN AUTH REV MISFIN 12/34 ADJUSTABLE VAR",
-   "Ticker": "-",
-   "Identifier": "59447PXQ9",
-   "Weight": "0.11",
-   "Market Value": "8000000",
-   "Shares Held": "8000000",
-   "Asset Category": "Fixed Income"
-  },
-  {
    "Name": "MINNESOTA ST HSG FIN AGY MNSHSG 07/55 FIXED 6.25",
    "Ticker": "-",
    "Identifier": "60416UQP3",
    "Weight": "0.11",
-   "Market Value": "8535260.38",
+   "Market Value": "8493877.09",
    "Shares Held": "7825000",
    "Asset Category": "Fixed Income"
   },
@@ -1647,7 +1620,7 @@
    "Ticker": "-",
    "Identifier": "605155CA6",
    "Weight": "0.11",
-   "Market Value": "8349808.71",
+   "Market Value": "8385736.76",
    "Shares Held": "8240000",
    "Asset Category": "Fixed Income"
   },
@@ -1656,7 +1629,7 @@
    "Ticker": "-",
    "Identifier": "605156AD0",
    "Weight": "0.11",
-   "Market Value": "8259451.19",
+   "Market Value": "8228306.08",
    "Shares Held": "8380000",
    "Asset Category": "Fixed Income"
   },
@@ -1674,7 +1647,7 @@
    "Ticker": "-",
    "Identifier": "626207R97",
    "Weight": "0.11",
-   "Market Value": "8036824.8",
+   "Market Value": "8035926.4",
    "Shares Held": "8000000",
    "Asset Category": "Fixed Income"
   },
@@ -1683,7 +1656,7 @@
    "Ticker": "-",
    "Identifier": "64469HFA5",
    "Weight": "0.11",
-   "Market Value": "8603897.46",
+   "Market Value": "8560452.91",
    "Shares Held": "7520000",
    "Asset Category": "Fixed Income"
   },
@@ -1692,7 +1665,7 @@
    "Ticker": "-",
    "Identifier": "646136XF3",
    "Weight": "0.11",
-   "Market Value": "8299375.07",
+   "Market Value": "8280861.65",
    "Shares Held": "8890000",
    "Asset Category": "Fixed Income"
   },
@@ -1701,7 +1674,7 @@
    "Ticker": "-",
    "Identifier": "64613ALU4",
    "Weight": "0.11",
-   "Market Value": "8480511.05",
+   "Market Value": "8444656.02",
    "Shares Held": "7790000",
    "Asset Category": "Fixed Income"
   },
@@ -1710,7 +1683,7 @@
    "Ticker": "-",
    "Identifier": "64966SKL9",
    "Weight": "0.11",
-   "Market Value": "8435891.37",
+   "Market Value": "8364392.12",
    "Shares Held": "7585000",
    "Asset Category": "Fixed Income"
   },
@@ -1719,7 +1692,7 @@
    "Ticker": "-",
    "Identifier": "64966SRA6",
    "Weight": "0.11",
-   "Market Value": "8162231.25",
+   "Market Value": "8145357",
    "Shares Held": "7500000",
    "Asset Category": "Fixed Income"
   },
@@ -1728,7 +1701,7 @@
    "Ticker": "-",
    "Identifier": "650028G49",
    "Weight": "0.11",
-   "Market Value": "8694866.4",
+   "Market Value": "8683799.2",
    "Shares Held": "8000000",
    "Asset Category": "Fixed Income"
   },
@@ -1737,17 +1710,8 @@
    "Ticker": "-",
    "Identifier": "650028G64",
    "Weight": "0.11",
-   "Market Value": "8525271.2",
+   "Market Value": "8517400.8",
    "Shares Held": "8000000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "PUBLIC FIN AUTH WI REVENUE PUBGEN 12/41 ZEROCPNOID 0",
-   "Ticker": "-",
-   "Identifier": "74442PP58",
-   "Weight": "0.11",
-   "Market Value": "7997774.67",
-   "Shares Held": "21677000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1755,7 +1719,7 @@
    "Ticker": "-",
    "Identifier": "74449CAA5",
    "Weight": "0.11",
-   "Market Value": "8546507.17",
+   "Market Value": "8523992.55",
    "Shares Held": "9106014.39",
    "Asset Category": "Fixed Income"
   },
@@ -1764,26 +1728,8 @@
    "Ticker": "-",
    "Identifier": "876448HR5",
    "Weight": "0.11",
-   "Market Value": "8432080.9",
+   "Market Value": "8397818.88",
    "Shares Held": "7680000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "WISCONSIN ST HSG   ECON DEV AU WISGEN 09/55 FIXED 6.25",
-   "Ticker": "-",
-   "Identifier": "97689QXG6",
-   "Weight": "0.11",
-   "Market Value": "8023063.34",
-   "Shares Held": "7430000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "BLACK BELT ENERGY GAS DIST AL BBEUTL 06/51 ADJUSTABLE VAR",
-   "Ticker": "-",
-   "Identifier": "09182NBR0",
-   "Weight": "0.1",
-   "Market Value": "7261201.58",
-   "Shares Held": "7290000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1791,7 +1737,7 @@
    "Ticker": "-",
    "Identifier": "09182TEC7",
    "Weight": "0.1",
-   "Market Value": "7307277.01",
+   "Market Value": "7291753.58",
    "Shares Held": "7035000",
    "Asset Category": "Fixed Income"
   },
@@ -1800,7 +1746,7 @@
    "Ticker": "-",
    "Identifier": "13013JAP1",
    "Weight": "0.1",
-   "Market Value": "7300127.32",
+   "Market Value": "7286258.96",
    "Shares Held": "7330000",
    "Asset Category": "Fixed Income"
   },
@@ -1809,7 +1755,7 @@
    "Ticker": "-",
    "Identifier": "13048RAK3",
    "Weight": "0.1",
-   "Market Value": "7276868.48",
+   "Market Value": "7275992.1",
    "Shares Held": "7285000",
    "Asset Category": "Fixed Income"
   },
@@ -1818,7 +1764,7 @@
    "Ticker": "-",
    "Identifier": "13063ESV9",
    "Weight": "0.1",
-   "Market Value": "7925133.73",
+   "Market Value": "7907821.78",
    "Shares Held": "7750000",
    "Asset Category": "Fixed Income"
   },
@@ -1827,7 +1773,7 @@
    "Ticker": "-",
    "Identifier": "13080S2W3",
    "Weight": "0.1",
-   "Market Value": "7551247.2",
+   "Market Value": "7512885.1",
    "Shares Held": "7000000",
    "Asset Category": "Fixed Income"
   },
@@ -1836,7 +1782,7 @@
    "Ticker": "-",
    "Identifier": "13080S2X1",
    "Weight": "0.1",
-   "Market Value": "7858376.64",
+   "Market Value": "7820966.16",
    "Shares Held": "7200000",
    "Asset Category": "Fixed Income"
   },
@@ -1845,7 +1791,7 @@
    "Ticker": "-",
    "Identifier": "167505ZZ2",
    "Weight": "0.1",
-   "Market Value": "7829987.25",
+   "Market Value": "7826226",
    "Shares Held": "7500000",
    "Asset Category": "Fixed Income"
   },
@@ -1854,8 +1800,26 @@
    "Ticker": "-",
    "Identifier": "20786LDS7",
    "Weight": "0.1",
-   "Market Value": "7494913.7",
+   "Market Value": "7501306.93",
    "Shares Held": "10227531",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "E BATON ROUGE PARISH LA INDL D EASDEV 12/51 ADJUSTABLE VAR",
+   "Ticker": "-",
+   "Identifier": "270777AE5",
+   "Weight": "0.1",
+   "Market Value": "8000000",
+   "Shares Held": "8000000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "FREDDIE MAC MULTIFAMILY FRETE 2025 ML28 AUS",
+   "Ticker": "-",
+   "Identifier": "3137HJZX8",
+   "Weight": "0.1",
+   "Market Value": "7959182.05",
+   "Shares Held": "8562577.47",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1863,8 +1827,17 @@
    "Ticker": "-",
    "Identifier": "452153JY6",
    "Weight": "0.1",
-   "Market Value": "7722755.25",
+   "Market Value": "7698240.75",
    "Shares Held": "7500000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "KING CNTY WA SCH DIST  411 ISS KINSCD 12/31 FIXED 4",
+   "Ticker": "-",
+   "Identifier": "4952246M4",
+   "Weight": "0.1",
+   "Market Value": "8002968.55",
+   "Shares Held": "7715000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1872,7 +1845,7 @@
    "Ticker": "-",
    "Identifier": "517845TG8",
    "Weight": "0.1",
-   "Market Value": "7357018.2",
+   "Market Value": "7359151.1",
    "Shares Held": "7000000",
    "Asset Category": "Fixed Income"
   },
@@ -1881,7 +1854,7 @@
    "Ticker": "-",
    "Identifier": "544532QJ6",
    "Weight": "0.1",
-   "Market Value": "7951970",
+   "Market Value": "7917614.93",
    "Shares Held": "7245000",
    "Asset Category": "Fixed Income"
   },
@@ -1890,17 +1863,17 @@
    "Ticker": "-",
    "Identifier": "547804AQ7",
    "Weight": "0.1",
-   "Market Value": "7622690.53",
+   "Market Value": "7582165.9",
    "Shares Held": "7455000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "MASSACHUSETTS ST DEV FIN AGY R MASDEV 12/44 FIXED 5",
+   "Name": "MICHIGAN FIN AUTH REV MISFIN 12/34 ADJUSTABLE VAR",
    "Ticker": "-",
-   "Identifier": "57585BUR7",
+   "Identifier": "59447PXQ9",
    "Weight": "0.1",
-   "Market Value": "7232652.7",
-   "Shares Held": "7000000",
+   "Market Value": "8000000",
+   "Shares Held": "8000000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1908,17 +1881,8 @@
    "Ticker": "-",
    "Identifier": "60412A4P5",
    "Weight": "0.1",
-   "Market Value": "7496142.89",
+   "Market Value": "7428506.75",
    "Shares Held": "6815000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "MISSOURI ST HSG DEV COMMISSION MOSSFH 05/55 FIXED 6",
-   "Ticker": "-",
-   "Identifier": "60637GDG1",
-   "Weight": "0.1",
-   "Market Value": "7256463.07",
-   "Shares Held": "6710000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1926,7 +1890,7 @@
    "Ticker": "-",
    "Identifier": "60637GTC3",
    "Weight": "0.1",
-   "Market Value": "7756026.23",
+   "Market Value": "7715601.53",
    "Shares Held": "6895000",
    "Asset Category": "Fixed Income"
   },
@@ -1944,7 +1908,7 @@
    "Ticker": "-",
    "Identifier": "63607WAW4",
    "Weight": "0.1",
-   "Market Value": "7950345.93",
+   "Market Value": "7936979.85",
    "Shares Held": "8253217.56",
    "Asset Category": "Fixed Income"
   },
@@ -1953,7 +1917,7 @@
    "Ticker": "-",
    "Identifier": "64613CEL8",
    "Weight": "0.1",
-   "Market Value": "7419104.97",
+   "Market Value": "7369513.58",
    "Shares Held": "6700000",
    "Asset Category": "Fixed Income"
   },
@@ -1962,7 +1926,7 @@
    "Ticker": "-",
    "Identifier": "646140KU6",
    "Weight": "0.1",
-   "Market Value": "7753393.5",
+   "Market Value": "7725765",
    "Shares Held": "7500000",
    "Asset Category": "Fixed Income"
   },
@@ -1980,7 +1944,7 @@
    "Ticker": "-",
    "Identifier": "67754AAD6",
    "Weight": "0.1",
-   "Market Value": "7915481.6",
+   "Market Value": "7880535.2",
    "Shares Held": "8000000",
    "Asset Category": "Fixed Income"
   },
@@ -1989,7 +1953,7 @@
    "Ticker": "-",
    "Identifier": "677632T92",
    "Weight": "0.1",
-   "Market Value": "7508970.48",
+   "Market Value": "7457206.02",
    "Shares Held": "6600000",
    "Asset Category": "Fixed Income"
   },
@@ -1998,8 +1962,17 @@
    "Ticker": "-",
    "Identifier": "708692BZ0",
    "Weight": "0.1",
-   "Market Value": "7799099.12",
+   "Market Value": "7796134.16",
    "Shares Held": "7780000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "PUBLIC FIN AUTH WI REVENUE PUBGEN 12/41 ZEROCPNOID 0",
+   "Ticker": "-",
+   "Identifier": "74442PP58",
+   "Weight": "0.1",
+   "Market Value": "7989370.5",
+   "Shares Held": "21677000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -2007,7 +1980,7 @@
    "Ticker": "-",
    "Identifier": "74514L3P0",
    "Weight": "0.1",
-   "Market Value": "7562445.1",
+   "Market Value": "7474895.55",
    "Shares Held": "8895143",
    "Asset Category": "Fixed Income"
   },
@@ -2016,7 +1989,7 @@
    "Ticker": "-",
    "Identifier": "79467BJB2",
    "Weight": "0.1",
-   "Market Value": "7579033.52",
+   "Market Value": "7551238.46",
    "Shares Held": "7120000",
    "Asset Category": "Fixed Income"
   },
@@ -2025,7 +1998,7 @@
    "Ticker": "-",
    "Identifier": "79467BJT3",
    "Weight": "0.1",
-   "Market Value": "7809432.75",
+   "Market Value": "7771454.25",
    "Shares Held": "7500000",
    "Asset Category": "Fixed Income"
   },
@@ -2034,8 +2007,17 @@
    "Ticker": "-",
    "Identifier": "85732GYB0",
    "Weight": "0.1",
-   "Market Value": "7917901.86",
+   "Market Value": "7899366.63",
    "Shares Held": "7285000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "WISCONSIN ST HSG   ECON DEV AU WISGEN 09/55 FIXED 6.25",
+   "Ticker": "-",
+   "Identifier": "97689QXG6",
+   "Weight": "0.1",
+   "Market Value": "7989355.66",
+   "Shares Held": "7430000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -2043,7 +2025,7 @@
    "Ticker": "-",
    "Identifier": "97705MX26",
    "Weight": "0.1",
-   "Market Value": "7711187.75",
+   "Market Value": "7656706.61",
    "Shares Held": "6905000",
    "Asset Category": "Fixed Income"
   },
@@ -2052,7 +2034,7 @@
    "Ticker": "-",
    "Identifier": "03588JJD5",
    "Weight": "0.09",
-   "Market Value": "6617937.35",
+   "Market Value": "6589130.19",
    "Shares Held": "6115000",
    "Asset Category": "Fixed Income"
   },
@@ -2061,8 +2043,17 @@
    "Ticker": "-",
    "Identifier": "04780M7A1",
    "Weight": "0.09",
-   "Market Value": "6716743.8",
+   "Market Value": "6675630",
    "Shares Held": "6500000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "BLACK BELT ENERGY GAS DIST AL BBEUTL 06/51 ADJUSTABLE VAR",
+   "Ticker": "-",
+   "Identifier": "09182NBR0",
+   "Weight": "0.09",
+   "Market Value": "7245681.9",
+   "Shares Held": "7290000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -2070,7 +2061,7 @@
    "Ticker": "-",
    "Identifier": "13013JEB8",
    "Weight": "0.09",
-   "Market Value": "6917789.55",
+   "Market Value": "6941580.71",
    "Shares Held": "6765000",
    "Asset Category": "Fixed Income"
   },
@@ -2079,7 +2070,7 @@
    "Ticker": "-",
    "Identifier": "13068XSV2",
    "Weight": "0.09",
-   "Market Value": "6728632.2",
+   "Market Value": "6694633.2",
    "Shares Held": "6000000",
    "Asset Category": "Fixed Income"
   },
@@ -2088,7 +2079,7 @@
    "Ticker": "-",
    "Identifier": "167505YF7",
    "Weight": "0.09",
-   "Market Value": "7132377.72",
+   "Market Value": "7101928.14",
    "Shares Held": "7815000",
    "Asset Category": "Fixed Income"
   },
@@ -2097,7 +2088,7 @@
    "Ticker": "-",
    "Identifier": "1675935L2",
    "Weight": "0.09",
-   "Market Value": "7127606.5",
+   "Market Value": "7113208.2",
    "Shares Held": "7000000",
    "Asset Category": "Fixed Income"
   },
@@ -2106,17 +2097,8 @@
    "Ticker": "-",
    "Identifier": "1964805D5",
    "Weight": "0.09",
-   "Market Value": "6913869.82",
+   "Market Value": "6929008.91",
    "Shares Held": "6505000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "CONNECTICUT ST HLTH   EDUCTNL CTSHGR 07/42 ADJUSTABLE VAR",
-   "Ticker": "-",
-   "Identifier": "20775DU34",
-   "Weight": "0.09",
-   "Market Value": "7000000",
-   "Shares Held": "7000000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -2124,7 +2106,7 @@
    "Ticker": "-",
    "Identifier": "246381VQ7",
    "Weight": "0.09",
-   "Market Value": "6846128.52",
+   "Market Value": "6833939.73",
    "Shares Held": "6160000",
    "Asset Category": "Fixed Income"
   },
@@ -2133,7 +2115,7 @@
    "Ticker": "-",
    "Identifier": "34074NKD0",
    "Weight": "0.09",
-   "Market Value": "7041880.13",
+   "Market Value": "7005887.69",
    "Shares Held": "6350000",
    "Asset Category": "Fixed Income"
   },
@@ -2142,7 +2124,7 @@
    "Ticker": "-",
    "Identifier": "442349HY5",
    "Weight": "0.09",
-   "Market Value": "6665506.9",
+   "Market Value": "6653630.75",
    "Shares Held": "6500000",
    "Asset Category": "Fixed Income"
   },
@@ -2151,7 +2133,7 @@
    "Ticker": "-",
    "Identifier": "45130BCH4",
    "Weight": "0.09",
-   "Market Value": "7137837.16",
+   "Market Value": "7101143.9",
    "Shares Held": "6520000",
    "Asset Category": "Fixed Income"
   },
@@ -2160,7 +2142,7 @@
    "Ticker": "-",
    "Identifier": "45470YKH3",
    "Weight": "0.09",
-   "Market Value": "6701029.49",
+   "Market Value": "6669786.83",
    "Shares Held": "6225000",
    "Asset Category": "Fixed Income"
   },
@@ -2178,7 +2160,7 @@
    "Ticker": "-",
    "Identifier": "463813L29",
    "Weight": "0.09",
-   "Market Value": "6937235.94",
+   "Market Value": "6906498.13",
    "Shares Held": "6350000",
    "Asset Category": "Fixed Income"
   },
@@ -2187,7 +2169,7 @@
    "Ticker": "-",
    "Identifier": "472682ZJ5",
    "Weight": "0.09",
-   "Market Value": "6677855.92",
+   "Market Value": "6651687.93",
    "Shares Held": "6445000",
    "Asset Category": "Fixed Income"
   },
@@ -2196,7 +2178,7 @@
    "Ticker": "-",
    "Identifier": "48542TBP4",
    "Weight": "0.09",
-   "Market Value": "6677764.5",
+   "Market Value": "6663050.46",
    "Shares Held": "6600000",
    "Asset Category": "Fixed Income"
   },
@@ -2205,7 +2187,7 @@
    "Ticker": "-",
    "Identifier": "49474F6T2",
    "Weight": "0.09",
-   "Market Value": "6840815.53",
+   "Market Value": "6827594.44",
    "Shares Held": "6210000",
    "Asset Category": "Fixed Income"
   },
@@ -2214,7 +2196,7 @@
    "Ticker": "-",
    "Identifier": "544351TF6",
    "Weight": "0.09",
-   "Market Value": "7105489.3",
+   "Market Value": "7096985",
    "Shares Held": "7000000",
    "Asset Category": "Fixed Income"
   },
@@ -2223,7 +2205,7 @@
    "Ticker": "-",
    "Identifier": "544532LV4",
    "Weight": "0.09",
-   "Market Value": "6870072.22",
+   "Market Value": "6857378.33",
    "Shares Held": "6440000",
    "Asset Category": "Fixed Income"
   },
@@ -2232,7 +2214,7 @@
    "Ticker": "-",
    "Identifier": "54640TAN9",
    "Weight": "0.09",
-   "Market Value": "6515928.26",
+   "Market Value": "6509623.42",
    "Shares Held": "6520000",
    "Asset Category": "Fixed Income"
   },
@@ -2241,8 +2223,26 @@
    "Ticker": "-",
    "Identifier": "57585BUQ9",
    "Weight": "0.09",
-   "Market Value": "7166332.12",
+   "Market Value": "7157811.93",
    "Shares Held": "6885000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "MASSACHUSETTS ST DEV FIN AGY R MASDEV 12/44 FIXED 5",
+   "Ticker": "-",
+   "Identifier": "57585BUR7",
+   "Weight": "0.09",
+   "Market Value": "7223312.6",
+   "Shares Held": "7000000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "MISSOURI ST HSG DEV COMMISSION MOSSFH 05/55 FIXED 6",
+   "Ticker": "-",
+   "Identifier": "60637GDG1",
+   "Weight": "0.09",
+   "Market Value": "7221831.42",
+   "Shares Held": "6710000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -2250,7 +2250,7 @@
    "Ticker": "-",
    "Identifier": "63607WBB9",
    "Weight": "0.09",
-   "Market Value": "6657097.5",
+   "Market Value": "6627624.74",
    "Shares Held": "6854129.03",
    "Asset Category": "Fixed Income"
   },
@@ -2259,7 +2259,7 @@
    "Ticker": "-",
    "Identifier": "64972JJW9",
    "Weight": "0.09",
-   "Market Value": "6532504",
+   "Market Value": "6524586.02",
    "Shares Held": "6080000",
    "Asset Category": "Fixed Income"
   }
