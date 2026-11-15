@@ -204,7 +204,9 @@ function installIssuerMock(knobs: Knobs = {}): () => void {
       if (dead.has('yahoo')) return gone();
       const dayList = mockDays(knobs.yahooDays ?? 300, knobs.yahooLaterDays);
       const price = (day: string) => Math.round((40 + (Date.parse(`${day}T00:00:00Z`) - Date.parse('2024-01-01T00:00:00Z')) / 86_400_000 * 0.01) * 100) / 100;
-      return Response.json({ chart: { result: [{ timestamp: dayList.map((day) => Math.floor(Date.parse(`${day}T00:00:00Z`) / 1000)), indicators: { quote: [{ close: dayList.map(price), volume: dayList.map(() => 1) }], adjclose: [{ adjclose: dayList.map(price) }] }, events: {}, meta: { regularMarketPrice: 44, exchangeName: 'NYSE', firstTradeDate: 1645488000 } }], error: null } });
+      const stamps = dayList.map((day) => Math.floor(Date.parse(`${day}T00:00:00Z`) / 1000));
+      const paid = Date.parse('2026-09-21T00:00:00Z') / 1000; // one of the last days of the default answer, the same in every window
+      return Response.json({ chart: { result: [{ timestamp: stamps, indicators: { quote: [{ close: dayList.map(price), volume: dayList.map(() => 1) }], adjclose: [{ adjclose: dayList.map(price) }] }, events: { dividends: { [String(paid)]: { amount: 0.25, date: paid } } }, meta: { regularMarketPrice: 44, exchangeName: 'NYSE', firstTradeDate: stamps[0], dataGranularity: '1d' } }], error: null } });
     }
     if (url.includes('company_tickers_mf.json')) {
       count('company_tickers_mf');
@@ -741,7 +743,10 @@ describe('pipeline', () => {
       expect(seeded[0].metrics.ytd).toBeNull(); expect(seeded[0].metrics.returnsBasis.length).toBeGreaterThan(10);
       await run({}); // all funds published
       expect((await feed()).every((fund: any) => fund.dataFile !== null)).toBe(true);
+      const requestsBefore = mockUrls.length;
       await run({ TICKERS: 'CGUS' }); // a one-ticker run never shrinks the feed
+      // one Yahoo daily chart per updated fund serves the swing and the dividend metrics (dividends tap, no extra request)
+      expect(mockUrls.slice(requestsBefore).filter((url) => /chart\/CGUS\?period1=0&.*includePrePost=false/.test(url))).toHaveLength(1);
       const rows = await feed();
       expect(rows.map((fund: any) => fund.ticker)).toEqual(['CGCP', 'CGMU', 'CGUS']);
       expect(rows.every((fund: any) => fund.dataFile !== null)).toBe(true);
@@ -750,7 +755,11 @@ describe('pipeline', () => {
       for (const fund of rows) expect(Object.keys(fund.metrics)).toEqual(expect.arrayContaining(RANGE_KEYS));
       // the swing keys from the Yahoo daily closes (period1=0) of the funds the run updated (swing block)
       const SWING_KEYS = ['pctFrom52wHigh', 'athPrice', 'athDate', 'athBasis', 'pctFromAth', 'volatility1y', 'sigmaFromMean60d', 'high60d', 'low60d'];
-      for (const fund of rows) expect(Object.keys(fund.metrics).slice(-11, -2)).toEqual(SWING_KEYS);
+      for (const fund of rows) expect(Object.keys(fund.metrics).slice(-17, -8)).toEqual(SWING_KEYS);
+      // the dividend keys from the Yahoo dividend events of the same chart (dividends block): one payment in the last 12 months,
+      // no complete year after the listing year, so growth, streak and cut are null (never 0)
+      for (const fund of rows) expect(Object.keys(fund.metrics).slice(-8, -2)).toEqual(['dividendRate', 'dividendGrowth', 'dividendGrowth3y', 'dividendGrowth5y', 'dividendStreak', 'dividendCut10y']);
+      expect(['dividendRate', 'dividendGrowth', 'dividendGrowth3y', 'dividendGrowth5y', 'dividendStreak', 'dividendCut10y'].map((key) => rows[2].metrics[key])).toEqual([0.25, null, null, null, null, null]);
       expect(mockUrls.some((url) => /chart\/CGUS\?period1=0&period2=\d+&interval=1d/.test(url))).toBe(true);
       expect([rows[2].metrics.athBasis, rows[2].metrics.athPrice, rows[2].metrics.high60d, rows[2].metrics.volatility1y]).toEqual(['daily closes since 2025-11-30', 49.98, 49.98, expect.any(Number)]);
       expect((await readdir(join(dir, 'funds'))).sort()).toEqual(['CGCP', 'CGMU', 'CGUS']);
