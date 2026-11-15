@@ -95,6 +95,11 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
   - `volatility1y` - annualized volatility of the last 252 daily log returns, in percent (needs 253 closes)
   - `sigmaFromMean60d` - distance of the last close from the mean of the last 60 closes, in sample standard deviations
   - `high60d`, `low60d` - highest and lowest of the last 60 closes
+- Dividend metrics (shared `dividends` block, the formulas of the Stocks feed) from the Yahoo Finance dividend events of the daily chart since listing (split adjusted; the published distribution table is not), read from the same Yahoo request as the swing metrics (no extra request); a failed or truncated chart keeps the published values; `null` (never `0`) when unknown:
+  - `dividendRate` - sum of the distributions with ex-dates in the last 12 months
+  - `dividendGrowth`, `dividendGrowth3y`, `dividendGrowth5y` - last complete calendar year against 1, 3, 5 years earlier (3 and 5 as a yearly rate), the listing year is never a base
+  - `dividendStreak` - complete calendar years in a row with a higher sum
+  - `dividendCut10y` - `true` when a year of the last 10 paid more than 20% less than its base year and the next year did not come back
 - `returnsBasis` - mandatory non-empty label of how the returns are computed: official Capital Group NAV total returns, or derived from the daily NAV history, or an estimate from Yahoo adjusted closes (mixed cases say which periods are derived or estimated); never empty or `-`
 - `performanceAsOf` - mandatory ISO `YYYY-MM-DD` date the returns are as of: the issuer performance table (month-end) date for official returns, the last price date of the derived series otherwise, and the oldest of the two for mixed values; it is not the NAV date, and is `null` only when truly unknown
 - `terValue` is the NET expense ratio (after waivers; the gross one only when no net figure exists) and `terGrossValue` the GROSS ratio; `meta.expenseRatio` carries `value`, `net` and `gross`
