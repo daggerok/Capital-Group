@@ -2,7 +2,7 @@
  "ticker": "CGNG",
  "page": 2,
  "pageSize": 250,
- "totalRows": 255,
+ "totalRows": 261,
  "headers": [
   "Name",
   "Ticker",
@@ -14,47 +14,101 @@
  ],
  "rows": [
   {
-   "Name": "NEW TAIWAN DOLLAR",
+   "Name": "CHF Spot FX",
    "Ticker": "-",
-   "Identifier": "999TWDZ90",
+   "Identifier": "CHF999999",
    "Weight": "0",
-   "Market Value": "0.45",
-   "Shares Held": "15",
-   "Asset Category": "Cash & Equivalent"
-  },
-  {
-   "Name": "SOUTH AFRICAN RAND",
-   "Ticker": "-",
-   "Identifier": "999ZARZ99",
-   "Weight": "0",
-   "Market Value": "0",
-   "Shares Held": "0.01",
-   "Asset Category": "Cash & Equivalent"
-  },
-  {
-   "Name": "BRL Spot FX",
-   "Ticker": "-",
-   "Identifier": "BRL999999",
-   "Weight": "0",
-   "Market Value": "-1667.84",
-   "Shares Held": "-3947775.4",
+   "Market Value": "-73.19",
+   "Shares Held": "1289176.02",
    "Asset Category": "Spot FX"
   },
   {
-   "Name": "MEXICAN PESO (NEW)",
+   "Name": "DKK Spot FX",
    "Ticker": "-",
-   "Identifier": "999MXNZ92",
-   "Weight": "-0.02",
-   "Market Value": "-629262.52",
-   "Shares Held": "-11706170.75",
+   "Identifier": "DKK999999",
+   "Weight": "0",
+   "Market Value": "649.38",
+   "Shares Held": "-2065225.5",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "GBP Spot FX",
+   "Ticker": "-",
+   "Identifier": "GBP999999",
+   "Weight": "0",
+   "Market Value": "-1392.76",
+   "Shares Held": "3730885.62",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "HKD Spot FX",
+   "Ticker": "-",
+   "Identifier": "HKD999999",
+   "Weight": "0",
+   "Market Value": "4.16",
+   "Shares Held": "-2141572.3",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "JPY Spot FX",
+   "Ticker": "-",
+   "Identifier": "JPY999999",
+   "Weight": "0",
+   "Market Value": "-3404.85",
+   "Shares Held": "-756454730",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "KRW Spot FX",
+   "Ticker": "-",
+   "Identifier": "KRW999999",
+   "Weight": "0",
+   "Market Value": "-12096.1",
+   "Shares Held": "4912353684",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "MXN Spot FX",
+   "Ticker": "-",
+   "Identifier": "MXN999999",
+   "Weight": "0",
+   "Market Value": "124.14",
+   "Shares Held": "3127869.59",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "ZAR Spot FX",
+   "Ticker": "-",
+   "Identifier": "ZAR999999",
+   "Weight": "0",
+   "Market Value": "193.83",
+   "Shares Held": "2367473.62",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "YUAN RENMINBI",
+   "Ticker": "-",
+   "Identifier": "999CNYZ91",
+   "Weight": "-0.03",
+   "Market Value": "-797251.29",
+   "Shares Held": "-5318184.29",
+   "Asset Category": "Cash & Equivalent"
+  },
+  {
+   "Name": "BRAZILIAN REAL",
+   "Ticker": "-",
+   "Identifier": "999BRLZ97",
+   "Weight": "-0.17",
+   "Market Value": "-5103154.81",
+   "Shares Held": "-28895083.16",
    "Asset Category": "Cash & Equivalent"
   },
   {
    "Name": "NET OTHER ASSETS",
    "Ticker": "-",
    "Identifier": "",
-   "Weight": "-0.04",
-   "Market Value": "-1348661.21",
+   "Weight": "-0.56",
+   "Market Value": "-16985689.13",
    "Shares Held": "0",
    "Asset Category": "Cash & Equivalent"
   }
