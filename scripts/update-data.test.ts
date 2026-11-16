@@ -202,7 +202,9 @@ function installIssuerMock(knobs: Knobs = {}): () => void {
     }
     if (url.includes('query1.finance.yahoo.com/v8/finance/chart')) {
       if (dead.has('yahoo')) return gone();
-      const dayList = mockDays(knobs.yahooDays ?? 300, knobs.yahooLaterDays);
+      // the chart request of the swing, dividends and benchmark blocks (period1=0, includePrePost=false) always answers the full 300-day series: yahooDays and yahooLaterDays shape the history request only
+      const blockChart = url.includes('includePrePost=false');
+      const dayList = blockChart ? mockDays(300) : mockDays(knobs.yahooDays ?? 300, knobs.yahooLaterDays);
       const price = (day: string) => Math.round((40 + (Date.parse(`${day}T00:00:00Z`) - Date.parse('2024-01-01T00:00:00Z')) / 86_400_000 * 0.01) * 100) / 100;
       const stamps = dayList.map((day) => Math.floor(Date.parse(`${day}T00:00:00Z`) / 1000));
       const paid = Date.parse('2026-09-21T00:00:00Z') / 1000; // one of the last days of the default answer, the same in every window
@@ -747,6 +749,8 @@ describe('pipeline', () => {
       await run({ TICKERS: 'CGUS' }); // a one-ticker run never shrinks the feed
       // one Yahoo daily chart per updated fund serves the swing and the dividend metrics (dividends tap, no extra request)
       expect(mockUrls.slice(requestsBefore).filter((url) => /chart\/CGUS\?period1=0&.*includePrePost=false/.test(url))).toHaveLength(1);
+      // the benchmark block adds exactly two chart requests (SPY, QQQ), read before the fund chart, no request per fund
+      expect(mockUrls.slice(requestsBefore).filter((url) => /chart\/[^?]+\?period1=0&.*includePrePost=false/.test(url)).map((url) => /chart\/([^?]+)/.exec(url)?.[1])).toEqual(['SPY', 'QQQ', 'CGUS']);
       const rows = await feed();
       expect(rows.map((fund: any) => fund.ticker)).toEqual(['CGCP', 'CGMU', 'CGUS']);
       expect(rows.every((fund: any) => fund.dataFile !== null)).toBe(true);
@@ -755,11 +759,20 @@ describe('pipeline', () => {
       for (const fund of rows) expect(Object.keys(fund.metrics)).toEqual(expect.arrayContaining(RANGE_KEYS));
       // the swing keys from the Yahoo daily closes (period1=0) of the funds the run updated (swing block)
       const SWING_KEYS = ['pctFrom52wHigh', 'athPrice', 'athDate', 'athBasis', 'pctFromAth', 'volatility1y', 'sigmaFromMean60d', 'high60d', 'low60d'];
-      for (const fund of rows) expect(Object.keys(fund.metrics).slice(-17, -8)).toEqual(SWING_KEYS);
+      for (const fund of rows) expect(Object.keys(fund.metrics).slice(-51, -42)).toEqual(SWING_KEYS);
       // the dividend keys from the Yahoo dividend events of the same chart (dividends block): one payment in the last 12 months,
       // no complete year after the listing year, so growth, streak and cut are null (never 0)
-      for (const fund of rows) expect(Object.keys(fund.metrics).slice(-8, -2)).toEqual(['dividendRate', 'dividendGrowth', 'dividendGrowth3y', 'dividendGrowth5y', 'dividendStreak', 'dividendCut10y']);
-      expect(['dividendRate', 'dividendGrowth', 'dividendGrowth3y', 'dividendGrowth5y', 'dividendStreak', 'dividendCut10y'].map((key) => rows[2].metrics[key])).toEqual([0.25, null, null, null, null, null]);
+      const DIVIDEND_KEYS = ['dividendRate', 'dividendGrowth', 'dividendGrowth3y', 'dividendGrowth5y', 'dividendStreak', 'dividendCut10y', 'paymentsPerYear', 'payFrequency'];
+      for (const fund of rows) expect(Object.keys(fund.metrics).slice(-42, -34)).toEqual(DIVIDEND_KEYS);
+      // 300 mocked daily bars (under a year) and one event: payFrequency is null (rule 4), paymentsPerYear 1
+      expect(DIVIDEND_KEYS.map((key) => rows[2].metrics[key])).toEqual([0.25, null, null, null, null, null, 1, null]);
+      // the 32 keys of the benchmark block (SPY and QQQ), read from the same chart request, in front of returnsBasis and performanceAsOf
+      const BENCHMARK_KEYS = ['perf1y', 'perf3y', 'perf5y', 'perf10y', 'perfSi', 'maxDrawdown1y', 'maxDrawdown3y', 'maxDrawdown5y', 'maxDrawdown10y',
+        'vsSpy1y', 'vsSpy3y', 'vsSpy5y', 'vsSpy10y', 'beta1ySpy', 'corr1ySpy', 'upCapture3ySpy', 'downCapture3ySpy', 'relStrength3mSpy', 'stressReturnSpy', 'stressBasisSpy',
+        'vsQqq1y', 'vsQqq3y', 'vsQqq5y', 'vsQqq10y', 'beta1yQqq', 'corr1yQqq', 'upCapture3yQqq', 'downCapture3yQqq', 'relStrength3mQqq', 'stressReturnQqq', 'stressBasisQqq', 'benchmarkAsOf'];
+      for (const fund of rows) expect(Object.keys(fund.metrics).slice(-34, -2)).toEqual(BENCHMARK_KEYS);
+      // the benchmarks answer the same 300 bars as the fund: beta and correlation 1, relStrength3m 0, the horizons (a year and more) null
+      expect([rows[2].metrics.beta1ySpy, rows[2].metrics.corr1yQqq, rows[2].metrics.relStrength3mSpy, rows[2].metrics.vsSpy1y, rows[2].metrics.perf1y, rows[2].metrics.benchmarkAsOf]).toEqual([1, 1, 0, null, null, '2026-09-25']);
       expect(mockUrls.some((url) => /chart\/CGUS\?period1=0&period2=\d+&interval=1d/.test(url))).toBe(true);
       expect([rows[2].metrics.athBasis, rows[2].metrics.athPrice, rows[2].metrics.high60d, rows[2].metrics.volatility1y]).toEqual(['daily closes since 2025-11-30', 49.98, 49.98, expect.any(Number)]);
       expect((await readdir(join(dir, 'funds'))).sort()).toEqual(['CGCP', 'CGMU', 'CGUS']);
