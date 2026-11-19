@@ -1,0 +1,91 @@
+{
+ "ticker": "CGBI",
+ "name": "Capital Group Multi-Asset Income Builder ETF",
+ "category": "Multi-asset",
+ "categoryPath": "Multi-asset / 70%/30% MSCI All Country World Index/Bloomberg U.S. Aggregate Index",
+ "source": {
+  "fundPage": "https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgbi",
+  "productData": "https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgbi",
+  "historicalData": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGBI/premium-discount-details",
+  "holdingsDownload": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGBI/download/daily-holdings?audience=advisor",
+  "pricesDownload": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGBI/premium-discount-details",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/CGBI",
+  "holdingsSource": "Capital Group daily holdings XLSX",
+  "historySource": "previous run",
+  "provider": "Capital Group public fund facts and daily downloads + SEC EDGAR Form N-PORT-P (fallback) + Yahoo Finance public chart API (fallback)"
+ },
+ "identifiers": {
+  "cusip": "14022Q107",
+  "isin": null,
+  "indexTicker": "70%/30% MSCI All Country World Index/Bloomberg U.S. Aggregate Index"
+ },
+ "inception": {
+  "fundInceptionDate": "2026-11-17",
+  "shareClassInceptionDate": null,
+  "exchange": "NYSE Arca, Inc."
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35,
+  "gross": 0.35,
+  "net": 0.35
+ },
+ "nav": {
+  "display": "$25.00",
+  "value": 25,
+  "asOfDate": "Nov 17 2026"
+ },
+ "marketPrice": {
+  "display": "$25.00",
+  "value": 25,
+  "asOfDate": "Nov 17 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.00%",
+  "value": 0
+ },
+ "aum": {
+  "display": "$25.10 M",
+  "value": 25100000,
+  "asOfDate": "Nov 17 2026",
+  "source": "capitalgroup.com daily fund facts net assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": null,
+  "dividendYieldKind": "not published: no distributions yet",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": null,
+  "secYieldKind": "not published by Capital Group for this fund",
+  "unsubsidizedSecYield": null
+ },
+ "returns": null,
+ "distributions": {
+  "frequency": "Annually",
+  "paymentsPerYear": 1,
+  "frequencyCode": "A",
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": []
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 163,
+  "asOfDate": "2026-11-17",
+  "asOf": "Nov 17 2026",
+  "source": "Capital Group daily holdings XLSX"
+ },
+ "history": {
+  "pages": [],
+  "pageSize": 1000,
+  "totalRows": 0,
+  "asOf": "—",
+  "source": "previous run"
+ }
+}

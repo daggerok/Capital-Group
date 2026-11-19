@@ -2,7 +2,7 @@
  "ticker": "CGSD",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1018,
+ "totalRows": 1020,
  "headers": [
   "Date",
   "NAV",
@@ -117,6 +117,18 @@
    "NAV": "25.3",
    "Market Price": "25.29",
    "Premium/Discount": "-0.05"
+  },
+  {
+   "Date": "Nov 16 2026",
+   "NAV": "25.33",
+   "Market Price": "25.33",
+   "Premium/Discount": "0.01"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "NAV": "25.35",
+   "Market Price": "25.36",
+   "Premium/Discount": "0.05"
   }
  ]
 }

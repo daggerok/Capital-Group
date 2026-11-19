@@ -2,7 +2,7 @@
  "ticker": "CGMU",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1018,
+ "totalRows": 1020,
  "headers": [
   "Date",
   "NAV",
@@ -117,6 +117,18 @@
    "NAV": "26.72",
    "Market Price": "26.72",
    "Premium/Discount": "0"
+  },
+  {
+   "Date": "Nov 16 2026",
+   "NAV": "26.7",
+   "Market Price": "26.71",
+   "Premium/Discount": "0.05"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "NAV": "26.6",
+   "Market Price": "26.61",
+   "Premium/Discount": "0.05"
   }
  ]
 }

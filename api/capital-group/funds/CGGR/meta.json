@@ -31,23 +31,23 @@
   "net": 0.39
  },
  "nav": {
-  "display": "$45.82",
-  "value": 45.82,
-  "asOfDate": "Nov 13 2026"
+  "display": "$44.25",
+  "value": 44.25,
+  "asOfDate": "Nov 17 2026"
  },
  "marketPrice": {
-  "display": "$45.84",
-  "value": 45.84,
-  "asOfDate": "Nov 13 2026"
+  "display": "$44.26",
+  "value": 44.26,
+  "asOfDate": "Nov 17 2026"
  },
  "premiumDiscount": {
-  "display": "0.04%",
-  "value": 0.04
+  "display": "0.02%",
+  "value": 0.02
  },
  "aum": {
-  "display": "$25,710.70 M",
-  "value": 25710700000,
-  "asOfDate": "Nov 13 2026",
+  "display": "$24,873.00 M",
+  "value": 24873000000,
+  "asOfDate": "Nov 17 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
@@ -63,23 +63,23 @@
  "returns": {
   "derivedFrom": "derived from the official daily NAV history with published distributions reinvested (NAV total return), not official published returns",
   "monthEnd": {
-   "asOfDate": "Nov 13 2026",
+   "asOfDate": "Nov 17 2026",
    "mo1": 1.15,
    "mo1Text": "1.15%",
-   "qtd": -3.39,
-   "qtdText": "-3.39%",
-   "ytd": 3.21,
-   "ytdText": "3.21%",
-   "yr1": 6.6,
-   "yr1Text": "6.60%",
-   "yr3": 20.9,
-   "yr3Text": "20.90%",
+   "qtd": -6.7,
+   "qtdText": "-6.70%",
+   "ytd": -0.32,
+   "ytdText": "-0.32%",
+   "yr1": 4.2,
+   "yr1Text": "4.20%",
+   "yr3": 19.37,
+   "yr3Text": "19.37%",
    "yr5": null,
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 14.58,
-   "sinceInceptionText": "14.58%"
+   "sinceInception": 13.7,
+   "sinceInceptionText": "13.70%"
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -140,8 +140,8 @@
   ],
   "pageSize": 250,
   "totalRows": 105,
-  "asOfDate": "2026-11-13",
-  "asOf": "Nov 13 2026",
+  "asOfDate": "2026-11-17",
+  "asOf": "Nov 17 2026",
   "source": "Capital Group daily holdings XLSX"
  },
  "history": {
@@ -150,8 +150,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1188,
-  "asOf": "Nov 13 2026",
+  "totalRows": 1190,
+  "asOf": "Nov 17 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }
