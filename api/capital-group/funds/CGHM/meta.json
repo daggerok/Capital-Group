@@ -33,26 +33,26 @@
  "nav": {
   "display": "$24.55",
   "value": 24.55,
-  "asOfDate": "Nov 17 2026"
+  "asOfDate": "Nov 19 2026"
  },
  "marketPrice": {
-  "display": "$24.56",
-  "value": 24.56,
-  "asOfDate": "Nov 17 2026"
+  "display": "$24.61",
+  "value": 24.61,
+  "asOfDate": "Nov 19 2026"
  },
  "premiumDiscount": {
-  "display": "0.03%",
-  "value": 0.03
+  "display": "0.23%",
+  "value": 0.23
  },
  "aum": {
-  "display": "$3,812.80 M",
-  "value": 3812800000,
-  "asOfDate": "Nov 16 2026",
+  "display": "$3,805.90 M",
+  "value": 3805900000,
+  "asOfDate": "Nov 19 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
-  "dividendYield": 4.17,
-  "dividendYieldText": "4.17%",
+  "dividendYield": 4.16,
+  "dividendYieldText": "4.16%",
   "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
   "distributionRate": 4.66,
   "secYield": 4.46,
@@ -63,7 +63,7 @@
  "returns": {
   "derivedFrom": "derived from the official daily NAV history with published distributions reinvested (NAV total return), not official published returns",
   "monthEnd": {
-   "asOfDate": "Nov 17 2026",
+   "asOfDate": "Nov 19 2026",
    "mo1": -4.33,
    "mo1Text": "-4.33%",
    "qtd": 2.18,
@@ -78,8 +78,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 3.01,
-   "sinceInceptionText": "3.01%"
+   "sinceInception": 3,
+   "sinceInceptionText": "3.00%"
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -234,9 +234,9 @@
    "holdings/016.json"
   ],
   "pageSize": 250,
-  "totalRows": 3783,
-  "asOfDate": "2026-11-17",
-  "asOf": "Nov 17 2026",
+  "totalRows": 3792,
+  "asOfDate": "2026-11-19",
+  "asOf": "Nov 19 2026",
   "source": "Capital Group daily holdings XLSX"
  },
  "history": {
@@ -244,8 +244,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 603,
-  "asOf": "Nov 17 2026",
+  "totalRows": 605,
+  "asOf": "Nov 19 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }

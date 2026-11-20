@@ -2,7 +2,7 @@
  "ticker": "CGIC",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 603,
+ "totalRows": 605,
  "headers": [
   "Date",
   "NAV",
@@ -3627,6 +3627,18 @@
    "NAV": "34.11",
    "Market Price": "34.15",
    "Premium/Discount": "0.11"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "NAV": "33.76",
+   "Market Price": "33.75",
+   "Premium/Discount": "-0.02"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "NAV": "33.43",
+   "Market Price": "33.23",
+   "Premium/Discount": "-0.59"
   }
  ]
 }

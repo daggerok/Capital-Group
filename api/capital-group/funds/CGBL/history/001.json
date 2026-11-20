@@ -2,7 +2,7 @@
  "ticker": "CGBL",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 790,
+ "totalRows": 792,
  "headers": [
   "Date",
   "NAV",
@@ -4749,6 +4749,18 @@
    "NAV": "36.28",
    "Market Price": "36.3",
    "Premium/Discount": "0.04"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "NAV": "36.2",
+   "Market Price": "36.23",
+   "Premium/Discount": "0.08"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "NAV": "35.71",
+   "Market Price": "35.73",
+   "Premium/Discount": "0.07"
   }
  ]
 }

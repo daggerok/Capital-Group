@@ -2,7 +2,7 @@
  "ticker": "CGCB",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 790,
+ "totalRows": 792,
  "headers": [
   "Date",
   "NAV",
@@ -4749,6 +4749,18 @@
    "NAV": "25.23",
    "Market Price": "25.22",
    "Premium/Discount": "-0.03"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "NAV": "25.29",
+   "Market Price": "25.29",
+   "Premium/Discount": "-0.01"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "NAV": "25.31",
+   "Market Price": "25.29",
+   "Premium/Discount": "-0.08"
   }
  ]
 }

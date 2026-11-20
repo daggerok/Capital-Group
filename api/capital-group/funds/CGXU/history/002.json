@@ -2,7 +2,7 @@
  "ticker": "CGXU",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1190,
+ "totalRows": 1192,
  "headers": [
   "Date",
   "NAV",
@@ -1149,6 +1149,18 @@
    "NAV": "30.06",
    "Market Price": "30.14",
    "Premium/Discount": "0.26"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "NAV": "29.68",
+   "Market Price": "29.63",
+   "Premium/Discount": "-0.18"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "NAV": "29.45",
+   "Market Price": "29.2",
+   "Premium/Discount": "-0.86"
   }
  ]
 }

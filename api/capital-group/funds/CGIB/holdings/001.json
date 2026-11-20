@@ -2,7 +2,7 @@
  "ticker": "CGIB",
  "page": 1,
  "pageSize": 250,
- "totalRows": 418,
+ "totalRows": 417,
  "headers": [
   "Name",
   "Ticker",
@@ -17,26 +17,17 @@
    "Name": "CHINA GOVERNMENT BOND BONDS 05/34 2.27",
    "Ticker": "-",
    "Identifier": "ACI2P9PK3",
-   "Weight": "6.81",
-   "Market Value": "26644606.63",
+   "Weight": "6.78",
+   "Market Value": "26671286.3",
    "Shares Held": "167850000",
    "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "NET OTHER ASSETS",
-   "Ticker": "-",
-   "Identifier": "",
-   "Weight": "4.42",
-   "Market Value": "17294288.92",
-   "Shares Held": "0",
-   "Asset Category": "Cash & Equivalent"
   },
   {
    "Name": "UNITED KINGDOM GILT BONDS REGS 03/35 4.5",
    "Ticker": "-",
    "Identifier": "ACI2TTTT2",
-   "Weight": "4.17",
-   "Market Value": "16312509.79",
+   "Weight": "4.13",
+   "Market Value": "16259572.46",
    "Shares Held": "13040000",
    "Asset Category": "Fixed Income"
   },
@@ -44,8 +35,8 @@
    "Name": "BUONI POLIENNALI DEL TES SR UNSECURED 144A REGS 11/32 3",
    "Ticker": "-",
    "Identifier": "ACI3016L4",
-   "Weight": "3.55",
-   "Market Value": "13906248.96",
+   "Weight": "3.52",
+   "Market Value": "13846676.49",
    "Shares Held": "13160000",
    "Asset Category": "Fixed Income"
   },
@@ -53,26 +44,17 @@
    "Name": "FRANCE (GOVT OF) BONDS 144A REGS 05/34 1.25",
    "Ticker": "-",
    "Identifier": "ACI10J1F7",
-   "Weight": "3.44",
-   "Market Value": "13467523.77",
+   "Weight": "3.41",
+   "Market Value": "13410291.97",
    "Shares Held": "15490000",
    "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "CAPITAL GROUP CENTRAL CASH FUN CAPITAL GROUP CNTRL CSH M",
-   "Ticker": "-",
-   "Identifier": "14020B102",
-   "Weight": "3.07",
-   "Market Value": "12026542.03",
-   "Shares Held": "120277.45",
-   "Asset Category": "Cash & Equivalent"
   },
   {
    "Name": "FRANCE (GOVT OF) BONDS 144A REGS 09/29 2.4",
    "Ticker": "-",
    "Identifier": "ACI38MYL9",
-   "Weight": "2.7",
-   "Market Value": "10576280.25",
+   "Weight": "2.68",
+   "Market Value": "10542423.32",
    "Shares Held": "10000000",
    "Asset Category": "Fixed Income"
   },
@@ -80,8 +62,8 @@
    "Name": "UNITED KINGDOM GILT BONDS REGS 10/29 0.875",
    "Ticker": "-",
    "Identifier": "BJMHB5II5",
-   "Weight": "2.65",
-   "Market Value": "10368356.53",
+   "Weight": "2.62",
+   "Market Value": "10303682.66",
    "Shares Held": "8809000",
    "Asset Category": "Fixed Income"
   },
@@ -89,8 +71,8 @@
    "Name": "YUAN RENMINBI OFFSHORE",
    "Ticker": "-",
    "Identifier": "999CNHZ98",
-   "Weight": "2.55",
-   "Market Value": "9984119.09",
+   "Weight": "2.53",
+   "Market Value": "9944364.6",
    "Shares Held": "66557632.3",
    "Asset Category": "Cash & Equivalent"
   },
@@ -98,35 +80,35 @@
    "Name": "BUNDESREPUB. DEUTSCHLAND BONDS REGS 02/36 2.9",
    "Ticker": "-",
    "Identifier": "ACI37XBT4",
-   "Weight": "2.51",
-   "Market Value": "9812035.4",
+   "Weight": "2.48",
+   "Market Value": "9774745.18",
    "Shares Held": "9250000",
    "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "CAPITAL GROUP CENTRAL CASH FUN CAPITAL GROUP CNTRL CSH M",
+   "Ticker": "-",
+   "Identifier": "14020B102",
+   "Weight": "2.28",
+   "Market Value": "8951542.06",
+   "Shares Held": "89524.37",
+   "Asset Category": "Cash & Equivalent"
   },
   {
    "Name": "JAPAN (30 YEAR ISSUE) BONDS 03/56 3.7",
    "Ticker": "-",
    "Identifier": "ACI39BMP6",
-   "Weight": "2.04",
-   "Market Value": "7977463.63",
-   "Shares Held": "1362300000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "TITULOS DE TESORERIA BONDS 02/30 12.5",
-   "Ticker": "-",
-   "Identifier": "ACI383KH5",
-   "Weight": "1.68",
-   "Market Value": "6589429.37",
-   "Shares Held": "21910000000",
+   "Weight": "2.16",
+   "Market Value": "8494287.57",
+   "Shares Held": "1443500000",
    "Asset Category": "Fixed Income"
   },
   {
    "Name": "KOREA TREASURY BOND BONDS 12/33 4.125",
    "Ticker": "-",
    "Identifier": "ACI2KLY62",
-   "Weight": "1.62",
-   "Market Value": "6341646.71",
+   "Weight": "1.63",
+   "Market Value": "6396187.64",
    "Shares Held": "8386100000",
    "Asset Category": "Fixed Income"
   },
@@ -135,8 +117,17 @@
    "Ticker": "-",
    "Identifier": "B0X4BZII7",
    "Weight": "1.62",
-   "Market Value": "6343929.6",
+   "Market Value": "6355760.71",
    "Shares Held": "1052100000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "TITULOS DE TESORERIA BONDS 02/30 12.5",
+   "Ticker": "-",
+   "Identifier": "ACI383KH5",
+   "Weight": "1.61",
+   "Market Value": "6343300.99",
+   "Shares Held": "21910000000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -144,7 +135,7 @@
    "Ticker": "-",
    "Identifier": "ACI37T9P4",
    "Weight": "1.59",
-   "Market Value": "6234039.53",
+   "Market Value": "6246891.66",
    "Shares Held": "1051150000",
    "Asset Category": "Fixed Income"
   },
@@ -152,18 +143,9 @@
    "Name": "CHINA GOVERNMENT BOND BONDS 05/36 1.72",
    "Ticker": "-",
    "Identifier": "ACI39ZNV9",
-   "Weight": "1.27",
-   "Market Value": "4959740.89",
+   "Weight": "1.26",
+   "Market Value": "4966484.85",
    "Shares Held": "32720000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "HUNGARY GOVERNMENT BOND BONDS 04/33 2.25",
-   "Ticker": "-",
-   "Identifier": "ACI1SGR08",
-   "Weight": "1.16",
-   "Market Value": "4537686.18",
-   "Shares Held": "1814780000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -171,16 +153,25 @@
    "Ticker": "-",
    "Identifier": "ACI2TJMX2",
    "Weight": "1.16",
-   "Market Value": "4546839.2",
+   "Market Value": "4547694.69",
    "Shares Held": "30130000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "HUNGARY GOVERNMENT BOND BONDS 04/33 2.25",
+   "Ticker": "-",
+   "Identifier": "ACI1SGR08",
+   "Weight": "1.13",
+   "Market Value": "4429388.21",
+   "Shares Held": "1814780000",
    "Asset Category": "Fixed Income"
   },
   {
    "Name": "LETRA TESOURO NACIONAL BILLS 01/30 0.00000",
    "Ticker": "-",
    "Identifier": "ACI2MJ8B3",
-   "Weight": "1.13",
-   "Market Value": "4418064.35",
+   "Weight": "1.09",
+   "Market Value": "4268961.57",
    "Shares Held": "39377000",
    "Asset Category": "Fixed Income"
   },
@@ -189,7 +180,7 @@
    "Ticker": "-",
    "Identifier": "91282CRV5",
    "Weight": "0.99",
-   "Market Value": "3892301.07",
+   "Market Value": "3906386.42",
    "Shares Held": "3919400",
    "Asset Category": "Fixed Income"
   },
@@ -198,17 +189,8 @@
    "Ticker": "-",
    "Identifier": "29286DAD7",
    "Weight": "0.98",
-   "Market Value": "3846099.22",
+   "Market Value": "3849058.91",
    "Shares Held": "3850000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "HUNGARY GOVERNMENT BOND BONDS 08/30 3",
-   "Ticker": "-",
-   "Identifier": "ACI198865",
-   "Weight": "0.92",
-   "Market Value": "3610838.09",
-   "Shares Held": "1308670000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -216,16 +198,25 @@
    "Ticker": "-",
    "Identifier": "ACI310KF2",
    "Weight": "0.91",
-   "Market Value": "3569214.45",
+   "Market Value": "3567002.07",
    "Shares Held": "586550000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "HUNGARY GOVERNMENT BOND BONDS 08/30 3",
+   "Ticker": "-",
+   "Identifier": "ACI198865",
+   "Weight": "0.9",
+   "Market Value": "3530699",
+   "Shares Held": "1308670000",
    "Asset Category": "Fixed Income"
   },
   {
    "Name": "UNITED KINGDOM GILT BONDS REGS 07/35 0.625",
    "Ticker": "-",
    "Identifier": "BMGR29II5",
-   "Weight": "0.9",
-   "Market Value": "3526149.5",
+   "Weight": "0.89",
+   "Market Value": "3516770.55",
    "Shares Held": "3935000",
    "Asset Category": "Fixed Income"
   },
@@ -234,7 +225,7 @@
    "Ticker": "-",
    "Identifier": "ACI34GS58",
    "Weight": "0.88",
-   "Market Value": "3459402.95",
+   "Market Value": "3463097.5",
    "Shares Held": "597500000",
    "Asset Category": "Fixed Income"
   },
@@ -243,7 +234,7 @@
    "Ticker": "-",
    "Identifier": "ACI2ZK9X7",
    "Weight": "0.82",
-   "Market Value": "3213626.07",
+   "Market Value": "3210187.34",
    "Shares Held": "62285000000",
    "Asset Category": "Fixed Income"
   },
@@ -252,7 +243,7 @@
    "Ticker": "-",
    "Identifier": "ACI2QSHN3",
    "Weight": "0.81",
-   "Market Value": "3181455.58",
+   "Market Value": "3188713.47",
    "Shares Held": "6025000",
    "Asset Category": "Fixed Income"
   },
@@ -261,7 +252,7 @@
    "Ticker": "-",
    "Identifier": "ACI2VFH88",
    "Weight": "0.81",
-   "Market Value": "3185564.41",
+   "Market Value": "3173261.35",
    "Shares Held": "3410000",
    "Asset Category": "Fixed Income"
   },
@@ -270,7 +261,7 @@
    "Ticker": "-",
    "Identifier": "ACI30Y3M3",
    "Weight": "0.81",
-   "Market Value": "3182422.5",
+   "Market Value": "3200715.62",
    "Shares Held": "598200000",
    "Asset Category": "Fixed Income"
   },
@@ -278,8 +269,8 @@
    "Name": "BUONI POLIENNALI DEL TES SR UNSECURED REGS 07/34 3.85",
    "Ticker": "-",
    "Identifier": "ACI2N1VV1",
-   "Weight": "0.78",
-   "Market Value": "3037647.99",
+   "Weight": "0.77",
+   "Market Value": "3024101.86",
    "Shares Held": "2820000",
    "Asset Category": "Fixed Income"
   },
@@ -287,8 +278,8 @@
    "Name": "CZECH REPUBLIC SR UNSECURED 06/31 6.2",
    "Ticker": "-",
    "Identifier": "ACI2GSRT0",
-   "Weight": "0.77",
-   "Market Value": "3028197.62",
+   "Weight": "0.76",
+   "Market Value": "2999797.65",
    "Shares Held": "63100000",
    "Asset Category": "Fixed Income"
   },
@@ -296,8 +287,8 @@
    "Name": "CZECH REPUBLIC SR UNSECURED 06/36 3.6",
    "Ticker": "-",
    "Identifier": "ACI2Q7TW6",
-   "Weight": "0.72",
-   "Market Value": "2819304.14",
+   "Weight": "0.71",
+   "Market Value": "2788329.43",
    "Shares Held": "70900000",
    "Asset Category": "Fixed Income"
   },
@@ -306,7 +297,7 @@
    "Ticker": "-",
    "Identifier": "ACI3BTWM0",
    "Weight": "0.71",
-   "Market Value": "2773242.11",
+   "Market Value": "2782334.08",
    "Shares Held": "5120000",
    "Asset Category": "Fixed Income"
   },
@@ -314,8 +305,8 @@
    "Name": "AUSTRALIAN GOVERNMENT SR UNSECURED REGS 12/35 4.25",
    "Ticker": "-",
    "Identifier": "ACI2Q7HD1",
-   "Weight": "0.7",
-   "Market Value": "2724532.59",
+   "Weight": "0.69",
+   "Market Value": "2729997.75",
    "Shares Held": "4309000",
    "Asset Category": "Fixed Income"
   },
@@ -323,8 +314,8 @@
    "Name": "LETRA TESOURO NACIONAL BILLS 01/29 0.00000",
    "Ticker": "-",
    "Identifier": "ACI2T4QH6",
-   "Weight": "0.7",
-   "Market Value": "2758531.22",
+   "Weight": "0.68",
+   "Market Value": "2660098.67",
    "Shares Held": "21310000",
    "Asset Category": "Fixed Income"
   },
@@ -332,8 +323,8 @@
    "Name": "HELLENIC REPUBLIC SR UNSECURED 144A REGS 06/54 4",
    "Ticker": "-",
    "Identifier": "ACI2NWDR2",
-   "Weight": "0.65",
-   "Market Value": "2533190.27",
+   "Weight": "0.64",
+   "Market Value": "2520301.05",
    "Shares Held": "2560000",
    "Asset Category": "Fixed Income"
   },
@@ -341,27 +332,27 @@
    "Name": "FRANCE (GOVT OF) BONDS 144A REGS 11/32 2",
    "Ticker": "-",
    "Identifier": "ACI26WFY4",
-   "Weight": "0.64",
-   "Market Value": "2487713.8",
+   "Weight": "0.63",
+   "Market Value": "2477538.27",
    "Shares Held": "2585000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "NOTA DO TESOURO NACIONAL NOTES 01/31 10",
-   "Ticker": "-",
-   "Identifier": "ACI1J1NR6",
-   "Weight": "0.61",
-   "Market Value": "2373715.69",
-   "Shares Held": "16008000",
    "Asset Category": "Fixed Income"
   },
   {
    "Name": "NEW ZEALAND GOVERNMENT UNSECURED 05/32 2",
    "Ticker": "-",
    "Identifier": "ACI1YHS81",
-   "Weight": "0.61",
-   "Market Value": "2368665.72",
+   "Weight": "0.6",
+   "Market Value": "2372374.86",
    "Shares Held": "4870000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "NOTA DO TESOURO NACIONAL NOTES 01/31 10",
+   "Ticker": "-",
+   "Identifier": "ACI1J1NR6",
+   "Weight": "0.58",
+   "Market Value": "2280219.8",
+   "Shares Held": "16008000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -369,7 +360,7 @@
    "Ticker": "-",
    "Identifier": "ACI3BR486",
    "Weight": "0.57",
-   "Market Value": "2246822.57",
+   "Market Value": "2257520",
    "Shares Held": "363050000",
    "Asset Category": "Fixed Income"
   },
@@ -377,8 +368,8 @@
    "Name": "NEXTERA ENERGY CAPITAL COMPANY GUAR 02/30 2.989",
    "Ticker": "-",
    "Identifier": "ACI38DN15",
-   "Weight": "0.56",
-   "Market Value": "2188810.93",
+   "Weight": "0.55",
+   "Market Value": "2180129.13",
    "Shares Held": "2050000",
    "Asset Category": "Fixed Income"
   },
@@ -387,7 +378,7 @@
    "Ticker": "-",
    "Identifier": "01750TBA3",
    "Weight": "0.54",
-   "Market Value": "2111599.38",
+   "Market Value": "2111588.83",
    "Shares Held": "2110000",
    "Asset Category": "Fixed Income"
   },
@@ -396,7 +387,7 @@
    "Ticker": "-",
    "Identifier": "ACI2NVXG6",
    "Weight": "0.54",
-   "Market Value": "2130044.71",
+   "Market Value": "2121849.33",
    "Shares Held": "1900000",
    "Asset Category": "Fixed Income"
   },
@@ -405,7 +396,7 @@
    "Ticker": "-",
    "Identifier": "135087S62",
    "Weight": "0.53",
-   "Market Value": "2093218.42",
+   "Market Value": "2086806.08",
    "Shares Held": "3100000",
    "Asset Category": "Fixed Income"
   },
@@ -414,7 +405,7 @@
    "Ticker": "-",
    "Identifier": "ACI30TLL6",
    "Weight": "0.53",
-   "Market Value": "2071906.31",
+   "Market Value": "2075288.51",
    "Shares Held": "359650000",
    "Asset Category": "Fixed Income"
   },
@@ -422,27 +413,9 @@
    "Name": "THALES SA SR UNSECURED REGS 08/30 3.5",
    "Ticker": "-",
    "Identifier": "ACI3CDS56",
-   "Weight": "0.53",
-   "Market Value": "2055005.37",
+   "Weight": "0.52",
+   "Market Value": "2043687.44",
    "Shares Held": "1900000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "AUSTRALIAN GOVERNMENT SR UNSECURED REGS 12/30 1",
-   "Ticker": "-",
-   "Identifier": "ACI1MC4G3",
-   "Weight": "0.51",
-   "Market Value": "1981503.65",
-   "Shares Held": "3418000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "NEW YORK LIFE GLOBAL FDG SECURED REGS 01/30 3.625",
-   "Ticker": "-",
-   "Identifier": "ACI2C5QP3",
-   "Weight": "0.51",
-   "Market Value": "1985255.9",
-   "Shares Held": "1820000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -450,16 +423,43 @@
    "Ticker": "-",
    "Identifier": "ACI2FH5Z5",
    "Weight": "0.51",
-   "Market Value": "1998673.01",
+   "Market Value": "2002523.72",
    "Shares Held": "3303000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "SCHNEIDER ELECTRIC SE SR UNSECURED 144A 11/31 5.5",
+   "Ticker": "-",
+   "Identifier": "80687PAD8",
+   "Weight": "0.5",
+   "Market Value": "1947817.37",
+   "Shares Held": "1950000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "AUSTRALIAN GOVERNMENT SR UNSECURED REGS 12/30 1",
+   "Ticker": "-",
+   "Identifier": "ACI1MC4G3",
+   "Weight": "0.5",
+   "Market Value": "1977694.14",
+   "Shares Held": "3418000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "NEW YORK LIFE GLOBAL FDG SECURED REGS 01/30 3.625",
+   "Ticker": "-",
+   "Identifier": "ACI2C5QP3",
+   "Weight": "0.5",
+   "Market Value": "1978403.42",
+   "Shares Held": "1820000",
    "Asset Category": "Fixed Income"
   },
   {
    "Name": "AES CORP/THE SR UNSECURED 07/29 5.2",
    "Ticker": "-",
    "Identifier": "00130HCN3",
-   "Weight": "0.49",
-   "Market Value": "1901476.62",
+   "Weight": "0.48",
+   "Market Value": "1902093.69",
    "Shares Held": "1925000",
    "Asset Category": "Fixed Income"
   },
@@ -467,8 +467,8 @@
    "Name": "UNITED KINGDOM GILT BONDS REGS 03/31 4.125",
    "Ticker": "-",
    "Identifier": "ACI34K0J9",
-   "Weight": "0.47",
-   "Market Value": "1835442.6",
+   "Weight": "0.46",
+   "Market Value": "1825059.96",
    "Shares Held": "1440000",
    "Asset Category": "Fixed Income"
   },
@@ -477,7 +477,7 @@
    "Ticker": "-",
    "Identifier": "ACI37YF43",
    "Weight": "0.45",
-   "Market Value": "1751747.51",
+   "Market Value": "1759834.81",
    "Shares Held": "316550000",
    "Asset Category": "Fixed Income"
   },
@@ -486,16 +486,25 @@
    "Ticker": "-",
    "Identifier": "ACI2P15D8",
    "Weight": "0.44",
-   "Market Value": "1739707.64",
+   "Market Value": "1732545.4",
    "Shares Held": "1600000",
    "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "EUR261123",
+   "Ticker": "-",
+   "Identifier": "EUR261123",
+   "Weight": "0.43",
+   "Market Value": "1687954.92",
+   "Shares Held": "0",
+   "Asset Category": "Forward"
   },
   {
    "Name": "CZECH REPUBLIC SR UNSECURED 03/29 5.75",
    "Ticker": "-",
    "Identifier": "ACI2HP4Q6",
    "Weight": "0.42",
-   "Market Value": "1660237.84",
+   "Market Value": "1646477.45",
    "Shares Held": "35750000",
    "Asset Category": "Fixed Income"
   },
@@ -504,7 +513,7 @@
    "Ticker": "-",
    "Identifier": "ACI37XD13",
    "Weight": "0.42",
-   "Market Value": "1646400.29",
+   "Market Value": "1639973.22",
    "Shares Held": "1550000",
    "Asset Category": "Fixed Income"
   },
@@ -512,8 +521,26 @@
    "Name": "EUROPEAN UNION SR UNSECURED REGS 12/35 3.375",
    "Ticker": "-",
    "Identifier": "ACI2VLWT2",
-   "Weight": "0.41",
-   "Market Value": "1595596.42",
+   "Weight": "0.4",
+   "Market Value": "1587929.67",
+   "Shares Held": "1500000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "US DOLLAR",
+   "Ticker": "-",
+   "Identifier": "999USDZ92",
+   "Weight": "0.39",
+   "Market Value": "1520354.26",
+   "Shares Held": "1520354.26",
+   "Asset Category": "Cash & Equivalent"
+  },
+  {
+   "Name": "AFFIRM MASTER TRUST AFRMT 2026 3A D 144A",
+   "Ticker": "-",
+   "Identifier": "00833BBD9",
+   "Weight": "0.38",
+   "Market Value": "1487422.65",
    "Shares Held": "1500000",
    "Asset Category": "Fixed Income"
   },
@@ -521,7 +548,7 @@
    "Name": "FUTURES MORGAN STANLEY COC FUTURES CASH COLLATERALRAL USD",
    "Ticker": "-",
    "Identifier": "61799J9V9",
-   "Weight": "0.39",
+   "Weight": "0.38",
    "Market Value": "1512000",
    "Shares Held": "1512000",
    "Asset Category": "Equity"
@@ -530,35 +557,17 @@
    "Name": "SEVERN TRENT WATER UTIL SR UNSECURED REGS 08/35 3.875",
    "Ticker": "-",
    "Identifier": "ACI2TK096",
-   "Weight": "0.39",
-   "Market Value": "1511663.44",
+   "Weight": "0.38",
+   "Market Value": "1504035.58",
    "Shares Held": "1450000",
    "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "AFFIRM MASTER TRUST AFRMT 2026 3A D 144A",
-   "Ticker": "-",
-   "Identifier": "00833BBD9",
-   "Weight": "0.38",
-   "Market Value": "1486789.35",
-   "Shares Held": "1500000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "EUR261123",
-   "Ticker": "-",
-   "Identifier": "EUR261123",
-   "Weight": "0.38",
-   "Market Value": "1481602.11",
-   "Shares Held": "-62998339",
-   "Asset Category": "Forward"
   },
   {
    "Name": "AMPRION GMBH SR UNSECURED REGS 06/36 3.875",
    "Ticker": "-",
    "Identifier": "ACI2XGG85",
    "Weight": "0.37",
-   "Market Value": "1458761.34",
+   "Market Value": "1452458.83",
    "Shares Held": "1400000",
    "Asset Category": "Fixed Income"
   },
@@ -567,16 +576,25 @@
    "Ticker": "-",
    "Identifier": "ACI38FHT6",
    "Weight": "0.37",
-   "Market Value": "1453544.08",
+   "Market Value": "1453899.49",
    "Shares Held": "2129940000",
    "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "NET OTHER ASSETS",
+   "Ticker": "-",
+   "Identifier": "",
+   "Weight": "0.36",
+   "Market Value": "1417577.61",
+   "Shares Held": "0",
+   "Asset Category": "Cash & Equivalent"
   },
   {
    "Name": "REPUBLIC OF CHILE SR UNSECURED 08/34 4",
    "Ticker": "-",
    "Identifier": "ACI3C1FQ0",
    "Weight": "0.35",
-   "Market Value": "1386396.71",
+   "Market Value": "1381531.57",
    "Shares Held": "1300000",
    "Asset Category": "Fixed Income"
   },
@@ -585,7 +603,7 @@
    "Ticker": "-",
    "Identifier": "ACI2H1VS5",
    "Weight": "0.34",
-   "Market Value": "1341363.14",
+   "Market Value": "1335933.29",
    "Shares Held": "1180000",
    "Asset Category": "Fixed Income"
   },
@@ -594,7 +612,7 @@
    "Ticker": "-",
    "Identifier": "ACI2H5R85",
    "Weight": "0.34",
-   "Market Value": "1320357.71",
+   "Market Value": "1322296.06",
    "Shares Held": "240000000",
    "Asset Category": "Fixed Income"
   },
@@ -603,7 +621,7 @@
    "Ticker": "-",
    "Identifier": "ACI3DHSJ6",
    "Weight": "0.34",
-   "Market Value": "1348290.04",
+   "Market Value": "1344313.93",
    "Shares Held": "1224000",
    "Asset Category": "Fixed Income"
   },
@@ -612,7 +630,7 @@
    "Ticker": "-",
    "Identifier": "ACI1D3N31",
    "Weight": "0.33",
-   "Market Value": "1284873.51",
+   "Market Value": "1281028.23",
    "Shares Held": "5260000",
    "Asset Category": "Fixed Income"
   },
@@ -621,7 +639,7 @@
    "Ticker": "-",
    "Identifier": "ACI1Y1PK2",
    "Weight": "0.33",
-   "Market Value": "1287984.02",
+   "Market Value": "1285148.71",
    "Shares Held": "1200000",
    "Asset Category": "Fixed Income"
   },
@@ -629,8 +647,8 @@
    "Name": "BANCO DE SABADELL SA REGS 03/32 VAR",
    "Ticker": "-",
    "Identifier": "ACI301881",
-   "Weight": "0.33",
-   "Market Value": "1275758.7",
+   "Weight": "0.32",
+   "Market Value": "1270681.97",
    "Shares Held": "1200000",
    "Asset Category": "Fixed Income"
   },
@@ -639,7 +657,7 @@
    "Ticker": "-",
    "Identifier": "ACI39S7S0",
    "Weight": "0.32",
-   "Market Value": "1271302.82",
+   "Market Value": "1267421.32",
    "Shares Held": "1199000",
    "Asset Category": "Fixed Income"
   },
@@ -648,7 +666,7 @@
    "Ticker": "-",
    "Identifier": "ACI2HZHL1",
    "Weight": "0.31",
-   "Market Value": "1220834.85",
+   "Market Value": "1216547.19",
    "Shares Held": "1090000",
    "Asset Category": "Fixed Income"
   },
@@ -657,7 +675,7 @@
    "Ticker": "-",
    "Identifier": "ACI2WHQY6",
    "Weight": "0.31",
-   "Market Value": "1210083.3",
+   "Market Value": "1205028.96",
    "Shares Held": "1164000",
    "Asset Category": "Fixed Income"
   },
@@ -666,7 +684,7 @@
    "Ticker": "-",
    "Identifier": "56606GAQ7",
    "Weight": "0.3",
-   "Market Value": "1175453.86",
+   "Market Value": "1175446.81",
    "Shares Held": "1174806.54",
    "Asset Category": "Fixed Income"
   },
@@ -675,7 +693,7 @@
    "Ticker": "-",
    "Identifier": "ACI2K4513",
    "Weight": "0.3",
-   "Market Value": "1172219.18",
+   "Market Value": "1167605.73",
    "Shares Held": "1000000",
    "Asset Category": "Fixed Income"
   },
@@ -684,17 +702,8 @@
    "Ticker": "-",
    "Identifier": "ACI2TQ408",
    "Weight": "0.3",
-   "Market Value": "1181846.73",
+   "Market Value": "1177315.24",
    "Shares Held": "1100000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "EUROPEAN UNION SR UNSECURED REGS 12/32 2.75",
-   "Ticker": "-",
-   "Identifier": "ACI2YKCZ9",
-   "Weight": "0.3",
-   "Market Value": "1159365.39",
-   "Shares Held": "1105000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -702,7 +711,7 @@
    "Ticker": "-",
    "Identifier": "ACI3BTT36",
    "Weight": "0.3",
-   "Market Value": "1176118.53",
+   "Market Value": "1178041.32",
    "Shares Held": "1198000",
    "Asset Category": "Fixed Income"
   },
@@ -711,7 +720,7 @@
    "Ticker": "-",
    "Identifier": "14315RBQ3",
    "Weight": "0.29",
-   "Market Value": "1151530.61",
+   "Market Value": "1150639.74",
    "Shares Held": "1151000",
    "Asset Category": "Fixed Income"
   },
@@ -720,7 +729,7 @@
    "Ticker": "-",
    "Identifier": "85704AAB3",
    "Weight": "0.29",
-   "Market Value": "1139846.11",
+   "Market Value": "1140276.05",
    "Shares Held": "1151000",
    "Asset Category": "Fixed Income"
   },
@@ -729,8 +738,17 @@
    "Ticker": "-",
    "Identifier": "ACI207X66",
    "Weight": "0.29",
-   "Market Value": "1147578.54",
+   "Market Value": "1144228.49",
    "Shares Held": "1100000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "EUROPEAN UNION SR UNSECURED REGS 12/32 2.75",
+   "Ticker": "-",
+   "Identifier": "ACI2YKCZ9",
+   "Weight": "0.29",
+   "Market Value": "1153897.24",
+   "Shares Held": "1105000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -738,7 +756,7 @@
    "Ticker": "-",
    "Identifier": "ACI315PQ2",
    "Weight": "0.29",
-   "Market Value": "1134239.86",
+   "Market Value": "1139463.56",
    "Shares Held": "210000000",
    "Asset Category": "Fixed Income"
   },
@@ -747,17 +765,8 @@
    "Ticker": "-",
    "Identifier": "ACI22W784",
    "Weight": "0.28",
-   "Market Value": "1114852.64",
+   "Market Value": "1112446.18",
    "Shares Held": "1020000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "VOLVO TREASURY AB COMPANY GUAR REGS 02/29 3.125",
-   "Ticker": "-",
-   "Identifier": "ACI2MQKC1",
-   "Weight": "0.28",
-   "Market Value": "1085436.12",
-   "Shares Held": "1000000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -765,7 +774,16 @@
    "Ticker": "-",
    "Identifier": "ACI2MS9R7",
    "Weight": "0.28",
-   "Market Value": "1100497.65",
+   "Market Value": "1095802.02",
+   "Shares Held": "1000000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "VOLVO TREASURY AB COMPANY GUAR REGS 02/29 3.125",
+   "Ticker": "-",
+   "Identifier": "ACI2MQKC1",
+   "Weight": "0.27",
+   "Market Value": "1081566.72",
    "Shares Held": "1000000",
    "Asset Category": "Fixed Income"
   },
@@ -773,8 +791,8 @@
    "Name": "NOVO NORDISK A/S COMPANY GUAR REGS 01/31 3.25",
    "Ticker": "-",
    "Identifier": "ACI2P45H3",
-   "Weight": "0.28",
-   "Market Value": "1076665.64",
+   "Weight": "0.27",
+   "Market Value": "1072336.6",
    "Shares Held": "1000000",
    "Asset Category": "Fixed Income"
   },
@@ -783,7 +801,7 @@
    "Ticker": "-",
    "Identifier": "46115HCG0",
    "Weight": "0.26",
-   "Market Value": "1029185.28",
+   "Market Value": "1031557.29",
    "Shares Held": "1050000",
    "Asset Category": "Fixed Income"
   },
@@ -792,7 +810,7 @@
    "Ticker": "-",
    "Identifier": "ACI25FJZ5",
    "Weight": "0.26",
-   "Market Value": "1017594.16",
+   "Market Value": "1013310.01",
    "Shares Held": "975000",
    "Asset Category": "Fixed Income"
   },
@@ -801,7 +819,7 @@
    "Ticker": "-",
    "Identifier": "ACI2FK1C3",
    "Weight": "0.26",
-   "Market Value": "1036729.5",
+   "Market Value": "1011539.26",
    "Shares Held": "1025000000",
    "Asset Category": "Fixed Income"
   },
@@ -810,17 +828,8 @@
    "Ticker": "-",
    "Identifier": "46115HBV8",
    "Weight": "0.25",
-   "Market Value": "989285.03",
+   "Market Value": "990178.53",
    "Shares Held": "900000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "MEDLINE BORROWER/MEDL CO SR SECURED 144A 06/31 5",
-   "Ticker": "-",
-   "Identifier": "58506DAB4",
-   "Weight": "0.25",
-   "Market Value": "963003.6",
-   "Shares Held": "1000000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -833,11 +842,20 @@
    "Asset Category": "Equity"
   },
   {
+   "Name": "MEDLINE BORROWER/MEDL CO SR SECURED 144A 06/31 5",
+   "Ticker": "-",
+   "Identifier": "58506DAB4",
+   "Weight": "0.24",
+   "Market Value": "963055.9",
+   "Shares Held": "1000000",
+   "Asset Category": "Fixed Income"
+  },
+  {
    "Name": "PHILIPPINE GOVERNMENT SR UNSECURED 09/32 6.75",
    "Ticker": "-",
    "Identifier": "ACI28NYX3",
    "Weight": "0.24",
-   "Market Value": "935355.63",
+   "Market Value": "937129.45",
    "Shares Held": "62000000",
    "Asset Category": "Fixed Income"
   },
@@ -846,7 +864,7 @@
    "Ticker": "-",
    "Identifier": "09629LBC8",
    "Weight": "0.23",
-   "Market Value": "894400.35",
+   "Market Value": "894736.87",
    "Shares Held": "895000",
    "Asset Category": "Fixed Income"
   },
@@ -855,7 +873,7 @@
    "Ticker": "-",
    "Identifier": "207940AB3",
    "Weight": "0.23",
-   "Market Value": "903584.6",
+   "Market Value": "903585.23",
    "Shares Held": "901334.15",
    "Asset Category": "Fixed Income"
   },
@@ -864,17 +882,8 @@
    "Ticker": "-",
    "Identifier": "349921AA4",
    "Weight": "0.23",
-   "Market Value": "890412.07",
+   "Market Value": "890411.18",
    "Shares Held": "890000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "NYC COMMERCIAL MORTGAGE TRUST NYC 2026 245P E 144A",
-   "Ticker": "-",
-   "Identifier": "67127CAJ9",
-   "Weight": "0.23",
-   "Market Value": "881107.11",
-   "Shares Held": "900000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -882,7 +891,7 @@
    "Ticker": "-",
    "Identifier": "695114DC9",
    "Weight": "0.23",
-   "Market Value": "902926.36",
+   "Market Value": "904090.9",
    "Shares Held": "915000",
    "Asset Category": "Fixed Income"
   },
@@ -891,7 +900,7 @@
    "Ticker": "-",
    "Identifier": "718172CL1",
    "Weight": "0.23",
-   "Market Value": "900764.78",
+   "Market Value": "897484.76",
    "Shares Held": "950000",
    "Asset Category": "Fixed Income"
   },
@@ -900,7 +909,7 @@
    "Ticker": "-",
    "Identifier": "ACI2NCYZ5",
    "Weight": "0.23",
-   "Market Value": "892756.82",
+   "Market Value": "889617.01",
    "Shares Held": "800000",
    "Asset Category": "Fixed Income"
   },
@@ -909,7 +918,7 @@
    "Ticker": "-",
    "Identifier": "ACI3012H7",
    "Weight": "0.23",
-   "Market Value": "899439.06",
+   "Market Value": "896501.81",
    "Shares Held": "710000",
    "Asset Category": "Fixed Income"
   },
@@ -918,7 +927,7 @@
    "Ticker": "-",
    "Identifier": "ACI34VDS1",
    "Weight": "0.23",
-   "Market Value": "907242.96",
+   "Market Value": "903423.61",
    "Shares Held": "851000",
    "Asset Category": "Fixed Income"
   },
@@ -927,7 +936,7 @@
    "Ticker": "-",
    "Identifier": "09581CAG6",
    "Weight": "0.22",
-   "Market Value": "846188.83",
+   "Market Value": "847964.65",
    "Shares Held": "874000",
    "Asset Category": "Fixed Income"
   },
@@ -936,8 +945,17 @@
    "Ticker": "-",
    "Identifier": "22207AAC6",
    "Weight": "0.22",
-   "Market Value": "845402.18",
+   "Market Value": "845818.78",
    "Shares Held": "880000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "NYC COMMERCIAL MORTGAGE TRUST NYC 2026 245P E 144A",
+   "Ticker": "-",
+   "Identifier": "67127CAJ9",
+   "Weight": "0.22",
+   "Market Value": "877799.25",
+   "Shares Held": "900000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -945,7 +963,7 @@
    "Ticker": "-",
    "Identifier": "ACI1XVGF8",
    "Weight": "0.22",
-   "Market Value": "869736.51",
+   "Market Value": "866282.76",
    "Shares Held": "900000",
    "Asset Category": "Fixed Income"
   },
@@ -954,7 +972,7 @@
    "Ticker": "-",
    "Identifier": "ACI2B1VW2",
    "Weight": "0.22",
-   "Market Value": "869883.38",
+   "Market Value": "870974.02",
    "Shares Held": "1400000",
    "Asset Category": "Fixed Income"
   },
@@ -963,7 +981,7 @@
    "Ticker": "-",
    "Identifier": "ACI39LQC9",
    "Weight": "0.22",
-   "Market Value": "863215",
+   "Market Value": "859758",
    "Shares Held": "800000",
    "Asset Category": "Fixed Income"
   },
@@ -972,7 +990,7 @@
    "Ticker": "-",
    "Identifier": "ACI3CBWZ9",
    "Weight": "0.22",
-   "Market Value": "870498.21",
+   "Market Value": "871694.1",
    "Shares Held": "5770000",
    "Asset Category": "Fixed Income"
   },
@@ -981,7 +999,7 @@
    "Ticker": "-",
    "Identifier": "07274EAN3",
    "Weight": "0.21",
-   "Market Value": "827468.27",
+   "Market Value": "828187.27",
    "Shares Held": "850000",
    "Asset Category": "Fixed Income"
   },
@@ -990,7 +1008,7 @@
    "Ticker": "-",
    "Identifier": "ACI2N1VT6",
    "Weight": "0.21",
-   "Market Value": "821070.71",
+   "Market Value": "817721.17",
    "Shares Held": "750000",
    "Asset Category": "Fixed Income"
   },
@@ -999,7 +1017,7 @@
    "Ticker": "-",
    "Identifier": "09261HCD7",
    "Weight": "0.2",
-   "Market Value": "801482.34",
+   "Market Value": "802703.8",
    "Shares Held": "829000",
    "Asset Category": "Fixed Income"
   },
@@ -1008,7 +1026,7 @@
    "Ticker": "-",
    "Identifier": "ACI2MLPN3",
    "Weight": "0.2",
-   "Market Value": "769023.99",
+   "Market Value": "770326.49",
    "Shares Held": "730000",
    "Asset Category": "Fixed Income"
   },
@@ -1017,7 +1035,7 @@
    "Ticker": "-",
    "Identifier": "ACI2MS9J5",
    "Weight": "0.2",
-   "Market Value": "771683.31",
+   "Market Value": "768725.06",
    "Shares Held": "740000",
    "Asset Category": "Fixed Income"
   },
@@ -1026,7 +1044,7 @@
    "Ticker": "-",
    "Identifier": "ACI2YJKQ3",
    "Weight": "0.2",
-   "Market Value": "780078.06",
+   "Market Value": "777403.12",
    "Shares Held": "725000",
    "Asset Category": "Fixed Income"
   },
@@ -1035,7 +1053,7 @@
    "Ticker": "-",
    "Identifier": "ACI37XDD7",
    "Weight": "0.2",
-   "Market Value": "785118.25",
+   "Market Value": "782356.38",
    "Shares Held": "730000",
    "Asset Category": "Fixed Income"
   },
@@ -1044,7 +1062,7 @@
    "Ticker": "-",
    "Identifier": "ACI388Q13",
    "Weight": "0.2",
-   "Market Value": "797377.22",
+   "Market Value": "794724.74",
    "Shares Held": "750000",
    "Asset Category": "Fixed Income"
   },
@@ -1053,7 +1071,7 @@
    "Ticker": "-",
    "Identifier": "BMB3RGII0",
    "Weight": "0.2",
-   "Market Value": "771503.59",
+   "Market Value": "767946.94",
    "Shares Held": "700000",
    "Asset Category": "Fixed Income"
   },
@@ -1062,7 +1080,7 @@
    "Ticker": "-",
    "Identifier": "01627AAF5",
    "Weight": "0.19",
-   "Market Value": "761468.91",
+   "Market Value": "762664.58",
    "Shares Held": "790000",
    "Asset Category": "Fixed Income"
   },
@@ -1071,7 +1089,7 @@
    "Ticker": "-",
    "Identifier": "91282CRX1",
    "Weight": "0.19",
-   "Market Value": "750572.81",
+   "Market Value": "754445.98",
    "Shares Held": "756900",
    "Asset Category": "Fixed Income"
   },
@@ -1080,7 +1098,7 @@
    "Ticker": "-",
    "Identifier": "ACI1LDCL2",
    "Weight": "0.19",
-   "Market Value": "757208.75",
+   "Market Value": "753623.15",
    "Shares Held": "3090000",
    "Asset Category": "Fixed Income"
   },
@@ -1089,7 +1107,7 @@
    "Ticker": "-",
    "Identifier": "ACI2T8440",
    "Weight": "0.19",
-   "Market Value": "729084.46",
+   "Market Value": "733400.73",
    "Shares Held": "5050000",
    "Asset Category": "Fixed Income"
   },
@@ -1098,7 +1116,7 @@
    "Ticker": "-",
    "Identifier": "ACI2YFRN1",
    "Weight": "0.19",
-   "Market Value": "733007.9",
+   "Market Value": "734311.94",
    "Shares Held": "4870000",
    "Asset Category": "Fixed Income"
   },
@@ -1107,17 +1125,17 @@
    "Ticker": "-",
    "Identifier": "ACI34JFQ0",
    "Weight": "0.19",
-   "Market Value": "739477.13",
+   "Market Value": "738278.86",
    "Shares Held": "700000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "AMAZON.COM INC SR UNSECURED 03/35 3.7",
+   "Name": "AMERICAN MEDICAL SYST EU COMPANY GUAR 12/30 4.125",
    "Ticker": "-",
-   "Identifier": "ACI38YLM5",
+   "Identifier": "ACI3DTFY1",
    "Weight": "0.19",
-   "Market Value": "730009.16",
-   "Shares Held": "700000",
+   "Market Value": "755126.92",
+   "Shares Held": "689000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1125,16 +1143,25 @@
    "Ticker": "-",
    "Identifier": "BK8Y6FII5",
    "Weight": "0.19",
-   "Market Value": "746675.13",
+   "Market Value": "743024.85",
    "Shares Held": "750000",
    "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "BRL261210",
+   "Ticker": "-",
+   "Identifier": "BRL261210",
+   "Weight": "0.19",
+   "Market Value": "744248.99",
+   "Shares Held": "-50843006",
+   "Asset Category": "Forward"
   },
   {
    "Name": "ABBVIE INC SR UNSECURED 09/33 5.05",
    "Ticker": "-",
    "Identifier": "00287YEP0",
    "Weight": "0.18",
-   "Market Value": "707809.24",
+   "Market Value": "709749.54",
    "Shares Held": "731000",
    "Asset Category": "Fixed Income"
   },
@@ -1143,25 +1170,25 @@
    "Ticker": "-",
    "Identifier": "67127CAG5",
    "Weight": "0.18",
-   "Market Value": "693063.39",
+   "Market Value": "695294.81",
    "Shares Held": "699000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "EUR261118",
+   "Name": "AMAZON.COM INC SR UNSECURED 03/35 3.7",
    "Ticker": "-",
-   "Identifier": "EUR261118",
+   "Identifier": "ACI38YLM5",
    "Weight": "0.18",
-   "Market Value": "696536.79",
-   "Shares Held": "0",
-   "Asset Category": "Forward"
+   "Market Value": "726891.95",
+   "Shares Held": "700000",
+   "Asset Category": "Fixed Income"
   },
   {
    "Name": "META PLATFORMS INC SR UNSECURED 05/33 4.875",
    "Ticker": "-",
    "Identifier": "30303MAG7",
    "Weight": "0.17",
-   "Market Value": "656063.25",
+   "Market Value": "658766.77",
    "Shares Held": "700000",
    "Asset Category": "Fixed Income"
   },
@@ -1175,20 +1202,11 @@
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "LLOYDS BANKING GROUP PLC SR UNSECURED REGS 08/30 VAR",
-   "Ticker": "-",
-   "Identifier": "ACI27NBG6",
-   "Weight": "0.17",
-   "Market Value": "646227.44",
-   "Shares Held": "600000",
-   "Asset Category": "Fixed Income"
-  },
-  {
    "Name": "DEUTSCHE BANK AG REGS 07/28 VAR",
    "Ticker": "-",
    "Identifier": "ACI2PX5S5",
    "Weight": "0.17",
-   "Market Value": "662041.43",
+   "Market Value": "659983.24",
    "Shares Held": "600000",
    "Asset Category": "Fixed Income"
   },
@@ -1197,7 +1215,7 @@
    "Ticker": "-",
    "Identifier": "ACI2RLJN5",
    "Weight": "0.17",
-   "Market Value": "668888.26",
+   "Market Value": "673224.56",
    "Shares Held": "160000000",
    "Asset Category": "Fixed Income"
   },
@@ -1206,7 +1224,7 @@
    "Ticker": "-",
    "Identifier": "ACI3074Z2",
    "Weight": "0.17",
-   "Market Value": "653187.51",
+   "Market Value": "650444.92",
    "Shares Held": "615000",
    "Asset Category": "Fixed Income"
   },
@@ -1215,7 +1233,7 @@
    "Ticker": "-",
    "Identifier": "ACI309MY1",
    "Weight": "0.17",
-   "Market Value": "661110.18",
+   "Market Value": "658309.42",
    "Shares Held": "610000",
    "Asset Category": "Fixed Income"
   },
@@ -1224,7 +1242,7 @@
    "Ticker": "-",
    "Identifier": "ACI3DKM97",
    "Weight": "0.17",
-   "Market Value": "665916.47",
+   "Market Value": "664144.01",
    "Shares Held": "605000",
    "Asset Category": "Fixed Income"
   },
@@ -1233,7 +1251,7 @@
    "Ticker": "-",
    "Identifier": "345397J20",
    "Weight": "0.16",
-   "Market Value": "633639.48",
+   "Market Value": "634289.51",
    "Shares Held": "650000",
    "Asset Category": "Fixed Income"
   },
@@ -1242,7 +1260,7 @@
    "Ticker": "-",
    "Identifier": "38145GAP5",
    "Weight": "0.16",
-   "Market Value": "641153.9",
+   "Market Value": "641277.99",
    "Shares Held": "650000",
    "Asset Category": "Fixed Income"
   },
@@ -1251,7 +1269,7 @@
    "Ticker": "-",
    "Identifier": "56564QAA0",
    "Weight": "0.16",
-   "Market Value": "634794.47",
+   "Market Value": "635890.8",
    "Shares Held": "650059.56",
    "Asset Category": "Fixed Income"
   },
@@ -1260,7 +1278,7 @@
    "Ticker": "-",
    "Identifier": "61747YFU4",
    "Weight": "0.16",
-   "Market Value": "633194.52",
+   "Market Value": "633759.72",
    "Shares Held": "650000",
    "Asset Category": "Fixed Income"
   },
@@ -1269,7 +1287,7 @@
    "Ticker": "-",
    "Identifier": "617947AA4",
    "Weight": "0.16",
-   "Market Value": "641582.48",
+   "Market Value": "641423.72",
    "Shares Held": "650688.94",
    "Asset Category": "Fixed Income"
   },
@@ -1278,8 +1296,17 @@
    "Ticker": "-",
    "Identifier": "68389XDB8",
    "Weight": "0.16",
-   "Market Value": "627315.2",
+   "Market Value": "632982.01",
    "Shares Held": "885000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "LLOYDS BANKING GROUP PLC SR UNSECURED REGS 08/30 VAR",
+   "Ticker": "-",
+   "Identifier": "ACI27NBG6",
+   "Weight": "0.16",
+   "Market Value": "643704.45",
+   "Shares Held": "600000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1287,16 +1314,25 @@
    "Ticker": "-",
    "Identifier": "ACI2MM4D6",
    "Weight": "0.16",
-   "Market Value": "611258.52",
+   "Market Value": "615280.84",
    "Shares Held": "826800000",
    "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "COP261210",
+   "Ticker": "-",
+   "Identifier": "COP261210",
+   "Weight": "0.16",
+   "Market Value": "642118.48",
+   "Shares Held": "-23398000000",
+   "Asset Category": "Forward"
   },
   {
    "Name": "BANCO BILBAO VIZCAYA ARG 11/29 5.609",
    "Ticker": "-",
    "Identifier": "05946KBB6",
    "Weight": "0.15",
-   "Market Value": "598010.29",
+   "Market Value": "598464.89",
    "Shares Held": "600000",
    "Asset Category": "Fixed Income"
   },
@@ -1305,17 +1341,8 @@
    "Ticker": "-",
    "Identifier": "46661HAC9",
    "Weight": "0.15",
-   "Market Value": "572942.02",
+   "Market Value": "572795.53",
    "Shares Held": "580397.46",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "UNICREDIT SPA SR UNSECURED 144A 11/32 VAR",
-   "Ticker": "-",
-   "Identifier": "904678BG3",
-   "Weight": "0.15",
-   "Market Value": "567900.82",
-   "Shares Held": "567000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1323,7 +1350,7 @@
    "Ticker": "-",
    "Identifier": "99S2H1BS5",
    "Weight": "0.15",
-   "Market Value": "568802.12",
+   "Market Value": "607924.82",
    "Shares Held": "-12620000",
    "Asset Category": "Swap"
   },
@@ -1332,7 +1359,7 @@
    "Ticker": "-",
    "Identifier": "ACI0CCQC1",
    "Weight": "0.15",
-   "Market Value": "591800.45",
+   "Market Value": "578032.91",
    "Shares Held": "216640000",
    "Asset Category": "Fixed Income"
   },
@@ -1341,7 +1368,7 @@
    "Ticker": "-",
    "Identifier": "ACI3075S7",
    "Weight": "0.15",
-   "Market Value": "601308.7",
+   "Market Value": "596853.05",
    "Shares Held": "595000",
    "Asset Category": "Fixed Income"
   },
@@ -1350,7 +1377,7 @@
    "Ticker": "-",
    "Identifier": "44891ADD6",
    "Weight": "0.14",
-   "Market Value": "530156.58",
+   "Market Value": "531145.8",
    "Shares Held": "540000",
    "Asset Category": "Fixed Income"
   },
@@ -1359,17 +1386,17 @@
    "Ticker": "-",
    "Identifier": "78457AAA9",
    "Weight": "0.14",
-   "Market Value": "545004.82",
+   "Market Value": "544680.87",
    "Shares Held": "544000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "AT+T INC SR UNSECURED 06/30 3.15",
+   "Name": "UNICREDIT SPA SR UNSECURED 144A 11/32 VAR",
    "Ticker": "-",
-   "Identifier": "ACI2VYHR5",
+   "Identifier": "904678BG3",
    "Weight": "0.14",
-   "Market Value": "532570.4",
-   "Shares Held": "500000",
+   "Market Value": "569114.86",
+   "Shares Held": "567000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1377,17 +1404,17 @@
    "Ticker": "-",
    "Identifier": "ACI2XLY35",
    "Weight": "0.14",
-   "Market Value": "557293.82",
+   "Market Value": "555449.98",
    "Shares Held": "520000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "CAIXABANK SA SR UNSECURED 144A 03/30 VAR",
+   "Name": "FNMA TBA 30 YR 6.5 SINGLE FAMILY MORTGAGE",
    "Ticker": "-",
-   "Identifier": "12803RAG9",
+   "Identifier": "01F062614",
    "Weight": "0.13",
-   "Market Value": "490202.31",
-   "Shares Held": "490000",
+   "Market Value": "516259.97",
+   "Shares Held": "512000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1395,7 +1422,7 @@
    "Ticker": "-",
    "Identifier": "136375DV1",
    "Weight": "0.13",
-   "Market Value": "499906.06",
+   "Market Value": "500859.05",
    "Shares Held": "525000",
    "Asset Category": "Fixed Income"
   },
@@ -1404,7 +1431,7 @@
    "Ticker": "-",
    "Identifier": "31568VAA8",
    "Weight": "0.13",
-   "Market Value": "502175",
+   "Market Value": "507300.1",
    "Shares Held": "530000",
    "Asset Category": "Fixed Income"
   },
@@ -1413,7 +1440,7 @@
    "Ticker": "-",
    "Identifier": "44644NAX7",
    "Weight": "0.13",
-   "Market Value": "508021.49",
+   "Market Value": "508020.61",
    "Shares Held": "507608.53",
    "Asset Category": "Fixed Income"
   },
@@ -1422,7 +1449,7 @@
    "Ticker": "-",
    "Identifier": "71643VAB1",
    "Weight": "0.13",
-   "Market Value": "519228.58",
+   "Market Value": "518078.44",
    "Shares Held": "540000",
    "Asset Category": "Fixed Income"
   },
@@ -1431,7 +1458,7 @@
    "Ticker": "-",
    "Identifier": "80413TBP3",
    "Weight": "0.13",
-   "Market Value": "501843.16",
+   "Market Value": "502252.48",
    "Shares Held": "517000",
    "Asset Category": "Fixed Income"
   },
@@ -1440,7 +1467,7 @@
    "Ticker": "-",
    "Identifier": "91282CRU7",
    "Weight": "0.13",
-   "Market Value": "514696.66",
+   "Market Value": "515019.34",
    "Shares Held": "516300",
    "Asset Category": "Fixed Income"
   },
@@ -1449,7 +1476,7 @@
    "Ticker": "-",
    "Identifier": "924915AE1",
    "Weight": "0.13",
-   "Market Value": "496580.8",
+   "Market Value": "496839.25",
    "Shares Held": "502333.73",
    "Asset Category": "Fixed Income"
   },
@@ -1458,7 +1485,7 @@
    "Ticker": "-",
    "Identifier": "ACI0Z91H9",
    "Weight": "0.13",
-   "Market Value": "496402.15",
+   "Market Value": "499394.66",
    "Shares Held": "672890000",
    "Asset Category": "Fixed Income"
   },
@@ -1467,7 +1494,7 @@
    "Ticker": "-",
    "Identifier": "ACI2JC6M0",
    "Weight": "0.13",
-   "Market Value": "520630.76",
+   "Market Value": "519031.66",
    "Shares Held": "500000",
    "Asset Category": "Fixed Income"
   },
@@ -1476,7 +1503,7 @@
    "Ticker": "-",
    "Identifier": "ACI2P44X9",
    "Weight": "0.13",
-   "Market Value": "498195.2",
+   "Market Value": "496032",
    "Shares Held": "475000",
    "Asset Category": "Fixed Income"
   },
@@ -1485,7 +1512,16 @@
    "Ticker": "-",
    "Identifier": "ACI2RY7C4",
    "Weight": "0.13",
-   "Market Value": "510653.93",
+   "Market Value": "507882.58",
+   "Shares Held": "500000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "AT+T INC SR UNSECURED 06/30 3.15",
+   "Ticker": "-",
+   "Identifier": "ACI2VYHR5",
+   "Weight": "0.13",
+   "Market Value": "530417.94",
    "Shares Held": "500000",
    "Asset Category": "Fixed Income"
   },
@@ -1494,7 +1530,7 @@
    "Ticker": "-",
    "Identifier": "ACI2XWYL1",
    "Weight": "0.13",
-   "Market Value": "519312.59",
+   "Market Value": "517373.42",
    "Shares Held": "500000",
    "Asset Category": "Fixed Income"
   },
@@ -1503,35 +1539,26 @@
    "Ticker": "-",
    "Identifier": "ACI2Y0938",
    "Weight": "0.13",
-   "Market Value": "527700.06",
+   "Market Value": "509085.31",
    "Shares Held": "10558700",
    "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "BRL261210",
-   "Ticker": "-",
-   "Identifier": "BRL261210",
-   "Weight": "0.13",
-   "Market Value": "503080.99",
-   "Shares Held": "-50843006",
-   "Asset Category": "Forward"
   },
   {
    "Name": "BPCE SA 144A 01/32 VAR",
    "Ticker": "-",
    "Identifier": "05571ABE4",
    "Weight": "0.12",
-   "Market Value": "471073.91",
+   "Market Value": "472545.37",
    "Shares Held": "500000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "BX TRUST BX 2026 SUMT A 144A",
+   "Name": "CAIXABANK SA SR UNSECURED 144A 03/30 VAR",
    "Ticker": "-",
-   "Identifier": "05595QAA0",
+   "Identifier": "12803RAG9",
    "Weight": "0.12",
-   "Market Value": "451999.37",
-   "Shares Held": "452000",
+   "Market Value": "490647.96",
+   "Shares Held": "490000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1539,7 +1566,7 @@
    "Ticker": "-",
    "Identifier": "12803RAP9",
    "Weight": "0.12",
-   "Market Value": "468009.35",
+   "Market Value": "469828.2",
    "Shares Held": "500000",
    "Asset Category": "Fixed Income"
   },
@@ -1548,7 +1575,7 @@
    "Ticker": "-",
    "Identifier": "161175CJ1",
    "Weight": "0.12",
-   "Market Value": "455315.52",
+   "Market Value": "457134.31",
    "Shares Held": "530000",
    "Asset Category": "Fixed Income"
   },
@@ -1557,7 +1584,7 @@
    "Ticker": "-",
    "Identifier": "76711AAD9",
    "Weight": "0.12",
-   "Market Value": "469746.85",
+   "Market Value": "470267.87",
    "Shares Held": "493000",
    "Asset Category": "Fixed Income"
   },
@@ -1566,17 +1593,8 @@
    "Ticker": "-",
    "Identifier": "91087BBT6",
    "Weight": "0.12",
-   "Market Value": "488976.8",
+   "Market Value": "487630",
    "Shares Held": "520000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "BANCO DE SABADELL SA SUBORDINATED REGS 08/33 VAR",
-   "Ticker": "-",
-   "Identifier": "ACI2CZ1Q2",
-   "Weight": "0.12",
-   "Market Value": "450725.8",
-   "Shares Held": "400000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1584,7 +1602,7 @@
    "Ticker": "-",
    "Identifier": "ACI2P3VL7",
    "Weight": "0.12",
-   "Market Value": "466697.52",
+   "Market Value": "465851.86",
    "Shares Held": "1920000",
    "Asset Category": "Fixed Income"
   },
@@ -1593,17 +1611,8 @@
    "Ticker": "-",
    "Identifier": "ACI2WT2K6",
    "Weight": "0.12",
-   "Market Value": "465760.85",
+   "Market Value": "461888.1",
    "Shares Held": "1920000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "EUROPEAN UNION SR UNSECURED REGS 10/45 3.75",
-   "Ticker": "-",
-   "Identifier": "ACI2X44W2",
-   "Weight": "0.12",
-   "Market Value": "454343.41",
-   "Shares Held": "450000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1611,7 +1620,7 @@
    "Ticker": "-",
    "Identifier": "ACI34V6B6",
    "Weight": "0.12",
-   "Market Value": "458823.51",
+   "Market Value": "461465.2",
    "Shares Held": "31600000",
    "Asset Category": "Fixed Income"
   },
@@ -1620,7 +1629,7 @@
    "Ticker": "-",
    "Identifier": "ACI3CPBG3",
    "Weight": "0.12",
-   "Market Value": "479020.61",
+   "Market Value": "476753.87",
    "Shares Held": "440000",
    "Asset Category": "Fixed Income"
   },
@@ -1629,8 +1638,17 @@
    "Ticker": "-",
    "Identifier": "05377RLK8",
    "Weight": "0.11",
-   "Market Value": "447995.35",
+   "Market Value": "448678.73",
    "Shares Held": "470000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "BX TRUST BX 2026 SUMT A 144A",
+   "Ticker": "-",
+   "Identifier": "05595QAA0",
+   "Weight": "0.11",
+   "Market Value": "451998.82",
+   "Shares Held": "452000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1638,7 +1656,7 @@
    "Ticker": "-",
    "Identifier": "30218VAB2",
    "Weight": "0.11",
-   "Market Value": "417577.68",
+   "Market Value": "419421.93",
    "Shares Held": "450000",
    "Asset Category": "Fixed Income"
   },
@@ -1647,7 +1665,7 @@
    "Ticker": "-",
    "Identifier": "345370DA5",
    "Weight": "0.11",
-   "Market Value": "427347.39",
+   "Market Value": "428885.65",
    "Shares Held": "500000",
    "Asset Category": "Fixed Income"
   },
@@ -1656,7 +1674,7 @@
    "Ticker": "-",
    "Identifier": "571676BA2",
    "Weight": "0.11",
-   "Market Value": "413399.41",
+   "Market Value": "415160.8",
    "Shares Held": "430000",
    "Asset Category": "Fixed Income"
   },
@@ -1665,7 +1683,7 @@
    "Ticker": "-",
    "Identifier": "62548HAA9",
    "Weight": "0.11",
-   "Market Value": "448228.08",
+   "Market Value": "448227.88",
    "Shares Held": "447645.36",
    "Asset Category": "Fixed Income"
   },
@@ -1674,7 +1692,7 @@
    "Ticker": "-",
    "Identifier": "69122AAC9",
    "Weight": "0.11",
-   "Market Value": "443556.79",
+   "Market Value": "444078.11",
    "Shares Held": "441577.81",
    "Asset Category": "Fixed Income"
   },
@@ -1683,7 +1701,16 @@
    "Ticker": "-",
    "Identifier": "ACI1R80Y2",
    "Weight": "0.11",
-   "Market Value": "439824.69",
+   "Market Value": "438718.98",
+   "Shares Held": "400000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "BANCO DE SABADELL SA SUBORDINATED REGS 08/33 VAR",
+   "Ticker": "-",
+   "Identifier": "ACI2CZ1Q2",
+   "Weight": "0.11",
+   "Market Value": "449439.35",
    "Shares Held": "400000",
    "Asset Category": "Fixed Income"
   },
@@ -1692,7 +1719,7 @@
    "Ticker": "-",
    "Identifier": "ACI2MSFH2",
    "Weight": "0.11",
-   "Market Value": "449414.24",
+   "Market Value": "447862.55",
    "Shares Held": "400000",
    "Asset Category": "Fixed Income"
   },
@@ -1701,7 +1728,7 @@
    "Ticker": "-",
    "Identifier": "ACI2S8MW9",
    "Weight": "0.11",
-   "Market Value": "431614.9",
+   "Market Value": "430023.69",
    "Shares Held": "400000",
    "Asset Category": "Fixed Income"
   },
@@ -1710,8 +1737,17 @@
    "Ticker": "-",
    "Identifier": "ACI2VVPH4",
    "Weight": "0.11",
-   "Market Value": "436285.46",
+   "Market Value": "434619.82",
    "Shares Held": "400000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "EUROPEAN UNION SR UNSECURED REGS 10/45 3.75",
+   "Ticker": "-",
+   "Identifier": "ACI2X44W2",
+   "Weight": "0.11",
+   "Market Value": "451474.41",
+   "Shares Held": "450000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1719,7 +1755,7 @@
    "Ticker": "-",
    "Identifier": "ACI30KVS9",
    "Weight": "0.11",
-   "Market Value": "417016.97",
+   "Market Value": "414920",
    "Shares Held": "400000",
    "Asset Category": "Fixed Income"
   },
@@ -1728,7 +1764,7 @@
    "Ticker": "-",
    "Identifier": "ACI3861C0",
    "Weight": "0.11",
-   "Market Value": "436394.6",
+   "Market Value": "434508.25",
    "Shares Held": "410000",
    "Asset Category": "Fixed Income"
   },
@@ -1737,7 +1773,7 @@
    "Ticker": "-",
    "Identifier": "20753EAA4",
    "Weight": "0.1",
-   "Market Value": "382589.6",
+   "Market Value": "382589.83",
    "Shares Held": "381636.62",
    "Asset Category": "Fixed Income"
   },
@@ -1746,7 +1782,7 @@
    "Ticker": "-",
    "Identifier": "35564UCS4",
    "Weight": "0.1",
-   "Market Value": "384885.15",
+   "Market Value": "384887.81",
    "Shares Held": "385000",
    "Asset Category": "Fixed Income"
   },
@@ -1755,7 +1791,7 @@
    "Ticker": "-",
    "Identifier": "716973AG7",
    "Weight": "0.1",
-   "Market Value": "408617.69",
+   "Market Value": "410595.75",
    "Shares Held": "470000",
    "Asset Category": "Fixed Income"
   },
@@ -1764,7 +1800,7 @@
    "Ticker": "-",
    "Identifier": "91087BBK5",
    "Weight": "0.1",
-   "Market Value": "374600",
+   "Market Value": "375200",
    "Shares Held": "400000",
    "Asset Category": "Fixed Income"
   },
@@ -1773,25 +1809,16 @@
    "Ticker": "-",
    "Identifier": "ACI1R81X3",
    "Weight": "0.1",
-   "Market Value": "406740.22",
+   "Market Value": "406877.11",
    "Shares Held": "400000",
    "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "COP261210",
-   "Ticker": "-",
-   "Identifier": "COP261210",
-   "Weight": "0.1",
-   "Market Value": "380904.88",
-   "Shares Held": "-23398000000",
-   "Asset Category": "Forward"
   },
   {
    "Name": "REPUBLIC OF COLOMBIA SR UNSECURED 01/30 3",
    "Ticker": "-",
    "Identifier": "195325DR3",
    "Weight": "0.09",
-   "Market Value": "359900",
+   "Market Value": "359140",
    "Shares Held": "400000",
    "Asset Category": "Fixed Income"
   },
@@ -1800,7 +1827,7 @@
    "Ticker": "-",
    "Identifier": "30303M8X3",
    "Weight": "0.09",
-   "Market Value": "344366.54",
+   "Market Value": "346834.25",
    "Shares Held": "420000",
    "Asset Category": "Fixed Income"
   },
@@ -1809,7 +1836,7 @@
    "Ticker": "-",
    "Identifier": "45865VAA8",
    "Weight": "0.09",
-   "Market Value": "341513.55",
+   "Market Value": "341844.65",
    "Shares Held": "350000",
    "Asset Category": "Fixed Income"
   },
@@ -1818,7 +1845,7 @@
    "Ticker": "-",
    "Identifier": "67108SAN8",
    "Weight": "0.09",
-   "Market Value": "353510.95",
+   "Market Value": "353613.54",
    "Shares Held": "354000",
    "Asset Category": "Fixed Income"
   },
@@ -1827,7 +1854,7 @@
    "Ticker": "-",
    "Identifier": "695114CV8",
    "Weight": "0.09",
-   "Market Value": "353932.87",
+   "Market Value": "356148.99",
    "Shares Held": "500000",
    "Asset Category": "Fixed Income"
   },
@@ -1836,7 +1863,7 @@
    "Ticker": "-",
    "Identifier": "74334HAA2",
    "Weight": "0.09",
-   "Market Value": "366908.78",
+   "Market Value": "366269.94",
    "Shares Held": "394896.2",
    "Asset Category": "Fixed Income"
   },
@@ -1845,7 +1872,7 @@
    "Ticker": "-",
    "Identifier": "806854AN5",
    "Weight": "0.09",
-   "Market Value": "339035.77",
+   "Market Value": "339936.31",
    "Shares Held": "352000",
    "Asset Category": "Fixed Income"
   },
@@ -1854,25 +1881,52 @@
    "Ticker": "-",
    "Identifier": "89175VAC7",
    "Weight": "0.09",
-   "Market Value": "370409.6",
+   "Market Value": "370892.68",
    "Shares Held": "400000",
    "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "BCGHTRYR2 IRS BRL P V 00MBRCDI BCGHTRYR2_FLO NDFPREDISWAP",
+   "Ticker": "-",
+   "Identifier": "99S2ENPJ5",
+   "Weight": "0.09",
+   "Market Value": "338144.02",
+   "Shares Held": "-10760000",
+   "Asset Category": "Swap"
   },
   {
    "Name": "FRANCE (GOVT OF) BONDS 144A REGS 05/31 1.5",
    "Ticker": "-",
    "Identifier": "ACI0H6GX4",
    "Weight": "0.09",
-   "Market Value": "343745.24",
+   "Market Value": "342409.98",
    "Shares Held": "350000",
    "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "AUD261203",
+   "Ticker": "-",
+   "Identifier": "AUD261203",
+   "Weight": "0.09",
+   "Market Value": "335738.99",
+   "Shares Held": "-11708294",
+   "Asset Category": "Forward"
+  },
+  {
+   "Name": "GBP261207",
+   "Ticker": "-",
+   "Identifier": "GBP261207",
+   "Weight": "0.09",
+   "Market Value": "364842.98",
+   "Shares Held": "-13448312",
+   "Asset Category": "Forward"
   },
   {
    "Name": "GENM CAPITAL LABUAN COMPANY GUAR REGS 04/31 3.882",
    "Ticker": "-",
    "Identifier": "Y2700RAA0",
    "Weight": "0.09",
-   "Market Value": "338982.03",
+   "Market Value": "338419.43",
    "Shares Held": "400000",
    "Asset Category": "Fixed Income"
   },
@@ -1881,17 +1935,8 @@
    "Ticker": "-",
    "Identifier": "00042HAA0",
    "Weight": "0.08",
-   "Market Value": "318763.05",
+   "Market Value": "319579.96",
    "Shares Held": "326453.54",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "FNMA TBA 30 YR 6.5 SINGLE FAMILY MORTGAGE",
-   "Ticker": "-",
-   "Identifier": "01F062614",
-   "Weight": "0.08",
-   "Market Value": "312153.55",
-   "Shares Held": "310299",
    "Asset Category": "Fixed Income"
   },
   {
@@ -1899,7 +1944,7 @@
    "Ticker": "-",
    "Identifier": "05377RJL9",
    "Weight": "0.08",
-   "Market Value": "298361",
+   "Market Value": "298588.02",
    "Shares Held": "300000",
    "Asset Category": "Fixed Income"
   },
@@ -1908,7 +1953,7 @@
    "Ticker": "-",
    "Identifier": "161175CT9",
    "Weight": "0.08",
-   "Market Value": "299001.03",
+   "Market Value": "300441.71",
    "Shares Held": "355000",
    "Asset Category": "Fixed Income"
   },
@@ -1917,7 +1962,7 @@
    "Ticker": "-",
    "Identifier": "26847KAE7",
    "Weight": "0.08",
-   "Market Value": "305826.67",
+   "Market Value": "305906.35",
    "Shares Held": "306578.55",
    "Asset Category": "Fixed Income"
   },
@@ -1926,25 +1971,16 @@
    "Ticker": "-",
    "Identifier": "345397J61",
    "Weight": "0.08",
-   "Market Value": "317793.12",
+   "Market Value": "318370.21",
    "Shares Held": "330000",
    "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "POUND STERLING",
-   "Ticker": "-",
-   "Identifier": "999GBPZ94",
-   "Weight": "0.08",
-   "Market Value": "305313.31",
-   "Shares Held": "231131.64",
-   "Asset Category": "Cash & Equivalent"
   },
   {
    "Name": "BUONI POLIENNALI DEL TES SR UNSECURED 144A REGS 09/43 4",
    "Ticker": "-",
    "Identifier": "ACI2C8LW7",
    "Weight": "0.08",
-   "Market Value": "308732.78",
+   "Market Value": "307099.76",
    "Shares Held": "290000",
    "Asset Category": "Fixed Income"
   },
@@ -1953,7 +1989,7 @@
    "Ticker": "-",
    "Identifier": "ACI2WMH17",
    "Weight": "0.08",
-   "Market Value": "332230.07",
+   "Market Value": "324562.15",
    "Shares Held": "104900000",
    "Asset Category": "Fixed Income"
   },
@@ -1962,7 +1998,7 @@
    "Ticker": "-",
    "Identifier": "ACI2X3JN8",
    "Weight": "0.08",
-   "Market Value": "308412.57",
+   "Market Value": "307348",
    "Shares Held": "300000",
    "Asset Category": "Fixed Income"
   },
@@ -1971,25 +2007,25 @@
    "Ticker": "-",
    "Identifier": "ACI2ZYNC7",
    "Weight": "0.08",
-   "Market Value": "313004.52",
+   "Market Value": "310860.81",
    "Shares Held": "300000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "US 10YR ULTRA FUT DEC26 XCBT 20261221",
+   "Name": "GBP261123",
    "Ticker": "-",
-   "Identifier": "ADI3BKXS3",
+   "Identifier": "GBP261123",
    "Weight": "0.08",
-   "Market Value": "308060.03",
-   "Shares Held": "-14400000",
-   "Asset Category": "Future"
+   "Market Value": "323392.66",
+   "Shares Held": "0",
+   "Asset Category": "Forward"
   },
   {
    "Name": "APOLLO AVIATION SECURITIZATION AASET 2025 3A A 144A",
    "Ticker": "-",
    "Identifier": "00039NAC8",
    "Weight": "0.07",
-   "Market Value": "261516.67",
+   "Market Value": "261967.07",
    "Shares Held": "270431.05",
    "Asset Category": "Fixed Income"
   },
@@ -1998,16 +2034,16 @@
    "Ticker": "-",
    "Identifier": "00833BAU2",
    "Weight": "0.07",
-   "Market Value": "261513.86",
+   "Market Value": "261525.63",
    "Shares Held": "264000",
    "Asset Category": "Fixed Income"
   },
   {
-   "Name": "APOLLO DEBT SOLUTIONS BD SR UNSECURED 144A 01/31 5.7",
+   "Name": "APOLLO DEBT SOLUTIONS BD SR UNSECURED 01/31 5.7",
    "Ticker": "-",
-   "Identifier": "03770DAL7",
+   "Identifier": "03770DAM5",
    "Weight": "0.07",
-   "Market Value": "268314.59",
+   "Market Value": "268739.72",
    "Shares Held": "280000",
    "Asset Category": "Fixed Income"
   },
@@ -2016,7 +2052,7 @@
    "Ticker": "-",
    "Identifier": "05619PAA4",
    "Weight": "0.07",
-   "Market Value": "267949.3",
+   "Market Value": "267904.42",
    "Shares Held": "271000",
    "Asset Category": "Fixed Income"
   },
@@ -2025,7 +2061,7 @@
    "Ticker": "-",
    "Identifier": "09261HCC9",
    "Weight": "0.07",
-   "Market Value": "268866.51",
+   "Market Value": "269353.74",
    "Shares Held": "280000",
    "Asset Category": "Fixed Income"
   },
@@ -2034,7 +2070,7 @@
    "Ticker": "-",
    "Identifier": "161175BU7",
    "Weight": "0.07",
-   "Market Value": "256355.89",
+   "Market Value": "256874.63",
    "Shares Held": "300000",
    "Asset Category": "Fixed Income"
   },
@@ -2043,7 +2079,7 @@
    "Ticker": "-",
    "Identifier": "26846GAF4",
    "Weight": "0.07",
-   "Market Value": "259975.72",
+   "Market Value": "259919.6",
    "Shares Held": "268159.08",
    "Asset Category": "Fixed Income"
   },
@@ -2052,7 +2088,7 @@
    "Ticker": "-",
    "Identifier": "38152BAQ4",
    "Weight": "0.07",
-   "Market Value": "272170.57",
+   "Market Value": "272786.06",
    "Shares Held": "280000",
    "Asset Category": "Fixed Income"
   },
@@ -2061,7 +2097,7 @@
    "Ticker": "-",
    "Identifier": "44891ADZ7",
    "Weight": "0.07",
-   "Market Value": "261342.78",
+   "Market Value": "261403.82",
    "Shares Held": "267000",
    "Asset Category": "Fixed Income"
   },
@@ -2070,7 +2106,7 @@
    "Ticker": "-",
    "Identifier": "46647PFD3",
    "Weight": "0.07",
-   "Market Value": "286034.31",
+   "Market Value": "286183.26",
    "Shares Held": "300000",
    "Asset Category": "Fixed Income"
   },
@@ -2079,8 +2115,8 @@
    "Ticker": "-",
    "Identifier": "67124AAC1",
    "Weight": "0.07",
-   "Market Value": "288882.58",
-   "Shares Held": "299399.84",
+   "Market Value": "284612.94",
+   "Shares Held": "295021.29",
    "Asset Category": "Fixed Income"
   },
   {
@@ -2088,7 +2124,7 @@
    "Ticker": "-",
    "Identifier": "68389XDY8",
    "Weight": "0.07",
-   "Market Value": "276908.02",
+   "Market Value": "278129.65",
    "Shares Held": "320000",
    "Asset Category": "Fixed Income"
   },
@@ -2097,7 +2133,7 @@
    "Ticker": "-",
    "Identifier": "871607AE7",
    "Weight": "0.07",
-   "Market Value": "274291.35",
+   "Market Value": "275257.79",
    "Shares Held": "290000",
    "Asset Category": "Fixed Income"
   },
@@ -2106,25 +2142,16 @@
    "Ticker": "-",
    "Identifier": "912810UW6",
    "Weight": "0.07",
-   "Market Value": "262053.09",
+   "Market Value": "264617.18",
    "Shares Held": "275800",
    "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "BCGHTRYR2 IRS BRL P V 00MBRCDI BCGHTRYR2_FLO NDFPREDISWAP",
-   "Ticker": "-",
-   "Identifier": "99S2ENPJ5",
-   "Weight": "0.07",
-   "Market Value": "285894.4",
-   "Shares Held": "-10760000",
-   "Asset Category": "Swap"
   },
   {
    "Name": "AT+T INC SR UNSECURED 05/28 1.6",
    "Ticker": "-",
    "Identifier": "ACI1MJPC4",
    "Weight": "0.07",
-   "Market Value": "287957.2",
+   "Market Value": "287191.53",
    "Shares Held": "270000",
    "Asset Category": "Fixed Income"
   },
@@ -2133,7 +2160,7 @@
    "Ticker": "-",
    "Identifier": "ACI1XS4Y7",
    "Weight": "0.07",
-   "Market Value": "262883.3",
+   "Market Value": "262010.08",
    "Shares Held": "250000",
    "Asset Category": "Fixed Income"
   },
@@ -2142,17 +2169,8 @@
    "Ticker": "-",
    "Identifier": "ACI26RR14",
    "Weight": "0.07",
-   "Market Value": "290563.13",
+   "Market Value": "279018.32",
    "Shares Held": "6500000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "UBER TECHNOLOGIES INC SR UNSECURED 09/32 4.125",
-   "Ticker": "-",
-   "Identifier": "ACI3CPBV0",
-   "Weight": "0.07",
-   "Market Value": "256262.54",
-   "Shares Held": "235000",
    "Asset Category": "Fixed Income"
   },
   {
@@ -2160,7 +2178,7 @@
    "Ticker": "-",
    "Identifier": "BSHRBXII8",
    "Weight": "0.07",
-   "Market Value": "274781.42",
+   "Market Value": "274878.88",
    "Shares Held": "17900000",
    "Asset Category": "Fixed Income"
   },
@@ -2169,7 +2187,7 @@
    "Ticker": "-",
    "Identifier": "00130HCG8",
    "Weight": "0.06",
-   "Market Value": "239629.26",
+   "Market Value": "239842.12",
    "Shares Held": "275000",
    "Asset Category": "Fixed Income"
   },
@@ -2178,7 +2196,7 @@
    "Ticker": "-",
    "Identifier": "05571ABH7",
    "Weight": "0.06",
-   "Market Value": "237989.95",
+   "Market Value": "238730.19",
    "Shares Held": "250000",
    "Asset Category": "Fixed Income"
   },
@@ -2187,7 +2205,7 @@
    "Ticker": "-",
    "Identifier": "33829WAL3",
    "Weight": "0.06",
-   "Market Value": "247297.95",
+   "Market Value": "247297.21",
    "Shares Held": "247215.38",
    "Asset Category": "Fixed Income"
   },
@@ -2196,7 +2214,7 @@
    "Ticker": "-",
    "Identifier": "62548HAB7",
    "Weight": "0.06",
-   "Market Value": "241428.97",
+   "Market Value": "241429.26",
    "Shares Held": "241000",
    "Asset Category": "Fixed Income"
   },
@@ -2205,7 +2223,7 @@
    "Ticker": "-",
    "Identifier": "67449LAA9",
    "Weight": "0.06",
-   "Market Value": "222900.47",
+   "Market Value": "222842.1",
    "Shares Held": "228644.41",
    "Asset Category": "Fixed Income"
   },
@@ -2214,7 +2232,7 @@
    "Ticker": "-",
    "Identifier": "68389XDH5",
    "Weight": "0.06",
-   "Market Value": "224355.85",
+   "Market Value": "224892.62",
    "Shares Held": "250000",
    "Asset Category": "Fixed Income"
   },
@@ -2223,7 +2241,7 @@
    "Ticker": "-",
    "Identifier": "69292GAA4",
    "Weight": "0.06",
-   "Market Value": "240402.16",
+   "Market Value": "240765.83",
    "Shares Held": "245108.69",
    "Asset Category": "Fixed Income"
   },
@@ -2232,7 +2250,7 @@
    "Ticker": "-",
    "Identifier": "694971AA0",
    "Weight": "0.06",
-   "Market Value": "250036.03",
+   "Market Value": "250026.55",
    "Shares Held": "250937.98",
    "Asset Category": "Fixed Income"
   },
@@ -2241,26 +2259,8 @@
    "Ticker": "-",
    "Identifier": "72585CAA3",
    "Weight": "0.06",
-   "Market Value": "235007.07",
+   "Market Value": "234880.37",
    "Shares Held": "242627.16",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "RIO GRANDE LNG LLC SR SECURED 144A 06/31 5.25",
-   "Ticker": "-",
-   "Identifier": "76711AAB3",
-   "Weight": "0.06",
-   "Market Value": "230122.77",
-   "Shares Held": "236000",
-   "Asset Category": "Fixed Income"
-  },
-  {
-   "Name": "SAUDI ARABIAN OIL CO SR UNSECURED 144A 02/31 4.375",
-   "Ticker": "-",
-   "Identifier": "80415RAA9",
-   "Weight": "0.06",
-   "Market Value": "223471.63",
-   "Shares Held": "238000",
    "Asset Category": "Fixed Income"
   }
  ]

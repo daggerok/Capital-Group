@@ -2,7 +2,7 @@
  "ticker": "CGGE",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 603,
+ "totalRows": 605,
  "headers": [
   "Date",
   "NAV",
@@ -3627,6 +3627,18 @@
    "NAV": "33.05",
    "Market Price": "33.07",
    "Premium/Discount": "0.06"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "NAV": "33.03",
+   "Market Price": "33.02",
+   "Premium/Discount": "-0.02"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "NAV": "32.56",
+   "Market Price": "32.44",
+   "Premium/Discount": "-0.37"
   }
  ]
 }

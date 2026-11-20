@@ -2,7 +2,7 @@
  "ticker": "CGNG",
  "page": 2,
  "pageSize": 250,
- "totalRows": 259,
+ "totalRows": 258,
  "headers": [
   "Name",
   "Ticker",
@@ -13,6 +13,15 @@
   "Asset Category"
  ],
  "rows": [
+  {
+   "Name": "SAUDI RIYAL",
+   "Ticker": "-",
+   "Identifier": "999SARZ95",
+   "Weight": "0",
+   "Market Value": "97.18",
+   "Shares Held": "364.55",
+   "Asset Category": "Cash & Equivalent"
+  },
   {
    "Name": "THAILAND BAHT",
    "Ticker": "-",
@@ -45,53 +54,35 @@
    "Ticker": "-",
    "Identifier": "BRL999999",
    "Weight": "0",
-   "Market Value": "-732.98",
-   "Shares Held": "-2283652.96",
+   "Market Value": "-2884.82",
+   "Shares Held": "1083009.76",
    "Asset Category": "Spot FX"
   },
   {
-   "Name": "EUR Spot FX",
+   "Name": "INR Spot FX",
    "Ticker": "-",
-   "Identifier": "EUR999999",
+   "Identifier": "INR999999",
    "Weight": "0",
-   "Market Value": "2996.94",
-   "Shares Held": "-2996104.86",
+   "Market Value": "45.52",
+   "Shares Held": "-825096",
    "Asset Category": "Spot FX"
   },
   {
-   "Name": "GBP Spot FX",
+   "Name": "ZAR Spot FX",
    "Ticker": "-",
-   "Identifier": "GBP999999",
+   "Identifier": "ZAR999999",
    "Weight": "0",
-   "Market Value": "10.02",
-   "Shares Held": "-45494.19",
+   "Market Value": "-4362.67",
+   "Shares Held": "3257583.04",
    "Asset Category": "Spot FX"
-  },
-  {
-   "Name": "MEXICAN PESO (NEW)",
-   "Ticker": "-",
-   "Identifier": "999MXNZ92",
-   "Weight": "-0.01",
-   "Market Value": "-269752.63",
-   "Shares Held": "-4970461.97",
-   "Asset Category": "Cash & Equivalent"
   },
   {
    "Name": "NET OTHER ASSETS",
    "Ticker": "-",
    "Identifier": "",
-   "Weight": "-0.05",
-   "Market Value": "-1443872.62",
+   "Weight": "-0.14",
+   "Market Value": "-4073528.62",
    "Shares Held": "0",
-   "Asset Category": "Cash & Equivalent"
-  },
-  {
-   "Name": "US DOLLAR",
-   "Ticker": "-",
-   "Identifier": "999USDZ92",
-   "Weight": "-0.23",
-   "Market Value": "-6752020.8",
-   "Shares Held": "-6752020.8",
    "Asset Category": "Cash & Equivalent"
   }
  ]
