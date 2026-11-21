@@ -2022,7 +2022,9 @@ async function processFund(
     catch (error) { outputNote(`[ history  ] ${ticker}: ${errorMessage(error)} — trying Yahoo/cache`); }
     if (!historical?.points.length) {
       const launched = product?.inception ?? fund.inception ?? null;
-      if (tooNewForHistory(launched, new Date().toISOString().slice(0, 10), (await readPreviousSheet(ticker, 'history')).length)) {
+      // only official rows count as published history: the Yahoo bars a young fund gets on its first runs must not make the next run fail
+      const officialRows = (await readPreviousSheetHeaders(ticker, 'history')).join('|') === HISTORY_HEADERS.join('|') ? (await readPreviousSheet(ticker, 'history')).length : 0;
+      if (tooNewForHistory(launched, new Date().toISOString().slice(0, 10), officialRows)) {
         outputNote(`[ history  ] ${ticker}: launched ${launched}, no issuer history yet — published without it`);
       } else failedSources.push('issuer history');
     }
