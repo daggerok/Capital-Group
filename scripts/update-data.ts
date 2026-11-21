@@ -1938,6 +1938,19 @@ export function retainUnavailable(candidate: unknown, previous: unknown): unknow
   const prior = sourceObject(previous);
   return Object.fromEntries(Object.entries(candidate).map(([key,value]) => [key, retainUnavailable(value, prior[key])]));
 }
+/** Days after inception during which a fund with no published history may lack an issuer history (CGBI and CGMI, launched 2026-11-17). */
+export const NEW_FUND_HISTORY_DAYS = 60;
+/**
+ * A just-launched fund has no daily NAV history at the issuer yet: an empty issuer history is then not a failed source, the
+ * fund is published from its holdings (and the Yahoo chart when it has bars) and picks up the history once the issuer has it.
+ * Only when nothing is published yet: an empty answer for a fund with published history stays an outage.
+ */
+export function tooNewForHistory(inception: unknown, today: unknown, publishedHistoryRows: number): boolean {
+  const start = calendarIso(inception), end = calendarIso(today);
+  if (publishedHistoryRows > 0 || !start || !end) return false;
+  const days = (Date.parse(`${end}T00:00:00Z`) - Date.parse(`${start}T00:00:00Z`)) / 86_400_000;
+  return days >= 0 && days <= NEW_FUND_HISTORY_DAYS;
+}
 async function processFund(
   fund: CatalogFund,
   config: UpdaterConfig,
@@ -2007,7 +2020,12 @@ async function processFund(
   if (!config.skipIssuer) {
     try { historical = await loadIssuerHistory(fund, config); }
     catch (error) { outputNote(`[ history  ] ${ticker}: ${errorMessage(error)} — trying Yahoo/cache`); }
-    if (!historical?.points.length) failedSources.push('issuer history');
+    if (!historical?.points.length) {
+      const launched = product?.inception ?? fund.inception ?? null;
+      if (tooNewForHistory(launched, new Date().toISOString().slice(0, 10), (await readPreviousSheet(ticker, 'history')).length)) {
+        outputNote(`[ history  ] ${ticker}: launched ${launched}, no issuer history yet — published without it`);
+      } else failedSources.push('issuer history');
+    }
   }
 
   let chartDays: ChartDay[] = [];

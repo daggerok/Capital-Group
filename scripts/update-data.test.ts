@@ -12,7 +12,7 @@ import {
   readConfig, resolveControls, installSystemCa, isCertError, retainUnavailable, samePublishedContent, sourceDate, sourceNumber, unzipIssuerWorkbook,
   withRequestLane, workbookRows, writePages, removeStalePages,
   runUpdater, setApiRoot, writeFileAtomic, writeIfChanged, isoStamp, readCursorScopes, writeCursorScope,
-  loadFundTickerTable, resetSecState, RUN_SOFT_DEADLINE_MS, HOLDINGS_GUARD_RELAX, holdingsWeightCount, issuerHoldingTicker,
+  loadFundTickerTable, resetSecState, RUN_SOFT_DEADLINE_MS, HOLDINGS_GUARD_RELAX, holdingsWeightCount, issuerHoldingTicker, tooNewForHistory,
   nportHoldingsSheet, nportIsFresh, nportTickers, parseNportFiling, parseSecCompanyNames, parseSecFundTickers,
   formatIssuerDate, holdingsGuard, normalizeNumberText, numberOrNull, formatEdgarDate, toIsoDate, isoToEpoch, parseRange, parseAumRange, HISTORY_HEADERS, YAHOO_HISTORY_HEADERS, navTotalReturnDays, normalizeHoldingName, pickEftsCik, parseChart, annualizedToTotal, totalToAnnualized, indicatedYield, inferDistributionFrequency, priceReturns, lastCompletedQuarterEnd, deriveCatalogMetrics, returnsBasisLabel, performanceAsOf, dividendYieldBasisFromKind, normalizeYieldBasis, DIVIDEND_YIELD_BASES,
 } from './update-data';
@@ -1145,6 +1145,22 @@ describe('pipeline 4', () => {
       expect(await snapshot(dir)).toEqual(before);
       await run({});
       expect(JSON.parse(await readFile(join(dir, 'index.json'), 'utf8')).funds.map((fund: any) => fund.ticker)).toEqual(['CGUS']);
+    });
+  });
+
+  test('a just-launched fund without issuer history is published, an older one with published history still fails', async () => {
+    // CGBI and CGMI (launched 2026-11-17) failed every run on 2026-11-20: the issuer had no NAV history for them yet
+    const ago = (days: number) => { const d = new Date(Date.now() - days * 86_400_000); return `${d.getUTCMonth() + 1}/${d.getUTCDate()}/${d.getUTCFullYear()}`; };
+    const young = { catalog: ['CGUS'], facts: { CGUS: { inception: ago(3) } }, dead: { CGUS: ['history', 'yahoo'] } };
+    await withFeed(young, async ({ run, meta }) => {
+      await run({});
+      expect((await run({})).failed).toEqual([]);
+      expect((await meta('CGUS')).holdings.totalRows).toBeGreaterThan(0);
+      expect(tooNewForHistory(ago(3), new Date().toISOString().slice(0, 10), 0)).toBe(true);
+      expect(tooNewForHistory(ago(90), new Date().toISOString().slice(0, 10), 0)).toBe(false);
+      expect(tooNewForHistory(ago(3), new Date().toISOString().slice(0, 10), 5)).toBe(false);
+      const report = await run({}, { ...young, facts: { CGUS: { inception: ago(90) } } });
+      expect([report.failed, report.exitCode]).toEqual([['CGUS'], 1]);
     });
   });
 
