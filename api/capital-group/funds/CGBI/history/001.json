@@ -1,0 +1,26 @@
+{
+ "ticker": "CGBI",
+ "page": 1,
+ "pageSize": 1000,
+ "totalRows": 2,
+ "headers": [
+  "Date",
+  "Close",
+  "Adj Close",
+  "Volume"
+ ],
+ "rows": [
+  {
+   "Date": "Nov 19 2026",
+   "Close": "24.549999",
+   "Adj Close": "24.55",
+   "Volume": "1007200"
+  },
+  {
+   "Date": "Nov 20 2026",
+   "Close": "24.1831",
+   "Adj Close": "24.18",
+   "Volume": "4304"
+  }
+ ]
+}

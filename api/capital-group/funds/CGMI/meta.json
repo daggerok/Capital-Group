@@ -11,7 +11,7 @@
   "pricesDownload": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/CGMI/premium-discount-details",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/CGMI",
   "holdingsSource": "Capital Group daily holdings XLSX",
-  "historySource": "previous run",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Capital Group public fund facts and daily downloads + SEC EDGAR Form N-PORT-P (fallback) + Yahoo Finance public chart API (fallback)"
  },
  "identifiers": {
@@ -31,23 +31,23 @@
   "net": 0.35
  },
  "nav": {
-  "display": "$25.00",
-  "value": 25,
-  "asOfDate": "Nov 17 2026"
+  "display": "$24.47",
+  "value": 24.47,
+  "asOfDate": "Nov 19 2026"
  },
  "marketPrice": {
-  "display": "$25.00",
-  "value": 25,
-  "asOfDate": "Nov 17 2026"
+  "display": "$24.49",
+  "value": 24.49,
+  "asOfDate": "Nov 19 2026"
  },
  "premiumDiscount": {
-  "display": "0.00%",
-  "value": 0
+  "display": "0.09%",
+  "value": 0.09
  },
  "aum": {
-  "display": "$25.10 M",
-  "value": 25100000,
-  "asOfDate": "Nov 17 2026",
+  "display": "$24.60 M",
+  "value": 24600000,
+  "asOfDate": "Nov 19 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
@@ -60,7 +60,37 @@
   "secYieldKind": "not published by Capital Group for this fund",
   "unsubsidizedSecYield": null
  },
- "returns": null,
+ "returns": {
+  "derivedFrom": "Official Capital Group returns where available; missing periods derived from Yahoo adjusted market-price closes, not official NAV returns",
+  "monthEnd": {
+   "asOfDate": "Nov 20 2026",
+   "mo1": null,
+   "mo1Text": "—",
+   "qtd": null,
+   "qtdText": "—",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
+  },
+  "quarterEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
+  }
+ },
  "distributions": {
   "frequency": "Annually",
   "paymentsPerYear": 1,
@@ -76,16 +106,18 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 92,
-  "asOfDate": "2026-11-17",
-  "asOf": "Nov 17 2026",
+  "totalRows": 94,
+  "asOfDate": "2026-11-19",
+  "asOf": "Nov 19 2026",
   "source": "Capital Group daily holdings XLSX"
  },
  "history": {
-  "pages": [],
+  "pages": [
+   "history/001.json"
+  ],
   "pageSize": 1000,
-  "totalRows": 0,
-  "asOf": "—",
-  "source": "previous run"
+  "totalRows": 1,
+  "asOf": "Nov 20 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }
