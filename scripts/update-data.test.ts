@@ -1162,6 +1162,13 @@ describe('pipeline 4', () => {
       const report = await run({}, { ...young, facts: { CGUS: { inception: ago(90) } } });
       expect([report.failed, report.exitCode]).toEqual([['CGUS'], 1]);
     });
+    // the Yahoo bars of the first runs are not official history: the next run still does not fail
+    const yahoo = { ...young, dead: { CGUS: ['history'] } };
+    await withFeed(yahoo, async ({ run, meta }) => {
+      await run({});
+      expect((await meta('CGUS')).history.totalRows).toBeGreaterThan(0);
+      expect((await run({})).failed).toEqual([]);
+    });
   });
 
   test('NEW FUNDS announces a fund on its first successful publish, a failed new fund as not published yet (Q28)', async () => {
