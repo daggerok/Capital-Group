@@ -2,7 +2,7 @@
  "ticker": "CGNG",
  "page": 2,
  "pageSize": 250,
- "totalRows": 258,
+ "totalRows": 256,
  "headers": [
   "Name",
   "Ticker",
@@ -18,7 +18,7 @@
    "Ticker": "-",
    "Identifier": "999SARZ95",
    "Weight": "0",
-   "Market Value": "97.18",
+   "Market Value": "97.16",
    "Shares Held": "364.55",
    "Asset Category": "Cash & Equivalent"
   },
@@ -50,38 +50,20 @@
    "Asset Category": "Cash & Equivalent"
   },
   {
-   "Name": "BRL Spot FX",
+   "Name": "EUR Spot FX",
    "Ticker": "-",
-   "Identifier": "BRL999999",
+   "Identifier": "EUR999999",
    "Weight": "0",
-   "Market Value": "-2884.82",
-   "Shares Held": "1083009.76",
-   "Asset Category": "Spot FX"
-  },
-  {
-   "Name": "INR Spot FX",
-   "Ticker": "-",
-   "Identifier": "INR999999",
-   "Weight": "0",
-   "Market Value": "45.52",
-   "Shares Held": "-825096",
-   "Asset Category": "Spot FX"
-  },
-  {
-   "Name": "ZAR Spot FX",
-   "Ticker": "-",
-   "Identifier": "ZAR999999",
-   "Weight": "0",
-   "Market Value": "-4362.67",
-   "Shares Held": "3257583.04",
+   "Market Value": "-17.29",
+   "Shares Held": "-17286.64",
    "Asset Category": "Spot FX"
   },
   {
    "Name": "NET OTHER ASSETS",
    "Ticker": "-",
    "Identifier": "",
-   "Weight": "-0.14",
-   "Market Value": "-4073528.62",
+   "Weight": "-0.08",
+   "Market Value": "-2245903.58",
    "Shares Held": "0",
    "Asset Category": "Cash & Equivalent"
   }

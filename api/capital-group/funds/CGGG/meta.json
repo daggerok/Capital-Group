@@ -31,23 +31,23 @@
   "net": 0.39
  },
  "nav": {
-  "display": "$25.25",
-  "value": 25.25,
-  "asOfDate": "Nov 19 2026"
+  "display": "$25.51",
+  "value": 25.51,
+  "asOfDate": "Nov 23 2026"
  },
  "marketPrice": {
-  "display": "$25.30",
-  "value": 25.3,
-  "asOfDate": "Nov 19 2026"
+  "display": "$25.54",
+  "value": 25.54,
+  "asOfDate": "Nov 23 2026"
  },
  "premiumDiscount": {
-  "display": "0.18%",
-  "value": 0.18
+  "display": "0.11%",
+  "value": 0.11
  },
  "aum": {
-  "display": "$73.20 M",
-  "value": 73200000,
-  "asOfDate": "Nov 19 2026",
+  "display": "$87.80 M",
+  "value": 87800000,
+  "asOfDate": "Nov 23 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
@@ -63,23 +63,23 @@
  "returns": {
   "derivedFrom": "derived from the official daily NAV history with published distributions reinvested (NAV total return), not official published returns",
   "monthEnd": {
-   "asOfDate": "Nov 19 2026",
+   "asOfDate": "Nov 23 2026",
    "mo1": 0.81,
    "mo1Text": "0.81%",
-   "qtd": -12.54,
-   "qtdText": "-12.54%",
-   "ytd": -11.57,
-   "ytdText": "-11.57%",
-   "yr1": -7.93,
-   "yr1Text": "-7.93%",
+   "qtd": -11.64,
+   "qtdText": "-11.64%",
+   "ytd": -10.66,
+   "ytdText": "-10.66%",
+   "yr1": -9.87,
+   "yr1Text": "-9.87%",
    "yr3": null,
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": -0.94,
-   "sinceInceptionText": "-0.94%"
+   "sinceInception": -0.21,
+   "sinceInceptionText": "-0.21%"
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -116,8 +116,8 @@
   ],
   "pageSize": 250,
   "totalRows": 45,
-  "asOfDate": "2026-11-19",
-  "asOf": "Nov 19 2026",
+  "asOfDate": "2026-11-23",
+  "asOf": "Nov 23 2026",
   "source": "Capital Group daily holdings XLSX"
  },
  "history": {
@@ -125,8 +125,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 356,
-  "asOf": "Nov 19 2026",
+  "totalRows": 358,
+  "asOf": "Nov 23 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }

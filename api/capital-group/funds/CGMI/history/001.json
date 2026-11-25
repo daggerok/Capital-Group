@@ -2,7 +2,7 @@
  "ticker": "CGMI",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 1,
+ "totalRows": 4,
  "headers": [
   "Date",
   "Close",
@@ -11,10 +11,28 @@
  ],
  "rows": [
   {
+   "Date": "Nov 19 2026",
+   "Close": "24.49",
+   "Adj Close": "24.49",
+   "Volume": "1003100"
+  },
+  {
    "Date": "Nov 20 2026",
-   "Close": "24.2551",
+   "Close": "24.26",
    "Adj Close": "24.26",
-   "Volume": "22085"
+   "Volume": "22100"
+  },
+  {
+   "Date": "Nov 23 2026",
+   "Close": "24.559999",
+   "Adj Close": "24.56",
+   "Volume": "54600"
+  },
+  {
+   "Date": "Nov 24 2026",
+   "Close": "24.764999",
+   "Adj Close": "24.76",
+   "Volume": "29788"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "CGGO",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1192,
+ "totalRows": 1194,
  "headers": [
   "Date",
   "NAV",
@@ -1161,6 +1161,18 @@
    "NAV": "36.01",
    "Market Price": "35.94",
    "Premium/Discount": "-0.2"
+  },
+  {
+   "Date": "Nov 20 2026",
+   "NAV": "34.52",
+   "Market Price": "34.38",
+   "Premium/Discount": "-0.4"
+  },
+  {
+   "Date": "Nov 23 2026",
+   "NAV": "35.91",
+   "Market Price": "35.92",
+   "Premium/Discount": "0.04"
   }
  ]
 }

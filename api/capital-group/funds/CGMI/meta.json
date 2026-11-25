@@ -31,23 +31,23 @@
   "net": 0.35
  },
  "nav": {
-  "display": "$24.47",
-  "value": 24.47,
-  "asOfDate": "Nov 19 2026"
+  "display": "$24.48",
+  "value": 24.48,
+  "asOfDate": "Nov 23 2026"
  },
  "marketPrice": {
-  "display": "$24.49",
-  "value": 24.49,
-  "asOfDate": "Nov 19 2026"
+  "display": "$24.56",
+  "value": 24.56,
+  "asOfDate": "Nov 23 2026"
  },
  "premiumDiscount": {
-  "display": "0.09%",
-  "value": 0.09
+  "display": "0.29%",
+  "value": 0.29
  },
  "aum": {
   "display": "$24.60 M",
   "value": 24600000,
-  "asOfDate": "Nov 19 2026",
+  "asOfDate": "Nov 23 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
@@ -63,7 +63,7 @@
  "returns": {
   "derivedFrom": "Official Capital Group returns where available; missing periods derived from Yahoo adjusted market-price closes, not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Nov 20 2026",
+   "asOfDate": "Nov 24 2026",
    "mo1": null,
    "mo1Text": "—",
    "qtd": null,
@@ -92,9 +92,9 @@
   }
  },
  "distributions": {
-  "frequency": "Annually",
-  "paymentsPerYear": 1,
-  "frequencyCode": "A",
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
+  "frequencyCode": "M",
   "headers": [
    "Ex-Date",
    "Amount"
@@ -106,9 +106,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 94,
-  "asOfDate": "2026-11-19",
-  "asOf": "Nov 19 2026",
+  "totalRows": 88,
+  "asOfDate": "2026-11-23",
+  "asOf": "Nov 23 2026",
   "source": "Capital Group daily holdings XLSX"
  },
  "history": {
@@ -116,8 +116,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1,
-  "asOf": "Nov 20 2026",
+  "totalRows": 4,
+  "asOf": "Nov 24 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

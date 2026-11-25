@@ -2,7 +2,7 @@
  "ticker": "CGDG",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 792,
+ "totalRows": 794,
  "headers": [
   "Date",
   "NAV",
@@ -4761,6 +4761,18 @@
    "NAV": "36.96",
    "Market Price": "36.91",
    "Premium/Discount": "-0.14"
+  },
+  {
+   "Date": "Nov 20 2026",
+   "NAV": "36.33",
+   "Market Price": "36.21",
+   "Premium/Discount": "-0.34"
+  },
+  {
+   "Date": "Nov 23 2026",
+   "NAV": "36.81",
+   "Market Price": "36.96",
+   "Premium/Discount": "0.41"
   }
  ]
 }
