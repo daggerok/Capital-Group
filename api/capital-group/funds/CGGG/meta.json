@@ -31,23 +31,23 @@
   "net": 0.39
  },
  "nav": {
-  "display": "$25.51",
-  "value": 25.51,
-  "asOfDate": "Nov 23 2026"
+  "display": "$25.03",
+  "value": 25.03,
+  "asOfDate": "Nov 24 2026"
  },
  "marketPrice": {
-  "display": "$25.54",
-  "value": 25.54,
-  "asOfDate": "Nov 23 2026"
+  "display": "$25.04",
+  "value": 25.04,
+  "asOfDate": "Nov 24 2026"
  },
  "premiumDiscount": {
-  "display": "0.11%",
-  "value": 0.11
+  "display": "0.06%",
+  "value": 0.06
  },
  "aum": {
-  "display": "$87.80 M",
-  "value": 87800000,
-  "asOfDate": "Nov 23 2026",
+  "display": "$86.10 M",
+  "value": 86100000,
+  "asOfDate": "Nov 24 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
@@ -63,23 +63,23 @@
  "returns": {
   "derivedFrom": "derived from the official daily NAV history with published distributions reinvested (NAV total return), not official published returns",
   "monthEnd": {
-   "asOfDate": "Nov 23 2026",
+   "asOfDate": "Nov 24 2026",
    "mo1": 0.81,
    "mo1Text": "0.81%",
-   "qtd": -11.64,
-   "qtdText": "-11.64%",
-   "ytd": -10.66,
-   "ytdText": "-10.66%",
-   "yr1": -9.87,
-   "yr1Text": "-9.87%",
+   "qtd": -13.3,
+   "qtdText": "-13.30%",
+   "ytd": -12.34,
+   "ytdText": "-12.34%",
+   "yr1": -11.57,
+   "yr1Text": "-11.57%",
    "yr3": null,
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": -0.21,
-   "sinceInceptionText": "-0.21%"
+   "sinceInception": -1.54,
+   "sinceInceptionText": "-1.54%"
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -116,8 +116,8 @@
   ],
   "pageSize": 250,
   "totalRows": 45,
-  "asOfDate": "2026-11-23",
-  "asOf": "Nov 23 2026",
+  "asOfDate": "2026-11-24",
+  "asOf": "Nov 24 2026",
   "source": "Capital Group daily holdings XLSX"
  },
  "history": {
@@ -125,8 +125,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 358,
-  "asOf": "Nov 23 2026",
+  "totalRows": 359,
+  "asOf": "Nov 24 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }

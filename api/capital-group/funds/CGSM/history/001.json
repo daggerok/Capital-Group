@@ -2,7 +2,7 @@
  "ticker": "CGSM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 794,
+ "totalRows": 795,
  "headers": [
   "Date",
   "NAV",
@@ -4773,6 +4773,12 @@
    "NAV": "26.09",
    "Market Price": "26.14",
    "Premium/Discount": "0.17"
+  },
+  {
+   "Date": "Nov 24 2026",
+   "NAV": "26.11",
+   "Market Price": "26.15",
+   "Premium/Discount": "0.14"
   }
  ]
 }

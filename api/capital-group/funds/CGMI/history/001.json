@@ -2,7 +2,7 @@
  "ticker": "CGMI",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 4,
+ "totalRows": 5,
  "headers": [
   "Date",
   "Close",
@@ -33,6 +33,12 @@
    "Close": "24.77",
    "Adj Close": "24.77",
    "Volume": "29800"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "24.887899",
+   "Adj Close": "24.89",
+   "Volume": "15659"
   }
  ]
 }

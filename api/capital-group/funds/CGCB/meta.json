@@ -31,23 +31,23 @@
   "net": 0.27
  },
  "nav": {
-  "display": "$25.48",
-  "value": 25.48,
-  "asOfDate": "Nov 23 2026"
+  "display": "$25.47",
+  "value": 25.47,
+  "asOfDate": "Nov 24 2026"
  },
  "marketPrice": {
   "display": "$25.48",
   "value": 25.48,
-  "asOfDate": "Nov 23 2026"
+  "asOfDate": "Nov 24 2026"
  },
  "premiumDiscount": {
-  "display": "0.00%",
-  "value": 0
+  "display": "0.02%",
+  "value": 0.02
  },
  "aum": {
-  "display": "$6,949.90 M",
-  "value": 6949900000,
-  "asOfDate": "Nov 23 2026",
+  "display": "$6,948.40 M",
+  "value": 6948400000,
+  "asOfDate": "Nov 24 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
@@ -63,23 +63,23 @@
  "returns": {
   "derivedFrom": "derived from the official daily NAV history with published distributions reinvested (NAV total return), not official published returns",
   "monthEnd": {
-   "asOfDate": "Nov 23 2026",
+   "asOfDate": "Nov 24 2026",
    "mo1": -2.74,
    "mo1Text": "-2.74%",
-   "qtd": 2.26,
-   "qtdText": "2.26%",
-   "ytd": -0.52,
-   "ytdText": "-0.52%",
-   "yr1": -0.8,
-   "yr1Text": "-0.80%",
-   "yr3": 4.41,
-   "yr3Text": "4.41%",
+   "qtd": 2.22,
+   "qtdText": "2.22%",
+   "ytd": -0.56,
+   "ytdText": "-0.56%",
+   "yr1": -0.84,
+   "yr1Text": "-0.84%",
+   "yr3": 4.39,
+   "yr3Text": "4.39%",
    "yr5": null,
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 4.69,
-   "sinceInceptionText": "4.69%"
+   "sinceInception": 4.67,
+   "sinceInceptionText": "4.67%"
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -259,8 +259,8 @@
   ],
   "pageSize": 250,
   "totalRows": 887,
-  "asOfDate": "2026-11-23",
-  "asOf": "Nov 23 2026",
+  "asOfDate": "2026-11-24",
+  "asOf": "Nov 24 2026",
   "source": "Capital Group daily holdings XLSX"
  },
  "history": {
@@ -268,8 +268,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 794,
-  "asOf": "Nov 23 2026",
+  "totalRows": 795,
+  "asOf": "Nov 24 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }
