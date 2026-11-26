@@ -2,7 +2,7 @@
  "ticker": "CGNG",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 608,
+ "totalRows": 609,
  "headers": [
   "Date",
   "NAV",
@@ -3657,6 +3657,12 @@
    "NAV": "31.16",
    "Market Price": "31.06",
    "Premium/Discount": "-0.31"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "NAV": "30.73",
+   "Market Price": "30.96",
+   "Premium/Discount": "0.75"
   }
  ]
 }

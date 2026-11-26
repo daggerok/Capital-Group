@@ -31,18 +31,18 @@
   "net": 0.27
  },
  "nav": {
-  "display": "$25.47",
-  "value": 25.47,
-  "asOfDate": "Nov 24 2026"
+  "display": "$25.55",
+  "value": 25.55,
+  "asOfDate": "Nov 25 2026"
  },
  "marketPrice": {
-  "display": "$25.48",
-  "value": 25.48,
-  "asOfDate": "Nov 24 2026"
+  "display": "$25.54",
+  "value": 25.54,
+  "asOfDate": "Nov 25 2026"
  },
  "premiumDiscount": {
-  "display": "0.02%",
-  "value": 0.02
+  "display": "-0.06%",
+  "value": -0.06
  },
  "aum": {
   "display": "$6,948.40 M",
@@ -51,8 +51,8 @@
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
-  "dividendYield": 4.48,
-  "dividendYieldText": "4.48%",
+  "dividendYield": 4.47,
+  "dividendYieldText": "4.47%",
   "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
   "distributionRate": 4.29,
   "secYield": 5.11,
@@ -63,23 +63,23 @@
  "returns": {
   "derivedFrom": "derived from the official daily NAV history with published distributions reinvested (NAV total return), not official published returns",
   "monthEnd": {
-   "asOfDate": "Nov 24 2026",
+   "asOfDate": "Nov 25 2026",
    "mo1": -2.74,
    "mo1Text": "-2.74%",
-   "qtd": 2.22,
-   "qtdText": "2.22%",
-   "ytd": -0.56,
-   "ytdText": "-0.56%",
-   "yr1": -0.91,
-   "yr1Text": "-0.91%",
-   "yr3": 4.39,
-   "yr3Text": "4.39%",
+   "qtd": 2.54,
+   "qtdText": "2.54%",
+   "ytd": -0.24,
+   "ytdText": "-0.24%",
+   "yr1": -0.6,
+   "yr1Text": "-0.60%",
+   "yr3": 4.5,
+   "yr3Text": "4.50%",
    "yr5": null,
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 4.67,
-   "sinceInceptionText": "4.67%"
+   "sinceInception": 4.77,
+   "sinceInceptionText": "4.77%"
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -268,8 +268,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 795,
-  "asOf": "Nov 24 2026",
+  "totalRows": 796,
+  "asOf": "Nov 25 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }

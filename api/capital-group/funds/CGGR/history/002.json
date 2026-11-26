@@ -2,7 +2,7 @@
  "ticker": "CGGR",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1195,
+ "totalRows": 1196,
  "headers": [
   "Date",
   "NAV",
@@ -1179,6 +1179,12 @@
    "NAV": "43.22",
    "Market Price": "43.25",
    "Premium/Discount": "0.08"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "NAV": "43.22",
+   "Market Price": "43.28",
+   "Premium/Discount": "0.14"
   }
  ]
 }

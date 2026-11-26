@@ -31,18 +31,18 @@
   "net": 0.54
  },
  "nav": {
-  "display": "$34.34",
-  "value": 34.34,
-  "asOfDate": "Nov 24 2026"
+  "display": "$33.93",
+  "value": 33.93,
+  "asOfDate": "Nov 25 2026"
  },
  "marketPrice": {
-  "display": "$34.46",
-  "value": 34.46,
-  "asOfDate": "Nov 24 2026"
+  "display": "$34.38",
+  "value": 34.38,
+  "asOfDate": "Nov 25 2026"
  },
  "premiumDiscount": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "1.34%",
+  "value": 1.34
  },
  "aum": {
   "display": "$2,340.80 M",
@@ -51,8 +51,8 @@
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
-  "dividendYield": 2.13,
-  "dividendYieldText": "2.13%",
+  "dividendYield": 2.14,
+  "dividendYieldText": "2.14%",
   "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
   "distributionRate": 1.39,
   "secYield": 1.98,
@@ -63,23 +63,23 @@
  "returns": {
   "derivedFrom": "derived from the official daily NAV history with published distributions reinvested (NAV total return), not official published returns",
   "monthEnd": {
-   "asOfDate": "Nov 24 2026",
+   "asOfDate": "Nov 25 2026",
    "mo1": -3.03,
    "mo1Text": "-3.03%",
-   "qtd": -5.37,
-   "qtdText": "-5.37%",
-   "ytd": -0.45,
-   "ytdText": "-0.45%",
-   "yr1": 1.81,
-   "yr1Text": "1.81%",
-   "yr3": 10.43,
-   "yr3Text": "10.43%",
+   "qtd": -6.5,
+   "qtdText": "-6.50%",
+   "ytd": -1.63,
+   "ytdText": "-1.63%",
+   "yr1": 0.59,
+   "yr1Text": "0.59%",
+   "yr3": 9.99,
+   "yr3Text": "9.99%",
    "yr5": null,
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 12.09,
-   "sinceInceptionText": "12.09%"
+   "sinceInception": 11.66,
+   "sinceInceptionText": "11.66%"
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -141,8 +141,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 795,
-  "asOf": "Nov 24 2026",
+  "totalRows": 796,
+  "asOf": "Nov 25 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }
