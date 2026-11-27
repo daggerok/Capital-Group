@@ -45,9 +45,9 @@
   "value": 0.49
  },
  "aum": {
-  "display": "$26.70 M",
-  "value": 26700000,
-  "asOfDate": "Nov 24 2026",
+  "display": "$29.70 M",
+  "value": 29700000,
+  "asOfDate": "Nov 25 2026",
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
@@ -63,7 +63,7 @@
  "returns": {
   "derivedFrom": "Official Capital Group returns where available; missing periods derived from Yahoo adjusted market-price closes, not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Nov 25 2026",
+   "asOfDate": "Nov 27 2026",
    "mo1": null,
    "mo1Text": "—",
    "qtd": null,
@@ -106,9 +106,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 164,
-  "asOfDate": "2026-11-24",
-  "asOf": "Nov 24 2026",
+  "totalRows": 165,
+  "asOfDate": "2026-11-25",
+  "asOf": "Nov 25 2026",
   "source": "Capital Group daily holdings XLSX"
  },
  "history": {
@@ -116,8 +116,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 5,
-  "asOf": "Nov 25 2026",
+  "totalRows": 6,
+  "asOf": "Nov 27 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

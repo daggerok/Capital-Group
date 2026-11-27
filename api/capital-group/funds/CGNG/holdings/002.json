@@ -2,7 +2,7 @@
  "ticker": "CGNG",
  "page": 2,
  "pageSize": 250,
- "totalRows": 256,
+ "totalRows": 265,
  "headers": [
   "Name",
   "Ticker",
@@ -14,11 +14,20 @@
  ],
  "rows": [
   {
+   "Name": "POLISH ZLOTY",
+   "Ticker": "-",
+   "Identifier": "999PLNZ98",
+   "Weight": "0",
+   "Market Value": "0.09",
+   "Shares Held": "0.36",
+   "Asset Category": "Cash & Equivalent"
+  },
+  {
    "Name": "SAUDI RIYAL",
    "Ticker": "-",
    "Identifier": "999SARZ95",
    "Weight": "0",
-   "Market Value": "97.15",
+   "Market Value": "97.17",
    "Shares Held": "364.55",
    "Asset Category": "Cash & Equivalent"
   },
@@ -32,12 +41,12 @@
    "Asset Category": "Cash & Equivalent"
   },
   {
-   "Name": "NEW TAIWAN DOLLAR",
+   "Name": "TURKISH LIRA",
    "Ticker": "-",
-   "Identifier": "999TWDZ90",
+   "Identifier": "999TRYZ90",
    "Weight": "0",
-   "Market Value": "0.48",
-   "Shares Held": "16",
+   "Market Value": "9093.11",
+   "Shares Held": "460813.99",
    "Asset Category": "Cash & Equivalent"
   },
   {
@@ -50,21 +59,93 @@
    "Asset Category": "Cash & Equivalent"
   },
   {
+   "Name": "AED Spot FX",
+   "Ticker": "-",
+   "Identifier": "AED999999",
+   "Weight": "0",
+   "Market Value": "-37.4",
+   "Shares Held": "-646898.1",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "EUR Spot FX",
+   "Ticker": "-",
+   "Identifier": "EUR999999",
+   "Weight": "0",
+   "Market Value": "-1608.28",
+   "Shares Held": "-4117742.33",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "GBP Spot FX",
+   "Ticker": "-",
+   "Identifier": "GBP999999",
+   "Weight": "0",
+   "Market Value": "-518.33",
+   "Shares Held": "-729733.27",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "HKD Spot FX",
+   "Ticker": "-",
+   "Identifier": "HKD999999",
+   "Weight": "0",
+   "Market Value": "-337.5",
+   "Shares Held": "17425975.86",
+   "Asset Category": "Spot FX"
+  },
+  {
    "Name": "JPY Spot FX",
    "Ticker": "-",
    "Identifier": "JPY999999",
    "Weight": "0",
-   "Market Value": "-55.86",
-   "Shares Held": "-6658740",
+   "Market Value": "-403.46",
+   "Shares Held": "121706089",
    "Asset Category": "Spot FX"
   },
   {
-   "Name": "NET OTHER ASSETS",
+   "Name": "KRW Spot FX",
    "Ticker": "-",
-   "Identifier": "",
-   "Weight": "-0.04",
-   "Market Value": "-1052331.48",
-   "Shares Held": "0",
+   "Identifier": "KRW999999",
+   "Weight": "0",
+   "Market Value": "699.33",
+   "Shares Held": "-801612618",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "TRY Spot FX",
+   "Ticker": "-",
+   "Identifier": "TRY999999",
+   "Weight": "0",
+   "Market Value": "-242.86",
+   "Shares Held": "-4535475.64",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "TWD Spot FX",
+   "Ticker": "-",
+   "Identifier": "TWD999999",
+   "Weight": "0",
+   "Market Value": "18272.06",
+   "Shares Held": "-107193508",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "ZAR Spot FX",
+   "Ticker": "-",
+   "Identifier": "ZAR999999",
+   "Weight": "0",
+   "Market Value": "196.82",
+   "Shares Held": "-4476152.74",
+   "Asset Category": "Spot FX"
+  },
+  {
+   "Name": "US DOLLAR",
+   "Ticker": "-",
+   "Identifier": "999USDZ92",
+   "Weight": "-0.05",
+   "Market Value": "-1508981.2",
+   "Shares Held": "-1508981.2",
    "Asset Category": "Cash & Equivalent"
   }
  ]
