@@ -31,18 +31,18 @@
   "net": 0.45
  },
  "nav": {
-  "display": "$25.29",
-  "value": 25.29,
-  "asOfDate": "Nov 25 2026"
+  "display": "$25.33",
+  "value": 25.33,
+  "asOfDate": "Nov 27 2026"
  },
  "marketPrice": {
   "display": "$25.37",
   "value": 25.37,
-  "asOfDate": "Nov 25 2026"
+  "asOfDate": "Nov 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.31%",
-  "value": 0.31
+  "display": "0.16%",
+  "value": 0.16
  },
  "aum": {
   "display": "$402.10 M",
@@ -63,23 +63,23 @@
  "returns": {
   "derivedFrom": "derived from the official daily NAV history with published distributions reinvested (NAV total return), not official published returns",
   "monthEnd": {
-   "asOfDate": "Nov 25 2026",
+   "asOfDate": "Nov 27 2026",
    "mo1": -1.21,
    "mo1Text": "-1.21%",
-   "qtd": 1.83,
-   "qtdText": "1.83%",
-   "ytd": 0.84,
-   "ytdText": "0.84%",
-   "yr1": 0.57,
-   "yr1Text": "0.57%",
+   "qtd": 1.99,
+   "qtdText": "1.99%",
+   "ytd": 1,
+   "ytdText": "1.00%",
+   "yr1": 0.73,
+   "yr1Text": "0.73%",
    "yr3": null,
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 3.37,
-   "sinceInceptionText": "3.37%"
+   "sinceInception": 3.43,
+   "sinceInceptionText": "3.43%"
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -230,8 +230,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 609,
-  "asOf": "Nov 25 2026",
+  "totalRows": 610,
+  "asOf": "Nov 27 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }

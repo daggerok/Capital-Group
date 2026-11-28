@@ -31,18 +31,18 @@
   "net": 0.33
  },
  "nav": {
-  "display": "$32.51",
-  "value": 32.51,
-  "asOfDate": "Nov 25 2026"
+  "display": "$32.88",
+  "value": 32.88,
+  "asOfDate": "Nov 27 2026"
  },
  "marketPrice": {
-  "display": "$32.50",
-  "value": 32.5,
-  "asOfDate": "Nov 25 2026"
+  "display": "$32.89",
+  "value": 32.89,
+  "asOfDate": "Nov 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.02%",
-  "value": -0.02
+  "display": "0.04%",
+  "value": 0.04
  },
  "aum": {
   "display": "$2,446.00 M",
@@ -51,8 +51,8 @@
   "source": "capitalgroup.com daily fund facts net assets"
  },
  "yields": {
-  "dividendYield": 1.56,
-  "dividendYieldText": "1.56%",
+  "dividendYield": 1.54,
+  "dividendYieldText": "1.54%",
   "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
   "distributionRate": 1.54,
   "secYield": 1.6,
@@ -63,23 +63,23 @@
  "returns": {
   "derivedFrom": "derived from the official daily NAV history with published distributions reinvested (NAV total return), not official published returns",
   "monthEnd": {
-   "asOfDate": "Nov 25 2026",
+   "asOfDate": "Nov 27 2026",
    "mo1": -2.7,
    "mo1Text": "-2.70%",
-   "qtd": 1.4,
-   "qtdText": "1.40%",
-   "ytd": 8.05,
-   "ytdText": "8.05%",
-   "yr1": 7.34,
-   "yr1Text": "7.34%",
+   "qtd": 2.56,
+   "qtdText": "2.56%",
+   "ytd": 9.28,
+   "ytdText": "9.28%",
+   "yr1": 8.56,
+   "yr1Text": "8.56%",
    "yr3": null,
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 13.17,
-   "sinceInceptionText": "13.17%"
+   "sinceInception": 13.67,
+   "sinceInceptionText": "13.67%"
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -153,8 +153,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 609,
-  "asOf": "Nov 25 2026",
+  "totalRows": 610,
+  "asOf": "Nov 27 2026",
   "source": "capitalgroup.com daily price API (NAV, market price and premium/discount since inception)"
  }
 }
